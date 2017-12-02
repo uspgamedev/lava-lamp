@@ -7,3 +7,6 @@ func _ready():
 
 func quit():
 	get_tree().quit()
+
+func get_size():
+	return Vector2(1280, 720)
