@@ -6,7 +6,11 @@ var main
 onready var manager = get_parent()
 
 onready var Enemy = manager.ENEMIES[0]
-onready var enemy_count = manager.cur_wave*5 + 1
+onready var enemy_count = manager.cur_wave*1 + 1
+
+func _ready():
+	main = get_parent().get_parent()
+	set_fixed_process(true)
 
 func create_enemy():
 	var e = Enemy.instance()
@@ -17,8 +21,18 @@ func create_enemy():
 		get_node('EnemyTimer').start()
 		enemy_count -= 1
 
+func check_wave_end():
+	for i in main.get_node('Props').get_children():
+		if i.is_in_group('enemy'):
+			return
+	if enemy_count <= 0:
+		manager.wave_ended()
+		enemy_count = manager.cur_wave*1 + 1
+
+func _fixed_process(delta):
+	check_wave_end()
+
 func start():
-	main = get_parent().get_parent()
 	var t = Timer.new()
 	t.set_wait_time(rand_range(1, 3))
 	t.start()

@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://gameplay/gameplay.gd" type="Script" id=1]
 [ext_resource path="res://scenario/tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/bgm/track_1.ogg" type="AudioStream" id=6]
-[ext_resource path="res://gameplay/wave_manager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/bgm/track_1.ogg" type="AudioStream" id=5]
+[ext_resource path="res://gameplay/wave_manager.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 
@@ -54,11 +53,6 @@ tile_data = IntArray( -65538, 4, -65537, 4, -131072, 4, -131071, 4, -131070, 4, 
 
 transform/pos = Vector2( 510.3, 379.337 )
 
-[node name="Enemy" parent="Props" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 228.633, 174.633 )
-playerPath = NodePath("../Player")
-
 [node name="GUI" type="CanvasLayer" parent="."]
 
 editor/display_folded = true
@@ -67,13 +61,13 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="Cooldowns" parent="GUI" instance=ExtResource( 5 )]
+[node name="Cooldowns" parent="GUI" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1152.07, 72.5272 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 6 )
+stream/stream = ExtResource( 5 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -82,7 +76,7 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="WaveManager" parent="." instance=ExtResource( 7 )]
+[node name="WaveManager" parent="." instance=ExtResource( 6 )]
 
 
 [editable path="WaveManager"]

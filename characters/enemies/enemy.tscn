@@ -14,7 +14,9 @@ points = Vector2Array( 30, -30, 30, 30, -30, 30, -30, -30 )
 custom_solver_bias = 0.0
 points = Vector2Array( 35, -35, 35, 35, -35, 35, -35, -35 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=[
+"enemy",
+]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
