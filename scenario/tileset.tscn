@@ -7,30 +7,35 @@
 
 [node name="FloorA" type="Sprite" parent="."]
 
-transform/pos = Vector2( 75.7145, 75.7145 )
+transform/pos = Vector2( 40.4494, 61.8026 )
 texture = ExtResource( 1 )
-vframes = 2
-hframes = 2
+hframes = 4
 
 [node name="FloorB" type="Sprite" parent="."]
 
-transform/pos = Vector2( 114.862, 76.3615 )
+transform/pos = Vector2( 88.9793, 63.4202 )
 texture = ExtResource( 1 )
-vframes = 2
-hframes = 2
+hframes = 4
 frame = 1
 
 [node name="Plate" type="Sprite" parent="."]
 
 transform/pos = Vector2( 160.48, 75.0674 )
 texture = ExtResource( 1 )
-vframes = 2
-hframes = 2
+hframes = 4
 frame = 2
 
-[node name="Wall" type="Sprite" parent="."]
+[node name="WallA" type="Sprite" parent="."]
 
 transform/pos = Vector2( 77.6556, 129.745 )
 texture = ExtResource( 2 )
+hframes = 2
+
+[node name="WallB" type="Sprite" parent="."]
+
+transform/pos = Vector2( 117.774, 127.804 )
+texture = ExtResource( 2 )
+hframes = 2
+frame = 1
 
 
