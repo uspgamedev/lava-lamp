@@ -5,7 +5,7 @@ func _init():
 
 func activate(action_handler):
 	print("Simple Bullet")
-	icon = "res://bullets/simple.tex"
+	self.icon = preload("res://bullets/simple_bullet_sprite.tscn")
 	var SimpleBullet = preload('res://bullets/simple_bullet.tscn')
 	var b = SimpleBullet.instance()
 	var pl = action_handler.get_parent()
