@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=1]
 
-[ext_resource path="res://characters/enemies/enemy.gd" type="Script" id=1]
+[ext_resource path="res://characters/enemies/olhinho.gd" type="Script" id=1]
 [ext_resource path="res://characters/enemies/olhinho_sprite_sheet.tex" type="Texture" id=2]
 [ext_resource path="res://characters/enemies/simple_animation.gd" type="Script" id=3]
 [ext_resource path="res://characters/enemies/ai/follow_player.gd" type="Script" id=4]
@@ -95,6 +95,8 @@ collision/layers = 3
 collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+min_spawn_range = Vector2( 53, 74 )
+max_spawn_range = Vector2( 1237, 682 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
