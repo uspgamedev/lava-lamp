@@ -24,6 +24,7 @@ collision/layers = 3
 collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+playerPath = null
 
 [node name="Sprite" type="Sprite" parent="."]
 
