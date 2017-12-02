@@ -24,6 +24,7 @@ func _ready():
 	ah.set_key_to_action(KEY_M, 'create_wormhole')
 	ah.set_key_to_action(KEY_F, 'create_ricochet_bullet')
 	ah.set_key_to_action(KEY_V, 'dash')
+	ah.set_key_to_action(KEY_H, 'create_double_bullet')
 
 	load_camera()
 
