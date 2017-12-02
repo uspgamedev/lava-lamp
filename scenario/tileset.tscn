@@ -29,13 +29,20 @@ frame = 2
 
 transform/pos = Vector2( 77.6556, 129.745 )
 texture = ExtResource( 2 )
-hframes = 2
+hframes = 3
 
 [node name="WallB" type="Sprite" parent="."]
 
 transform/pos = Vector2( 117.774, 127.804 )
 texture = ExtResource( 2 )
-hframes = 2
+hframes = 3
 frame = 1
+
+[node name="WallB1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 156.598, 126.51 )
+texture = ExtResource( 2 )
+hframes = 3
+frame = 2
 
 
