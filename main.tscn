@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scenario/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenario/arena.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 
@@ -57,5 +58,16 @@ transform/pos = Vector2( 640, 391 )
 [node name="Enemy" parent="Props" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 230, 176 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Cooldowns" parent="GUI" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1152.07, 72.5272 )
 
 
