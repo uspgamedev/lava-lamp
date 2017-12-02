@@ -13,10 +13,13 @@ func _ready():
 func _fixed_process(delta):
 	if cd_timer.get_time_left() == 0:
 		var vec = player.get_pos() - get_pos()
-		move(s*vec/vec.length())
+		move(s*vec.normalized())
 
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("player_area"):
 		var vec = player.get_pos() - get_pos()
-		player.speed += 10*s*vec
+		player.speed += 1000*s*vec.normalized()
+		player.damage += 1
 		cd_timer.start()
+		if (player.damage >= player.hp):
+				player.queue_free()
