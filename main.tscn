@@ -59,6 +59,10 @@ transform/pos = Vector2( 510.3, 379.337 )
 
 transform/pos = Vector2( 230, 176 )
 
+[node name="Wormhole" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 467.524, 502.384 )
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 layer = 1
@@ -69,5 +73,3 @@ scale = Vector2( 1, 1 )
 [node name="Cooldowns" parent="GUI" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1152.07, 72.5272 )
-
-
