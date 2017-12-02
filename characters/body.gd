@@ -10,7 +10,8 @@ const DASHFACTOR = 8
 var dashTime = 0
 var speed = Vector2()
 
-var hp = 100
+var hp = 4
+var damage = 0
 var motion
 
 func _ready():
