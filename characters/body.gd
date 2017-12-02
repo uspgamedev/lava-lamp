@@ -23,6 +23,9 @@ func _fixed_process(delta):
 
 func _add_speed(dir):
 	self.speed += DIR.VECTOR[dir] * ACC
+	
+func get_speed():
+	return speed
 
 func apply_speed(delta):
 	var motionScale = Vector2()

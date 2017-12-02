@@ -2,20 +2,38 @@ extends Node
 
 signal ended
 var main
-var enemy_count = 10
 
-var Enemy = preload('res://characters/enemies/enemy.tscn')
+onready var manager = get_parent()
+
+onready var Enemy = manager.ENEMIES[0]
+onready var enemy_count = manager.cur_wave*1 + 1
+
+func _ready():
+	main = get_parent().get_parent()
+	set_fixed_process(true)
 
 func create_enemy():
 	var e = Enemy.instance()
-	e.set_pos(Vector2(rand_range(0, 1280), 0))
+	e.set_pos(Vector2(rand_range(e.min_spawn_range.x, e.max_spawn_range.x), \
+	                  rand_range(e.min_spawn_range.y, e.max_spawn_range.y)))
 	main.get_node("Props").add_child(e)
-	if enemy_count > 0:
+	if (enemy_count > 0):
 		get_node('EnemyTimer').set_wait_time(rand_range(1, 3))
 		get_node('EnemyTimer').start()
+		enemy_count -= 1
+
+func check_wave_end():
+	for i in main.get_node('Props').get_children():
+		if i.is_in_group('enemy'):
+			return
+	if enemy_count <= 0:
+		manager.wave_ended()
+		enemy_count = manager.cur_wave*1 + 1
+
+func _fixed_process(delta):
+	check_wave_end()
 
 func start():
-	main = get_parent().get_parent()
 	var t = Timer.new()
 	t.set_wait_time(rand_range(1, 3))
 	t.start()

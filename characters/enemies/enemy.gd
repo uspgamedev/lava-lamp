@@ -1,15 +1,14 @@
 extends 'res://characters/body.gd'
 
-var s = 1
+export (Vector2) var min_spawn_range
+export (Vector2) var max_spawn_range
 
-export(NodePath) var playerPath
-var cd_timer
 var player
 var ai
 
 func _ready():
-	player = get_node(playerPath)
-	cd_timer = get_node("Cooldown")
+
+	player = get_node("../Player")
 	ai = get_node("Ai")
 	set_fixed_process(true)
 
