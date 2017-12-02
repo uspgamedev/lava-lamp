@@ -2,11 +2,12 @@ extends 'res://characters/body.gd'
 
 var s = 1
 
-var player
+export(NodePath) var playerPath
 var cd_timer
+var player
 
 func _ready():
-	player = get_node("../Player")
+	player = get_node(playerPath)
 	cd_timer = get_node("Cooldown")
 	set_fixed_process(true)
 	
