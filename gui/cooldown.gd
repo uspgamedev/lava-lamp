@@ -8,9 +8,7 @@ signal cooldown_end
 
 func _ready():
 	set_fixed_process(true)
-	var im = ImageTexture.new()
-	im.load(icon)
-	get_node("Sprite").set_texture(im)
+	get_node("Sprite").set_texture(load(icon))
 
 func set_max(mx):
 	pg_bar.set_max(mx)
