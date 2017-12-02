@@ -14,8 +14,7 @@ func _ready():
 
 func create_enemy():
 	var e = Enemy.instance()
-	e.set_pos(Vector2(rand_range(e.min_spawn_range.x, e.max_spawn_range.x), \
-	                  rand_range(e.min_spawn_range.y, e.max_spawn_range.y)))
+	e.set_pos(main.get_valid_position())
 
 	main.get_node("Props").add_child(e)
 	if (enemy_count > 0):
