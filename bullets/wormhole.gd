@@ -4,7 +4,7 @@ var brother = false
 
 func set_brother(b):
 	brother = b
-	get_node("Sprite").set_modulate(Color(0.5, 0.5, 1))
+	get_node("Sprite").set_modulate(Color(0.5, 1, 1))
 
 func _on_Area2D_area_enter(area):
 	if (area.is_in_group('walls')):
