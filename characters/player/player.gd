@@ -1,4 +1,4 @@
-extends 'res://scripts/body.gd'
+extends 'res://characters/body.gd'
 
 onready var input = get_node('/root/input')
 onready var camera = get_node('Camera')

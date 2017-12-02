@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://scripts/action_handler.gd" type="Script" id=1]
+[ext_resource path="res://characters/player/action_handler.gd" type="Script" id=1]
 
 [node name="ActionHandler" type="Node2D"]
 

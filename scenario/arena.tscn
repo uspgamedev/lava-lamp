@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://scripts/gameplay.gd" type="Script" id=1]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenario/gameplay.gd" type="Script" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -91,14 +89,5 @@ build_mode = 0
 polygon = Vector2Array( 1280, 0, 1280, -60, -70, -60, -70, 0 )
 shape_range = Vector2( 3, 3 )
 trigger = false
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-
-editor/display_folded = true
-transform/pos = Vector2( 630, 360 )
-
-[node name="Enemy" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 233.826, 108.562 )
 
 

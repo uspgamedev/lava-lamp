@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://scripts/player.gd" type="Script" id=1]
+[ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://scenes/action_handler.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/player/action_handler.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
