@@ -14,7 +14,7 @@ func recreate(hp):
 		c.free()
 	for i in range(hp):
 		var s = Sprite.new()
-		s.set_pos(Vector2(80 * i, 0))
+		s.set_pos(Vector2(32 * i, 0))
 		add_child(s)
 	update()
 
