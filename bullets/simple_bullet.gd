@@ -21,6 +21,3 @@ func _on_Area2D_area_enter(area):
 		if (enemy.damage >= enemy.hp):
 			enemy.queue_free()
 		self.queue_free()
-
-func _queue_free():
-	self.queue_free()

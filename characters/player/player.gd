@@ -25,6 +25,7 @@ func _ready():
 	ah.set_key_to_action(KEY_F, 'create_ricochet_bullet')
 	ah.set_key_to_action(KEY_V, 'dash')
 	ah.set_key_to_action(KEY_H, 'create_double_bullet')
+	ah.set_key_to_action(KEY_J, 'create_tracer_bullet')
 
 	load_camera()
 
