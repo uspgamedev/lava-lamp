@@ -6,7 +6,7 @@ onready var camera = get_node('Camera')
 func _ready():
 	set_fixed_process(true)
 	input.connect('hold_direction', self, '_add_speed')
-	input.connect('press_action', self, '_fire')
+	input.connect('press_action', self, '_act')
 	load_camera()
 
 func load_camera():
@@ -14,5 +14,6 @@ func load_camera():
 	camera.set_follow_smoothing(5)
 	camera.make_current()
 
-func _fire(act):
-	print('fire')
+func _act(act):
+	if act == ACT.FIRE:
+		print('fire')
