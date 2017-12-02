@@ -5,6 +5,7 @@ const DIR = preload('res://characters/player/input/directions.gd')
 onready var input = get_node('/root/input')
 onready var camera = get_node('Camera')
 onready var ah = get_node('ActionHandler')
+onready var sfx = get_node('SFX')
 
 signal look_dir_changed(dir)
 
@@ -29,6 +30,10 @@ func _set_look_dir(dir):
 	if Input.is_action_pressed("lock_dir"):
 		self.dir = dir
 		emit_signal("look_dir_changed", dir)
+
+func dash(time):
+	self.dashTime = time
+	sfx.play('Dash')
 
 func get_look_dir():
 	return DIR.VECTOR[self.dir]
