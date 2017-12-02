@@ -2,17 +2,20 @@ extends Node
 
 signal ended
 var main
-var enemy_count = 10
 
-var Enemy = preload('res://characters/enemies/enemy.tscn')
+onready var manager = get_parent()
+
+onready var Enemy = manager.ENEMIES[0]
+onready var enemy_count = manager.cur_wave*5 + 1
 
 func create_enemy():
 	var e = Enemy.instance()
 	e.set_pos(Vector2(rand_range(0, 1280), 0))
 	main.get_node("Props").add_child(e)
-	if enemy_count > 0:
+	if (enemy_count > 0):
 		get_node('EnemyTimer').set_wait_time(rand_range(1, 3))
 		get_node('EnemyTimer').start()
+		enemy_count -= 1
 
 func start():
 	main = get_parent().get_parent()

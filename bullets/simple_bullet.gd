@@ -1,5 +1,11 @@
 extends 'res://characters/body_fixed_speed.gd'
 
+onready var timer = get_node('Timer')
+
+func _ready():
+	timer.connect('timeout', self, '_queue_free')
+	timer.start()
+
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area'):
 		var enemy = area.get_parent()
@@ -7,3 +13,6 @@ func _on_Area2D_area_enter(area):
 		if (enemy.damage >= enemy.hp):
 			enemy.queue_free()
 		self.queue_free()
+
+func _queue_free():
+	self.queue_free()

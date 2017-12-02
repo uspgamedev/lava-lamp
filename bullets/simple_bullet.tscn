@@ -46,6 +46,13 @@ polygon = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = false
+
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
 

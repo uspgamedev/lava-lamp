@@ -8,7 +8,7 @@ var player
 var ai
 
 func _ready():
-	player = get_node(playerPath)
+	player = get_node('../Player')
 	cd_timer = get_node("Cooldown")
 	ai = get_node("Ai")
 	set_fixed_process(true)
