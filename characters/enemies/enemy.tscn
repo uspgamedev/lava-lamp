@@ -27,6 +27,9 @@ collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
+min_spawn_range = Vector2( 53, 74 )
+max_spawn_range = Vector2( 1237, 682 )
+
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
@@ -74,5 +77,3 @@ trigger = false
 script/script = ExtResource( 3 )
 
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
-
-

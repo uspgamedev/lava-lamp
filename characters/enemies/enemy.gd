@@ -1,5 +1,8 @@
 extends 'res://characters/body.gd'
 
+export (Vector2) var min_spawn_range
+export (Vector2) var max_spawn_range
+
 var player
 var ai
 

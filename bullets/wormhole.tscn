@@ -21,15 +21,15 @@ input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
+collision/layers = 0
+collision/mask = 0
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
-modulate = Color( 0.078125, 0, 1, 1 )
+modulate = Color( 0.00977421, 0, 1, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
