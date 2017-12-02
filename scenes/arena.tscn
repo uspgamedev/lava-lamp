@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+
+[node name="Arena" type="Node2D"]
+
+[node name="Wall" type="Node2D" parent="."]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
+
+build_mode = 0
+polygon = Vector2Array( 0, 0, -70, 0, -70, 720, 0, 720 )
+shape_range = Vector2( -1, -1 )
+trigger = false
+
+[node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="Wall"]
+
+build_mode = 0
+polygon = Vector2Array( -70, 720, 1350, 720, 1350, 770, -70, 770 )
+shape_range = Vector2( -1, -1 )
+trigger = false
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Wall"]
+
+build_mode = 0
+polygon = Vector2Array( 1280, 720, 1350, 720, 1350, -60, 1280, -60 )
+shape_range = Vector2( -1, -1 )
+trigger = false
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Wall"]
+
+build_mode = 0
+polygon = Vector2Array( 1280, 0, 1280, -60, -70, -60, -70, 0 )
+shape_range = Vector2( -1, -1 )
+trigger = false
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 630, 360 )
+
+
