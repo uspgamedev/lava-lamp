@@ -7,5 +7,5 @@ func _ready():
 	input.connect('hold_direction', self, '_add_speed')
 	input.connect('press_action', self, '_fire')
 
-func _fire():
+func _fire(act):
 	print('fire')

@@ -46,3 +46,4 @@ trigger = false
 transform/pos = Vector2( 630, 360 )
 
 
+[editable path="Player"]
