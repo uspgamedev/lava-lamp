@@ -7,8 +7,10 @@ func _ready():
 	set_process_unhandled_key_input(true)
 	action_map.resize(26)
 
-func cooldown_end(act):
+func cooldown_end(act, key):
 	act.on_cooldown = false
+	if Input.is_key_pressed(KEY_A + key):
+		do_action(key)
 
 func set_key_to_action(key, action):
 	if key< KEY_A or key > KEY_Z:
@@ -17,10 +19,7 @@ func set_key_to_action(key, action):
 	action_map[key - KEY_A] = action_script.new()
 	print("Setted action ", action, " to key ", RawArray([key]).get_string_from_utf8())
 
-func _unhandled_key_input(ev):
-	var key = ev.scancode - KEY_A
-	if key < 0 or key >= 26 or not ev.pressed or ev.echo:
-		return
+func do_action(key):
 	if action_map[key] != null and not action_map[key].on_cooldown:
 		var act = action_map[key];
 		act.activate(self)
@@ -29,4 +28,10 @@ func _unhandled_key_input(ev):
 		cd.icon = act.icon
 		get_node('/root/Main/GUI/Cooldowns').add_cooldown(cd);
 		cd.set_max(act.cooldown_time)
-		cd.connect('cooldown_end', self, 'cooldown_end', [act])
+		cd.connect('cooldown_end', self, 'cooldown_end', [act, key])
+
+func _unhandled_key_input(ev):
+	var key = ev.scancode - KEY_A
+	if key < 0 or key >= 26 or not ev.pressed or ev.echo:
+		return
+	do_action(key)
