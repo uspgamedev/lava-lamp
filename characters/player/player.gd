@@ -28,6 +28,9 @@ func _set_look_dir(dir):
 func get_look_dir():
 	return DIR.VECTOR[self.dir]
 
+func get_look_dir_value():
+	return self.dir
+
 func load_camera():
 	camera.set_enable_follow_smoothing(true)
 	camera.set_follow_smoothing(5)

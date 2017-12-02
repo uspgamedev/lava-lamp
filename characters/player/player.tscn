@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
-[ext_resource path="res://characters/player/action_handler.tscn" type="PackedScene" id=3]
-[ext_resource path="res://characters/player/look_arrow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/player/animation.gd" type="Script" id=3]
+[ext_resource path="res://characters/player/action_handler.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/player/look_arrow.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -81,24 +82,24 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=2]
 
 resource/name = "Idle_Down"
-length = 1.0
+length = 0.5
 loop = true
-step = 0.1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.5 ),
+"times": FloatArray( 0, 0.25 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
 "values": [ 18, 19 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=13]
 
-resource/name = "Idle_Up"
-length = 1.0
+resource/name = "Idle_Left"
+length = 0.25
 loop = true
 step = 0.1
 tracks/0/type = "value"
@@ -106,7 +107,41 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.5 ),
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=14]
+
+resource/name = "Idle_Right"
+length = 0.25
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "Idle_Up"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.25 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
 "values": [ 20, 21 ]
@@ -115,15 +150,15 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 
 resource/name = "Walk_Down"
-length = 1.0
+length = 0.4
 loop = true
-step = 0.05
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.25, 0.5, 0.75 ),
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": FloatArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 14, 15, 16, 17 ]
@@ -132,15 +167,15 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=6]
 
 resource/name = "Walk_Left"
-length = 1.75
+length = 0.7
 loop = true
-step = 0.25
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5 ),
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
 "transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
@@ -149,15 +184,15 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 
 resource/name = "Walk_Right"
-length = 1.75
+length = 0.7
 loop = true
-step = 0.25
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5 ),
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
 "transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 7, 8, 9, 10, 11, 12, 13 ]
@@ -166,15 +201,15 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=8]
 
 resource/name = "Walk_Up"
-length = 1.0
+length = 0.4
 loop = true
-step = 0.25
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.25, 0.5, 0.75 ),
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": FloatArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 22, 23, 24, 25 ]
@@ -201,7 +236,8 @@ script/script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 14
-frame = 31
+frame = 10
+script/script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 
@@ -213,6 +249,8 @@ anims/Fire_Left = SubResource( 10 )
 anims/Fire_Right = SubResource( 11 )
 anims/Fire_Up = SubResource( 12 )
 anims/Idle_Down = SubResource( 2 )
+anims/Idle_Left = SubResource( 13 )
+anims/Idle_Right = SubResource( 14 )
 anims/Idle_Up = SubResource( 3 )
 anims/Walk_Down = SubResource( 4 )
 anims/Walk_Left = SubResource( 6 )
@@ -254,7 +292,7 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="ActionHandler" parent="." instance=ExtResource( 3 )]
+[node name="ActionHandler" parent="." instance=ExtResource( 4 )]
 
 visibility/visible = false
 
@@ -283,6 +321,6 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="LookArrow" parent="." instance=ExtResource( 4 )]
+[node name="LookArrow" parent="." instance=ExtResource( 5 )]
 
 
