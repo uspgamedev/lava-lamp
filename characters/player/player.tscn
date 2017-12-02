@@ -323,4 +323,8 @@ transform/pos = Vector2( 0, -20 )
 
 [node name="LookArrow" parent="Hook" instance=ExtResource( 5 )]
 
+[connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
+
+[connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_on_Player_look_dir_changed"]
+
 
