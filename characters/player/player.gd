@@ -15,7 +15,7 @@ func _ready():
 	input.connect('hold_look', self, '_set_look_dir')
 	
 	ah.set_key_to_action(KEY_B, 'debug')
-	ah.set_key_to_action(KEY_C, 'create_simple_bullet')
+	ah.set_key_to_action(KEY_G, 'create_simple_bullet')
 	ah.set_key_to_action(KEY_N, 'create_trap')
 	ah.set_key_to_action(KEY_M, 'create_wormhole')
 	ah.set_key_to_action(KEY_V, 'dash')

@@ -1,5 +1,8 @@
 extends 'base_action.gd'
 
+func _init():
+	cooldown_time = .2
+
 func activate(action_handler):
 	print("Simple Bullet")
 	icon = "res://bullets/simple.tex"
