@@ -58,7 +58,7 @@ range/exp_edit = false
 range/rounded = false
 percent/visible = false
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="IconSpot" type="Node2D" parent="."]
 
 transform/pos = Vector2( -129.708, -5.32816 )
 transform/scale = Vector2( 2, 2 )

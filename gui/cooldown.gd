@@ -2,13 +2,14 @@ extends Node2D
 
 var cur = 0
 onready var pg_bar = get_node("ProgressBar")
+onready var icon_spot = get_node("IconSpot")
 var icon
 
 signal cooldown_end
 
 func _ready():
 	set_fixed_process(true)
-	get_node("Sprite").set_texture(load(icon))
+	icon_spot.add_child(icon.instance())
 
 func set_max(mx):
 	pg_bar.set_max(mx)
