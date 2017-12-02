@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scenario/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenario/arena.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://bullets/wormhole.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 
@@ -64,10 +63,6 @@ transform/pos = Vector2( 510.3, 379.337 )
 transform/pos = Vector2( 230, 176 )
 playerPath = NodePath("../Player")
 
-[node name="Wormhole" parent="Props" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 235.168, 636.045 )
-
 [node name="GUI" type="CanvasLayer" parent="."]
 
 layer = 1
@@ -75,7 +70,7 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="Cooldowns" parent="GUI" instance=ExtResource( 6 )]
+[node name="Cooldowns" parent="GUI" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1152.07, 72.5272 )
 
