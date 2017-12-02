@@ -8,7 +8,6 @@ const EPSILON = 1
 const DASHFACTOR = 8
 
 var dashTime = 0
-var dashCooldown = 0
 var speed = Vector2()
 
 var hp = 100
@@ -33,9 +32,6 @@ func apply_speed(delta):
 	else:
 		motionScale = self.speed * delta
 		self.dashTime = 0
-
-	if self.dashCooldown > 0:
-		self.dashCooldown -= delta
 
 	var motion = move( motionScale )
 	if (is_colliding()):

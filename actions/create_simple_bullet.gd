@@ -1,6 +1,6 @@
-extends Node
+extends 'base_action.gd'
 
-static func activate(action_handler):
+func activate(action_handler):
 	print("Simple Bullet")
 	var SimpleBullet = preload('res://bullets/simple_bullet.tscn')
 	var b = SimpleBullet.instance()
