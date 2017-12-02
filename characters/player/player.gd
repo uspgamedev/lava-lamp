@@ -26,7 +26,7 @@ func _ready():
 	load_camera()
 
 func _set_look_dir(dir):
-	if not Input.is_action_pressed("lock_dir"):
+	if Input.is_action_pressed("lock_dir"):
 		self.dir = dir
 		emit_signal("look_dir_changed", dir)
 
