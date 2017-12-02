@@ -2,6 +2,11 @@ extends 'res://characters/body_fixed_speed.gd'
 
 var brother = false
 
+onready var sfx = get_node("SFX")
+
+func _ready():
+	sfx.play('Warp')
+
 func set_brother(b):
 	brother = b
 	get_node("Sprite").set_modulate(Color(0.5, 1, 1))

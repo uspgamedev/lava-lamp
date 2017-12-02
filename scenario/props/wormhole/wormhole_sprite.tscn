@@ -67,6 +67,7 @@ autoplay = "loop"
 
 [node name="Base" type="Sprite" parent="."]
 
+z/z = -1
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4

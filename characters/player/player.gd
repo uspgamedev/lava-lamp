@@ -5,14 +5,18 @@ const DIR = preload('res://characters/player/input/directions.gd')
 onready var input = get_node('/root/input')
 onready var camera = get_node('Camera')
 onready var ah = get_node('ActionHandler')
+onready var sfx = get_node('SFX')
+
+signal look_dir_changed(dir)
 
 var dir = 0
 
 func _ready():
 	set_fixed_process(true)
 	input.connect('hold_direction', self, '_add_speed')
+	input.connect('hold_direction', self, '_set_look_dir')
 	input.connect('press_action', self, '_act')
-	input.connect('hold_look', self, '_set_look_dir')
+	#input.connect('hold_look', self, '_set_look_dir')
 	
 	ah.set_key_to_action(KEY_B, 'debug')
 	ah.set_key_to_action(KEY_G, 'create_simple_bullet')
@@ -24,7 +28,13 @@ func _ready():
 	load_camera()
 
 func _set_look_dir(dir):
-	self.dir = dir
+	if Input.is_action_pressed("lock_dir"):
+		self.dir = dir
+		emit_signal("look_dir_changed", dir)
+
+func dash(time):
+	self.dashTime = time
+	sfx.play('Dash')
 
 func get_look_dir():
 	return DIR.VECTOR[self.dir]
@@ -41,3 +51,4 @@ func deal_damage(d):
 	self.damage += d
 	if self.damage >= self.hp:
 		get_tree().change_scene('res://main.tscn')
+	get_node('/root/Main/GUI/HealthBar').update()
