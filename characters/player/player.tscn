@@ -1,10 +1,13 @@
-[gd_scene load_steps=20 format=1]
+[gd_scene load_steps=23 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
 [ext_resource path="res://characters/player/player_animation.gd" type="Script" id=3]
 [ext_resource path="res://characters/player/action_handler.tscn" type="PackedScene" id=4]
 [ext_resource path="res://characters/player/look_arrow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=6]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=7]
+[ext_resource path="res://characters/player/mono_sound_player_dash.smp" type="Sample" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -227,6 +230,7 @@ script/script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 0, -12 )
 texture = ExtResource( 2 )
 vframes = 3
@@ -295,6 +299,7 @@ visibility/visible = false
 "player_area",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 0, -12 )
 input/pickable = true
 shapes/0/shape = SubResource( 14 )
@@ -318,9 +323,16 @@ __meta__ = {
 
 [node name="Hook" type="Node2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 0, -20 )
 
 [node name="LookArrow" parent="Hook" instance=ExtResource( 5 )]
+
+[node name="SFX" parent="." instance=ExtResource( 6 )]
+
+[node name="Dash" parent="SFX" instance=ExtResource( 7 )]
+
+sample = ExtResource( 8 )
 
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
 
