@@ -1,4 +1,4 @@
-extends 'res://characters/body_fixed_speed.gd'
+extends 'res://bullets/bullet.gd'
 
 var brother = false
 

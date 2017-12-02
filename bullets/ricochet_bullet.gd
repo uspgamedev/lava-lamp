@@ -1,4 +1,4 @@
-extends 'res://characters/body_fixed_speed.gd'
+extends 'res://bullets/bullet.gd'
 
 onready var timer = get_node('Timer')
 onready var main = get_node('../../')
@@ -13,24 +13,15 @@ func _fixed_process(delta):
 		self.queue_free()
 		
 func apply_speed(delta):
-	var motionScale = Vector2()
-
-	if self.dashTime > 0:
-		motionScale = self.speed * delta * DASHFACTOR
-		self.dashTime -= delta
-	else:
-		motionScale = self.speed * delta
-		self.dashTime = 0
-
+	var motionScale = self.speed * delta
 	var motion = move( motionScale )
+	
 	if (is_colliding()):
 		var collider = get_collider()
 		var normal = get_collision_normal()
 		motion = normal.reflect(motion)
-		self.fixed_speed = normal.reflect(self.fixed_speed)
+		self.speed = normal.reflect(self.speed)
 		move(motion)
-	
-
 
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area'):
