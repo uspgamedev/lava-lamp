@@ -6,6 +6,8 @@ onready var input = get_node('/root/input')
 onready var camera = get_node('Camera')
 onready var ah = get_node('ActionHandler')
 onready var sfx = get_node('SFX')
+onready var afterimage = get_node('AfterImage')
+onready var sprite = get_node('Sprite')
 
 signal look_dir_changed(dir)
 
@@ -37,6 +39,9 @@ func _set_look_dir(dir):
 func dash(time):
 	self.dashTime = time
 	sfx.play('Dash')
+	var frame = sprite.get_frame() * 1.0 / (sprite.get_hframes() * sprite.get_vframes())
+	afterimage.set_param(Particles2D.PARAM_ANIM_INITIAL_POS, frame)
+	afterimage.set_emitting(true)
 
 func get_look_dir():
 	return DIR.VECTOR[self.dir]
