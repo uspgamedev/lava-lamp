@@ -32,7 +32,7 @@ func calc_distances():
 		i += 1
 		for di in range(-1, 2):
 			for dj in range(-1, 2):
-				if di != 0 and dj != 0: continue
+
 				var pp = p + Vector2(di, dj)
 				if not dist.has(pp) and tm.get_cellv(pp) != -1 and tm.get_cellv(pp) != 3:
 					dist[pp] = dist[p] + 1
@@ -44,8 +44,8 @@ func calc_distances():
 					elif dj == 1: s = "<-"
 					else: s = "->"
 					var l = Label.new()
-					#l.set_text(str(pp) + " " + str(dist[pp]));
-					l.set_text(s)
+					l.set_text(str(pp) + " " + str(dist[pp]));
+					#l.set_text(s + " " + str(dist[pp]))
 					l.set_pos(tm.map_to_world(pp))
 					l.set_scale(Vector2(.5,.5))
 					tm.get_parent().add_child(l)
