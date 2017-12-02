@@ -4,6 +4,7 @@ var cur = 0
 onready var pg_bar = get_node("ProgressBar")
 onready var icon_spot = get_node("IconSpot")
 var icon
+var correct_y = 0
 
 signal cooldown_end
 
@@ -19,6 +20,6 @@ func _fixed_process(dt):
 	cur -= dt
 	pg_bar.set_value(cur)
 	if cur <= 0:
-		get_parent().fix_y(self)
 		queue_free()
+		get_parent().fix_y()
 		emit_signal('cooldown_end')
