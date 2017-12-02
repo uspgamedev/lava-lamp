@@ -9,6 +9,7 @@ func _ready():
 	action_map[1] = preload('res://actions/debug.gd').new()
 	action_map[21] = preload('res://actions/dash.gd').new()
 	action_map[2] = preload('res://actions/create_simple_bullet.gd').new()
+	action_map[13] = preload('res://actions/create_trap.gd').new()
 
 func cooldown_end(act):
 	act.on_cooldown = false
