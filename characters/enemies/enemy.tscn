@@ -26,7 +26,8 @@ collision/layers = 3
 collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-playerPath = null
+min_spawn_range = Vector2( 53, 74 )
+max_spawn_range = Vector2( 1237, 682 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
