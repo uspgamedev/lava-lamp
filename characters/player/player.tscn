@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android.tex" type="Texture" id=2]
 [ext_resource path="res://characters/player/action_handler.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/look_arrow.gd" type="Script" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -84,5 +85,21 @@ trigger = false
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="LookArrow" type="Polygon2D" parent="."]
+
+transform/pos = Vector2( 0, -35 )
+polygon = Vector2Array( -5, 0, 0, -10, 5, 0 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+script/script = ExtResource( 4 )
 
 
