@@ -3,7 +3,7 @@ extends KinematicBody2D
 const DIR = preload('player/input/directions.gd')
 const ACT = preload('player/input/actions.gd')
 
-const ACC = 100
+const ACC = 200
 const EPSILON = 1
 const DASHFACTOR = 8
 
