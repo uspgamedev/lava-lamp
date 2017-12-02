@@ -54,7 +54,7 @@ transform/pos = Vector2( 510.3, 379.337 )
 
 [node name="Enemy" parent="Props" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 230, 176 )
+transform/pos = Vector2( 228.633, 174.633 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

@@ -2,11 +2,17 @@ extends 'res://characters/body.gd'
 
 onready var input = get_node('/root/input')
 onready var camera = get_node('Camera')
+onready var ah = get_node('ActionHandler')
 
 func _ready():
 	set_fixed_process(true)
 	input.connect('hold_direction', self, '_add_speed')
 	input.connect('press_action', self, '_act')
+	ah.set_key_to_action(KEY_B, 'debug')
+	ah.set_key_to_action(KEY_C, 'create_simple_bullet')
+	ah.set_key_to_action(KEY_N, 'create_trap')
+	ah.set_key_to_action(KEY_V, 'dash')
+	
 	load_camera()
 
 func load_camera():

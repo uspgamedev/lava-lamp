@@ -6,13 +6,16 @@ const Cooldown = preload('res://gui/cooldown.tscn')
 func _ready():
 	set_process_unhandled_key_input(true)
 	action_map.resize(26)
-	action_map[1] = preload('res://actions/debug.gd').new()
-	action_map[21] = preload('res://actions/dash.gd').new()
-	action_map[2] = preload('res://actions/create_simple_bullet.gd').new()
-	action_map[13] = preload('res://actions/create_trap.gd').new()
 
 func cooldown_end(act):
 	act.on_cooldown = false
+
+func set_key_to_action(key, action):
+	if key< KEY_A or key > KEY_Z:
+		breakpoint
+	var action_script = load('res://actions/'+action+'.gd')
+	action_map[key - KEY_A] = action_script.new()
+	print("Setted action ", action, " to key ", RawArray([key]).get_string_from_utf8())
 
 func _unhandled_key_input(ev):
 	var key = ev.scancode - KEY_A
