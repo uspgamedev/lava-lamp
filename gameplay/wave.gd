@@ -9,7 +9,7 @@ var Enemy = preload('res://characters/enemies/enemy.tscn')
 func create_enemy():
 	var e = Enemy.instance()
 	e.set_pos(Vector2(rand_range(0, 1280), 0))
-	main.add_child(e)
+	main.get_node("Props").add_child(e)
 	if enemy_count > 0:
 		get_node('EnemyTimer').set_wait_time(rand_range(1, 3))
 		get_node('EnemyTimer').start()
