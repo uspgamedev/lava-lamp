@@ -26,12 +26,21 @@ collision/layers = 3
 collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-playerPath = null
 
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
 modulate = Color( 1, 0.328125, 0.328125, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 

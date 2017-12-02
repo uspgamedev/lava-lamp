@@ -5,7 +5,7 @@ var main
 
 onready var manager = get_parent()
 
-onready var Enemy = manager.ENEMIES[0]
+onready var Enemy = manager.ENEMIES[1]
 onready var enemy_count = manager.cur_wave*1 + 1
 
 func _ready():
@@ -14,7 +14,7 @@ func _ready():
 
 func create_enemy():
 	var e = Enemy.instance()
-	e.set_pos(Vector2(rand_range(0, 1280), 0))
+	e.set_pos(Vector2(rand_range(0, 1280), 200))
 	main.get_node("Props").add_child(e)
 	if (enemy_count > 0):
 		get_node('EnemyTimer').set_wait_time(rand_range(1, 3))
