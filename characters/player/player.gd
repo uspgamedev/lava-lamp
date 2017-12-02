@@ -13,7 +13,3 @@ func load_camera():
 	camera.set_enable_follow_smoothing(true)
 	camera.set_follow_smoothing(5)
 	camera.make_current()
-
-func _act(act):
-	if act == ACT.FIRE:
-		print('fire')

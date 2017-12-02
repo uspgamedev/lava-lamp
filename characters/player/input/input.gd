@@ -34,8 +34,6 @@ func _get_quit(e):
 
 func _get_action(e):
 	var act = -1
-	if e.is_action_pressed('ui_fire'):
-		act = ACT.FIRE
 	return act
 
 func _get_direction(e):
