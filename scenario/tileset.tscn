@@ -32,6 +32,7 @@ frame = 2
 
 [node name="Fall" type="Sprite" parent="."]
 
+visibility/opacity = 0.2
 transform/pos = Vector2( 208.968, 72.6957 )
 texture = ExtResource( 1 )
 hframes = 4
@@ -41,7 +42,7 @@ frame = 3
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -18 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -20 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -52,7 +53,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fall/StaticBody2D1"]
 
-transform/pos = Vector2( 0, -18 )
+transform/pos = Vector2( 0, -20 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
