@@ -45,3 +45,4 @@ func deal_damage(d):
 	self.damage += d
 	if self.damage >= self.hp:
 		get_tree().change_scene('res://main.tscn')
+	get_node('/root/Main/GUI/HealthBar').update()
