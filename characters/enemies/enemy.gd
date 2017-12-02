@@ -3,13 +3,11 @@ extends 'res://characters/body.gd'
 var s = 1
 
 export(NodePath) var playerPath
-var cd_timer
 var player
 var ai
 
 func _ready():
-	player = get_node('../Player')
-	cd_timer = get_node("Cooldown")
+	player = get_node(playerPath)
 	ai = get_node("Ai")
 	set_fixed_process(true)
 
