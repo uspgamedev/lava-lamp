@@ -7,7 +7,7 @@
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -10, 0, 10, 0, 10, 20, -10, 20 )
+points = Vector2Array( -10, 0, 10, 0, 10, 15, -10, 15 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
@@ -33,9 +33,12 @@ hframes = 12
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( -10, 0, 10, 0, 10, 20, -10, 20 )
+polygon = Vector2Array( -10, 0, 10, 0, 10, 15, -10, 15 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Camera" type="Camera2D" parent="."]
 
@@ -78,5 +81,8 @@ build_mode = 0
 polygon = Vector2Array( -10, -30, -10, 10, 10, 10, 10, -30 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+__meta__ = {
+"_edit_group_": true
+}
 
 
