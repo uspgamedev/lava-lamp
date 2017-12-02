@@ -2,7 +2,7 @@
 
 [ext_resource path="res://gui/cooldown.gd" type="Script" id=1]
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=1]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -27,7 +27,7 @@ draw_bg = true
 ProgressBar/colors/font_color = Color( 0.941176, 0.941176, 0.941176, 1 )
 ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = null
-ProgressBar/styles/bg = SubResource( 4 )
+ProgressBar/styles/bg = SubResource( 1 )
 ProgressBar/styles/fg = SubResource( 2 )
 
 [node name="Cooldown" type="Node2D"]
@@ -61,6 +61,6 @@ percent/visible = false
 [node name="Sprite" type="Sprite" parent="."]
 
 transform/pos = Vector2( -129.708, -5.32816 )
-transform/scale = Vector2( 0.5625, 0.5625 )
+transform/scale = Vector2( 2, 2 )
 
 
