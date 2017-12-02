@@ -6,7 +6,7 @@
 [ext_resource path="res://characters/player/action_handler.tscn" type="PackedScene" id=4]
 [ext_resource path="res://characters/player/look_arrow.tscn" type="PackedScene" id=5]
 
-[sub_resource type="ConvexPolygonShape2D" id=15]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -10, -6, 10, -6, 10, 9, -10, 9 )
@@ -216,8 +216,9 @@ points = Vector2Array( 10, -30, 10, 10, -10, 10, -10, -30 )
 
 [node name="Player" type="KinematicBody2D"]
 
+z/z = 2
 input/pickable = false
-shapes/0/shape = SubResource( 15 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -316,6 +317,10 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="LookArrow" parent="." instance=ExtResource( 5 )]
+[node name="Hook" type="Node2D" parent="."]
+
+transform/pos = Vector2( 0, -20 )
+
+[node name="LookArrow" parent="Hook" instance=ExtResource( 5 )]
 
 
