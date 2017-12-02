@@ -49,7 +49,7 @@ trigger = false
 process_mode = 1
 wait_time = 5.0
 one_shot = false
-autostart = false
+autostart = true
 
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
