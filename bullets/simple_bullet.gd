@@ -5,7 +5,7 @@ onready var sfx = get_node('SFX')
 onready var main = get_node('../../')
 
 func _ready():
-	timer.connect('timeout', self, '_queue_free')
+	timer.connect('timeout', self, 'queue_free')
 	timer.start()
 	sfx.play("Shoot")
 	set_fixed_process(true)
