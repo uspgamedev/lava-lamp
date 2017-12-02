@@ -1,10 +1,12 @@
 extends 'res://characters/body_fixed_speed.gd'
 
 onready var timer = get_node('Timer')
+onready var sfx = get_node('SFX')
 
 func _ready():
 	timer.connect('timeout', self, '_queue_free')
 	timer.start()
+	sfx.play("Shoot")
 
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area'):
