@@ -13,6 +13,7 @@ transform/scale = Vector2( 1.5, 1.5 )
 
 [node name="Floor" type="TileMap" parent="."]
 
+visibility/visible = false
 mode = 0
 tile_set = ExtResource( 1 )
 cell/size = Vector2( 32, 24 )
