@@ -7,6 +7,7 @@ onready var camera = get_node('Camera')
 onready var ah = get_node('ActionHandler')
 onready var sfx = get_node('SFX')
 
+
 signal look_dir_changed(dir)
 
 var dir = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=1]
+[gd_scene load_steps=24 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=6]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/player/mono_sound_player_dash.smp" type="Sample" id=8]
+[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=9]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=15]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -10, -6, 10, -6, 10, 9, -10, 9 )
@@ -220,9 +221,9 @@ points = Vector2Array( 10, -30, 10, 10, -10, 10, -10, -30 )
 [node name="Player" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 15 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
+shapes/0/trigger = true
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -266,7 +267,7 @@ visibility/visible = false
 build_mode = 0
 polygon = Vector2Array( -10, -6, 10, -6, 10, 9, -10, 9 )
 shape_range = Vector2( 0, 0 )
-trigger = false
+trigger = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -333,6 +334,8 @@ transform/pos = Vector2( 0, -20 )
 [node name="Dash" parent="SFX" instance=ExtResource( 7 )]
 
 sample = ExtResource( 8 )
+
+[node name="GridManager" parent="." instance=ExtResource( 9 )]
 
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
 
