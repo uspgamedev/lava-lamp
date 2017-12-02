@@ -13,3 +13,8 @@ func load_camera():
 	camera.set_enable_follow_smoothing(true)
 	camera.set_follow_smoothing(5)
 	camera.make_current()
+
+func deal_damage(d):
+	self.damage += d
+	if self.damage >= self.hp:
+		get_tree().change_scene('res://main.tscn')
