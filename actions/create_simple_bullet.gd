@@ -6,5 +6,5 @@ func activate(action_handler):
 	var b = SimpleBullet.instance()
 	var pl = action_handler.get_parent()
 	b.set_pos(pl.get_pos())
-	b.fixed_speed = pl.speed.normalized() * 200
+	b.fixed_speed = pl.get_look_dir().normalized() * 200
 	pl.get_parent().add_child(b)
