@@ -21,6 +21,7 @@ tracks/0/keys = {
 
 [node name="Sprite" type="Sprite"]
 
+z/z = 2
 texture = ExtResource( 1 )
 hframes = 3
 frame = 1
