@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://bullets/simple_bullet.gd" type="Script" id=1]
-[ext_resource path="res://bullets/simple.tex" type="Texture" id=2]
+[ext_resource path="res://bullets/simple_bullet_sprite.tscn" type="PackedScene" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -24,9 +24,7 @@ collision/mask = 0
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-
-texture = ExtResource( 2 )
+[node name="Sprite" parent="." instance=ExtResource( 2 )]
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -51,7 +49,7 @@ trigger = false
 process_mode = 1
 wait_time = 5.0
 one_shot = false
-autostart = false
+autostart = true
 
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
