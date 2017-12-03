@@ -25,6 +25,5 @@ func get_speed():
 
 func is_colliding_with_wall(bullet):
 	if (bullet.is_colliding() and bullet.get_collider().get_type() == 'TileMap'):
-		if (bullet.get_collider().get_cell(bullet.get_pos().x, bullet.get_pos().y) == -1):
 			return true
 	return false

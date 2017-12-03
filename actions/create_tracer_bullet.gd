@@ -11,3 +11,4 @@ func activate(action_handler):
 	b.set_pos(pl.get_pos() + Vector2(0, -20))
 	b.speed = pl.get_look_dir().normalized() * 400
 	pl.get_parent().add_child(b)
+	return null

@@ -8,6 +8,7 @@ signal hold_action(act)
 signal hold_look(dir)
 signal press_direction(dir)
 signal press_action(act)
+signal not_hold_action
 signal press_quit
 
 var cur = 0
@@ -34,6 +35,7 @@ func _fixed_process(delta):
 	var look_dir = self._get_look_direction(Input)
 	if dir != -1: emit_signal('hold_direction', dir)
 	if act != -1: emit_signal('hold_action', act)
+	else: emit_signal('not_hold_action')
 	if look_dir != -1: emit_signal('hold_look', look_dir)
 
 func _get_quit(e):
@@ -42,6 +44,8 @@ func _get_quit(e):
 
 func _get_action(e):
 	var act = -1
+	if e.is_action_pressed('charge'):
+		act = ACT.CHARGE
 	return act
 
 func _get_look_direction(e):

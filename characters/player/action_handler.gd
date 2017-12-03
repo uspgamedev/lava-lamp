@@ -21,12 +21,14 @@ func set_key_to_action(key, action):
 
 func do_action(key):
 	if action_map[key] != null and not action_map[key].on_cooldown:
-		var act = action_map[key];
-		act.activate(self)
+		var act = action_map[key]
+		var obj = act.activate(self)
+		if obj:
+			yield(obj, "shoot")
 		act.on_cooldown = true
 		var cd = Cooldown.instance()
 		cd.icon = act.icon
-		get_node('/root/Main/GUI/Cooldowns').add_cooldown(cd);
+		get_node('/root/Main/GUI/Cooldowns').add_cooldown(cd)
 		cd.set_max(act.cooldown_time)
 		cd.connect('cooldown_end', self, 'cooldown_end', [act, key])
 
