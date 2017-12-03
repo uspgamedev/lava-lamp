@@ -9,6 +9,7 @@ const ENEMIES = [
 	preload('res://characters/enemies/mage.tscn'),
 	preload('res://characters/enemies/hard_mage.tscn'),
 	preload('res://characters/enemies/ghost.tscn'),
+	preload('res://characters/enemies/undead.tscn'),
 ]
 
 var cur_wave = 1
