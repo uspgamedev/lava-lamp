@@ -9,6 +9,7 @@ onready var sfx = get_node('SFX')
 onready var afterimage = get_node('AfterImage')
 onready var sprite = get_node('Sprite')
 
+
 signal look_dir_changed(dir)
 
 var dir = 0

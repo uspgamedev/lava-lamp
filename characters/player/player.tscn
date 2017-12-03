@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=1]
+[gd_scene load_steps=25 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/player/mono_sound_player_dash.smp" type="Sample" id=8]
 [ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=9]
+[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -339,6 +340,10 @@ sample = ExtResource( 8 )
 
 transform/pos = Vector2( 0, -12 )
 
+[node name="GridManager" parent="." instance=ExtResource( 10 )]
+
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
+
+[connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_on_Player_look_dir_changed"]
 
 

@@ -9,7 +9,6 @@ var ai
 signal enemy_dead
 
 func _ready():
-
 	player = get_node("../Player")
 	ai = get_node("Ai")
 	set_fixed_process(true)
