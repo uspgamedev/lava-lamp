@@ -351,8 +351,6 @@ autostart = false
 
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
 
-[connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_on_Player_look_dir_changed"]
-
 [connection signal="timeout" from="Expression_Timer" to="." method="_on_Expression_Timer_timeout"]
 
 
