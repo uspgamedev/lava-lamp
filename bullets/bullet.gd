@@ -6,7 +6,7 @@ onready var sprite = get_node("Sprite")
 
 var speed = Vector2(400, 400)
 
-var damage = 1
+export var damage = 1
 
 func _ready():
 	set_fixed_process(true)

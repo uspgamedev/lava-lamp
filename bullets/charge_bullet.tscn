@@ -15,6 +15,7 @@ collision/layers = 8
 collision/mask = 6
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+damage = 1
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 

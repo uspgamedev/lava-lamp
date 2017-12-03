@@ -36,6 +36,7 @@ func _ready():
 	ah.set_key_to_action(KEY_K, 'create_guided_bullet')
 	ah.set_key_to_action(KEY_R, 'create_charge_bullet')
 	ah.set_key_to_action(KEY_T, 'create_shotgun_bullet')
+	ah.set_key_to_action(KEY_Y, 'create_ion_bullet')
 
 	load_camera()
 
