@@ -1,8 +1,77 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/charger.gd" type="Script" id=2]
-[ext_resource path="res://characters/enemies/ai/charger_ai.gd" type="Script" id=3]
+[ext_resource path="res://characters/enemies/charger/spide2r.tex" type="Texture" id=3]
+[ext_resource path="res://characters/enemies/ai/charger_ai.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "down"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "down_moving"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 2 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "up"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "up_moving"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 3, 5 ]
+}
 
 [node name="Charger" instance=ExtResource( 1 )]
 
@@ -11,9 +80,21 @@ hp = 4
 min_spawn_range = null
 max_spawn_range = null
 
-[node name="CollisionPolygon2D" parent="."]
+[node name="Sprite" parent="."]
 
-polygon = Vector2Array( -29.6501, -29.8942, -31.5872, 30.5439, 28.6572, 28.4131, 30.2069, -30.6691 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 3
+frame = 3
+modulate = Color( 1, 1, 1, 1 )
+
+[node name="AnimationPlayer" parent="Sprite"]
+
+anims/down = SubResource( 1 )
+anims/down_moving = SubResource( 2 )
+anims/up = SubResource( 3 )
+anims/up_moving = SubResource( 4 )
+autoplay = "down"
 
 [node name="Area2D" parent="."]
 
@@ -21,10 +102,10 @@ transform/pos = Vector2( -0.581131, 0.19371 )
 
 [node name="CollisionPolygon2D" parent="Area2D"]
 
-polygon = Vector2Array( -35.2677, -36.2867, -39.142, 37.3238, 36.212, 35.3867, 35.2434, -39.5798 )
+polygon = Vector2Array( -19.4189, -20.1937, -19.4189, 19.8063, 20.5811, 19.8063, 20.5811, -20.1937 )
 
 [node name="Ai" parent="."]
 
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
 
 
