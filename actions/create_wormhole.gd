@@ -13,6 +13,7 @@ func activate(action_handler):
 	wh1.set_pos(pl.get_pos())
 	wh1.speed = Vector2()
 	pl.get_parent().add_child(wh1)
+	pl.sfx.play("Special")
 	var wh2 = Wormhole.instance()
 	wh2.set_pos(pl.get_node("../..").get_valid_position())
 	wh2.speed = Vector2()
