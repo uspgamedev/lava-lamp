@@ -24,7 +24,7 @@ func _update_enemy():
 	enemy = null
 
 func update_speed():
-	if (enemy.get_ref()):
+	if (enemy and enemy.get_ref()):
 		guided_speed = (guided_speed.normalized() * .95 +  .05 * (enemy.get_ref().get_pos() - self.get_pos()).normalized()) * 300
 	self.speed = guided_speed
 

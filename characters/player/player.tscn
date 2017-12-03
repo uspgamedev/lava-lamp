@@ -339,8 +339,6 @@ sample = ExtResource( 8 )
 
 transform/pos = Vector2( 0, -12 )
 
-[connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_on_Player_look_dir_changed"]
-
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
 
 
