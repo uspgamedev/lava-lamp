@@ -1,5 +1,9 @@
 extends 'base_action.gd'
 
+func _init():
+	cooldown_time = 2
+	name = "earthquake"
+
 func activate(action_handler):
 	var Earthquake = preload('res://area_effects/earthquake.tscn')
 	var b = Earthquake.instance()

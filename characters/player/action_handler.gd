@@ -3,8 +3,16 @@ extends Node2D
 var action_map = []
 const Cooldown = preload('res://gui/cooldown.tscn')
 
+onready var gui = get_node('/root/Main/GUI')
+onready var portrait = gui.get_node("Player_Portrait")
+
+signal change_emotion(emotion, time)
+
 func _ready():
 	set_process_unhandled_key_input(true)
+	
+	self.connect('change_emotion', portrait, 'change_emotion')
+	
 	action_map.resize(26)
 
 func cooldown_end(act, key):
@@ -27,6 +35,8 @@ func do_action(key):
 			print("yay")
 			yield(obj, "finish")
 		act.on_cooldown = true
+		if act.get_name() == "wormhole":
+			emit_signal('change_emotion', "surprised", .7)
 		var cd = Cooldown.instance()
 		cd.icon = act.icon
 		get_node('/root/Main/GUI/Cooldowns').add_cooldown(cd)

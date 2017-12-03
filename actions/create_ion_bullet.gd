@@ -10,3 +10,4 @@ func activate(action_handler):
 
 func _init():
 	cooldown_time = 5
+	name = "ion_bullet"

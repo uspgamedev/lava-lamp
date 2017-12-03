@@ -2,6 +2,7 @@ extends 'base_action.gd'
 
 func _init():
 	cooldown_time = .2
+	name = "richochet_bullet"
 
 func activate(action_handler):
 	print("Ricochet Bullet")

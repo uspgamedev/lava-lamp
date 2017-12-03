@@ -1,5 +1,9 @@
 extends 'base_action.gd'
 
+func _init():
+	cooldown_time = 2
+	name = "wormhole"
+
 func activate(action_handler):
 	print("Wormhole")
 	var Wormhole = preload('res://bullets/wormhole.tscn')

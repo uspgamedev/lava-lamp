@@ -2,7 +2,8 @@ extends 'base_action.gd'
 
 func _init():
 	cooldown_time = .6
-
+	name = "shotgun_bullet"
+	
 func activate(action_handler):
 	var ShotgunBullet = preload('res://bullets/shotgun_bullet.tscn')
 	self.icon = preload("res://bullets/shrapnel_bullet/sprite.tscn")

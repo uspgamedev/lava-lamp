@@ -2,6 +2,7 @@ extends 'base_action.gd'
 
 func _init():
 	cooldown_time = .6
+	name = "double_bullet"
 
 func activate(action_handler):
 	self.icon = preload("res://bullets/double_bullet_icon.tscn")
