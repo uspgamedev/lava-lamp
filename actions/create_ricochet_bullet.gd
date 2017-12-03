@@ -5,6 +5,7 @@ func _init():
 
 func activate(action_handler):
 	print("Ricochet Bullet")
+	self.icon = preload('res://bullets/bounce_bullet/ricochet_bullet_sprite.tscn')
 	var RicochetBullet = preload('res://bullets/ricochet_bullet.tscn')
 	var b = RicochetBullet.instance()
 	var pl = action_handler.get_parent()

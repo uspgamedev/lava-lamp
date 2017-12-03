@@ -6,7 +6,7 @@ export (Vector2) var max_spawn_range
 var player
 var ai
 
-signal enemy_deadasd
+signal enemy_dead
 
 func _ready():
 	player = get_node("../Player")
@@ -14,7 +14,7 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	ai.think(delta, self, player)
+	ai.think(delta, player)
 	
 #Return aproximate direction (only 4 cardinal directions) enemy is moving at
 func get_look_dir_value():
@@ -35,7 +35,7 @@ func get_look_dir_value():
 
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("player_area"):
-		ai.collided_with_player(self, player)
+		ai.collided_with_player(player)
 
 func _queue_free():
 	emit_signal('enemy_dead')
