@@ -10,7 +10,7 @@
 [ext_resource path="res://characters/player/mono_sound_player_dash.smp" type="Sample" id=8]
 [ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=9]
 
-[sub_resource type="ConvexPolygonShape2D" id=15]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -10, -6, 10, -6, 10, 9, -10, 9 )
@@ -221,9 +221,9 @@ points = Vector2Array( 10, -30, 10, 10, -10, 10, -10, -30 )
 [node name="Player" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 15 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = true
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -267,7 +267,7 @@ visibility/visible = false
 build_mode = 0
 polygon = Vector2Array( -10, -6, 10, -6, 10, 9, -10, 9 )
 shape_range = Vector2( 0, 0 )
-trigger = true
+trigger = false
 __meta__ = {
 "_edit_group_": true
 }

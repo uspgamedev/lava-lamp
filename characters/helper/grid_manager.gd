@@ -11,42 +11,31 @@ func _fixed_process(dt):
 		cur = 0
 		calc_distances()
 
-var lbs = []
+func ok_tile(tm, tm2, cood):
+	return tm.get_cellv(cood) != -1 and tm.get_cellv(cood) != 3 and tm2.get_cellv(cood) == -1
+
 func calc_distances():
 	var p = get_parent()
 	var tm = get_node('/root/Main/Floor')
-	var cood = tm.world_to_map(p.get_pos())
+	var tm2 = get_node('/root/Main/Props')
+	var cood = tm.world_to_map(p.get_pos() - Vector2(0, 30))
 	var i = 0
 	var q = []
 	q.append(cood)
-	print(cood, tm.get_cellv(cood))
 	dist.clear()
 	nxt.clear()
 	dist[cood] = 0
 	nxt[cood] = cood
-	for l in lbs:
-		l.queue_free()
-	lbs.clear()
 	while(i < q.size()):
 		var p = q[i]
 		i += 1
 		for di in range(-1, 2):
 			for dj in range(-1, 2):
-
+				# Cannot go diagonally if any of the sides are blocked
+				if not ok_tile(tm, tm2, p + Vector2(di, 0)) or not ok_tile(tm, tm2, p + Vector2(0, dj)):
+					continue
 				var pp = p + Vector2(di, dj)
-				if not dist.has(pp) and tm.get_cellv(pp) != -1 and tm.get_cellv(pp) != 3:
+				if not dist.has(pp) and ok_tile(tm, tm2, pp):
 					dist[pp] = dist[p] + 1
 					nxt[pp] = p
 					q.append(pp)
-					var s = ""
-					if di == 1: s = "^"
-					elif di == -1: s = "v"
-					elif dj == 1: s = "<-"
-					else: s = "->"
-					var l = Label.new()
-					l.set_text(str(pp) + " " + str(dist[pp]));
-					#l.set_text(s + " " + str(dist[pp]))
-					l.set_pos(tm.map_to_world(pp))
-					l.set_scale(Vector2(.5,.5))
-					tm.get_parent().add_child(l)
-					lbs.append(l)

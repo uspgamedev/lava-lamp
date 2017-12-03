@@ -5,25 +5,19 @@ var move_cooldown = 0
 
 var sp = 5000
 
-var lb = null;
-
 func think(dt, enemy, player):
-	if lb == null:
-		lb = Label.new()
-		get_node('/root/Main/Floor').get_parent().add_child(lb)
 	move_cooldown -= dt
 	if move_cooldown <= 0:
 		var gmng = player.get_node('GridManager')
 		var tm = get_node('/root/Main/Floor')
-		var cood = tm.world_to_map(enemy.get_pos())
+		var ep = enemy.get_pos() - Vector2(0, 30)
+		var cood = tm.world_to_map(ep)
 		
-		print("enemy at ", cood, " dist ", gmng.dist[cood])
-		if gmng.nxt.has(cood) and gmng.dist[cood] > 3:
-			lb.set_text("AAA")
-			lb.set_pos(tm.map_to_world(gmng.nxt[cood]))
+		if gmng.nxt.has(cood) and gmng.dist[cood] > 1:
+			var to = tm.map_to_world(gmng.nxt[cood]) + tm.get_cell_size() / 2
 			
-			var vec = tm.map_to_world(gmng.nxt[cood]) - tm.map_to_world(cood)
-			enemy.speed += (sp * dt * vec.normalized())
+			var vec = (to - ep).normalized()
+			enemy.speed += (sp * dt * vec)
 		else:
 			var vec = player.get_pos() - enemy.get_pos()
 			enemy.speed += (sp * dt * vec.normalized())
