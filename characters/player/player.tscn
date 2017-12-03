@@ -230,6 +230,7 @@ collision/layers = 1
 collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+hp = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 

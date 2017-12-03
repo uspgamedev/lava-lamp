@@ -6,6 +6,8 @@ const ENEMIES = [
 	preload('res://characters/enemies/shielded.tscn'),
 	preload('res://characters/enemies/charger.tscn'),
 	preload('res://characters/enemies/bouncer.tscn'),
+	preload('res://characters/enemies/mage.tscn'),
+	preload('res://characters/enemies/hard_mage.tscn'),
 ]
 
 var cur_wave = 1

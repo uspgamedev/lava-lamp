@@ -33,6 +33,7 @@ tile_data = IntArray( 0, 0, 1, 0, 2, 1, 3, 3, 4, 3, 5, 3, 6, 3, 7, 3, 8, 3, 9, 3
 
 [node name="Props" type="TileMap" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 0, -31 )
 mode = 0
 tile_set = ExtResource( 2 )
@@ -53,6 +54,7 @@ tile_data = IntArray( -65538, 4, -65537, 4, -131072, 4, -131071, 4, -131070, 4, 
 [node name="Player" parent="Props" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 510.3, 379.337 )
+hp = 4
 
 [node name="WaveManager" parent="." instance=ExtResource( 4 )]
 
