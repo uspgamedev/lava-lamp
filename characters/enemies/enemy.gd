@@ -37,6 +37,11 @@ func _on_Area2D_area_enter( area ):
 	if area.is_in_group("player_area"):
 		ai.collided_with_player(player)
 
+func deal_damage(d):
+	self.damage += d
+	if self.damage >= self.hp:
+		self._queue_free()
+
 func _queue_free():
 	emit_signal('enemy_dead')
 	self.queue_free()

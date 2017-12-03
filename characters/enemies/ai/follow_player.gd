@@ -1,4 +1,4 @@
-extends Node
+extends 'base_ai.gd'
 
 var move_cooldown_max = 1
 var move_cooldown = 0
@@ -26,17 +26,5 @@ func think(dt, player):
 			enemy.speed += (sp * dt * vec.normalized())
 
 func collided_with_player(player):
-	var enemy = get_parent()
-	var vec = player.get_pos() - enemy.get_pos()
-	player.speed += 5000 * vec.normalized()
-	player.deal_damage(1)
 	move_cooldown = move_cooldown_max
-	player.dashTime = 0
-
-func hit_by_bullet(bullet):
-	var enemy = get_parent()
-	enemy.damage += bullet.damage
-	if (enemy.damage >= enemy.hp):
-		enemy.queue_free()
-	if not bullet extends preload('res://bullets/tracer_bullet.gd'):
-		bullet.queue_free()
+	.collided_with_player(player)

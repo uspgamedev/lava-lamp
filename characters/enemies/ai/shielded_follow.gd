@@ -11,7 +11,7 @@ func hit_by_bullet(bullet):
 	   (d == DIR.LEFT and enemy.get_node('LeftShield').overlaps_area(bullet.get_node('Area2D'))) or \
 	   (d == DIR.RIGHT and enemy.get_node('RightShield').overlaps_area(bullet.get_node('Area2D'))):
 		if bullet extends preload('res://bullets/trap.gd'):
-			.hit_by_bullet(enemy, bullet)
+			.hit_by_bullet(bullet)
 		else:
 			bullet.queue_free()
 	else:
