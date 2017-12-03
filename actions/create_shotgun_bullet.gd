@@ -5,6 +5,7 @@ func _init():
 
 func activate(action_handler):
 	var ShotgunBullet = preload('res://bullets/shotgun_bullet.tscn')
+	self.icon = preload("res://bullets/shrapnel_bullet/sprite.tscn")
 	var bs = []
 	var pl = action_handler.get_parent()
 	for i in range(5):

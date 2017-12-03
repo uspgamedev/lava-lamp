@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemies/eye.gd" type="Script" id=2]
+[ext_resource path="res://characters/enemies/olhinho_sprite_sheet.tex" type="Texture" id=3]
+[ext_resource path="res://characters/enemies/simple_animation.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "Walk_Down"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[node name="Eye" instance=ExtResource( 1 )]
+
+z/z = 0
+script/script = ExtResource( 2 )
+min_spawn_range = null
+max_spawn_range = null
+
+[node name="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+vframes = 4
+hframes = 4
+frame = 4
+script/script = ExtResource( 4 )
+
+[node name="AnimationPlayer" parent="Sprite"]
+
+anims/Walk_Down = SubResource( 2 )
+"anims/Walk_Down 2" = SubResource( 2 )
+
+[node name="CollisionPolygon2D" parent="."]
+
+polygon = Vector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
+
+[node name="Area2D" parent="."]
+
+transform/pos = Vector2( -9.53674e-07, -9.53674e-07 )
+transform/scale = Vector2( 0.3125, 0.3125 )
+
+[node name="CollisionPolygon2D" parent="Area2D"]
+
+transform/pos = Vector2( 3.05176e-06, 3.05176e-06 )
+transform/scale = Vector2( 3.2, 3.2 )
+polygon = Vector2Array( -15, -15, -15, 15, 15, 15, 15, -15 )
+
+

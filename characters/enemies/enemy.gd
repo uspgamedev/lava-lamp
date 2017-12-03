@@ -45,6 +45,7 @@ func deal_damage(d):
 	self.damage += d
 	if self.damage >= self.hp:
 		self._queue_free()
+	get_node('EnemyHealth').update()
 
 func _queue_free():
 	emit_signal('enemy_dead')

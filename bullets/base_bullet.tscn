@@ -5,10 +5,10 @@
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=3]
 [ext_resource path="res://bullets/sound_bullet_simple.smp" type="Sample" id=4]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -5, -5, 5, -5, 5, 5, -5, 5 )
+points = Vector2Array( -10, 10, 10, 10, 10, 30, -10, 30 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
@@ -18,14 +18,21 @@ points = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 [node name="Bullet" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 8
-collision/mask = 6
+collision/mask = 2
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 damage = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -10, 10, 10, 10, 10, 30, -10, 30 )
+shape_range = Vector2( 0, 0 )
+trigger = false
 
 [node name="Area2D" type="Area2D" parent="."]
 

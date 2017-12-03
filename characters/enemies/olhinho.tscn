@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://characters/enemies/olhinho.gd" type="Script" id=1]
 [ext_resource path="res://characters/enemies/olhinho_sprite_sheet.tex" type="Texture" id=2]
 [ext_resource path="res://characters/enemies/simple_animation.gd" type="Script" id=3]
 [ext_resource path="res://characters/enemies/ai/follow_player.gd" type="Script" id=4]
+[ext_resource path="res://characters/enemies/gui/enemy_health.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -92,7 +94,7 @@ shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 4
-collision/mask = 3
+collision/mask = 7
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 min_spawn_range = Vector2( 53, 74 )
@@ -103,7 +105,7 @@ max_spawn_range = Vector2( 1237, 682 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 8
+frame = 4
 modulate = Color( 1, 0.328125, 0.328125, 1 )
 script/script = ExtResource( 3 )
 
@@ -155,6 +157,16 @@ trigger = false
 [node name="Ai" type="Node" parent="."]
 
 script/script = ExtResource( 4 )
+
+[node name="EnemyHealth" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, -20 )
+transform/scale = Vector2( 0.937999, 0.3125 )
+tot_width = 40
+
+[node name="Stunned" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 0, -30 )
 
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
