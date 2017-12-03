@@ -14,7 +14,7 @@ func _draw():
 	var gap = 10
 	var wd = min(enemy.hp, max_in_row)
 	var totw = w * wd + gapx * (wd - 1)
-	var x = -totw / 2 + w / 2
+	var x = -totw / 2
 	var y = 0
 	sc = float(tot_width) / totw
 	for i in range(enemy.hp):
