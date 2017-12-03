@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemies/ai/bouncer_ai.gd" type="Script" id=2]
+
+[node name="Bouncer" instance=ExtResource( 1 )]
+
+min_spawn_range = null
+max_spawn_range = null
+
+[node name="Ai" parent="."]
+
+script/script = ExtResource( 2 )
+
+

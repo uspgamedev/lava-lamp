@@ -1,12 +1,13 @@
 extends Node
 
 var knockback = 5000
+var enemy_dmg = 1
 
 func collided_with_player(player):
 	var enemy = get_parent()
 	var vec = player.get_pos() - enemy.get_pos()
 	player.speed += knockback * vec.normalized()
-	player.deal_damage(1)
+	player.deal_damage(enemy_dmg)
 	player.dashTime = 0
 
 
