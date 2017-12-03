@@ -122,10 +122,19 @@ percent_visible = 1.0
 [node name="Deactivate Timer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 3.0
 one_shot = true
 autostart = false
 
+[node name="Text Tween" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
 [connection signal="timeout" from="Deactivate Timer" to="." method="deactivate_box"]
+
+[connection signal="tween_complete" from="Text Tween" to="." method="_text_tween_complete"]
 
 

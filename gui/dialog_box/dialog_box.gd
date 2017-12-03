@@ -21,13 +21,30 @@ func deactivate_box():
 func is_active():
 	return active
 
-func display_text(text, time = 5):
-	var timer = get_node("Deactivate Timer")
+func display_text(text):
+	var text_tween = get_node("Text Tween")
+	
 	if is_active():
+		var timer = get_node("Deactivate Timer")
 		timer.stop()
+		text_tween.stop()
 	else:
 		activate_box()
+		
 	tb.set_text(text)
-	timer.set_wait_time(time)
-	timer.start()
+	tb.set_visible_characters(0)
+	var len = text.length()
+	var text_speed = 10
+	var d = len/text_speed
+	text_tween.interpolate_property(tb, "visible_characters", 0, text.length(), d, Tween.TRANS_LINEAR, Tween.EASE_IN, .3)
+	text_tween.start()
 	
+
+func _text_tween_complete( object, key ):
+	start_deactivate_timer()
+	
+func start_deactivate_timer():
+	print("ending")
+	var timer = get_node("Deactivate Timer")
+	timer.start()
+
