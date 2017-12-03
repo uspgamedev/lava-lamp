@@ -38,12 +38,7 @@ func update_scale():
 	else:
 		self.sprite.charge_large()
 		col_poly.set_polygon(polygons[2])
-<<<<<<< 4a2f6e13108593fe75ae1770352bf53540260aa0
-	self.set_pos(pl.get_pos() + Vector2(0, -20) + pl.get_look_vec()*16)
-=======
-	#self.area.set_scale(Vector2(1+self.scale, 1+self.scale))
 	self.set_pos(pl.get_pos() + pl.get_look_vec()*16)
->>>>>>> AISHDAISD
 
 func _fixed_process(delta):
 	if not shoot:
