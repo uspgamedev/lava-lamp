@@ -4,7 +4,9 @@ const DIR = preload("res://characters/player/input/directions.gd")
 
 onready var sprite = get_node("Sprite")
 
-var speed = Vector2(400, 400)
+export var speed_factor = 1
+
+var speed = Vector2(400, 400)# * speed_factor
 
 export var damage = 1
 
@@ -18,7 +20,7 @@ func _fixed_process(delta):
 		self.queue_free()
 	
 func apply_speed(delta):
-	move( self.speed * delta )
+	move(self.speed * delta * self.speed_factor)
 	
 func get_speed():
 	return speed
