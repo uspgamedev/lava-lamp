@@ -2,12 +2,20 @@ extends 'res://bullets/bullet.gd'
 
 onready var timer = get_node('Timer')
 onready var charge_timer = get_node('ChargeTimer')
+onready var col_poly = get_node('Area2D/CollisionPolygon2D')
 onready var main = get_node('../../')
 onready var input = get_node('/root/input')
 onready var pl = main.get_node('Props/Player')
 onready var area = get_node('Area2D')
 
 signal shoot
+
+const polygons = [Vector2Array([Vector2(-5, -5), Vector2(5, -5),
+								Vector2(5, 5), Vector2(-5, 5)]),
+				  Vector2Array([Vector2(-8, -8), Vector2(8, -8),
+								Vector2(8, 8), Vector2(-8, 8)]),
+				  Vector2Array([Vector2(-15, -15), Vector2(15, -15),
+							    Vector2(15, 15), Vector2(-15, 15)])]
 
 var shoot = false
 var scale = 0
@@ -23,11 +31,14 @@ func update_scale():
 	self.scale = (charge_timer.get_wait_time() - charge_timer.get_time_left())/charge_timer.get_wait_time()
 	if self.scale < 0.3:
 		self.sprite.charge_small()
+		col_poly.set_polygon(polygons[0])
 	elif self.scale < 0.6:
 		self.sprite.charge_medium()
+		col_poly.set_polygon(polygons[1])
 	else:
 		self.sprite.charge_large()
-	self.area.set_scale(Vector2(1+self.scale, 1+self.scale))
+		col_poly.set_polygon(polygons[2])
+	#self.area.set_scale(Vector2(1+self.scale, 1+self.scale))
 	self.set_pos(pl.get_pos() + Vector2(0, -20) + pl.get_look_vec()*16)
 
 func _fixed_process(delta):

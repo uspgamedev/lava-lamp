@@ -8,7 +8,7 @@
 offsets = FloatArray( 0, 1 )
 colors = ColorArray( 0, 0, 0, 0, 0.214844, 0.705566, 1, 1 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 
 resource/name = "large"
 length = 0.4
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 
 resource/name = "large_charging"
 length = 0.4
@@ -62,9 +62,8 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource/name = "medium"
 length = 0.4
 loop = true
 step = 0.1
@@ -89,7 +88,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 
 resource/name = "medium_charging"
 length = 0.4
@@ -116,9 +115,8 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=6]
 
-resource/name = "small"
 length = 0.4
 loop = true
 step = 0.1
@@ -143,9 +141,8 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 
-resource/name = "small_charging"
 length = 0.4
 loop = true
 step = 0.1
@@ -175,7 +172,7 @@ tracks/1/keys = {
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 3
-frame = 6
+frame = 5
 script/script = ExtResource( 2 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
@@ -210,12 +207,12 @@ color/color_ramp = SubResource( 1 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/large = SubResource( 4 )
-anims/large_charging = SubResource( 6 )
-anims/medium = SubResource( 3 )
-anims/medium_charging = SubResource( 7 )
-anims/small = SubResource( 2 )
-anims/small_charging = SubResource( 5 )
+anims/large = SubResource( 2 )
+anims/large_charging = SubResource( 3 )
+anims/medium = SubResource( 4 )
+anims/medium_charging = SubResource( 5 )
+anims/small = SubResource( 6 )
+anims/small_charging = SubResource( 7 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://bullets/charge_bullet.gd" type="Script" id=1]
 [ext_resource path="res://bullets/charge_bullet/charge_bullet_sprite.tscn" type="PackedScene" id=2]
@@ -6,17 +6,19 @@
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -30, -30, 30, -30, 30, 30, -30, 30 )
+points = Vector2Array( -5, -5, 5, -5, 5, 5, -5, 5 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -5, -5, 5, -5, 5, 5, -5, 5 )
+points = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 
 [node name="ChargeBullet" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
 collision/layers = 8
 collision/mask = 6
 collision/margin = 0.08
@@ -28,7 +30,7 @@ damage = 1
 [node name="Area2D" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -39,7 +41,7 @@ angular_damp = 1.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
 build_mode = 0
-polygon = Vector2Array( -30, -30, 30, -30, 30, 30, -30, 30 )
+polygon = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
