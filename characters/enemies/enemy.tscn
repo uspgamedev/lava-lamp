@@ -29,6 +29,7 @@ collision/layers = 4
 collision/mask = 7
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+hp = 4
 min_spawn_range = Vector2( 53, 74 )
 max_spawn_range = Vector2( 1237, 682 )
 
