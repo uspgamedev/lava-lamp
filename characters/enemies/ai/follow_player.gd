@@ -16,3 +16,4 @@ func collided_with_player(enemy, player):
 	player.speed += 5000 * vec.normalized()
 	player.deal_damage(1)
 	move_cooldown = move_cooldown_max
+	player.dashTime = 0
