@@ -1,9 +1,11 @@
 extends Node2D
 
 onready var input = get_node('/root/input')
+onready var bgm = get_node("BGM")
 
 func _ready():
 	input.connect('press_quit', self, 'quit')
+	bgm._action_mode()
 
 func quit():
 	get_tree().quit()
