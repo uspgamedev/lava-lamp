@@ -3,6 +3,9 @@ extends Node
 const ENEMIES = [
 	preload('res://characters/enemies/enemy.tscn'),
 	preload('res://characters/enemies/olhinho.tscn'),
+	preload('res://characters/enemies/shielded.tscn'),
+	preload('res://characters/enemies/charger.tscn'),
+	preload('res://characters/enemies/bouncer.tscn'),
 ]
 
 var cur_wave = 1
