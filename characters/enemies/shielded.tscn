@@ -1,7 +1,77 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/enemies/ai/shielded_follow.gd" type="Script" id=2]
+[ext_resource path="res://characters/enemies/shielded/shielded.gd" type="Script" id=2]
+[ext_resource path="res://characters/enemies/shielded/shield.tex" type="Texture" id=3]
+[ext_resource path="res://characters/enemies/ai/shielded_follow.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "down"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "left"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource/name = "right"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource/name = "up"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -25,23 +95,42 @@ points = Vector2Array( -78.2384, 0, -8.69315, 0, -8.69315, 73.6233, -78.2384, 73
 
 [node name="ShieldedEnemy" instance=ExtResource( 1 )]
 
+script/script = ExtResource( 2 )
 min_spawn_range = null
 max_spawn_range = null
 
 [node name="Sprite" parent="."]
 
-editor/display_folded = true
+texture = ExtResource( 3 )
+vframes = 4
+hframes = 4
+frame = 14
+modulate = Color( 1, 1, 1, 1 )
+
+[node name="AnimationPlayer" parent="Sprite"]
+
+anims/down = SubResource( 5 )
+anims/left = SubResource( 6 )
+anims/right = SubResource( 7 )
+anims/up = SubResource( 8 )
+autoplay = "down"
+
+[node name="CollisionPolygon2D" parent="."]
+
+visibility/visible = false
 
 [node name="Area2D" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 
 [node name="Ai" parent="."]
 
-script/script = ExtResource( 2 )
+script/script = ExtResource( 4 )
 
 [node name="LeftShield" type="Area2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( -29.1763, 0.434619 )
 transform/scale = Vector2( 0.235805, 1.16752 )
 input/pickable = true
@@ -64,6 +153,7 @@ trigger = false
 
 [node name="RightShield" type="Area2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 28.3804, 0.00533867 )
 transform/scale = Vector2( 0.241469, 1.16752 )
 input/pickable = true
@@ -84,6 +174,7 @@ trigger = false
 
 [node name="UpShield" type="Area2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 0, -30 )
 transform/scale = Vector2( 1.15033, 0.271653 )
 input/pickable = true
@@ -105,6 +196,7 @@ trigger = false
 
 [node name="DownShield" type="Area2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( -0.273972, 29.9341 )
 transform/scale = Vector2( 1.15033, 0.271653 )
 input/pickable = true
