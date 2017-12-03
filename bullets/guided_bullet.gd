@@ -27,7 +27,7 @@ func update_speed():
 	if (enemy != null):
 		wr = weakref(enemy)
 		if (wr.get_ref()):
-			guided_speed = (guided_speed + 10*(enemy.get_pos() - self.get_pos())).normalized() * 200
+			guided_speed = (guided_speed.normalized() * .95 +  .05 * (enemy.get_pos() - self.get_pos()).normalized()) * 300
 	self.speed = guided_speed
 
 func search_nearest_enemy():
@@ -39,9 +39,8 @@ func search_nearest_enemy():
 				min_distance = distance
 				enemy = i
 				enemy.connect('enemy_dead', self, '_update_enemy')
-	if enemy == null:
-		var player = get_node('../Player')
-		guided_speed = player.get_look_dir().normalized() * 200
+	var player = get_node('../Player')
+	guided_speed = player.get_look_dir().normalized() * 300
 
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area'):
