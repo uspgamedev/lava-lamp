@@ -1,7 +1,6 @@
 extends Node2D
 
 onready var ap = get_node("Sprite/AnimationPlayer")
-onready var exp_timer = get_node("Expression_Timer")
 
 func _ready():
 	pass

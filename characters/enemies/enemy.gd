@@ -6,7 +6,7 @@ export (Vector2) var max_spawn_range
 var player
 var ai
 
-signal enemy_deadasd
+signal enemy_dead
 
 func _ready():
 	player = get_node("../Player")

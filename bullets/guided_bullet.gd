@@ -7,8 +7,6 @@ onready var main = get_node('../../')
 onready var guided_speed = Vector2(0, 0)
 onready var enemy = null
 
-signal enemy_dead
-
 func _ready():
 	timer.connect('timeout', self, 'queue_free')
 	timer.start()
