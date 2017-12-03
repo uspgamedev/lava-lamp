@@ -2,12 +2,12 @@
 
 [ext_resource path="res://area_effects/laser.gd" type="Script" id=1]
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -8, -16, 8, -16, 8, 16, -8, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -8, -16, 8, -16, 8, 16, -8, 16 )
@@ -15,7 +15,7 @@ points = Vector2Array( -8, -16, 8, -16, 8, 16, -8, 16 )
 [node name="Laser" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 8
@@ -47,7 +47,7 @@ invert/border = 100.0
 [node name="Area2D" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -68,5 +68,7 @@ process_mode = 1
 wait_time = 0.5
 one_shot = false
 autostart = false
+
+[connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
 

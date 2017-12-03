@@ -19,4 +19,4 @@ func hit(obj):
 			obj.speed = -obj.speed
 			emit_signal("bounced")
 	elif obj extends preload('res://area_effects/area_effect.gd'):
-		pass
+		.hit(obj)

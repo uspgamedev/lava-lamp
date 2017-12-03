@@ -45,11 +45,11 @@ func collided_with_player(player):
 	state = WALK
 	walk_cooldown = 3
 
-func hit_by_bullet(bullet):
+func hit(bullet):
 	if bullet extends preload('res://bullets/ion_bullet.gd'):
 		state = WALK
 		walk_cooldown = 1
-	.hit_by_bullet(bullet)
+	.hit(bullet)
 
 func collided_with_wall():
 	var enemy = get_parent()
