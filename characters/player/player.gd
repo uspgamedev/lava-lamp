@@ -39,6 +39,9 @@ func _ready():
 
 	load_camera()
 
+func get_look_vec():
+	return DIR.VECTOR[self.dir]
+
 func _set_look_dir(dir):
 	if Input.is_action_pressed("lock_dir"):
 		self.dir = dir
