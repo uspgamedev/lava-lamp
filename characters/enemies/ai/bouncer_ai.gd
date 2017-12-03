@@ -4,12 +4,15 @@ func _ready():
 	knockback = 8000
 	enemy_dmg = 2
 
-func hit_by_bullet(bullet):
+func hit(obj):
 	var enemy = get_parent()
-	if bullet extends preload('res://bullets/trap.gd'):
-		.hit_by_bullet(bullet)
-	elif bullet extends preload('res://bullets/guided_bullet.gd'):
-		bullet.guided_speed = -bullet.guided_speed
-		bullet.enemy = null
-	else:
-		bullet.speed = -bullet.speed
+	if obj extends preload('res://bullets/bullet.gd'):
+		if obj extends preload('res://bullets/trap.gd'):
+			.hit(obj)
+		elif obj extends preload('res://bullets/guided_bullet.gd'):
+			obj.guided_speed = -obj.guided_speed
+			obj.enemy = null
+		else:
+			obj.speed = -obj.speed
+	elif obj extends preload('res://area_effects/area_effect.gd'):
+		pass

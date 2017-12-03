@@ -7,6 +7,7 @@
 [node name="Bullet" instance=ExtResource( 1 )]
 
 script/script = ExtResource( 2 )
+damage = 1
 
 [node name="Sprite" parent="." instance=ExtResource( 3 )]
 
