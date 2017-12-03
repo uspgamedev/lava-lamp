@@ -4,7 +4,7 @@ func _init():
 	cooldown_time = .6
 
 func activate(action_handler):
-	self.icon = preload("res://bullets/simple_bullet_sprite.tscn")
+	self.icon = preload("res://bullets/double_bullet_icon.tscn")
 	var SimpleBullet = preload('res://bullets/simple_bullet.tscn')
 	var b1 = SimpleBullet.instance()
 	var b2 = SimpleBullet.instance()
