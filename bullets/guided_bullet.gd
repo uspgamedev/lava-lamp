@@ -1,4 +1,4 @@
-extends 'res://characters/body.gd'
+extends 'res://bullets/bullet.gd'
 
 onready var props = get_parent()
 onready var timer = get_node('Timer')
@@ -24,11 +24,8 @@ func _update_enemy():
 	enemy = null
 
 func update_speed():
-	var wr
-	if (enemy != null):
-		wr = weakref(enemy)
-		if (wr.get_ref()):
-			guided_speed = (guided_speed.normalized() * .95 +  .05 * (enemy.get_pos() - self.get_pos()).normalized()) * 300
+	if (enemy.get_ref()):
+		guided_speed = (guided_speed.normalized() * .95 +  .05 * (enemy.get_ref().get_pos() - self.get_pos()).normalized()) * 300
 	self.speed = guided_speed
 
 func search_nearest_enemy():
@@ -40,6 +37,8 @@ func search_nearest_enemy():
 				min_distance = distance
 				enemy = i
 				enemy.connect('enemy_dead', self, '_update_enemy')
+	if enemy != null:
+		enemy = weakref(enemy)
 	var player = get_node('../Player')
 	guided_speed = player.get_look_dir().normalized() * 300
 
