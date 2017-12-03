@@ -6,6 +6,8 @@ export (Vector2) var max_spawn_range
 var player
 var ai
 
+var stunned = 0
+
 signal enemy_dead
 
 func _ready():
@@ -14,7 +16,9 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	ai.think(delta, player)
+	stunned -= delta
+	if stunned <= 0:
+		ai.think(delta, player)
 	
 #Return aproximate direction (only 4 cardinal directions) enemy is moving at
 func get_look_dir_value():
