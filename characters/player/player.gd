@@ -43,6 +43,7 @@ func _ready():
 	ah.set_key_to_action(KEY_C, 'create_flamethrower')
 	ah.set_key_to_action(KEY_X, 'create_laser')
 	ah.set_key_to_action(KEY_O, 'create_ghost_bullet')
+	ah.set_key_to_action(KEY_L, 'create_cure_bullet')
 
 	load_camera()
 
@@ -85,11 +86,14 @@ func load_camera():
 	camera.make_current()
 
 func deal_damage(d):
-	self.damage += d
+	self.damage = max(0, self.damage + d)
 	if self.damage >= self.hp:
 		get_tree().change_scene('res://main.tscn')
 	gui.get_node('HealthBar').update()
-	emit_signal('change_emotion', "angry", 2)
+	if d > 0:
+		emit_signal('change_emotion', "angry", 2)
+	elif d < 0:
+		emit_signal('change_emotion', 'happy', 2)
 
 func _on_Expression_Timer_timeout():
 	emit_signal('change_emotion', "normal")
