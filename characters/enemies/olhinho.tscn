@@ -160,8 +160,9 @@ script/script = ExtResource( 4 )
 
 [node name="EnemyHealth" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( -5, -20 )
+transform/pos = Vector2( 0, -20 )
 transform/scale = Vector2( 0.937999, 0.3125 )
+tot_width = 40
 
 [node name="Stunned" parent="." instance=ExtResource( 6 )]
 
