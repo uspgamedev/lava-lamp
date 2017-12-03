@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=1]
+[gd_scene load_steps=26 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://characters/player/mono_sound_player_dash.smp" type="Sample" id=8]
 [ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=9]
 [ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -348,6 +349,8 @@ process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
+
+[node name="Helper_Arrow" parent="." instance=ExtResource( 11 )]
 
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
 
