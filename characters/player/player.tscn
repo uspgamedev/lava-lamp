@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=1]
+[gd_scene load_steps=28 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
@@ -8,9 +8,11 @@
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=6]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/player/mono_sound_player_dash.smp" type="Sample" id=8]
-[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=9]
-[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=10]
-[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=11]
+[ext_resource path="res://bullets/simple_bullet/mono_sound_bullet_simple.smp" type="Sample" id=9]
+[ext_resource path="res://bullets/simple_bullet/mono_sound_double_bullet.smp" type="Sample" id=10]
+[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=11]
+[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -337,11 +339,19 @@ transform/pos = Vector2( 0, -20 )
 
 sample = ExtResource( 8 )
 
-[node name="AfterImage" parent="." instance=ExtResource( 9 )]
+[node name="Shoot" parent="SFX" instance=ExtResource( 7 )]
+
+sample = ExtResource( 9 )
+
+[node name="DoubleShoot" parent="SFX" instance=ExtResource( 7 )]
+
+sample = ExtResource( 10 )
+
+[node name="AfterImage" parent="." instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 0, -12 )
 
-[node name="GridManager" parent="." instance=ExtResource( 10 )]
+[node name="GridManager" parent="." instance=ExtResource( 12 )]
 
 [node name="Expression_Timer" type="Timer" parent="."]
 
@@ -357,7 +367,7 @@ wait_time = 0.3
 one_shot = true
 autostart = false
 
-[node name="Helper_Arrow" parent="." instance=ExtResource( 11 )]
+[node name="Helper_Arrow" parent="." instance=ExtResource( 13 )]
 
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
 
