@@ -15,3 +15,4 @@ func activate(action_handler):
 	b2.speed = pl.get_look_dir().rotated(-PI/6).normalized() * 400
 	pl.get_parent().add_child(b1)
 	pl.get_parent().add_child(b2)
+	return null

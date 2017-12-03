@@ -9,3 +9,4 @@ func activate(action_handler):
 	b.set_pos(pl.get_pos())
 	b.speed = Vector2()
 	pl.get_parent().add_child(b)
+	return null

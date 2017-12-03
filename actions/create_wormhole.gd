@@ -14,3 +14,4 @@ func activate(action_handler):
 	wh2.speed = Vector2()
 	pl.get_parent().add_child(wh2)
 	wh1.set_brother(wh2)
+	return null
