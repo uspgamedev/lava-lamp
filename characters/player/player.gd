@@ -4,7 +4,6 @@ const DIR = preload('res://characters/player/input/directions.gd')
 
 onready var input = get_node('/root/input')
 onready var camera = get_node('Camera')
-onready var exp_timer = get_node("Expression_Timer")
 onready var ah = get_node('ActionHandler')
 onready var sfx = get_node('SFX')
 onready var afterimage = get_node('AfterImage')
@@ -12,7 +11,7 @@ onready var sprite = get_node('Sprite')
 onready var gui = get_node('/root/Main/GUI')
 onready var portrait = gui.get_node("Player_Portrait")
 
-signal change_emotion(emotion)
+signal change_emotion(emotion, time)
 signal look_dir_changed(dir)
 
 var dir = 0
@@ -66,11 +65,7 @@ func deal_damage(d):
 	if self.damage >= self.hp:
 		get_tree().change_scene('res://main.tscn')
 	gui.get_node('HealthBar').update()
-	emit_signal('change_emotion', "angry")
-	print("emmited")
-	if not exp_timer.is_active():
-		exp_timer.stop()
-	exp_timer.start()
+	emit_signal('change_emotion', "angry", 2)
 
 func _on_Expression_Timer_timeout():
 	emit_signal('change_emotion', "normal")
