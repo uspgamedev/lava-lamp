@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemies/mage.gd" type="Script" id=2]
+[ext_resource path="res://characters/enemies/ai/mage_ai.gd" type="Script" id=3]
+
+[node name="Mage" instance=ExtResource( 1 )]
+
+script/script = ExtResource( 2 )
+hp = 6
+min_spawn_range = null
+max_spawn_range = null
+
+[node name="Ai" parent="."]
+
+script/script = ExtResource( 3 )
+
+[node name="EnemyHealth" parent="."]
+
+max_in_row = 3
+
+

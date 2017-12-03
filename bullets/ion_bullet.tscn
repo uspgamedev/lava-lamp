@@ -11,6 +11,7 @@ damage = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 
+transform/pos = Vector2( 0, -20 )
 transform/scale = Vector2( 0.34375, 0.34375 )
 texture = ExtResource( 3 )
 

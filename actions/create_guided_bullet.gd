@@ -9,6 +9,6 @@ func activate(action_handler):
 	var GuidedBullet = preload('res://bullets/guided_bullet.tscn')
 	var pl = action_handler.get_parent()
 	var b = GuidedBullet.instance()
-	b.set_pos(pl.get_pos() + Vector2(0, -20))
+	b.set_pos(pl.get_pos())
 	#b.fixed_speed = pl.get_look_dir().normalized() * 400
 	pl.get_parent().add_child(b)

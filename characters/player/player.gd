@@ -10,6 +10,8 @@ onready var afterimage = get_node('AfterImage')
 onready var sprite = get_node('Sprite')
 onready var gui = get_node('/root/Main/GUI')
 onready var portrait = gui.get_node("Player_Portrait")
+onready var shoot_timer = get_node("Shooting_Timer")
+onready var shooting = false
 
 signal change_emotion(emotion, time)
 signal look_dir_changed(dir)
@@ -63,6 +65,18 @@ func get_look_dir():
 
 func get_look_dir_value():
 	return self.dir
+
+func start_shooting():
+	shooting = true
+	if not shoot_timer.is_active():
+		shoot_timer.stop()
+	shoot_timer.start()
+
+func stop_shooting():
+	shooting = false
+
+func is_shooting():
+	return shooting
 
 func load_camera():
 	camera.set_enable_follow_smoothing(true)

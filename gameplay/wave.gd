@@ -5,7 +5,7 @@ var main
 
 onready var manager = get_parent()
 
-onready var Enemy = manager.ENEMIES[2]
+onready var Enemy = manager.ENEMIES[4]
 onready var enemy_count = manager.cur_wave*1 + 1
 
 func _ready():
