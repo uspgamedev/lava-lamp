@@ -41,7 +41,9 @@ var t
 
 signal change_emotion(emotion, time)
 
-onready var portrait = get_node('/root/Main/GUI/Player_Portrait')
+onready var gui = get_node('/root/Main/GUI')
+onready var portrait = gui.get_node('Player_Portrait')
+onready var dialog_box = gui.get_node('Dialog Box')
 
 func update_enemy_types():
 	if (cur_wave%NEW_ENEMY_TYPE == 0 and enemy_types < ENEMIES.size()):
@@ -63,6 +65,7 @@ func new_wave():
 	print('Wave ', cur_wave, ' started')
 	var w = get_node('Wave')
 	w.start()
+	dialog_box.display_text("New wave incoming baby", 3)
 	w.connect('ended', self, 'wave_ended')
 
 func _ready():

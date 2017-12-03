@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://gui/dialog_box/dialog_box.gd" type="Script" id=1]
+[ext_resource path="res://gui/dialog_box/dialog_box_font.fnt" type="BitmapFont" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -19,7 +20,7 @@ tracks/0/keys = {
 "values": [ Vector2Array( -450, -60, -450, 60, -450, 60, -450, -60 ), Vector2Array( -450, -60, -450, 60, 450, 60, 450, -60 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 resource/name = "Active"
 length = 0.01
@@ -36,9 +37,25 @@ tracks/0/keys = {
 "values": [ Vector2Array( -450, -60, -450, 60, 450, 60, 450, -60 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 
-resource/name = "Not Active"
+resource/name = "Deactivate"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:polygon")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2Array( -450, -60, -450, 60, 450, 60, 450, -60 ), Vector2Array( -450, -60, -450, 60, -450, 60, -450, -60 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
 length = 0.01
 loop = false
 step = 0.1
@@ -77,8 +94,9 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/Activate = SubResource( 1 )
-anims/Active = SubResource( 3 )
-"anims/Not Active" = SubResource( 2 )
+anims/Active = SubResource( 2 )
+anims/Deactivate = SubResource( 4 )
+"anims/Not Active" = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -94,6 +112,8 @@ margin/left = -400.0
 margin/top = -40.0
 margin/right = 400.0
 margin/bottom = 40.0
+custom_fonts/mono_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 2 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
@@ -103,7 +123,7 @@ percent_visible = 1.0
 
 process_mode = 1
 wait_time = 1.0
-one_shot = false
+one_shot = true
 autostart = false
 
 [connection signal="timeout" from="Deactivate Timer" to="." method="deactivate_box"]
