@@ -1,8 +1,11 @@
 extends 'base_action.gd'
 
+func _init():
+	cooldown_time = 1
+	name = "trap"
+
 func activate(action_handler):
 	self.icon = preload("res://scenario/props/trap_sprite.tscn")
-	print("Trap")
 	var Trap = preload('res://bullets/trap.tscn')
 	var b = Trap.instance()
 	var pl = action_handler.get_parent()
