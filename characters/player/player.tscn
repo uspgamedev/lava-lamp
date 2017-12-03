@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=1]
+[gd_scene load_steps=25 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=6]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/player/mono_sound_player_dash.smp" type="Sample" id=8]
-[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=9]
+[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=9]
+[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -225,7 +226,7 @@ shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
-collision/mask = 1
+collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
@@ -335,7 +336,11 @@ transform/pos = Vector2( 0, -20 )
 
 sample = ExtResource( 8 )
 
-[node name="GridManager" parent="." instance=ExtResource( 9 )]
+[node name="AfterImage" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 0, -12 )
+
+[node name="GridManager" parent="." instance=ExtResource( 10 )]
 
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
 

@@ -6,6 +6,8 @@ export (Vector2) var max_spawn_range
 var player
 var ai
 
+signal enemy_dead
+
 func _ready():
 	player = get_node("../Player")
 	ai = get_node("Ai")
@@ -34,3 +36,7 @@ func get_look_dir_value():
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("player_area"):
 		ai.collided_with_player(self, player)
+
+func _queue_free():
+	emit_signal('enemy_dead')
+	self.queue_free()
