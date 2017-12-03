@@ -45,7 +45,7 @@ func _get_quit(e):
 func _get_action(e):
 	var act = -1
 	if e.is_action_pressed('charge'):
-		act = ACT.CHARGE
+		act = 1
 	return act
 
 func _get_look_direction(e):

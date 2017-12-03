@@ -24,7 +24,8 @@ func do_action(key):
 		var act = action_map[key]
 		var obj = act.activate(self)
 		if obj:
-			yield(obj, "shoot")
+			print("yay")
+			yield(obj, "finish")
 		act.on_cooldown = true
 		var cd = Cooldown.instance()
 		cd.icon = act.icon

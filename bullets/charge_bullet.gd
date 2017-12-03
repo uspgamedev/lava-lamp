@@ -8,7 +8,7 @@ onready var input = get_node('/root/input')
 onready var pl = main.get_node('Props/Player')
 onready var area = get_node('Area2D')
 
-signal shoot
+signal finish
 
 const polygons = [Vector2Array([Vector2(-5, -5), Vector2(5, -5),
 								Vector2(5, 5), Vector2(-5, 5)]),
@@ -38,7 +38,6 @@ func update_scale():
 	else:
 		self.sprite.charge_large()
 		col_poly.set_polygon(polygons[2])
-	#self.area.set_scale(Vector2(1+self.scale, 1+self.scale))
 	self.set_pos(pl.get_pos() + Vector2(0, -20) + pl.get_look_vec()*16)
 
 func _fixed_process(delta):
@@ -53,7 +52,7 @@ func _shoot():
 		self.update_scale()
 		self.damage = 2*self.scale
 		self.sprite.stop_charge()
-		self.emit_signal('shoot')
+		self.emit_signal('finish')
 
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area') and shoot:
