@@ -33,10 +33,13 @@ func collided_with_player(player):
 	move_cooldown = move_cooldown_max
 	player.dashTime = 0
 
-func hit_by_bullet(bullet):
+func hit(obj):
 	var enemy = get_parent()
-	enemy.damage += bullet.damage
+	enemy.damage += obj.damage
 	if (enemy.damage >= enemy.hp):
 		enemy.queue_free()
-	if not bullet extends preload('res://bullets/tracer_bullet.gd'):
-		bullet.queue_free()
+	if obj extends preload('res://bullets/bullet.gd'):
+		if not obj extends preload('res://bullets/tracer_bullet.gd'):
+			obj.queue_free()
+	elif obj extends preload('res://area_effects/area_effect.gd'):
+		pass
