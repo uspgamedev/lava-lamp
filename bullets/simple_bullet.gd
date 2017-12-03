@@ -8,11 +8,6 @@ func _ready():
 	timer.connect('timeout', self, 'queue_free')
 	timer.start()
 	sfx.play("Shoot")
-	set_fixed_process(true)
-
-func _fixed_process(delta):
-	if (!main.is_a_valid_position(self.get_pos())):
-		self.queue_free()
 
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area'):
