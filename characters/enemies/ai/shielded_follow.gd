@@ -2,7 +2,8 @@ extends 'follow_player.gd'
 
 const DIR = preload('res://characters/player/input/directions.gd')
 
-func hit_by_bullet(enemy, bullet):
+func hit_by_bullet(bullet):
+	var enemy = get_parent()
 	var d = enemy.get_look_dir_value()
 	
 	if (d == DIR.UP and enemy.get_node('UpShield').overlaps_area(bullet.get_node('Area2D'))) or \
@@ -14,4 +15,4 @@ func hit_by_bullet(enemy, bullet):
 		else:
 			bullet.queue_free()
 	else:
-		.hit_by_bullet(enemy, bullet)
+		.hit_by_bullet(bullet)
