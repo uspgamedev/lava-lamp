@@ -39,8 +39,8 @@ func is_far_enough(e_pos):
 	var p_pos = player.get_pos()
 	
 	var rect = get_viewport().get_visible_rect()
-	var rw = rect.size.x
-	var rh = rect.size.y
+	var rw = rect.size.x *1.2
+	var rh = rect.size.y *1.2
 	var px = p_pos.x*scale.x
 	var py = p_pos.y*scale.y
 	var ex = e_pos.x*scale.x
@@ -93,7 +93,7 @@ func update_helper_arrow():
 	
 	var angle = p_pos.angle_to_point(e_pos)
 	
-	var dist = 100
+	var dist = 120
 	var center = camera.get_offset()*scale
 	var x = center.x + -sin(angle)*dist 
 	var y = center.y + -cos(angle)*dist 
