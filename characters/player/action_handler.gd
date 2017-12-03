@@ -32,7 +32,6 @@ func do_action(key):
 		var act = action_map[key]
 		var obj = act.activate(self)
 		if obj:
-			print("yay")
 			yield(obj, "finish")
 		act.on_cooldown = true
 		if act.get_name() == "wormhole":

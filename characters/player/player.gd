@@ -39,6 +39,7 @@ func _ready():
 	ah.set_key_to_action(KEY_U, 'create_earthquake')
 	ah.set_key_to_action(KEY_Y, 'create_ion_bullet')
 	ah.set_key_to_action(KEY_C, 'create_flamethrower')
+	ah.set_key_to_action(KEY_X, 'create_laser')
 
 	load_camera()
 
