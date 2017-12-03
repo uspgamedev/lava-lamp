@@ -3,9 +3,12 @@ extends Node
 var move_cooldown_max = 1
 var move_cooldown = 0
 
+var enemy
+
 var sp = 5000
 
-func think(dt, enemy, player):
+func think(dt, player):
+	var enemy = get_parent()
 	move_cooldown -= dt
 	if move_cooldown <= 0:
 		var gmng = player.get_node('GridManager')
@@ -22,14 +25,16 @@ func think(dt, enemy, player):
 			var vec = player.get_pos() - enemy.get_pos()
 			enemy.speed += (sp * dt * vec.normalized())
 
-func collided_with_player(enemy, player):
+func collided_with_player(player):
+	var enemy = get_parent()
 	var vec = player.get_pos() - enemy.get_pos()
 	player.speed += 5000 * vec.normalized()
 	player.deal_damage(1)
 	move_cooldown = move_cooldown_max
 	player.dashTime = 0
 
-func hit_by_bullet(enemy, bullet):
+func hit_by_bullet(bullet):
+	var enemy = get_parent()
 	enemy.damage += bullet.damage
 	if (enemy.damage >= enemy.hp):
 		enemy.queue_free()
