@@ -22,12 +22,12 @@ transform/pos = Vector2( 60, 60 )
 
 [node name="Player_Portrait" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1180, 620 )
+transform/pos = Vector2( 1184, 624 )
 transform/scale = Vector2( 2, 2 )
 
 [node name="Cientist_Portrait" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 100, 620 )
+transform/pos = Vector2( 92, 624 )
 transform/scale = Vector2( 2, 2 )
 
 
