@@ -1,14 +1,14 @@
 extends Node2D
 
 onready var ap = get_node("Sprite/AnimationPlayer")
+onready var exp_timer = get_node("Expression_Timer")
 
 func _ready():
 	pass
 
 #Changed player portrait animation given an emotion
 #Valid emotions: "normal", "angry", "happy", "surprised"
-func change_emotion(emotion):
-	print("got here", emotion)
+func change_emotion(emotion, time = 2):
 	var anim
 	if emotion == "normal":
 		anim = "Normal"
@@ -18,7 +18,21 @@ func change_emotion(emotion):
 		anim = "Surprised"
 	elif emotion == "happy":
 		anim = "Happy"
-
+		
+	var player = get_node('/root/Main/Props/Player')
+	var exp_timer = player.get_node("Expression_Timer")
+	
 	if anim != ap.get_current_animation():
 		ap.play(anim)
-
+		if anim != "Normal":
+			if not exp_timer.is_active():
+				exp_timer.stop()
+			exp_timer.set_wait_time(time)
+			exp_timer.start()
+	#If playing the same animation, just update timer
+	else:
+		if anim != "Normal":
+			if not exp_timer.is_active():
+				exp_timer.stop()
+			exp_timer.set_wait_time(time)
+			exp_timer.start()
