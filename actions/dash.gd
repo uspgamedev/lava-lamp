@@ -7,3 +7,4 @@ func _init():
 func activate(action_handler):
 	var player = action_handler.get_parent()
 	player.dash(DASHTIME)
+	self.icon = preload("res://gui/icons/dash_icon.tscn")
