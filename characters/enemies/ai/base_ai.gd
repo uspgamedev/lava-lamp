@@ -18,6 +18,10 @@ func hit(obj):
 	if obj extends preload('res://bullets/bullet.gd'):
 		if obj extends preload('res://bullets/ion_bullet.gd'):
 			enemy.stunned = 3
+			enemy.get_node('Stunned').set_hidden(false)
+			var t = enemy.get_node('Stunned/Timer')
+			t.set_wait_time(enemy.stunned)
+			t.start()
 		if not obj extends preload('res://bullets/tracer_bullet.gd'):
 			obj.queue_free()
 	elif obj extends preload('res://area_effects/area_effect.gd'):
