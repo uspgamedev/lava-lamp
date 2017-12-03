@@ -17,3 +17,10 @@ func collided_with_player(enemy, player):
 	player.deal_damage(1)
 	move_cooldown = move_cooldown_max
 	player.dashTime = 0
+
+func hit_by_bullet(enemy, bullet):
+	enemy.damage += bullet.damage
+	if (enemy.damage >= enemy.hp):
+		enemy.queue_free()
+	if not bullet extends preload('res://bullets/tracer_bullet.gd'):
+		bullet.queue_free()

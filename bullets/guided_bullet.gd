@@ -15,6 +15,7 @@ func _ready():
 	sfx.play("Shoot")
 	search_nearest_enemy()
 	set_fixed_process(true)
+	damage = 5
 
 func _fixed_process(delta):
 	update_speed()
@@ -45,7 +46,4 @@ func search_nearest_enemy():
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area'):
 		var enemy = area.get_parent()
-		enemy.damage += 1
-		if (enemy.damage >= enemy.hp):
-			enemy._queue_free()
-		self.queue_free()
+		enemy.ai.hit_by_bullet(enemy, self)

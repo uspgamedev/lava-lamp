@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 var speed = Vector2(400, 400)
 
+var damage = 1
+
 func _ready():
 	set_fixed_process(true)
 
