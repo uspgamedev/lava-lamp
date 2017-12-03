@@ -1,7 +1,7 @@
 extends 'res://bullets/simple_bullet.gd'
 
 func _ready():
-	damage = 2
+	damage = 1
 	self.set_collision_mask(2)
 
 func _on_Area2D_area_enter(area):
