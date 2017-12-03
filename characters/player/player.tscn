@@ -342,8 +342,17 @@ transform/pos = Vector2( 0, -12 )
 
 [node name="GridManager" parent="." instance=ExtResource( 10 )]
 
+[node name="Expression_Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
 
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_on_Player_look_dir_changed"]
+
+[connection signal="timeout" from="Expression_Timer" to="." method="_on_Expression_Timer_timeout"]
 
 
