@@ -13,8 +13,8 @@ func activate(action_handler):
 	pl.sfx.play("DoubleShoot")
 	b1.set_pos(pl.get_pos())
 	b2.set_pos(pl.get_pos())
-	b1.speed = pl.get_look_dir().rotated(PI/6).normalized() * 400
-	b2.speed = pl.get_look_dir().rotated(-PI/6).normalized() * 400
+	b1.speed = pl.get_look_dir().rotated(PI/6).normalized() * 500
+	b2.speed = pl.get_look_dir().rotated(-PI/6).normalized() * 500
 	pl.get_parent().add_child(b1)
 	pl.get_parent().add_child(b2)
 	return null

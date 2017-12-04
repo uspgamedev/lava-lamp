@@ -87,6 +87,7 @@ func load_camera():
 
 func deal_damage(d):
 	self.damage = max(0, self.damage + d)
+	self.get_node("Sprite/Hit").play("hit")
 	if self.damage >= self.hp:
 		get_tree().change_scene('res://main.tscn')
 	gui.get_node('HealthBar').update()

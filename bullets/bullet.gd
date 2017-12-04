@@ -6,7 +6,7 @@ onready var sprite = get_node("Sprite")
 
 export var speed_factor = 1
 
-var speed = Vector2(400, 400)# * speed_factor
+var speed = Vector2(500, 500)# * speed_factor
 
 export var damage = 1
 
