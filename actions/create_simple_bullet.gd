@@ -10,7 +10,7 @@ func activate(action_handler, key):
 	var b = SimpleBullet.instance()
 	var pl = action_handler.get_parent()
 	pl.sfx.play("Shoot")
-	b.set_pos(pl.get_pos())
+	b.set_pos(pl.get_pos() + 10*pl.get_look_vec())
 	b.speed = pl.get_look_dir().normalized() * 400
 	pl.get_parent().add_child(b)
 	return null
