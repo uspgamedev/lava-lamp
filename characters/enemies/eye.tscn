@@ -5,7 +5,7 @@
 [ext_resource path="res://characters/enemies/olhinho_sprite_sheet.tex" type="Texture" id=3]
 [ext_resource path="res://characters/enemies/simple_animation.gd" type="Script" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 resource/name = "Walk_Down"
 length = 0.8
@@ -39,8 +39,8 @@ script/script = ExtResource( 4 )
 
 [node name="AnimationPlayer" parent="Sprite"]
 
-anims/Walk_Down = SubResource( 2 )
-"anims/Walk_Down 2" = SubResource( 2 )
+anims/Walk_Down = SubResource( 1 )
+"anims/Walk_Down 2" = SubResource( 1 )
 
 [node name="CollisionPolygon2D" parent="."]
 

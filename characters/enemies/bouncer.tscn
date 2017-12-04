@@ -42,7 +42,6 @@ tracks/0/keys = {
 [node name="Bouncer" instance=ExtResource( 1 )]
 
 script/script = ExtResource( 2 )
-hp = 4
 min_spawn_range = null
 max_spawn_range = null
 
@@ -53,7 +52,6 @@ texture = ExtResource( 3 )
 vframes = 2
 hframes = 4
 frame = 6
-modulate = Color( 1, 1, 1, 1 )
 
 [node name="AnimationPlayer" parent="Sprite"]
 

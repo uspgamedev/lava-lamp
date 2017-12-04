@@ -43,6 +43,8 @@ func _on_Area2D_area_enter( area ):
 
 func deal_damage(d):
 	self.damage = max(0, self.damage + d)
+	if self.damage > 0:
+		self.get_node("Sprite/Hit").play("hit")
 	if self.damage >= self.hp:
 		self._queue_free()
 	get_node('EnemyHealth').update()
