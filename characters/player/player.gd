@@ -53,7 +53,6 @@ func _ready():
 	self.connect('change_emotion', portrait, 'change_emotion')
 
 	ah.set_key_to_action(KEY_Q, 'create_simple_bullet')
-	ah.set_key_to_action(KEY_C, 'create_trap')
 
 	load_camera()
 
