@@ -50,9 +50,6 @@ func _ready():
 	self.connect('change_emotion', portrait, 'change_emotion')
 
 	ah.set_key_to_action(KEY_Q, 'create_simple_bullet')
-	ah.set_key_to_action(KEY_R, 'create_flamethrower')
-	ah.set_key_to_action(KEY_C, 'create_cure_bullet')
-	ah.set_key_to_action(KEY_G, 'create_ghost_bullet')
 
 	load_camera()
 
@@ -248,7 +245,7 @@ func intro():
 
 	yield()
 
-	dialog_box.display_text("[center][color=yellow]L[/color][color=lime]egendary[/color] [color=yellow]A[/color][color=lime]utonamous[/color] [color=yellow]V[/color][color=lime]ersatile[/color] [color=yellow]A[/color][color=lime]ndroid[/color] [color=black]series[/color][fill] [/fill][/center] [center][color=yellow]L[/color][color=lime]atest-generation[/color] [color=yellow]A[/color][color=lime]nti-apocalyptic[/color] [color=yellow]M[/color][color=lime]oddable[/color] [color=yellow]P[/color][color=lime]rototype[/color] [color=black]edition![/color][fill] [/fill][/center]", 5)
+	dialog_box.display_text("[center][color=yellow]L[/color][color=lime]egendary[/color] [color=yellow]A[/color][color=lime]utonamous[/color] [color=yellow]V[/color][color=lime]ersatile[/color] [color=yellow]A[/color][color=lime]ndroid[/color] [color=black]series[/color][/center] [center][color=yellow]L[/color][color=lime]atest-generation[/color] [color=yellow]A[/color][color=lime]nti-apocalyptic[/color] [color=yellow]M[/color][color=lime]oddable[/color] [color=yellow]P[/color][color=lime]rototype[/color] [color=black]edition![/color][fill] [/fill][/center]", 5)
 	var timer = get_node("Intro_Timer")
 	timer.set_wait_time(10)
 	timer.start()
