@@ -1,7 +1,7 @@
 extends 'base_action.gd'
 
 func _init():
-	cooldown_time = 1
+	cooldown_time = 15
 	name = 'flamethrower'
 
 func activate(action_handler):

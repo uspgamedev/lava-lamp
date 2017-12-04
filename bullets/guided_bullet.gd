@@ -11,7 +11,6 @@ func _ready():
 	timer.start()
 	search_nearest_enemy()
 	set_fixed_process(true)
-	damage = 5
 
 func _fixed_process(delta):
 	update_speed()

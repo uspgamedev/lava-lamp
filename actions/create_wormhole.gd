@@ -1,11 +1,10 @@
 extends 'base_action.gd'
 
 func _init():
-	cooldown_time = 2
+	cooldown_time = 2.5
 	name = "wormhole"
 
 func activate(action_handler):
-	print("Wormhole")
 	var Wormhole = preload('res://bullets/wormhole.tscn')
 	self.icon = preload('res://scenario/props/wormhole/wormhole_sprite.tscn')
 	var pl = action_handler.get_parent()

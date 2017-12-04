@@ -23,8 +23,9 @@ collision/layers = 8
 collision/mask = 2
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-speed_factor = 1
+speed_factor = 1.5
 damage = 1
+damages_player = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 

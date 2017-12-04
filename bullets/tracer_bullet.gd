@@ -5,7 +5,6 @@ onready var sfx = get_node("SFX")
 var hitting = false
 
 func _ready():
-	damage = 1
 	self.set_collision_mask(2)
 	self.sfx.play("Fly")
 

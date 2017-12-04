@@ -1,7 +1,7 @@
 extends 'base_action.gd'
 
 func _init():
-	cooldown_time = 1
+	cooldown_time = 10
 	name = "trap"
 
 func activate(action_handler):

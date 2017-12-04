@@ -4,9 +4,9 @@ const DIR = preload("res://characters/player/input/directions.gd")
 
 onready var sprite = get_node("Sprite")
 
-export var speed_factor = 1
+export var speed_factor = 1.5
 
-var speed = Vector2(500, 500)# * speed_factor
+var speed = Vector2(400, 400)
 
 export var damage = 1
 

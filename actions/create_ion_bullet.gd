@@ -9,5 +9,5 @@ func activate(action_handler):
 	pl.get_parent().add_child(ion)
 
 func _init():
-	cooldown_time = 5
+	cooldown_time = 10
 	name = "ion_bullet"
