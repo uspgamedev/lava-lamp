@@ -68,6 +68,7 @@ func _ready():
 	ah.set_key_to_action(KEY_X, 'create_laser')
 	ah.set_key_to_action(KEY_O, 'create_ghost_bullet')
 	ah.set_key_to_action(KEY_L, 'create_cure_bullet')
+	ah.set_key_to_action(KEY_I, 'shield')
 
 	load_camera()
 	
@@ -87,6 +88,12 @@ func dash(time):
 	var frame = sprite.get_frame() * 1.0 / (sprite.get_hframes() * sprite.get_vframes())
 	afterimage.set_param(Particles2D.PARAM_ANIM_INITIAL_POS, frame)
 	afterimage.set_emitting(true)
+
+func shield(time):
+	self.shieldTime = time
+	get_node("Shielded").set_hidden(false)
+	get_node("Shielded/Timer").start()
+	get_node("Shield").set_emitting(true)
 
 func get_look_dir():
 	return DIR.VECTOR[self.dir]
@@ -130,7 +137,8 @@ func _unstun():
 	unlock_controls()
 
 func deal_damage(d):
-	self.damage = max(0, self.damage + d)
+	if (self.shieldTime == 0):
+		self.damage = max(0, self.damage + d)
 	self.get_node("Sprite/Hit").play("hit")
 	if self.damage >= self.hp:
 		get_tree().change_scene('res://main.tscn')
