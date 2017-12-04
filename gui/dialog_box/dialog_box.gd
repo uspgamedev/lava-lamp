@@ -81,7 +81,7 @@ func display_text(text, delay = 3):
 	if is_active():
 		var timer = get_node("Deactivate Timer")
 		timer.stop()
-		text_tween.stop()
+		text_tween.stop_all()
 	else:
 		activate_box()
 		

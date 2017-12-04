@@ -13,10 +13,12 @@ func _ready():
 func _fixed_process(delta):
 	var dir = player.get_look_dir_value()
 	var shooting = player.is_shooting()
+	var spinning = player.is_spinning()
 	var moving = (player.get_speed().length() > 0)
 	var anim
-		
-	if dir == DIR.UP or dir == DIR.UP_LEFT or dir == DIR.UP_RIGHT:
+	if spinning:
+		anim = "Spinning"
+	elif dir == DIR.UP or dir == DIR.UP_LEFT or dir == DIR.UP_RIGHT:
 		if shooting:
 			anim = "Fire_Up"
 		elif moving:

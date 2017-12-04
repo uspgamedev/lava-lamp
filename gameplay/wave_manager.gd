@@ -77,5 +77,4 @@ func _ready():
 	t.set_wait_time(5)
 	t.connect('timeout', self, 'new_wave')
 	t.set_one_shot(true)
-	t.start()
 	add_child(t)
