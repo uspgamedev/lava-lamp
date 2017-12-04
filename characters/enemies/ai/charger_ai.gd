@@ -54,11 +54,14 @@ func collided_with_player(player):
 	state = WALK
 	walk_cooldown = 3
 
-func hit(bullet):
-	if bullet extends preload('res://bullets/ion_bullet.gd'):
+func hit(obj):
+	if obj extends preload('res://bullets/ion_bullet.gd') or \
+	   obj extends preload('res://bullets/shotgun_bullet.gd') or \
+	   obj extends preload('res://bullets/trap.gd') or \
+	   obj extends preload('res://area_effects/earthquake.gd'):
 		state = WALK
-		walk_cooldown = 1
-	.hit(bullet)
+		walk_cooldown = 2
+	.hit(obj)
 
 func collided_with_wall():
 	var enemy = get_parent()

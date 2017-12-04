@@ -27,3 +27,8 @@ func think(dt, player):
 		dest = null
 		walk_cd = 2.5
 	.think(dt, player)
+
+func hit(obj):
+	if obj extends preload('res://bullets/trap.gd'):
+		return
+	.hit(obj)
