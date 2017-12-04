@@ -3,12 +3,14 @@ extends 'res://bullets/bullet.gd'
 onready var props = get_parent()
 onready var timer = get_node('Timer')
 onready var main = get_node('../../')
+onready var sfx = get_node('SFX')
 onready var guided_speed = Vector2(0, 0)
 onready var enemy = null
 
 func _ready():
 	timer.connect('timeout', self, 'queue_free')
 	timer.start()
+	self.sfx.play('Fly')
 	search_nearest_enemy()
 	set_fixed_process(true)
 
