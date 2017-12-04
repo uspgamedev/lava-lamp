@@ -114,7 +114,6 @@ func stop_spinning():
 func is_spinning():
 	return spinning
 
-
 func load_camera():
 	camera.set_enable_follow_smoothing(true)
 	camera.set_follow_smoothing(5)
@@ -175,7 +174,7 @@ func intro():
 	lock_controls()
 	start_spinning()
 	var tween = get_node("Intro_Tween")
-	tween.interpolate_property(get_node("Sprite"), "offset", Vector2(0,-200), Vector2(0,0), 2.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.interpolate_property(get_node("Sprite"), "offset", Vector2(0,-200), Vector2(0,0), 2.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	
 	yield()
