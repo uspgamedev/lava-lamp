@@ -11,7 +11,7 @@ onready var sfx = get_node('SFX')
 signal finish
 
 var enemyList = []
-var hold_key
+var pressed = 0
 var angle = 0
 
 func _ready():
@@ -21,15 +21,23 @@ func _ready():
 	self.sfx.play('Burn')
 	self.sprite.set_emitting(true)
 	set_fixed_process(true)
-	set_process_unhandled_key_input(true)
+	set_process_unhandled_input(true)
 	self._set_rot(self.angle)
 
 func _set_rot(angle):
 	sprite.set_rot(angle)
 	area.set_rot(angle)
 
-func _unhandled_key_input(ev):
-	if ev.scancode == hold_key and not ev.pressed:
+func _unhandled_input(ev):
+	if ev.is_action_released("keyboard2_click"):
+		pressed -= 1
+	elif ev.is_action_pressed("keyboard2_click"):
+		pressed += 1
+	if input.control_type == input.KEYBOARD2 and ev.type == InputEvent.KEY and \
+		pressed == 0:
+		_finish()
+	elif input.control_type == input.MOUSE and ev.type == InputEvent.MOUSE_BUTTON and \
+		 ev.button_index == BUTTON_LEFT and not ev.pressed:
 		_finish()
 
 func _fixed_process(delta):

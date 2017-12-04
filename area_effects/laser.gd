@@ -5,15 +5,19 @@ onready var timer = get_node('Timer')
 onready var tiles = get_node('Tiles')
 onready var sfx = get_node('SFX')
 
+signal finish
+
 var player
 var pos = 0
+var pressed = 0
 
 func _ready():
 	damage = 0.5
-	timer.connect('timeout', self, 'queue_free')
+	timer.connect('timeout', self, '_queue_free')
 	timer.start()
 	self.sfx.play('Bling')
 	set_fixed_process(true)
+	set_process_unhandled_input(true)
 	var head = self.tiles.get_node('Head')
 	for i in range(40):
 		var tile = LaserTile.instance()
@@ -28,6 +32,19 @@ func _fixed_process(delta):
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area'):
 		area.get_parent().ai.hit(self)
+
+func _unhandled_input(ev):
+	if ev.is_action_released("keyboard2_click"):
+		pressed -= 1
+	elif ev.is_action_pressed("keyboard2_click"):
+		pressed += 1
+	if input.control_type == input.KEYBOARD2 and ev.type == InputEvent.KEY and \
+		pressed == 0:
+		_queue_free()
+	elif input.control_type == input.MOUSE and ev.type == InputEvent.MOUSE_BUTTON and \
+		 ev.button_index == BUTTON_LEFT and not ev.pressed:
+		_queue_free()
+
 
 func update_tiles():
 	var look_ang = self.player.get_look_dir().angle()
@@ -47,4 +64,7 @@ func update_tiles():
 		tile.set_hidden(true)
 		tile.area.set_enable_monitoring(false)
 		i += 1
-	
+		
+func _queue_free():
+	emit_signal("finish")
+	queue_free()

@@ -15,3 +15,4 @@ func activate(action_handler, key):
 	var b = Laser.instance()
 	b.player = pl
 	wall_tm.add_child(b)
+	return b
