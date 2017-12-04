@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/health_bar.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://gui/cientist_portrait.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/dialog_box/dialog_box.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gui/logo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/dialog_box/dialog_box_font.fnt" type="BitmapFont" id=7]
 
 [node name="GUI" type="CanvasLayer"]
 
@@ -41,5 +42,58 @@ transform/pos = Vector2( 630, 650 )
 visibility/visible = false
 transform/pos = Vector2( 680, 310 )
 transform/scale = Vector2( 2.2, 2.2 )
+
+[node name="SelectedAction" type="Node2D" parent="."]
+
+transform/pos = Vector2( 1190, 460 )
+
+[node name="Node2D" type="Node2D" parent="SelectedAction"]
+
+transform/scale = Vector2( 4, 4 )
+
+[node name="Label" type="Label" parent="SelectedAction"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -40.0
+margin/top = -90.0
+margin/right = 34.0
+margin/bottom = -68.0
+custom_fonts/font = ExtResource( 7 )
+text = "Current"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Polygon2D" type="Polygon2D" parent="SelectedAction"]
+
+polygon = Vector2Array( -58, -58, -58, 54, 60, 54, 60, 52, -56, 52, -56, -58 )
+uv = Vector2Array(  )
+color = Color( 0.808594, 0.660141, 0.660141, 0.579216 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Polygon2D1" type="Polygon2D" parent="SelectedAction"]
+
+transform/pos = Vector2( 4, -4 )
+polygon = Vector2Array( -62, -54, -62, -56, 58, -56, 58, 58, 56, 58, 56, -54 )
+uv = Vector2Array(  )
+color = Color( 0.808594, 0.660141, 0.660141, 0.579216 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
 
 

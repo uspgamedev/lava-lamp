@@ -43,6 +43,10 @@ func unmap_key(key):
 func set_selected_action(act):
 	print("selecting %s" % act.get_name())
 	selected_action = act
+	var sa = get_node('/root/Main/GUI/SelectedAction/Node2D')
+	for i in range(sa.get_child_count()):
+		sa.get_child(i).queue_free()
+	sa.add_child(act.icon.instance())
 
 func set_key_to_action(key, action):
 	if map_key(key) == -1:
