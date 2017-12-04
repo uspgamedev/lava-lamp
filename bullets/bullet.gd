@@ -17,7 +17,7 @@ func _ready():
 
 func _fixed_process(delta):
 	apply_speed(delta)
-	sprite.set_rot(DIR.vec2rot(self.speed))
+	sprite.set_rot(self.speed.angle())
 	if (is_colliding_with_wall(self)):
 		self.queue_free()
 

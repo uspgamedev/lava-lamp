@@ -5,6 +5,10 @@
 
 [node name="HardMage" instance=ExtResource( 1 )]
 
+[node name="Sprite" parent="."]
+
+frame = 4
+
 [node name="Ai" parent="."]
 
 script/script = ExtResource( 2 )

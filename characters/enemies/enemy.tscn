@@ -25,7 +25,7 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
-"values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 255, 255, 255, 1 ), Color( 1, 0, 0, 1 ) ]
 }
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
