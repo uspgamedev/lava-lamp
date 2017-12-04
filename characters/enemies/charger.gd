@@ -22,7 +22,6 @@ func _fixed_process(delta):
 		last_dir = dir
 
 func apply_speed(delta):
-	print("apply")
 	var motionScale = Vector2()
 
 	if self.dashTime > 0:

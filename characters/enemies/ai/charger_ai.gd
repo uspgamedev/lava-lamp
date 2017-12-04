@@ -41,7 +41,6 @@ func think(dt, player):
 			walk_cooldown = 5
 		enemy.speed += charge_vec * 20000 * dt
 		if enemy.is_colliding():
-			print("collide")
 			collided_with_wall()
 
 func collided_with_player(player):
