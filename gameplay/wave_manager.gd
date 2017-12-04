@@ -66,7 +66,8 @@ func new_wave():
 	var w = get_node('Wave')
 	w.start()
 	dialog_box.display_text("New wave incoming [color=purple]baby!![/color] Also this is a [color=blue]long[/color] [color=red]long[/color] [color=green]long[/color] long long long long long long long long long long long long text haha", 6)
-	dialog_box.display_new_ability("DUMMY", "K", "Makes you even more stupid!", preload("res://actions/dash.gd").new().icon.instance())
+	dialog_box.display_new_ability("DUMMY", "K", "Makes you even more stupid!", preload("res://actions/create_trap.gd").new().icon.instance())
+	dialog_box.display_new_enemy("BAD GUY", "3", "Strong enemy that hits you. Is immune to [color=yellow]traps[/color].", preload("res://actions/dash.gd").new().icon.instance())
 	dialog_box.display_new_ability("CRAZY THING", "R", "Omar is underrated! Omar is underrated! Omar is underrated! Omar is underrated!", preload("res://actions/create_shotgun_bullet.gd").new().icon.instance())
 	w.connect('ended', self, 'wave_ended')
 

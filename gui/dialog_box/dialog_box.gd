@@ -29,11 +29,28 @@ func display_new_ability(name, key, description, icon):
 	var ib = infobox.instance()
 	
 	#Configure info box
-	ib.set_top_text("[center]NEW ABILITY [color=lime]UNLOCKED:[/color][/center]")
+	ib.set_top_text("[center]NEW ABILITY [color=blue]UNLOCKED:[/color][/center]")
 	ib.set_title("[center][color=yellow][u]"+name+"[/u][/color][/center]")
 	ib.set_icon(icon)
 	ib.set_description("[center]"+description+"[/center]")
 	ib.set_bottom_text("[center][color=yellow]Press[/color][color=black] "+key+" [/color][color=yellow]to use it![/color][/center]")
+	ib.set_bg_color("ability")
+	
+	#Add ib to info boxes and re-arrange them
+	infoboxes.add_child(ib)
+	ib.activate()
+	fix_info_boxes()
+
+func display_new_enemy(name, health, description, icon):
+	var ib = infobox.instance()
+	
+	#Configure info box
+	ib.set_top_text("[center]NEW ENEMY [color=lime]UNLOCKED:[/color][/center]")
+	ib.set_title("[center][color=yellow][u]"+name+"[/u][/color][/center]")
+	ib.set_icon(icon)
+	ib.set_description("[center]"+description+"[/center]")
+	ib.set_bottom_text("[center][color=yellow]Enemy Health: [/color][color=black]"+health+" [/color][/center]")
+	ib.set_bg_color("enemy")
 	
 	#Add ib to info boxes and re-arrange them
 	infoboxes.add_child(ib)
