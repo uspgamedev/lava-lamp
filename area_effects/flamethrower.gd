@@ -10,7 +10,7 @@ signal finish
 var enemyList = []
 
 func _ready():
-	damage = 0.5
+	damage = 1
 	timer.connect('timeout', self, '_finish')
 	input.connect('not_hold_action', self, '_finish')
 	timer.start()
