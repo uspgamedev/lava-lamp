@@ -12,7 +12,7 @@ const ENEMIES = [
 	['Hard Shielded', preload('res://characters/enemies/hard_shielded.tscn'), 45, 'DESCRIÇÃO'],
 	['Hard Bouncer', preload('res://characters/enemies/hard_bouncer.tscn'), 55,   'DESCRIÇÃO'],
 	['Hard Mage', preload('res://characters/enemies/hard_mage.tscn'), 65,         'DESCRIÇÃO'],
-	['Hard CHarger', preload('res://characters/enemies/hard_charger.tscn'), 77,   'DESCRIÇÃO']
+	['Hard Charger', preload('res://characters/enemies/hard_charger.tscn'), 77,   'DESCRIÇÃO']
 ]
 
 const MECHANICS = [

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/bouncer/bouncer.gd" type="Script" id=2]
@@ -39,6 +39,23 @@ tracks/0/keys = {
 "values": [ 4, 5, 6 ]
 }
 
+[sub_resource type="Animation" id=3]
+
+resource/name = "hit"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="Bouncer" instance=ExtResource( 1 )]
 
 script/script = ExtResource( 2 )
@@ -58,6 +75,10 @@ frame = 6
 anims/move = SubResource( 1 )
 anims/strike = SubResource( 2 )
 autoplay = "move"
+
+[node name="Hit" parent="Sprite"]
+
+anims/hit = SubResource( 3 )
 
 [node name="CollisionPolygon2D" parent="."]
 

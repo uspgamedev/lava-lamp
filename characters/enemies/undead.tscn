@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/undead.gd" type="Script" id=2]
 [ext_resource path="res://characters/enemies/undead/undead.tex" type="Texture" id=3]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=4]
 
 resource/name = "move_down"
 length = 0.4
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=5]
 
 resource/name = "move_up"
 length = 0.4
@@ -36,6 +36,23 @@ tracks/0/keys = {
 "transitions": FloatArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "hit"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="Undead" instance=ExtResource( 1 )]
@@ -53,9 +70,13 @@ hframes = 4
 
 [node name="AnimationPlayer" parent="Sprite"]
 
-anims/move_down = SubResource( 1 )
-anims/move_up = SubResource( 2 )
+anims/move_down = SubResource( 4 )
+anims/move_up = SubResource( 5 )
 autoplay = "move_down"
+
+[node name="Hit" parent="Sprite"]
+
+anims/hit = SubResource( 3 )
 
 [node name="EnemyHealth" parent="."]
 
