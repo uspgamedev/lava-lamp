@@ -340,6 +340,7 @@ hp = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 0, -12 )
 texture = ExtResource( 2 )
 vframes = 4
