@@ -6,6 +6,7 @@ const poly = Vector2Array([Vector2(-8, -16), Vector2(8, -16),
 func _init():
 	cooldown_time = 5
 	name = 'laser'
+	self.icon = preload("res://area_effects/laser/sprite.tscn")
 
 func activate(action_handler, key):
 	var Laser = preload('res://area_effects/laser.tscn')

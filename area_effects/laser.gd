@@ -16,11 +16,11 @@ func _ready():
 	for i in range(40):
 		var tile = LaserTile.instance()
 		self.tiles.add_child(tile)
-		tile.set_pos(head.get_pos() + i*32*Vector2(0,1))
+		tile.set_pos(head.get_pos() + (i+1)*32*Vector2(0,1))
 		tile.get_node("Area2D").connect("area_enter", self, "_on_Area2D_area_enter")
 
 func _fixed_process(delta):
-	self.set_pos(self.player.get_pos())
+	self.set_pos(self.player.get_pos() + self.player.get_look_vec()*5)
 	self.update_tiles()
 
 func _on_Area2D_area_enter(area):
