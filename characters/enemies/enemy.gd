@@ -19,23 +19,18 @@ func _fixed_process(delta):
 	stunned -= delta
 	if stunned <= 0:
 		ai.think(delta, player)
-	
+var _last_dir = DIR.UP
+
 #Return aproximate direction (only 4 cardinal directions) enemy is moving at
 func get_look_dir_value():
-	var temp = Vector2(get_speed().x, get_speed().y)
-	temp.normalized()
-	var abs_x = abs(temp.x)
-	var abs_y = abs(temp.y)
-	if abs_x > abs_y:
-		if temp.x > 0:
-			return DIR.RIGHT
-		else:
-			return DIR.LEFT
+	if get_speed().length_squared() <= 1:
+		return _last_dir
+	var x = atan2(get_speed().x, get_speed().y)
+	if x > .75 * PI and x < -.75 * PI:
+		_last_dir = DIR.UP
 	else:
-		if temp.y > 0:
-			return DIR.DOWN
-		else:
-			return DIR.UP
+		_last_dir = [DIR.LEFT, DIR.DOWN, DIR.RIGHT][min(2, floor((x + .75 * PI) / (PI / 2.0)))]
+	return _last_dir
 
 func _on_Area2D_area_enter( area ):
 	if area.is_in_group("player_area"):
