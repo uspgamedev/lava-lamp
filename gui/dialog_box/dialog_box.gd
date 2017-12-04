@@ -33,14 +33,22 @@ func display_text(text):
 		
 	tb.set_text(text)
 	tb.set_visible_characters(0)
+	
+	#Create gradual text effect
 	var len = text.length()
-	var text_speed = 10
+	var text_speed = 20
 	var d = len/text_speed
-	text_tween.interpolate_property(tb, "visible_characters", 0, text.length(), d, Tween.TRANS_LINEAR, Tween.EASE_IN, .3)
+	var delay = .3
+	text_tween.interpolate_property(tb, "visible_characters", 0, text.length(), d, Tween.TRANS_LINEAR, Tween.EASE_IN, delay)
 	text_tween.start()
 	
-
+	#Make cientist talk while text appear
+	var portrait = get_parent().get_node("Cientist_Portrait")
+	portrait.start_talking()
+	
 func _text_tween_complete( object, key ):
+	var portrait = get_parent().get_node("Cientist_Portrait")
+	portrait.stop_talking()
 	start_deactivate_timer()
 	
 func start_deactivate_timer():
