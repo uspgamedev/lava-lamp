@@ -44,7 +44,7 @@ func create_enemy():
 		e.set_pos(main.get_valid_position())
 	
 		main.get_node("Props").add_child(e)
-		get_node('EnemyTimer').set_wait_time(1 + randi()%3)
+		get_node('EnemyTimer').set_wait_time(3 + randi()%3)
 		get_node('EnemyTimer').start()
 
 func check_wave_end():

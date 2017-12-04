@@ -28,8 +28,8 @@ const NEW_ENEMY_TYPE = 3
 const NEW_ENEMY_PROPORTION = 1/3
 
 var cur_wave = 1
-var enemy_types = 9 #default = 1
-var wave_points = 1000 #default = 10
+var enemy_types = 1
+var wave_points = 10
 
 var t
 
