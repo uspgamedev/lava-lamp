@@ -47,7 +47,7 @@ func set_control_type(tp):
 
 func _input(event):
 	if get_tree().is_paused():
-		if event.is_action_pressed('pause'):
+		if not get_node('/root/Main/GUI/GameOver').is_visible() and event.is_action_pressed('pause'):
 			get_tree().set_pause(false)
 			get_node('/root/Main/GUI/PauseScreen').set_hidden(true)
 		return

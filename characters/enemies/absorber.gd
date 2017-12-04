@@ -9,6 +9,7 @@ const DIR_ANIMS = [
 ]
 
 var last_dir = -1
+var shield = true
 
 func _ready():
 	set_fixed_process(true)
@@ -27,3 +28,9 @@ func _fixed_process(delta):
 		else:
 			anim.set_current_animation(DIR_ANIMS[0] + append)
 		last_dir = dir
+	if shield and stunned > 0:
+		shield = false
+		get_node("Particles2D").set_emitting(false)
+	elif not shield and stunned <= 0:
+		shield = true
+		get_node("Particles2D").set_emitting(true)

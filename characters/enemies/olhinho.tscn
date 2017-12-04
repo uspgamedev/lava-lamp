@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://characters/enemies/olhinho.gd" type="Script" id=1]
 [ext_resource path="res://characters/enemies/olhinho_sprite_sheet.tex" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://characters/enemies/ai/eye_ai.gd" type="Script" id=4]
 [ext_resource path="res://characters/enemies/gui/enemy_health.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=6]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=7]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/enemies/eye/monster_sound_eye_walking_loopar_enquanto_ele_estiver_vivo.smp" type="Sample" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -195,6 +198,15 @@ tot_width = 40
 [node name="Stunned" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 0, -30 )
+
+[node name="SFX" parent="." instance=ExtResource( 7 )]
+
+autoplay = true
+which = "Float"
+
+[node name="Float" parent="SFX" instance=ExtResource( 8 )]
+
+sample = ExtResource( 9 )
 
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 

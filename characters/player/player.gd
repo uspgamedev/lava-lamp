@@ -53,7 +53,6 @@ func _ready():
 	self.connect('change_emotion', portrait, 'change_emotion')
 
 	ah.set_key_to_action(KEY_Q, 'create_simple_bullet')
-	ah.set_key_to_action(KEY_C, 'create_trap')
 
 	load_camera()
 
@@ -153,7 +152,7 @@ func deal_damage(d):
 		self.damage = max(0, self.damage + d)
 	self.get_node("Sprite/Hit").play("hit")
 	if self.damage >= self.hp:
-		get_tree().change_scene('res://main.tscn')
+		get_node('/root/Main/GUI/GameOver').start()
 	gui.get_node('HealthBar').update()
 	if d > 0:
 		emit_signal('change_emotion', "angry", 2)
