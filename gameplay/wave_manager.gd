@@ -7,10 +7,11 @@ const ENEMIES = [
 	preload('res://characters/enemies/mage.tscn'),
 	preload('res://characters/enemies/bouncer.tscn'),
 	preload('res://characters/enemies/ghost.tscn'),
+	preload('res://characters/enemies/absorber.tscn'),
 	preload('res://characters/enemies/undead.tscn'),
+	preload('res://characters/enemies/hard_shielded.tscn'),
 	preload('res://characters/enemies/hard_mage.tscn'),
 	preload('res://characters/enemies/hard_charger.tscn'),
-	preload('res://characters/enemies/hard_shielded.tscn'),
 ]
 
 const ENEMY_POINTS = [
@@ -20,9 +21,11 @@ const ENEMY_POINTS = [
 	12, #mage
 	15, #bouncer
 	20, #ghost
-	25, #undead
-	40, #hard mage
-	60, #hard charger
+	25, #absorber
+	30, #undead
+	45, #hard shielded
+	55, #hard mage
+	70, #hard charger
 ]
 
 const NEW_ENEMY_TYPE = 3
