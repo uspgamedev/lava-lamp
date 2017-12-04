@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -8, -16, 8, -16, 8, 16, -8, 16 )
+
+[node name="LaserTile" type="Polygon2D"]
+
+polygon = Vector2Array( -8, -16, 8, -16, 8, 16, -8, 16 )
+uv = Vector2Array(  )
+color = Color( 0, 0.784314, 0.784314, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+
+build_mode = 0
+polygon = Vector2Array( -8, -16, 8, -16, 8, 16, -8, 16 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+
