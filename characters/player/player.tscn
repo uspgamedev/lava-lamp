@@ -324,6 +324,7 @@ transform/pos = Vector2( 0, -12 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 14
+
 script/script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
@@ -335,6 +336,7 @@ anims/Fire_Down = SubResource( 2 )
 anims/Fire_Left = SubResource( 3 )
 anims/Fire_Right = SubResource( 4 )
 anims/Fire_Up = SubResource( 5 )
+
 anims/Fire_Walk_Down = SubResource( 6 )
 anims/Fire_Walk_Left = SubResource( 7 )
 anims/Fire_Walk_Right = SubResource( 8 )
@@ -347,6 +349,7 @@ anims/Walk_Down = SubResource( 14 )
 anims/Walk_Left = SubResource( 15 )
 anims/Walk_Right = SubResource( 16 )
 anims/Walk_Up = SubResource( 17 )
+
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -357,7 +360,9 @@ autoplay = "Idle_Down"
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
+
 anims/hit = SubResource( 18 )
+
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -426,7 +431,6 @@ __meta__ = {
 
 [node name="Hook" type="Node2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 0, -20 )
 
 [node name="LookArrow" parent="Hook" instance=ExtResource( 5 )]
@@ -482,6 +486,20 @@ autostart = false
 
 transform/pos = Vector2( 0, -60 )
 
+[node name="Intro_Tween" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Intro_Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
 
 [connection signal="timeout" from="Expression_Timer" to="." method="_on_Expression_Timer_timeout"]
@@ -490,4 +508,6 @@ transform/pos = Vector2( 0, -60 )
 
 [connection signal="timeout" from="StunTimer" to="." method="_unstun"]
 
+[connection signal="tween_complete" from="Intro_Tween" to="." method="_on_Intro_Tween_tween_complete"]
 
+[connection signal="timeout" from="Intro_Timer" to="." method="_on_Intro_Timer_timeout"]
