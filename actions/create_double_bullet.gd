@@ -10,6 +10,7 @@ func activate(action_handler):
 	var b1 = SimpleBullet.instance()
 	var b2 = SimpleBullet.instance()
 	var pl = action_handler.get_parent()
+	pl.sfx.play("DoubleShoot")
 	b1.set_pos(pl.get_pos())
 	b2.set_pos(pl.get_pos())
 	b1.speed = pl.get_look_dir().rotated(PI/6).normalized() * 400
