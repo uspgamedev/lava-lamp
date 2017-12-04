@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/mage.gd" type="Script" id=2]
 [ext_resource path="res://characters/enemies/olhinho_sprite_sheet.tex" type="Texture" id=3]
 [ext_resource path="res://characters/enemies/ai/mage_ai.gd" type="Script" id=4]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=5]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=6]
+[ext_resource path="res://characters/enemies/eye/monster_sound_eye_walking_loopar_enquanto_ele_estiver_vivo.smp" type="Sample" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -124,5 +127,14 @@ script/script = ExtResource( 4 )
 [node name="EnemyHealth" parent="."]
 
 max_in_row = 3
+
+[node name="SFX" parent="." instance=ExtResource( 5 )]
+
+autoplay = true
+which = "Float"
+
+[node name="Float" parent="SFX" instance=ExtResource( 6 )]
+
+sample = ExtResource( 7 )
 
 
