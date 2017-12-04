@@ -82,11 +82,14 @@ func wave_ended():
 	cur_wave += 1
 	update_enemy_types()
 	update_wave_points()
+	t.disconnect('timeout', self, 'start_wave')
+	t.connect('timeout', self, 'new_wave')
+	t.set_one_shot(true)
 	t.start()
 
 func _unhandled_key_input(ev):
 	key = ev.scancode
-	if (key >= 48 and key <= 57) or (key >= 65 and key <= 90):
+	if (key >= KEY_0 and key <= KEY_9) or (key >= KEY_A and key <= KEY_Z):
 		for i in reserved_keys:
 			if key == i:
 				return
@@ -95,7 +98,7 @@ func _unhandled_key_input(ev):
 func give_new_mechanics():
 	#if (cur_wave%NEW_ENEMY_TYPE == 0):
 	if (true):
-		dialog_box.display_text("Press a button to assign your new awesome ability!", 6)
+		dialog_box.display_text("Press a button to assign your new awesome ability!", 10e+10)
 		set_process_unhandled_key_input(true)
 		var player = get_node('../Props/Player')
 		var ah = player.get_node('ActionHandler')
@@ -105,20 +108,21 @@ func give_new_mechanics():
 			yield(get_tree(), 'fixed_frame')
 		ah.set_key_to_action(key, MECHANICS[cur_mechanics])
 		print(key)
-		cur_mechanics += 0
+		cur_mechanics += 1
 		reserved_keys.append(key)
 		player.resume_movimentation()
 		set_process_unhandled_key_input(false)
-	dialog_box.display_text("New wave incoming [color=purple]baby!![/color] Also this is a [color=blue]long[/color] [color=red]long[/color] [color=green]long[/color] long long long long long long long long long long long long text haha", 6)
-	t = Timer.new()
-	t.set_wait_time(10)
+	dialog_box.display_text("To use your new ability, press " + OS.get_scancode_string(key), 6)
+	t.set_wait_time(3)
+	t.disconnect('timeout', self, 'new_wave')
 	t.connect('timeout', self, 'start_wave')
-	t.start()
 	t.set_one_shot(true)
-	add_child(t)
+	t.start()
 
 func start_wave():
+	dialog_box.display_text("New wave incoming [color=purple]baby!![/color] Also this is a [color=blue]long[/color] [color=red]long[/color] [color=green]long[/color] long long long long long long long long long long long long text haha", 6)
 	var w = get_node('Wave')
+	dialog_box.clear_all_info_boxes()
 	print('Wave ', cur_wave, ' started')
 	w.start()
 
