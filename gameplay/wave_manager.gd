@@ -1,6 +1,6 @@
 extends Node
 
-const ENEMIES = [
+const ENEMIES = [ # 12 enemies
 	['Olhinho', preload('res://characters/enemies/olhinho.tscn'), 2,              'DESCRIÇÃO'],
 	['Charger', preload('res://characters/enemies/charger.tscn'), 5,              'DESCRIÇÃO'],
 	['Shielded', preload('res://characters/enemies/shielded.tscn'), 7,            'DESCRIÇÃO'],
@@ -15,7 +15,7 @@ const ENEMIES = [
 	['Hard CHarger', preload('res://characters/enemies/hard_charger.tscn'), 77,   'DESCRIÇÃO']
 ]
 
-const MECHANICS = [
+const MECHANICS = [ # 17 mechanics
 	['Simple Bullet', 'create_simple_bullet',     'DESCRIÇÃO'],
 	['Double Bullet', 'create_double_bullet',     'DESCRIÇÃO'],
 	['Shotgun', 'create_shotgun_bullet',          'DESCRIÇÃO'],
@@ -27,11 +27,16 @@ const MECHANICS = [
 	['Flamethrower', 'create_flamethrower',       'DESCRIÇÃO'],
 	['Wormhole', 'create_wormhole',               'DESCRIÇÃO'],
 	['Guided Bullet', 'create_guided_bullet',     'DESCRIÇÃO'],
-	['Earthquake', 'create_earthquake',           'DESCRIÇÃO'],
+	['Storm', 'create_earthquake',                'DESCRIÇÃO'],
 	['Ion Bullet', 'create_ion_bullet',           'DESCRIÇÃO'],
 	['Laser', 'create_laser',                     'DESCRIÇÃO'],
 	['Ghost Bullet', 'create_ghost_bullet',       'DESCRIÇÃO'],
-	['Cure Bullet', 'create_cure_bullet',         'DESCRIÇÃO']
+	['Cure Bullet', 'create_cure_bullet',         'DESCRIÇÃO'],
+	['Armor', 'shield',                           'DESCRIÇÃO']
+]
+
+const DOUBLE_MECH_WAVES = [
+	
 ]
 
 const END_SPEECHES = [
@@ -120,9 +125,17 @@ func _unhandled_key_input(ev):
 		waiting_key = false
 
 func give_new_mechanics():
-	dialog_box.display_text("Press a button to assign your new awesome ability!", 10e+10)
 	dialog_box.display_new_ability(MECHANICS[cur_mechanics][0], MECHANICS[cur_mechanics][2], load("res://actions/create_trap.gd").new().icon.instance())
-	dialog_box.display_new_enemy(ENEMIES[cur_mechanics][0], "3", ENEMIES[cur_mechanics][3], preload("res://actions/dash.gd").new().icon.instance())
+	dialog_box.display_new_enemy(ENEMIES[cur_mechanics][0], "3", ENEMIES[cur_mechanics][3], load("res://actions/dash.gd").new().icon.instance())
+	for i in DOUBLE_MECH_WAVES:
+		if i == cur_wave:
+			dialog_box.display_new_ability(MECHANICS[cur_mechanics + 1][0], MECHANICS[cur_mechanics + 1][2], load("res://actions/create_shotgun_bullet.gd").new().icon.instance())
+			get_new_mechanics_input(true)
+			return
+	get_new_mechanics_input(false)
+
+func get_new_mechanics_input(double_mech):
+	dialog_box.display_text("Press a button to assign the input for " + MECHANICS[cur_mechanics][0] + '.', 10e+10)
 	set_process_unhandled_key_input(true)
 	var player = get_node('../Props/Player')
 	var ah = player.get_node('ActionHandler')
@@ -130,13 +143,22 @@ func give_new_mechanics():
 	waiting_key = true
 	while(waiting_key):
 		yield(get_tree(), 'fixed_frame')
-	ah.set_key_to_action(key, MECHANICS[1][cur_mechanics])
-	cur_mechanics += 1
+	ah.set_key_to_action(key, MECHANICS[cur_mechanics][1])
 	reserved_keys.append(key)
 	player.resume_movimentation()
 	set_process_unhandled_key_input(false)
-	dialog_box.display_text("To use your new ability, press " + OS.get_scancode_string(key), 6)
-	prepare_wave()
+	dialog_box.display_text("To use " + MECHANICS[cur_mechanics][0] + ", press " + OS.get_scancode_string(key) + '.', 4)
+	cur_mechanics += 1
+	if (double_mech):
+		var timer = Timer.new()
+		timer.set_wait_time(4)
+		timer.set_one_shot(true)
+		timer.start()
+		add_child(timer)
+		yield(timer, 'timeout')
+		get_new_mechanics_input(false)
+	else:
+		prepare_wave()
 
 func start_wave():
 	dialog_box.display_text(START_SPEECHES[randi()%START_SPEECHES.size()], 6)
