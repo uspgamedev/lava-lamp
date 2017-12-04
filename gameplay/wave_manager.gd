@@ -10,6 +10,7 @@ const ENEMIES = [
 	preload('res://characters/enemies/undead.tscn'),
 	preload('res://characters/enemies/hard_mage.tscn'),
 	preload('res://characters/enemies/hard_charger.tscn'),
+	preload('res://characters/enemies/hard_shielded.tscn'),
 ]
 
 const ENEMY_POINTS = [
