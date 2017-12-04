@@ -1,12 +1,14 @@
 extends Node2D
 
-var action_map = []
 const Cooldown = preload('res://gui/cooldown.tscn')
 
 onready var gui = get_node('/root/Main/GUI')
 onready var portrait = gui.get_node("Player_Portrait")
 
 signal change_emotion(emotion, time)
+
+var action_map = []
+var capturing = true
 
 func _ready():
 	set_process_unhandled_key_input(true)
@@ -48,6 +50,6 @@ func do_action(key):
 
 func _unhandled_key_input(ev):
 	var key = ev.scancode - KEY_A
-	if key < 0 or key >= 26 or not ev.pressed or ev.echo:
+	if key < 0 or key >= 26 or not ev.pressed or ev.echo or not capturing:
 		return
 	do_action(key)

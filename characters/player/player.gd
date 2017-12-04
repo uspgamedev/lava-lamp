@@ -84,6 +84,21 @@ func load_camera():
 	camera.set_enable_follow_smoothing(true)
 	camera.set_follow_smoothing(5)
 	camera.make_current()
+	
+func _stun():
+	input.disconnect('hold_direction', self, '_add_speed')
+	input.disconnect('hold_direction', self, '_set_look_dir')
+	input.disconnect('press_action', self, '_act')
+	ah.capturing = false
+	get_node("Stunned").set_hidden(false)
+	get_node("StunTimer").start()
+	get_node("Stunned/Timer").start()
+	
+func _unstun():
+	input.connect('hold_direction', self, '_add_speed')
+	input.connect('hold_direction', self, '_set_look_dir')
+	input.connect('press_action', self, '_act')
+	ah.capturing = true
 
 func deal_damage(d):
 	self.damage = max(0, self.damage + d)
