@@ -18,6 +18,7 @@ func deactivate_box():
 	active = false
 	anim_player.play("Deactivate")
 	tb.set_bbcode("")
+	clear_all_info_boxes()
 
 func is_active():
 	return active
@@ -36,7 +37,14 @@ func display_new_ability(name, key, description, icon):
 	#Add ib to info boxes and re-arrange them
 	infoboxes.add_child(ib)
 	ib.activate()
-	
+	fix_info_boxes()
+
+func fix_info_boxes():
+	pass
+
+func clear_all_info_boxes():
+	for infob in infoboxes.get_children():
+		infob.deactivate()
 
 func display_text(text):
 	var text_tween = get_node("Text Tween")

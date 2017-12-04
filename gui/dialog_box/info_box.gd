@@ -13,6 +13,10 @@ func activate():
 func deactivate():
 	active = false
 	anim_player.play("Deactivate")
+	anim_player.connect("finished", self, "kill_me")
+
+func kill_me():
+	queue_free()
 
 func get_width():
 	return 260
