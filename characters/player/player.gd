@@ -64,14 +64,12 @@ func stop_movimentation():
 	input.disconnect('hold_direction', self, '_add_speed')
 	input.disconnect('hold_direction', self, '_set_look_dir')
 	input.disconnect('hold_look', self, '_set_look_dir')
-	input.disconnect('press_action', self, '_act')
 	input.disconnect('skip_intro', self, 'skip_intro')
 
 func resume_movimentation():
 	input.connect('hold_direction', self, '_add_speed')
 	input.connect('hold_direction', self, '_set_look_dir')
 	input.connect('hold_look', self, '_set_look_dir')
-	input.connect('press_action', self, '_act')
 	input.connect('skip_intro', self, 'skip_intro')
 
 func get_look_vec():
