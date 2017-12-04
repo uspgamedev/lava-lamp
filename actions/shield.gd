@@ -2,8 +2,9 @@ extends 'base_action.gd'
 const SHIELDTIME = 5
 
 func _init():
-	cooldown_time = 10
+	cooldown_time = 30
 	name = "shield"
+	self.icon = preload("res://effects/lightning/shield.tscn")
 
 func activate(action_handler, key):
 	var player = action_handler.get_parent()

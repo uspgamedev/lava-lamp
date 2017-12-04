@@ -95,7 +95,7 @@ func shield(time):
 	self.shieldTime = time
 	get_node("Shielded").set_hidden(false)
 	get_node("Shielded/Timer").start()
-	get_node("Shield").set_emitting(true)
+	get_node("Shielded/Particles2D").set_emitting(true)
 
 func get_look_dir():
 	return DIR.VECTOR[self.dir]
