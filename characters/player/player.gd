@@ -51,27 +51,23 @@ func _ready():
 
 	self.connect('change_emotion', portrait, 'change_emotion')
 
-	ah.set_key_to_action(KEY_B, 'debug')
-	ah.set_key_to_action(KEY_G, 'create_simple_bullet')
-	ah.set_key_to_action(KEY_N, 'create_trap')
-	ah.set_key_to_action(KEY_M, 'create_wormhole')
-	ah.set_key_to_action(KEY_F, 'create_ricochet_bullet')
-	ah.set_key_to_action(KEY_V, 'dash')
-	ah.set_key_to_action(KEY_H, 'create_double_bullet')
-	ah.set_key_to_action(KEY_J, 'create_tracer_bullet')
-	ah.set_key_to_action(KEY_K, 'create_guided_bullet')
-	ah.set_key_to_action(KEY_R, 'create_charge_bullet')
-	ah.set_key_to_action(KEY_T, 'create_shotgun_bullet')
-	ah.set_key_to_action(KEY_U, 'create_earthquake')
-	ah.set_key_to_action(KEY_Y, 'create_ion_bullet')
-	ah.set_key_to_action(KEY_C, 'create_flamethrower')
-	ah.set_key_to_action(KEY_X, 'create_laser')
-	ah.set_key_to_action(KEY_O, 'create_ghost_bullet')
-	ah.set_key_to_action(KEY_L, 'create_cure_bullet')
+	ah.set_key_to_action(KEY_Q, 'create_simple_bullet')
 
 	load_camera()
 	
 	intro_func = intro()
+
+func stop_movimentation():
+	input.disconnect('hold_direction', self, '_add_speed')
+	input.disconnect('hold_direction', self, '_set_look_dir')
+	input.disconnect('press_action', self, '_act')
+	input.disconnect('skip_intro', self, 'skip_intro')
+
+func resume_movimentation():
+	input.connect('hold_direction', self, '_add_speed')
+	input.connect('hold_direction', self, '_set_look_dir')
+	input.connect('press_action', self, '_act')
+	input.connect('skip_intro', self, 'skip_intro')
 
 func get_look_vec():
 	return DIR.VECTOR[self.dir]
