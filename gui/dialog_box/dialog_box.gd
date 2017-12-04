@@ -20,6 +20,10 @@ func deactivate_box():
 	active = false
 	anim_player.play("Deactivate")
 	tb.set_bbcode("")
+	tb.set_visible_characters(0)
+	var timer = get_node("Deactivate Timer")
+	timer.stop()
+	get_node("Text Tween").stop_all()
 	clear_all_info_boxes()
 
 func is_active():
