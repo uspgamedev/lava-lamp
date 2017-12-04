@@ -14,6 +14,7 @@ signal skip_intro
 
 enum {
 KEYBOARD,
+KEYBOARD2,
 MOUSE
 }
 
@@ -29,13 +30,13 @@ func _ready():
 	set_process_input(true)
 	for i in range(4):
 		last_dir_hold.append(-10)
-	set_control_type(MOUSE)
+	set_control_type(KEYBOARD2)
 
 func set_control_type(tp):
 	control_type = tp
 	if tp == KEYBOARD:
 		shoot_on_click = true
-	elif tp == MOUSE:
+	elif tp == MOUSE or tp == KEYBOARD2:
 		shoot_on_click = false
 
 func _input(event):
@@ -70,8 +71,15 @@ func _get_action(e):
 			return 1
 		else:
 			return -1
-	else:
+	elif control_type == KEYBOARD2:
+		if e.is_action_pressed('keyboard2_click'):
+			return 1
+		else:
+			return -1
+	elif control_type == KEYBOARD:
 		return -1
+	else:
+		breakpoint
 
 func _get_look_direction(e):
 	if control_type == KEYBOARD:
@@ -86,8 +94,10 @@ func _get_look_direction(e):
 			return DIR.UP
 		var tp = floor((ang + PI * 7.0 / 8) / (PI / 4.0))
 		return [DIR.UP_LEFT, DIR.LEFT, DIR.DOWN_LEFT, DIR.DOWN, DIR.DOWN_RIGHT, DIR.RIGHT, DIR.UP_RIGHT][min(6, tp)]
+	elif control_type == KEYBOARD2:
+		pass
 	else:
-		assert(false)
+		breakpoint
 	var i = 0
 	for cmd in ['look_up', 'look_down', 'look_right', 'look_left']:
 		if e.is_action_pressed(cmd):

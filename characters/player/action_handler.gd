@@ -4,6 +4,7 @@ const Cooldown = preload('res://gui/cooldown.tscn')
 
 onready var gui = get_node('/root/Main/GUI')
 onready var portrait = gui.get_node("Player_Portrait")
+onready var input = get_node('/root/input')
 
 var selected_action = null
 
@@ -20,7 +21,7 @@ func _ready():
 
 func cooldown_end(act, key):
 	act.on_cooldown = false
-	if (key != -1 and Input.is_key_pressed(KEY_A + key)) or (key == -1 and Input.is_mouse_button_pressed(BUTTON_LEFT) and selected_action == act):
+	if (key != -1 and Input.is_key_pressed(KEY_A + key)) or (key == -1 and input._get_action(Input) == 1 and selected_action == act):
 		actually_do(act, key)
 
 func map_key(key):
@@ -69,14 +70,13 @@ func do_selected_action(_):
 	if selected_action == null or selected_action.on_cooldown: return
 	actually_do(selected_action, -1)
 
-onready var input = get_node('/root/input')
 
 func do_action(key):
 	var act = action_map[key]
 	if act == null: return
 	if input.control_type == input.MOUSE and not act.auto_play:
 		selected_action = act
-		if Input.is_mouse_button_pressed(BUTTON_LEFT) and not act.on_cooldown:
+		if input._get_action(Input) == 1 and not act.on_cooldown:
 			actually_do(selected_action, -1)
 	elif not act.on_cooldown:
 		actually_do(act, key)
