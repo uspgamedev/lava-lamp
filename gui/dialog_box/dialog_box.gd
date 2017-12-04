@@ -25,7 +25,6 @@ func is_active():
 
 func display_new_ability(name, key, description, icon):
 	var ib = infobox.instance()
-	var w = ib.get_width()
 	
 	#Configure info box
 	ib.set_top_text("[center]NEW ABILITY [color=lime]UNLOCKED:[/color][/center]")
@@ -40,7 +39,16 @@ func display_new_ability(name, key, description, icon):
 	fix_info_boxes()
 
 func fix_info_boxes():
-	pass
+	var n = infoboxes.get_child_count()
+	if n <= 0:
+		return
+	var gap = 20
+	var w = infoboxes.get_child(0).get_width()
+	var total_width = (n-1)*w + (n-1)*gap
+	var x_pos = -total_width/2 #Inicial x position for a infobox
+	for infob in infoboxes.get_children():
+		infob.set_pos(Vector2(x_pos, infob.get_pos().y))
+		x_pos += w + gap
 
 func clear_all_info_boxes():
 	for infob in infoboxes.get_children():
