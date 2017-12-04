@@ -397,7 +397,7 @@ autostart = false
 [node name="Shooting_Timer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 0.3
+wait_time = 0.45
 one_shot = true
 autostart = false
 

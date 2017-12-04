@@ -10,9 +10,6 @@ const DIR_ANIMS = [
 
 var last_dir = -1
 
-func _ready():
-	hp = 10
-
 func _fixed_process(delta):
 	var dir = self.get_look_dir_value()
 	if dir != self.last_dir:

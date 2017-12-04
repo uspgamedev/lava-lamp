@@ -2,6 +2,9 @@ extends 'mage_ai.gd'
 
 var teleport_time = 5
 
+func _init():
+	bullet_speed = 500
+
 func think(dt, player):
 	var enemy = get_parent()
 	teleport_time -= dt

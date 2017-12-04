@@ -7,7 +7,7 @@
 [node name="Mage" instance=ExtResource( 1 )]
 
 script/script = ExtResource( 2 )
-hp = 6
+hp = 3
 min_spawn_range = null
 max_spawn_range = null
 

@@ -106,4 +106,8 @@ polygon = Vector2Array( -19.4189, -20.1937, -19.4189, 19.8063, 20.5811, 19.8063,
 
 script/script = ExtResource( 4 )
 
+[node name="EnemyHealth" parent="."]
+
+transform/pos = Vector2( 0, -45 )
+
 
