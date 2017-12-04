@@ -10,27 +10,42 @@ var selected_action = null
 signal change_emotion(emotion, time)
 
 var action_map = []
-var capturing = true
 
 func _ready():
 	set_process_unhandled_key_input(true)
 	
-	get_node('/root/input').connect('press_action', self, 'do_selected_action')
-	
 	self.connect('change_emotion', portrait, 'change_emotion')
 	
-	action_map.resize(26)
+	action_map.resize((KEY_Z - KEY_A + 1) + (KEY_9 - KEY_0 + 1))
 
 func cooldown_end(act, key):
 	act.on_cooldown = false
 	if (key != -1 and Input.is_key_pressed(KEY_A + key)) or (key == -1 and Input.is_mouse_button_pressed(BUTTON_LEFT) and selected_action == act):
 		actually_do(act, key)
 
+func map_key(key):
+	if key >= KEY_A and key <= KEY_Z:
+		return key - KEY_A
+	elif key >= KEY_0 and key <= KEY_9:
+		return key - KEY_0 + (KEY_Z - KEY_A) + 1
+	else:
+		return -1
+
+func unmap_key(key):
+	if key >= 0 and key <= KEY_Z - KEY_A:
+		return key + KEY_A
+	elif key > KEY_Z - KEY_A and key <= KEY_9 - KEY_0 + (KEY_Z - KEY_A) + 1:
+		return key - (KEY_Z - KEY_A) - 1 + KEY_0
+	else:
+		return -1
+
 func set_key_to_action(key, action):
-	if key < KEY_A or key > KEY_Z:
+	if map_key(key) == -1:
 		breakpoint
 	var action_script = load('res://actions/'+action+'.gd')
-	action_map[key - KEY_A] = action_script.new()
+	action_map[map_key(key)] = action_script.new()
+	if action == 'create_simple_bullet':
+		selected_action = action_map[map_key(key)]
 	print("Setted action ", action, " to key ", RawArray([key]).get_string_from_utf8())
 
 func actually_do(act, key):
@@ -61,13 +76,13 @@ func do_action(key):
 	if act == null: return
 	if input.control_type == input.MOUSE and not act.auto_play:
 		selected_action = act
-		if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		if Input.is_mouse_button_pressed(BUTTON_LEFT) and not act.on_cooldown:
 			actually_do(selected_action, -1)
 	elif not act.on_cooldown:
 		actually_do(act, key)
 
 func _unhandled_key_input(ev):
-	var key = ev.scancode - KEY_A
-	if key < 0 or key >= 26 or not ev.pressed or ev.echo or not capturing:
+	var key = map_key(ev.scancode)
+	if key == -1 or not ev.pressed or ev.echo:
 		return
 	do_action(key)
