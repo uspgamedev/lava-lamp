@@ -6,7 +6,7 @@ func set_texture(sp):
 		s.set_texture(sp.get_texture())
 		s.set_vframes(sp.get_vframes())
 		s.set_hframes(sp.get_hframes())
-		if sp.get_node('AnimationPlayer') != null:
+		if sp.has_node('AnimationPlayer'):
 			s.add_child(sp.get_node('AnimationPlayer').duplicate(true))
 
 func _ready():
