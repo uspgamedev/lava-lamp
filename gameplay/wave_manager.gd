@@ -1,18 +1,18 @@
 extends Node
 
 const ENEMIES = [ # 12 enemies
-	['Olhinho', preload('res://characters/enemies/olhinho.tscn'), 2,              'DESCRIÇÃO', 4],
-	['Charger', preload('res://characters/enemies/charger.tscn'), 5,              'DESCRIÇÃO', 4],
-	['Shielded', preload('res://characters/enemies/shielded.tscn'), 7,            'DESCRIÇÃO', 4],
-	['Mage', preload('res://characters/enemies/mage.tscn'), 12,                   'DESCRIÇÃO', 3],
-	['Bouncer', preload('res://characters/enemies/bouncer.tscn'), 15,             'DESCRIÇÃO', 4],
-	['Ghost', preload('res://characters/enemies/ghost.tscn'), 20,                 'DESCRIÇÃO', 4],
-	['Absorber', preload('res://characters/enemies/absorber.tscn'), 25,           'DESCRIÇÃO', 4],
-	['Undead', preload('res://characters/enemies/undead.tscn'), 30,               'DESCRIÇÃO', 16],
-	['Hard Shielded', preload('res://characters/enemies/hard_shielded.tscn'), 45, 'DESCRIÇÃO', 6],
-	['Hard Bouncer', preload('res://characters/enemies/hard_bouncer.tscn'), 55,   'DESCRIÇÃO', 10],
-	['Hard Mage', preload('res://characters/enemies/hard_mage.tscn'), 65,         'DESCRIÇÃO', 5],
-	['Hard Charger', preload('res://characters/enemies/hard_charger.tscn'), 77,   'DESCRIÇÃO', 6]
+	['Olhinho', 'res://characters/enemies/olhinho', 2,              'DESCRIÇÃO', 4],
+	['Charger', 'res://characters/enemies/charger', 5,              'DESCRIÇÃO', 4],
+	['Shielded', 'res://characters/enemies/shielded', 7,            'DESCRIÇÃO', 4],
+	['Mage', 'res://characters/enemies/mage', 12,                   'DESCRIÇÃO', 3],
+	['Bouncer', 'res://characters/enemies/bouncer', 15,             'DESCRIÇÃO', 4],
+	['Ghost', 'res://characters/enemies/ghost', 20,                 'DESCRIÇÃO', 4],
+	['Absorber', 'res://characters/enemies/absorber', 25,           'DESCRIÇÃO', 4],
+	['Undead', 'res://characters/enemies/undead', 30,               'DESCRIÇÃO', 16],
+	['Hard Shielded', 'res://characters/enemies/hard_shielded', 45, 'DESCRIÇÃO', 6],
+	['Hard Bouncer', 'res://characters/enemies/hard_bouncer', 55,   'DESCRIÇÃO', 10],
+	['Hard Mage', 'res://characters/enemies/hard_mage', 65,         'DESCRIÇÃO', 5],
+	['Hard Charger', 'res://characters/enemies/hard_charger', 77,   'DESCRIÇÃO', 6]
 ]
 
 const MECHANICS = [ # 17 mechanics
@@ -126,7 +126,7 @@ func _unhandled_key_input(ev):
 
 func give_new_mechanics():
 	dialog_box.display_new_ability(MECHANICS[cur_mechanics][0], MECHANICS[cur_mechanics][2], load("res://actions/" + MECHANICS[cur_mechanics][1] + ".gd").new().icon.instance())
-	dialog_box.display_new_enemy(ENEMIES[cur_mechanics][0], var2str(ENEMIES[cur_mechanics][4]), ENEMIES[cur_mechanics][3], load("res://actions/dash.gd").new().icon.instance())
+	dialog_box.display_new_enemy(ENEMIES[cur_mechanics][0], var2str(ENEMIES[cur_mechanics][4]), ENEMIES[cur_mechanics][3], load(ENEMIES[cur_mechanics][1] + '_icon.tscn').instance())
 	for i in DOUBLE_MECH_WAVES:
 		if i == cur_wave:
 			dialog_box.display_new_ability(MECHANICS[cur_mechanics + 1][0], MECHANICS[cur_mechanics + 1][2], load("res://actions/" + MECHANICS[cur_mechanics + 1][1] + ".gd").new().icon.instance())

@@ -37,7 +37,11 @@ var SpinningBox = preload('res://gui/3d/viewport_3d.tscn')
 
 func set_icon(icon):
 	add_child(icon)
-	icon.set_scale(Vector2(4, 4))
+	if (icon.get_type() != 'Sprite'):
+		icon.set_scale(Vector2(4, 4))
+	else:
+		icon.set_scale(Vector2(2, 2))
+	icon.set_pos(Vector2(0, 10))
 	return
 	var sb = SpinningBox.instance()
 	sb.get_node('Viewport/Spatial').set_texture(icon)

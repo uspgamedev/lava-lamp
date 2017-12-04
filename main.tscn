@@ -58,8 +58,6 @@ transform/pos = Vector2( 1631.32, 436.505 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 
-process/pause_mode = 2
-
 [node name="BGM" parent="." instance=ExtResource( 6 )]
 
 
