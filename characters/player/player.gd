@@ -49,6 +49,9 @@ func _ready():
 	self.connect('change_emotion', portrait, 'change_emotion')
 
 	ah.set_key_to_action(KEY_Q, 'create_simple_bullet')
+	ah.set_key_to_action(KEY_R, 'create_shotgun_bullet')
+	ah.set_key_to_action(KEY_C, 'create_charge_bullet')
+	ah.set_key_to_action(KEY_G, 'create_guided_bullet')
 
 	load_camera()
 
