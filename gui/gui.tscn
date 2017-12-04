@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/health_bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/player_portrait.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/cientist_portrait.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/dialog_box/dialog_box.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/logo.tscn" type="PackedScene" id=6]
 
 [node name="GUI" type="CanvasLayer"]
 
@@ -34,5 +35,11 @@ transform/scale = Vector2( 2, 2 )
 [node name="Dialog Box" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 630, 650 )
+
+[node name="Logo" parent="." instance=ExtResource( 6 )]
+
+visibility/visible = false
+transform/pos = Vector2( 680, 310 )
+transform/scale = Vector2( 2.2, 2.2 )
 
 

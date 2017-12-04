@@ -10,6 +10,7 @@ signal press_direction(dir)
 signal press_action(act)
 signal not_hold_action
 signal press_quit
+signal skip_intro
 
 var cur = 0
 # Last time this direction was held
@@ -26,6 +27,7 @@ func _input(event):
 	var act = self._get_action(event)
 	if dir != -1: emit_signal('press_direction', dir)
 	if act != -1: emit_signal('press_action', act)
+	if _get_skip_intro(event): emit_signal('skip_intro')
 	if _get_quit(event): emit_signal('press_quit')
 
 func _fixed_process(delta):
@@ -40,6 +42,10 @@ func _fixed_process(delta):
 
 func _get_quit(e):
 	if e.is_action_pressed('ui_quit'):
+		return true
+
+func _get_skip_intro(e):
+	if e.is_action_pressed('skip_intro'):
 		return true
 
 func _get_action(e):

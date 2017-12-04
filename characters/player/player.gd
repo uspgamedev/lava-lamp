@@ -46,6 +46,7 @@ func _ready():
 	input.connect('hold_direction', self, '_add_speed')
 	input.connect('hold_direction', self, '_set_look_dir')
 	input.connect('press_action', self, '_act')
+	input.connect('skip_intro', self, 'skip_intro')
 	#input.connect('hold_look', self, '_set_look_dir')
 
 	self.connect('change_emotion', portrait, 'change_emotion')
@@ -170,6 +171,21 @@ func get_doctor_name():
 	randomize()
 	return DR_NAMES_AND_REASONS[randi()%DR_NAMES_AND_REASONS.size()]
 
+func skip_intro():
+	if can_skip:
+		var timer = get_node("Intro_Timer")
+		if timer.is_active():
+			timer.stop()
+			_on_Intro_Timer_timeout()
+			return
+		
+		var tween = get_node("Intro_Tween")
+		if tween.is_active():
+			tween.stop_all()
+			_on_Intro_Tween_tween_complete(null, null)
+			return
+
+
 func intro():
 	lock_controls()
 	start_spinning()
@@ -205,6 +221,13 @@ func intro():
 	timer.start()
 	
 	yield()
+
+	gui.get_node("Logo").start_logo_animation()
+	var timer = get_node("Intro_Timer")
+	timer.set_wait_time(6)
+	timer.start()
+	
+	yield()
 	
 	can_skip = false
 	unlock_controls()
@@ -215,4 +238,5 @@ func intro():
 	
 	yield()
 	
+	get_node('/root/Main/WaveManager').new_wave()
 	
