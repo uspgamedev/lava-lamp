@@ -7,6 +7,8 @@ onready var active = false
 onready var infobox = load("res://gui/dialog_box/info_box.tscn")
 onready var infoboxes = get_node("Info Boxes")
 
+var delay_time
+
 func _ready():
 	pass
 	
@@ -54,7 +56,9 @@ func clear_all_info_boxes():
 	for infob in infoboxes.get_children():
 		infob.deactivate()
 
-func display_text(text):
+#Delay will be the time dialog box will wait after text is shown before deactivating everything
+func display_text(text, delay = 3):
+	delay_time = delay
 	var text_tween = get_node("Text Tween")
 	
 	if is_active():
@@ -87,5 +91,6 @@ func _text_tween_complete( object, key ):
 	
 func start_deactivate_timer():
 	var timer = get_node("Deactivate Timer")
+	timer.set_wait_time(delay_time)
 	timer.start()
 
