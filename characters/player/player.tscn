@@ -322,7 +322,7 @@ hp = 4
 
 transform/pos = Vector2( 0, -12 )
 texture = ExtResource( 2 )
-vframes = 4
+vframes = 3
 hframes = 14
 frame = 50
 script/script = ExtResource( 3 )
@@ -490,5 +490,3 @@ transform/pos = Vector2( 0, -60 )
 [connection signal="timeout" from="Shooting_Timer" to="." method="stop_shooting"]
 
 [connection signal="timeout" from="StunTimer" to="." method="_unstun"]
-
-
