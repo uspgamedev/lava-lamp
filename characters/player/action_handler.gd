@@ -50,6 +50,7 @@ func set_key_to_action(key, action):
 	print("Setted action ", action, " to key ", RawArray([key]).get_string_from_utf8())
 
 func actually_do(act, key):
+	get_parent()._set_look_dir(input._get_look_direction(Input))
 	var obj = act.activate(self, key)
 	if obj:
 		yield(obj, "finish")
@@ -74,7 +75,7 @@ func do_selected_action(_):
 func do_action(key):
 	var act = action_map[key]
 	if act == null: return
-	if input.control_type == input.MOUSE and not act.auto_play:
+	if not input.shoot_on_click and not act.auto_play:
 		selected_action = act
 		if input._get_action(Input) == 1 and not act.on_cooldown:
 			actually_do(selected_action, -1)

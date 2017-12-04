@@ -62,12 +62,14 @@ func delayed_reload():
 func stop_movimentation():
 	input.disconnect('hold_direction', self, '_add_speed')
 	input.disconnect('hold_direction', self, '_set_look_dir')
+	input.disconnect('hold_look', self, '_set_look_dir')
 	input.disconnect('press_action', self, '_act')
 	input.disconnect('skip_intro', self, 'skip_intro')
 
 func resume_movimentation():
 	input.connect('hold_direction', self, '_add_speed')
 	input.connect('hold_direction', self, '_set_look_dir')
+	input.connect('hold_look', self, '_set_look_dir')
 	input.connect('press_action', self, '_act')
 	input.connect('skip_intro', self, 'skip_intro')
 
@@ -75,8 +77,9 @@ func get_look_vec():
 	return DIR.VECTOR[self.dir]
 
 func _set_look_dir(dir):
-	self.dir = dir
-	emit_signal("look_dir_changed", dir)
+	if dir != -1:
+		self.dir = dir
+		emit_signal("look_dir_changed", dir)
 
 func dash(time):
 	self.dashTime = time
@@ -149,6 +152,7 @@ func _on_Expression_Timer_timeout():
 
 func lock_controls():
 	input.disconnect('hold_direction', self, '_add_speed')
+	input.disconnect('hold_direction', self, '_set_look_dir')
 	input.disconnect('hold_look', self, '_set_look_dir')
 	input.disconnect('press_action', ah, 'do_selected_action')
 	ah.set_process_unhandled_key_input(false)
@@ -156,6 +160,7 @@ func lock_controls():
 
 func unlock_controls():
 	input.connect('hold_direction', self, '_add_speed')
+	input.connect('hold_direction', self, '_set_look_dir')
 	input.connect('hold_look', self, '_set_look_dir')
 	input.connect('press_action', ah, 'do_selected_action')
 	ah.set_process_unhandled_key_input(true)

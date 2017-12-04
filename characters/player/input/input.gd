@@ -53,9 +53,9 @@ func _fixed_process(delta):
 	var act = self._get_action(Input)
 	var look_dir = self._get_look_direction(Input)
 	if dir != -1: emit_signal('hold_direction', dir)
+	if look_dir != -1: emit_signal('hold_look', look_dir)
 	if act != -1: emit_signal('hold_action', act)
 	else: emit_signal('not_hold_action')
-	if look_dir != -1: emit_signal('hold_look', look_dir)
 
 func _get_quit(e):
 	if e.is_action_pressed('ui_quit'):
