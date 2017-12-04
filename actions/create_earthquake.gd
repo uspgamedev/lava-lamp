@@ -6,6 +6,7 @@ func _init():
 	auto_play = true
 
 func activate(action_handler, key):
+	self.icon = preload("res://effects/lightning/sprite.tscn")
 	var Earthquake = preload('res://area_effects/earthquake.tscn')
 	var b = Earthquake.instance()
 	var pl = action_handler.get_parent()
