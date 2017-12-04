@@ -31,11 +31,12 @@ func display_text(text):
 	else:
 		activate_box()
 		
-	tb.set_text(text)
+	tb.set_bbcode(text)
 	tb.set_visible_characters(0)
 	
 	#Create gradual text effect
-	var len = text.length()
+	var raw_text = tb.get_text()
+	var len = raw_text.length()
 	var text_speed = 20
 	var d = len/text_speed
 	var delay = .3

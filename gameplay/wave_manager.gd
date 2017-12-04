@@ -27,7 +27,7 @@ func new_wave():
 	print('Wave ', cur_wave, ' started')
 	var w = get_node('Wave')
 	w.start()
-	dialog_box.display_text("New wave incoming baby! Also this is a long long long long long long long long long long long long long long long text haha")
+	dialog_box.display_text("New wave incoming [color=purple]baby![/color]! Also this is a [color=blue]long[/color] [color=red]long[/color] [color=green]long[/color] long long long long long long long long long long long long text haha")
 	w.connect('ended', self, 'wave_ended')
 
 func _ready():
