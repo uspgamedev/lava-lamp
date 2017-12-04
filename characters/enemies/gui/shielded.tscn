@@ -4,17 +4,9 @@
 
 [node name="Shielded" type="Node2D"]
 
-[node name="Timer" type="Timer" parent="."]
-
-process_mode = 1
-wait_time = 10.0
-one_shot = true
-autostart = false
-
 [node name="Particles2D" parent="." instance=ExtResource( 1 )]
 
+transform/pos = Vector2( -1, 0 )
 config/emitting = false
-
-[connection signal="timeout" from="Timer" to="." method="set_hidden" binds= [ true ]]
 
 

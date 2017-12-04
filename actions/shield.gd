@@ -1,5 +1,5 @@
 extends 'base_action.gd'
-const SHIELDTIME = 5
+const SHIELDTIME = 10
 
 func _init():
 	cooldown_time = 30

@@ -41,6 +41,9 @@ signal look_dir_changed(dir)
 
 var dir = 2
 var intro_func
+var shieldTime = 0
+
+onready var shielded = get_node('Shielded')
 
 func _ready():
 	set_fixed_process(true)
@@ -89,9 +92,16 @@ func dash(time):
 
 func shield(time):
 	self.shieldTime = time
-	get_node("Shielded").set_hidden(false)
-	get_node("Shielded/Timer").start()
-	get_node("Shielded/Particles2D").set_emitting(true)
+	self.sfx.play('ArmorUp')
+	self.shielded.set_hidden(false)
+	self.shielded.get_node("Particles2D").set_emitting(true)
+
+func _fixed_process(delta):
+	self.shieldTime = max(self.shieldTime - delta, 0)
+	if self.shieldTime == 0 and !self.shielded.is_hidden():
+		self.shielded.set_hidden(true)
+		self.shielded.get_node("Particles2D").set_emitting(false)
+		self.sfx.play('ArmorDown')
 
 func get_look_dir():
 	if input.control_type == input.MOUSE:
