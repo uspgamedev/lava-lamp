@@ -6,6 +6,10 @@ func _ready():
 	knockback = 8000
 	enemy_dmg = 2
 
+func collided_with_player(player):
+	emit_signal("bounced")
+	.collided_with_player(player)
+
 func hit(obj):
 	var enemy = get_parent()
 	if obj extends preload('res://bullets/bullet.gd'):
