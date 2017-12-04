@@ -3,6 +3,7 @@ const LaserTile = preload('res://area_effects/laser_tile.tscn')
 
 onready var timer = get_node('Timer')
 onready var tiles = get_node('Tiles')
+onready var sfx = get_node('SFX')
 
 var player
 var pos = 0
@@ -11,6 +12,7 @@ func _ready():
 	damage = 0.5
 	timer.connect('timeout', self, 'queue_free')
 	timer.start()
+	self.sfx.play('Bling')
 	set_fixed_process(true)
 	var head = self.tiles.get_node('Head')
 	for i in range(40):

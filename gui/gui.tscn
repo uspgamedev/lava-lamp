@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/health_bar.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://gui/dialog_box/dialog_box.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gui/logo.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gui/dialog_box/dialog_box_font.fnt" type="BitmapFont" id=7]
+[ext_resource path="res://gui/dialog_box/dialog_box_bigger_font.fnt" type="BitmapFont" id=8]
+[ext_resource path="res://gui/control_button.gd" type="Script" id=9]
 
 [node name="GUI" type="CanvasLayer"]
 
@@ -95,5 +97,86 @@ texture/scale = Vector2( 1, 1 )
 texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
+
+[node name="PauseScreen" type="Control" parent="."]
+
+process/pause_mode = 2
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="Polygon2D" type="Polygon2D" parent="PauseScreen"]
+
+transform/pos = Vector2( -20, 0 )
+polygon = Vector2Array( 500, 350, 790, 350, 790, 60, 500, 60 )
+uv = Vector2Array(  )
+color = Color( 0.148438, 0.115967, 0.115967, 0.530039 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Label 2" type="Label" parent="PauseScreen"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 566.0
+margin/top = 126.0
+margin/right = 679.0
+margin/bottom = 162.0
+custom_fonts/font = ExtResource( 8 )
+text = "PAUSED"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label" type="Label" parent="PauseScreen"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 558.0
+margin/top = 196.0
+margin/right = 677.0
+margin/bottom = 218.0
+custom_fonts/font = ExtResource( 7 )
+text = "Control Type"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="OptionButton" type="OptionButton" parent="PauseScreen"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 566.0
+margin/top = 240.0
+margin/right = 681.0
+margin/bottom = 270.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+align = 0
+selected = -1
+items = [  ]
+script/script = ExtResource( 9 )
+
+[connection signal="item_selected" from="PauseScreen/OptionButton" to="PauseScreen/OptionButton" method="_on_OptionButton_item_selected"]
 
 

@@ -31,6 +31,7 @@ func _ready():
 	for i in range(4):
 		last_dir_hold.append(-10)
 	set_control_type(MOUSE)
+	set_pause_mode(PAUSE_MODE_PROCESS)
 
 func set_control_type(tp):
 	var pl = get_node('/root/Main/Props/Player')
@@ -45,6 +46,15 @@ func set_control_type(tp):
 		pl.get_node('Hook/LookArrow').set_hidden(false)
 
 func _input(event):
+	if get_tree().is_paused():
+		if event.is_action_pressed('pause'):
+			get_tree().set_pause(false)
+			get_node('/root/Main/GUI/PauseScreen').set_hidden(true)
+		return
+	else:
+		if event.is_action_pressed('pause'):
+			get_tree().set_pause(true)
+			get_node('/root/Main/GUI/PauseScreen').set_hidden(false)
 	var dir = self._get_direction(event)
 	var act = self._get_action(event)
 	if dir != -1: emit_signal('press_direction', dir)

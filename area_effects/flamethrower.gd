@@ -6,6 +6,7 @@ onready var pl = get_node('../Player')
 onready var input = get_node('/root/input')
 onready var sprite = get_node('Sprite')
 onready var area = get_node('Area2D')
+onready var sfx = get_node('SFX')
 
 signal finish
 
@@ -17,6 +18,7 @@ func _ready():
 	damage = 1
 	timer.connect('timeout', self, '_finish')
 	timer.start()
+	self.sfx.play('Burn')
 	self.sprite.set_emitting(true)
 	set_fixed_process(true)
 	set_process_unhandled_key_input(true)

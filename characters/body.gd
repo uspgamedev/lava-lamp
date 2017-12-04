@@ -8,7 +8,6 @@ const EPSILON = 1
 const DASHFACTOR = 8
 
 var dashTime = 0
-var shieldTime = 0
 var speed = Vector2()
 
 export(int, 1, 50) var hp = 4
@@ -37,7 +36,6 @@ func apply_speed(delta):
 	else:
 		motionScale = self.speed * delta
 		self.dashTime = 0
-	self.shieldTime = max(self.shieldTime - delta, 0)
 
 	var motion = move( motionScale )
 	if (is_colliding()):
