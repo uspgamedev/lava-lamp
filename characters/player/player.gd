@@ -150,13 +150,15 @@ func _on_Expression_Timer_timeout():
 func lock_controls():
 	input.disconnect('hold_direction', self, '_add_speed')
 	input.disconnect('hold_look', self, '_set_look_dir')
-	ah.capturing = false
+	input.disconnect('press_action', ah, 'do_selected_action')
+	ah.set_process_unhandled_key_input(false)
 	get_node("Hook").hide()
 
 func unlock_controls():
 	input.connect('hold_direction', self, '_add_speed')
 	input.connect('hold_look', self, '_set_look_dir')
-	ah.capturing = true
+	input.connect('press_action', ah, 'do_selected_action')
+	ah.set_process_unhandled_key_input(true)
 	get_node("Hook").show()
 
 func _on_Intro_Tween_tween_complete( object, key ):
