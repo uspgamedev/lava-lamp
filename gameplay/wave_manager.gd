@@ -77,8 +77,20 @@ func update_wave_points():
 	wave_points += cur_wave*3
 	print(cur_wave, ' wave points ', wave_points)
 
+var HealthPack = preload('res://scenario/props/health_pack.tscn')
+
 func wave_ended():
-	dialog_box.display_text("That was easy!", 4)
+	var lives = randi() % 3
+	var text = "That was easy!"
+	if lives > 0: text += " I left %d health pack%s for you as a reward. Go search for them." % [lives, "s" if lives > 1 else ""]
+	var main = get_node('/root/Main')
+	for i in range(lives):
+		var p = main.get_valid_position()
+		var hp = HealthPack.instance()
+		hp.set_pos(p)
+		main.get_node('Props').add_child(hp)
+
+	dialog_box.display_text(text, 4)
 	print('Wave ', cur_wave, ' ended')
 	bgm._interlude_mode()
 	emit_signal('change_emotion', "happy", 3)

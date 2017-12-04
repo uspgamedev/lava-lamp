@@ -75,7 +75,7 @@ func resume_movimentation():
 	input.connect('skip_intro', self, 'skip_intro')
 
 func get_look_vec():
-	return DIR.VECTOR[self.dir]
+	return get_look_dir()
 
 func _set_look_dir(dir):
 	if dir != -1:
@@ -96,7 +96,10 @@ func shield(time):
 	get_node("Shielded/Particles2D").set_emitting(true)
 
 func get_look_dir():
-	return DIR.VECTOR[self.dir]
+	if input.control_type == input.MOUSE:
+		return (get_viewport().get_mouse_pos() - get_global_transform_with_canvas().o).normalized()
+	else:
+		return DIR.VECTOR[self.dir]
 
 func get_look_dir_value():
 	return self.dir

@@ -33,11 +33,16 @@ func _ready():
 	set_control_type(MOUSE)
 
 func set_control_type(tp):
+	var pl = get_node('/root/Main/Props/Player')
 	control_type = tp
 	if tp == KEYBOARD:
 		shoot_on_click = true
 	elif tp == MOUSE or tp == KEYBOARD2:
 		shoot_on_click = false
+	if tp == MOUSE:
+		pl.get_node('Hook/LookArrow').set_hidden(true)
+	else:
+		pl.get_node('Hook/LookArrow').set_hidden(false)
 
 func _input(event):
 	var dir = self._get_direction(event)
