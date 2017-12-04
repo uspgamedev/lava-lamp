@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/undead.gd" type="Script" id=2]
 [ext_resource path="res://characters/enemies/undead/undead.tex" type="Texture" id=3]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=4]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/enemies/undead/monster_sound_undead_walking_loopar_sem_crossfade.smp" type="Sample" id=6]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 
 resource/name = "move_down"
 length = 0.4
@@ -21,7 +24,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 
 resource/name = "move_up"
 length = 0.4
@@ -70,8 +73,8 @@ hframes = 4
 
 [node name="AnimationPlayer" parent="Sprite"]
 
-anims/move_down = SubResource( 4 )
-anims/move_up = SubResource( 5 )
+anims/move_down = SubResource( 1 )
+anims/move_up = SubResource( 2 )
 autoplay = "move_down"
 
 [node name="Hit" parent="Sprite"]
@@ -81,5 +84,24 @@ anims/hit = SubResource( 3 )
 [node name="EnemyHealth" parent="."]
 
 color = Color( 0, 0, 0, 1 )
+
+[node name="SFX" parent="." instance=ExtResource( 4 )]
+
+config/polyphony = 2
+autoplay = true
+which = "Creep"
+
+[node name="Creep" parent="SFX" instance=ExtResource( 5 )]
+
+sample = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="SFX"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="SFX/Timer" to="SFX" method="play" binds= [ "Creep" ]]
 
 
