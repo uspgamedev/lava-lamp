@@ -6,7 +6,7 @@ func _init():
 	cooldown_time = 2.5
 	name = "ghost_bullet"
 
-func activate(action_handler):
+func activate(action_handler, key):
 	#self.icon = preload("res://bullets/ghost_bullet_icon.tscn")
 	var b = GhostBullet.instance()
 	var pl = action_handler.get_parent()

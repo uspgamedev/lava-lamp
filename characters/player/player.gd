@@ -43,11 +43,8 @@ var intro_func
 
 func _ready():
 	set_fixed_process(true)
-	input.connect('hold_direction', self, '_add_speed')
-	input.connect('hold_direction', self, '_set_look_dir')
-	input.connect('press_action', self, '_act')
+	unlock_controls()
 	input.connect('skip_intro', self, 'skip_intro')
-	#input.connect('hold_look', self, '_set_look_dir')
 
 	self.connect('change_emotion', portrait, 'change_emotion')
 
@@ -73,9 +70,8 @@ func get_look_vec():
 	return DIR.VECTOR[self.dir]
 
 func _set_look_dir(dir):
-	if not Input.is_action_pressed("lock_dir"):
-		self.dir = dir
-		emit_signal("look_dir_changed", dir)
+	self.dir = dir
+	emit_signal("look_dir_changed", dir)
 
 func dash(time):
 	self.dashTime = time
@@ -140,16 +136,14 @@ func _on_Expression_Timer_timeout():
 	emit_signal('change_emotion', "normal")
 	
 func lock_controls():
-	input.disconnect('hold_direction', self, '_add_speed')
-	input.disconnect('hold_direction', self, '_set_look_dir')
-	input.disconnect('press_action', self, '_act')
+	input.disconnect('hold_direction', self, '_add_speed')	
+	input.disconnect('hold_look', self, '_set_look_dir')
 	ah.capturing = false
 	get_node("Hook").hide()
 
 func unlock_controls():
 	input.connect('hold_direction', self, '_add_speed')
-	input.connect('hold_direction', self, '_set_look_dir')
-	input.connect('press_action', self, '_act')
+	input.connect('hold_look', self, '_set_look_dir')
 	ah.capturing = true
 	get_node("Hook").show()
 	

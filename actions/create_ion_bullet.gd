@@ -5,7 +5,7 @@ func _init():
 	name = "ion_bullet"
 	#self.icon = preload("res://bullets/ion_bullet_sprite.tscn")
 
-func activate(action_handler):
+func activate(action_handler, key):
 	var ion = preload('res://bullets/ion_bullet.tscn').instance()
 	var pl = action_handler.get_parent()
 	ion.set_pos(pl.get_pos())

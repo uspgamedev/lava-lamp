@@ -5,7 +5,7 @@
 [ext_resource path="res://characters/enemies/shielded/shield.tex" type="Texture" id=3]
 [ext_resource path="res://characters/enemies/ai/shielded_follow.gd" type="Script" id=4]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=1]
 
 resource/name = "down"
 length = 0.4
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 
 resource/name = "left"
 length = 0.4
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=3]
 
 resource/name = "right"
 length = 0.4
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=4]
 
 resource/name = "up"
 length = 0.4
@@ -91,7 +91,7 @@ points = Vector2Array( -60.8521, -404.928, -60.8521, -331.305, -130.397, -331.30
 [sub_resource type="ConvexPolygonShape2D" id=8]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -78.2384, 0, -8.69315, 0, -8.69315, 73.6233, -78.2384, 73.6233, -78.2384, 0 )
+points = Vector2Array( -8.6932, 3.05176e-05, -8.6932, 73.6234, -78.2385, 73.6234, -78.2385, 3.05176e-05 )
 
 [node name="ShieldedEnemy" instance=ExtResource( 1 )]
 
@@ -105,19 +105,14 @@ texture = ExtResource( 3 )
 vframes = 4
 hframes = 4
 frame = 14
-modulate = Color( 1, 1, 1, 1 )
 
 [node name="AnimationPlayer" parent="Sprite"]
 
-anims/down = SubResource( 9 )
-anims/left = SubResource( 10 )
-anims/right = SubResource( 11 )
-anims/up = SubResource( 12 )
+anims/down = SubResource( 1 )
+anims/left = SubResource( 2 )
+anims/right = SubResource( 3 )
+anims/up = SubResource( 4 )
 autoplay = "down"
-
-[node name="CollisionPolygon2D" parent="."]
-
-visibility/visible = false
 
 [node name="Area2D" parent="."]
 
@@ -212,7 +207,7 @@ angular_damp = 1.0
 
 transform/pos = Vector2( 43.704, -36.5691 )
 build_mode = 0
-polygon = Vector2Array( -78.2384, 0, -78.2384, 73.6233, -8.69315, 73.6233, -8.69315, 0, -78.2384, 0 )
+polygon = Vector2Array( -78.2385, 3.05176e-05, -78.2385, 73.6234, -8.6932, 73.6234, -8.6932, 3.05176e-05 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 

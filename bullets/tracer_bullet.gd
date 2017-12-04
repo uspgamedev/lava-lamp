@@ -19,5 +19,4 @@ func _fixed_process(delta):
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area'):
 		hitting = true
-		var enemy = area.get_parent()
-		enemy.ai.hit(self)
+	._on_Area2D_area_enter(area)
