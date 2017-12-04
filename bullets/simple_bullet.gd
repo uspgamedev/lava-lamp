@@ -1,7 +1,6 @@
 extends 'res://bullets/bullet.gd'
 
 onready var timer = get_node('Timer')
-onready var sfx = get_node('/root/ShootFX')
 onready var main = get_node('../../')
 
 func _ready():
