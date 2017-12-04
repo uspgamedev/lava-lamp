@@ -13,7 +13,7 @@ func _fixed_process(delta):
 		self.queue_free()
 		
 func apply_speed(delta):
-	var motionScale = self.speed * delta
+	var motionScale = self.speed * delta * self.speed_factor
 	var motion = move( motionScale )
 	
 	if (is_colliding()):

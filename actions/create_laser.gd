@@ -4,7 +4,7 @@ const poly = Vector2Array([Vector2(-8, -16), Vector2(8, -16),
 						   Vector2(8, 16), Vector2(-8, 16)])
 
 func _init():
-	cooldown_time = 1
+	cooldown_time = 5
 	name = 'laser'
 
 func activate(action_handler):

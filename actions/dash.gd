@@ -2,7 +2,7 @@ extends 'base_action.gd'
 const DASHTIME = 0.1
 
 func _init():
-	cooldown_time = 0.35
+	cooldown_time = 3
 	name = "dash"
 
 func activate(action_handler):

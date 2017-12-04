@@ -3,7 +3,7 @@
 [ext_resource path="res://bullets/charge_bullet.gd" type="Script" id=1]
 [ext_resource path="res://bullets/charge_bullet/charge_bullet_sprite.tscn" type="PackedScene" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
@@ -16,15 +16,16 @@ points = Vector2Array( -10, -30, 10, -30, 10, -10, -10, -10 )
 [node name="ChargeBullet" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 8
 collision/mask = 2
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-speed_factor = 1
+speed_factor = 1.5
 damage = 1
+damages_player = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 

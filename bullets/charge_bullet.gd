@@ -50,7 +50,12 @@ func _shoot():
 		self.timer.start()
 		self.speed = pl.get_look_dir().normalized() * 400
 		self.update_scale()
-		self.damage = 2*self.scale
+		if self.scale < .3:
+			self.damage = 1
+		elif self.scale < 0.6:
+			self.damage = 2
+		else:
+			self.damage = 3
 		self.sprite.stop_charge()
 		self.emit_signal('finish')
 		pl.sfx.play("Special")

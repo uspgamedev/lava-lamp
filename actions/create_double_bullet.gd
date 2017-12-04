@@ -1,7 +1,7 @@
 extends 'base_action.gd'
 
 func _init():
-	cooldown_time = .6
+	cooldown_time = 1
 	name = "double_bullet"
 
 func activate(action_handler):
@@ -13,8 +13,8 @@ func activate(action_handler):
 	pl.sfx.play("DoubleShoot")
 	b1.set_pos(pl.get_pos())
 	b2.set_pos(pl.get_pos())
-	b1.speed = pl.get_look_dir().rotated(PI/6).normalized() * 500
-	b2.speed = pl.get_look_dir().rotated(-PI/6).normalized() * 500
+	b1.speed = pl.get_look_dir().rotated(PI/6).normalized() * 400
+	b2.speed = pl.get_look_dir().rotated(-PI/6).normalized() * 400
 	pl.get_parent().add_child(b1)
 	pl.get_parent().add_child(b2)
 	return null

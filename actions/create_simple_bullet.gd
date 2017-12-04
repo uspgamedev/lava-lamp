@@ -1,7 +1,7 @@
 extends 'base_action.gd'
 
 func _init():
-	cooldown_time = .2
+	cooldown_time = .4
 	name = "simple_bullet"
 
 func activate(action_handler):
@@ -11,6 +11,6 @@ func activate(action_handler):
 	var pl = action_handler.get_parent()
 	pl.sfx.play("Shoot")
 	b.set_pos(pl.get_pos())
-	b.speed = pl.get_look_dir().normalized() * 500
+	b.speed = pl.get_look_dir().normalized() * 400
 	pl.get_parent().add_child(b)
 	return null

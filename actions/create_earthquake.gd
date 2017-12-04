@@ -1,7 +1,7 @@
 extends 'base_action.gd'
 
 func _init():
-	cooldown_time = 2
+	cooldown_time = 25
 	name = "earthquake"
 
 func activate(action_handler):
