@@ -32,6 +32,8 @@ func is_active():
 
 func display_new_ability(name, description, icon):
 	var ib = infobox.instance()
+	#Add ib to info boxes and re-arrange them
+	infoboxes.add_child(ib)
 	
 	#Configure info box
 	ib.set_top_text("[center]NEW ABILITY [color=blue]UNLOCKED:[/color][/center]")
@@ -40,13 +42,14 @@ func display_new_ability(name, description, icon):
 	ib.set_description("[center]"+description+"[/center]")
 	ib.set_bg_color("ability")
 	
-	#Add ib to info boxes and re-arrange them
-	infoboxes.add_child(ib)
+
 	ib.activate()
 	fix_info_boxes()
 
 func display_new_enemy(name, health, description, icon):
 	var ib = infobox.instance()
+	#Add ib to info boxes and re-arrange them
+	infoboxes.add_child(ib)
 	
 	#Configure info box
 	ib.set_top_text("[center]NEW ENEMY [color=lime]UNLOCKED:[/color][/center]")
@@ -55,9 +58,7 @@ func display_new_enemy(name, health, description, icon):
 	ib.set_description("[center]"+description+"[/center]")
 	ib.set_bottom_text("[center][color=yellow]Enemy Health: [/color][color=black]"+health+" [/color][/center]")
 	ib.set_bg_color("enemy")
-	
-	#Add ib to info boxes and re-arrange them
-	infoboxes.add_child(ib)
+
 	ib.activate()
 	fix_info_boxes()
 

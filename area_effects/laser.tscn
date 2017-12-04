@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://area_effects/laser.gd" type="Script" id=1]
 [ext_resource path="res://area_effects/laser_tile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=3]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=4]
+[ext_resource path="res://area_effects/laser/mono_sound_laser.smp" type="Sample" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -35,5 +38,11 @@ transform/pos = Vector2( 0, -20 )
 transform/pos = Vector2( 0, 24 )
 frame = 0
 is_head = true
+
+[node name="SFX" parent="." instance=ExtResource( 3 )]
+
+[node name="Bling" parent="SFX" instance=ExtResource( 4 )]
+
+sample = ExtResource( 5 )
 
 

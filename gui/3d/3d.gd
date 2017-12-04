@@ -1,16 +1,20 @@
 extends Spatial
 
 func set_texture(sp):
+	var vp = get_node("Viewport")
+	sp.set_pos(Vector2(32, 32))
+	#sp.set_scale(sp.get_scale() * Vector2(.5, .5))
+	vp.add_child(sp)
+	var txt = vp.get_render_target_texture()
 	for spp in ['Sprite3D', 'Sprite3D1']:
 		var s = get_node(spp)
-		s.set_texture(sp.get_texture())
-		s.set_vframes(sp.get_vframes())
-		s.set_hframes(sp.get_hframes())
-		if sp.has_node('AnimationPlayer'):
-			s.add_child(sp.get_node('AnimationPlayer').duplicate(true))
+		s.set_texture(txt)
 
 func _ready():
 	set_fixed_process(true)
+	#set_texture(preload('res://effects/fire/icon.tscn').instance())
+	#set_texture(preload('res://bullets/charge_bullet/charge_bullet_sprite.tscn').instance())
+	#set_texture(preload('res://scenario/props/wormhole/wormhole_sprite.tscn').instance())
 
 func _fixed_process(delta):
 	var s = get_node('Sprite3D')

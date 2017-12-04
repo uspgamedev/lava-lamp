@@ -41,6 +41,9 @@ signal look_dir_changed(dir)
 
 var dir = 2
 var intro_func
+var shieldTime = 0
+
+onready var shielded = get_node('Shielded')
 
 func _ready():
 	set_fixed_process(true)
@@ -50,6 +53,7 @@ func _ready():
 	self.connect('change_emotion', portrait, 'change_emotion')
 
 	ah.set_key_to_action(KEY_Q, 'create_simple_bullet')
+	ah.set_key_to_action(KEY_C, 'create_trap')
 
 	load_camera()
 
@@ -64,14 +68,12 @@ func stop_movimentation():
 	input.disconnect('hold_direction', self, '_add_speed')
 	input.disconnect('hold_direction', self, '_set_look_dir')
 	input.disconnect('hold_look', self, '_set_look_dir')
-	input.disconnect('press_action', self, '_act')
 	input.disconnect('skip_intro', self, 'skip_intro')
 
 func resume_movimentation():
 	input.connect('hold_direction', self, '_add_speed')
 	input.connect('hold_direction', self, '_set_look_dir')
 	input.connect('hold_look', self, '_set_look_dir')
-	input.connect('press_action', self, '_act')
 	input.connect('skip_intro', self, 'skip_intro')
 
 func get_look_vec():
@@ -91,9 +93,16 @@ func dash(time):
 
 func shield(time):
 	self.shieldTime = time
-	get_node("Shielded").set_hidden(false)
-	get_node("Shielded/Timer").start()
-	get_node("Shielded/Particles2D").set_emitting(true)
+	self.sfx.play('ArmorUp')
+	self.shielded.set_hidden(false)
+	self.shielded.get_node("Particles2D").set_emitting(true)
+
+func _fixed_process(delta):
+	self.shieldTime = max(self.shieldTime - delta, 0)
+	if self.shieldTime == 0 and !self.shielded.is_hidden():
+		self.shielded.set_hidden(true)
+		self.shielded.get_node("Particles2D").set_emitting(false)
+		self.sfx.play('ArmorDown')
 
 func get_look_dir():
 	if input.control_type == input.MOUSE:

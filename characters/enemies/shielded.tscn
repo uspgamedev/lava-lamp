@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/shielded/shielded.gd" type="Script" id=2]
 [ext_resource path="res://characters/enemies/shielded/shield.tex" type="Texture" id=3]
 [ext_resource path="res://characters/enemies/ai/shielded_follow.gd" type="Script" id=4]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=4]
 
 resource/name = "down"
 length = 0.4
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=5]
 
 resource/name = "left"
 length = 0.4
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=6]
 
 resource/name = "right"
 length = 0.4
@@ -56,9 +56,8 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=7]
 
-resource/name = "up"
 length = 0.4
 loop = true
 step = 0.1
@@ -73,22 +72,39 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="Animation" id=3]
+
+resource/name = "hit"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -13.9074, -2.63965, -13.9074, 18.4775, -41.7222, 18.4775, -41.7222, -2.63965 )
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=9]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -34.7059, -34.2652, 48.1205, -34.2652, 48.1205, 34.2561, -34.7059, 34.2561 )
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
+[sub_resource type="ConvexPolygonShape2D" id=10]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -60.8521, -404.928, -60.8521, -331.305, -130.397, -331.305, -130.397, -404.928 )
 
-[sub_resource type="ConvexPolygonShape2D" id=8]
+[sub_resource type="ConvexPolygonShape2D" id=11]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -8.6932, 3.05176e-05, -8.6932, 73.6234, -78.2385, 73.6234, -78.2385, 3.05176e-05 )
@@ -108,11 +124,15 @@ frame = 14
 
 [node name="AnimationPlayer" parent="Sprite"]
 
-anims/down = SubResource( 1 )
-anims/left = SubResource( 2 )
-anims/right = SubResource( 3 )
-anims/up = SubResource( 4 )
+anims/down = SubResource( 4 )
+anims/left = SubResource( 5 )
+anims/right = SubResource( 6 )
+anims/up = SubResource( 7 )
 autoplay = "down"
+
+[node name="Hit" parent="Sprite"]
+
+anims/hit = SubResource( 3 )
 
 [node name="Area2D" parent="."]
 
@@ -129,7 +149,7 @@ visibility/visible = false
 transform/pos = Vector2( -29.1763, 0.434619 )
 transform/scale = Vector2( 0.235805, 1.16752 )
 input/pickable = true
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 8 )
 shapes/0/transform = Matrix32( 3.04931, 0, 0, 3.24481, 81.3227, -26.0678 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -152,7 +172,7 @@ visibility/visible = false
 transform/pos = Vector2( 28.3804, 0.00533867 )
 transform/scale = Vector2( 0.241469, 1.16752 )
 input/pickable = true
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 9 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -173,7 +193,7 @@ visibility/visible = false
 transform/pos = Vector2( 0, -30 )
 transform/scale = Vector2( 1.15033, 0.271653 )
 input/pickable = true
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 10 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 95.6247, 368.117 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -195,7 +215,7 @@ visibility/visible = false
 transform/pos = Vector2( -0.273972, 29.9341 )
 transform/scale = Vector2( 1.15033, 0.271653 )
 input/pickable = true
-shapes/0/shape = SubResource( 8 )
+shapes/0/shape = SubResource( 11 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 43.704, -36.5691 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )

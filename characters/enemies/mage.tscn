@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/mage.gd" type="Script" id=2]
@@ -73,6 +73,23 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
+[sub_resource type="Animation" id=5]
+
+resource/name = "hit"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 255, 255, 255, 1 ), Color( 1, 0, 1, 1 ) ]
+}
+
 [node name="Mage" instance=ExtResource( 1 )]
 
 script/script = ExtResource( 2 )
@@ -86,7 +103,7 @@ texture = ExtResource( 3 )
 vframes = 4
 hframes = 4
 frame = 15
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color( 1, 0, 1, 1 )
 
 [node name="AnimationPlayer" parent="Sprite"]
 
@@ -95,6 +112,10 @@ anims/walk_left = SubResource( 2 )
 anims/walk_right = SubResource( 3 )
 anims/walk_up = SubResource( 4 )
 autoplay = "walk_down"
+
+[node name="Hit" parent="Sprite"]
+
+anims/hit = SubResource( 5 )
 
 [node name="Ai" parent="."]
 

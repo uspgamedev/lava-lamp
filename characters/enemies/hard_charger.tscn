@@ -1,11 +1,44 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://characters/enemies/charger.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/ai/hard_charger_ai.gd" type="Script" id=2]
 
+[sub_resource type="Animation" id=1]
+
+resource/name = "hit"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 255, 255, 255, 1 ), Color( 1, 0.59375, 0.59375, 1 ) ]
+}
+
 [node name="HardCharger" instance=ExtResource( 1 )]
 
 hp = 6
+
+[node name="Sprite" parent="."]
+
+modulate = Color( 1, 0.59375, 0.59375, 1 )
+
+[node name="Hit" parent="Sprite"]
+
+anims/hit = SubResource( 1 )
+
+[node name="CollisionPolygon2D" parent="."]
+
+visibility/visible = false
+
+[node name="CollisionPolygon2D" parent="Area2D"]
+
+visibility/visible = false
 
 [node name="Ai" parent="."]
 
