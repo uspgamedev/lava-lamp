@@ -10,6 +10,8 @@ var speed = Vector2(500, 500)# * speed_factor
 
 export var damage = 1
 
+export var damages_player = false
+
 func _ready():
 	set_fixed_process(true)
 
