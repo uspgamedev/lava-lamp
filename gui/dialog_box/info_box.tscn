@@ -146,7 +146,7 @@ margin/bottom = 200.0
 custom_fonts/bold_italics_font = ExtResource( 3 )
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode/enabled = true
-bbcode/bbcode = "[center][color=yellow]This is the bottom text[/color][/center]"
+bbcode/bbcode = ""
 visible_characters = -1
 percent_visible = 1.0
 

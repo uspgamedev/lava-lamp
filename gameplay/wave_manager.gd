@@ -31,21 +31,40 @@ const ENEMY_POINTS = [
 ]
 
 const MECHANICS = [
-	'create_flamethrower',#'create_trap',
-	'create_wormhole',
+	'create_double_bullet',
+	'create_shotgun_bullet',
 	'create_ricochet_bullet',
 	'dash',
-	'create_double_bullet',
-	'create_tracer_bullet',
-	'create_guided_bullet',
+	'create_trap',
 	'create_charge_bullet',
-	'create_shotgun_bullet',
+	'create_tracer_bullet',
+	'create_flamethrower',
+	'create_wormhole',
+	'create_guided_bullet',
 	'create_earthquake',
 	'create_ion_bullet',
-	'create_flamethrower',
 	'create_laser',
 	'create_ghost_bullet',
 	'create_cure_bullet'
+]
+
+const END_SPEECHES = [
+	'That was easy!',
+	'You did it! I just can\'t believe...',
+	'May today\'s success be the beginning of tomorrow\'s achievements.',
+	'I knew the record would stand until it was broken.',
+	'The biggest reward for a thing well done is to have done it.',
+	'The fruit of your labor is sweet, and I must say you deserve it.',
+	'That was a massacre!',
+	'HAHA! It was so much fun watching you running away from them!'
+]
+
+const START_SPEECHES = [
+	'New wave incoming! Get ready for it!',
+	'This will be a tough one! I hope you\'re prepared.',
+	'DESTROY THEM ALL!!!',
+	'You see it? They are coming to get you!',
+	'Prepare for war!',
 ]
 
 const NEW_ENEMY_TYPE = 3
@@ -78,14 +97,14 @@ func update_wave_points():
 	print(cur_wave, ' wave points ', wave_points)
 
 func wave_ended():
-	dialog_box.display_text("That was easy!", 4)
+	dialog_box.display_text(END_SPEECHES[randi()%END_SPEECHES.size()], 6)
 	print('Wave ', cur_wave, ' ended')
 	bgm._interlude_mode()
 	emit_signal('change_emotion', "happy", 3)
 	cur_wave += 1
 	update_enemy_types()
 	update_wave_points()
-	t.set_wait_time(4)
+	t.set_wait_time(6)
 	t.disconnect('timeout', self, 'start_wave')
 	t.connect('timeout', self, 'new_wave')
 	t.set_one_shot(true)
@@ -101,9 +120,8 @@ func _unhandled_key_input(ev):
 
 func give_new_mechanics():
 	dialog_box.display_text("Press a button to assign your new awesome ability!", 10e+10)
-	dialog_box.display_new_ability("DUMMY", "K", "Makes you even more stupid!", preload("res://actions/create_trap.gd").new().icon.instance())
+	dialog_box.display_new_ability("DUMMY", "Makes you even more stupid!", load("res://actions/create_trap.gd").new().icon.instance())
 	dialog_box.display_new_enemy("BAD GUY", "3", "Strong enemy that hits you. Is immune to [color=yellow]traps[/color].", preload("res://actions/dash.gd").new().icon.instance())
-	dialog_box.display_new_ability("CRAZY THING", "R", "Omar is underrated! Omar is underrated! Omar is underrated! Omar is underrated!", preload("res://actions/create_shotgun_bullet.gd").new().icon.instance())
 	set_process_unhandled_key_input(true)
 	var player = get_node('../Props/Player')
 	var ah = player.get_node('ActionHandler')
@@ -120,7 +138,7 @@ func give_new_mechanics():
 	prepare_wave()
 
 func start_wave():
-	dialog_box.display_text("New wave incoming [color=purple]baby!![/color] Also this is a [color=blue]long[/color] [color=red]long[/color] [color=green]long[/color] long long long long long long long long long long long long text haha", 6)
+	dialog_box.display_text(START_SPEECHES[randi()%START_SPEECHES.size()], 6)
 	var w = get_node('Wave')
 	dialog_box.clear_all_info_boxes()
 	print('Wave ', cur_wave, ' started')

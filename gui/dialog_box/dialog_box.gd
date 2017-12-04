@@ -30,7 +30,7 @@ func deactivate_box():
 func is_active():
 	return active
 
-func display_new_ability(name, key, description, icon):
+func display_new_ability(name, description, icon):
 	var ib = infobox.instance()
 	
 	#Configure info box
@@ -38,7 +38,6 @@ func display_new_ability(name, key, description, icon):
 	ib.set_title("[center][color=yellow][u]"+name+"[/u][/color][/center]")
 	ib.set_icon(icon)
 	ib.set_description("[center]"+description+"[/center]")
-	ib.set_bottom_text("[center][color=yellow]Press[/color][color=black] "+key+" [/color][color=yellow]to use it![/color][/center]")
 	ib.set_bg_color("ability")
 	
 	#Add ib to info boxes and re-arrange them
