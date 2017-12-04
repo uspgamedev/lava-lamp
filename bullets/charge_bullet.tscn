@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://bullets/charge_bullet.gd" type="Script" id=1]
 [ext_resource path="res://bullets/charge_bullet/charge_bullet_sprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=3]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=4]
+[ext_resource path="res://bullets/charge_bullet/mono_sound_charge_bullet_carregando_som_do_tiro_e_o_special_bullet.smp" type="Sample" id=5]
+[ext_resource path="res://bullets/charge_bullet/mono_sound_charge_bullet_flutuando_som_para_quando_acerta_inimigo.smp" type="Sample" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -69,6 +73,16 @@ process_mode = 1
 wait_time = 1.5
 one_shot = true
 autostart = false
+
+[node name="SFX" parent="." instance=ExtResource( 3 )]
+
+[node name="Charging" parent="SFX" instance=ExtResource( 4 )]
+
+sample = ExtResource( 5 )
+
+[node name="Fly" parent="SFX" instance=ExtResource( 4 )]
+
+sample = ExtResource( 6 )
 
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 

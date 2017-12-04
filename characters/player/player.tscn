@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=1]
+[gd_scene load_steps=39 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
@@ -11,10 +11,13 @@
 [ext_resource path="res://bullets/simple_bullet/mono_sound_bullet_simple.smp" type="Sample" id=9]
 [ext_resource path="res://bullets/simple_bullet/mono_sound_double_bullet.smp" type="Sample" id=10]
 [ext_resource path="res://bullets/mono_sound_special_bullet.smp" type="Sample" id=11]
-[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=12]
-[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=13]
-[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=14]
-[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=15]
+[ext_resource path="res://bullets/shrapnel_bullet/mono_sound_shotgun_fire.smp" type="Sample" id=12]
+[ext_resource path="res://bullets/shrapnel_bullet/mono_sound_shotgun_reload.smp" type="Sample" id=13]
+[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=14]
+[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=15]
+[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=16]
+[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=17]
+[ext_resource path="res://characters/enemies/gui/shielded.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -221,7 +224,7 @@ tracks/0/keys = {
 "values": [ 20, 21 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=14]
 
 resource/name = "Spinning"
 length = 0.4
@@ -238,7 +241,7 @@ tracks/0/keys = {
 "values": [ 22, 10, 14, 2 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 
 length = 0.4
 loop = true
@@ -254,7 +257,7 @@ tracks/0/keys = {
 "values": [ 14, 15, 16, 17 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 
 length = 0.7
 loop = true
@@ -270,7 +273,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 
 length = 0.7
 loop = true
@@ -286,7 +289,7 @@ tracks/0/keys = {
 "values": [ 7, 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 
 length = 0.4
 loop = true
@@ -302,7 +305,7 @@ tracks/0/keys = {
 "values": [ 22, 23, 24, 25 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 
 length = 0.4
 loop = false
@@ -318,7 +321,7 @@ tracks/0/keys = {
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="ConvexPolygonShape2D" id=19]
+[sub_resource type="ConvexPolygonShape2D" id=20]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 10, -30, 10, 10, -10, 10, -10, -30 )
@@ -361,11 +364,11 @@ anims/Idle_Down = SubResource( 10 )
 anims/Idle_Left = SubResource( 11 )
 anims/Idle_Right = SubResource( 12 )
 anims/Idle_Up = SubResource( 13 )
-anims/Spinning = SubResource( 20 )
-anims/Walk_Down = SubResource( 14 )
-anims/Walk_Left = SubResource( 15 )
-anims/Walk_Right = SubResource( 16 )
-anims/Walk_Up = SubResource( 17 )
+anims/Spinning = SubResource( 14 )
+anims/Walk_Down = SubResource( 15 )
+anims/Walk_Left = SubResource( 16 )
+anims/Walk_Right = SubResource( 17 )
+anims/Walk_Up = SubResource( 18 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -376,7 +379,7 @@ autoplay = "Idle_Down"
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/hit = SubResource( 18 )
+anims/hit = SubResource( 19 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -424,7 +427,7 @@ visibility/visible = false
 editor/display_folded = true
 transform/pos = Vector2( 0, -12 )
 input/pickable = true
-shapes/0/shape = SubResource( 19 )
+shapes/0/shape = SubResource( 20 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 10 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -468,11 +471,47 @@ sample = ExtResource( 10 )
 
 sample = ExtResource( 11 )
 
-[node name="AfterImage" parent="." instance=ExtResource( 12 )]
+[node name="Shotgun" parent="SFX" instance=ExtResource( 7 )]
+
+sample = ExtResource( 12 )
+
+[node name="Reload" parent="SFX" instance=ExtResource( 7 )]
+
+sample = ExtResource( 13 )
+
+[node name="AfterImage" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 0, -12 )
 
-[node name="GridManager" parent="." instance=ExtResource( 13 )]
+[node name="Shield" type="Particles2D" parent="."]
+
+transform/pos = Vector2( -10, -50 )
+config/amount = 50
+config/lifetime = 2.0
+config/emit_timeout = 5.0
+config/emitting = false
+config/process_mode = 1
+config/offset = Vector2( 10, 40 )
+config/half_extents = Vector2( 7, 20 )
+params/direction = 0.0
+params/spread = 10.0
+params/linear_velocity = 0.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color = Color( 0.992249, 1, 0.0078125, 1 )
+
+[node name="GridManager" parent="." instance=ExtResource( 15 )]
 
 [node name="Expression_Timer" type="Timer" parent="."]
 
@@ -488,7 +527,7 @@ wait_time = 0.45
 one_shot = true
 autostart = false
 
-[node name="Helper_Arrow" parent="." instance=ExtResource( 14 )]
+[node name="Helper_Arrow" parent="." instance=ExtResource( 16 )]
 
 [node name="StunTimer" type="Timer" parent="."]
 
@@ -497,9 +536,13 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="Stunned" parent="." instance=ExtResource( 15 )]
+[node name="Stunned" parent="." instance=ExtResource( 17 )]
 
-transform/pos = Vector2( 0, -60 )
+transform/pos = Vector2( 10, -50 )
+
+[node name="Shielded" parent="." instance=ExtResource( 18 )]
+
+transform/pos = Vector2( -10, -50 )
 
 [node name="Intro_Tween" type="Tween" parent="."]
 
