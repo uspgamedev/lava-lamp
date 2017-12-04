@@ -7,7 +7,7 @@ func _init():
 	cooldown_time = 5
 	name = 'laser'
 
-func activate(action_handler):
+func activate(action_handler, key):
 	var Laser = preload('res://area_effects/laser.tscn')
 	var LaserTile = preload('res://area_effects/laser_tile.tscn')
 	var pl = action_handler.get_parent()

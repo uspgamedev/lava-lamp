@@ -5,7 +5,7 @@ func _init():
 	name = "shotgun_bullet"
 	icon = preload("res://bullets/shrapnel_bullet/sprite.tscn")
 	
-func activate(action_handler):
+func activate(action_handler, key):
 	var ShotgunBullet = preload('res://bullets/shotgun_bullet.tscn')
 	
 	var bs = []

@@ -6,7 +6,7 @@ func _init():
 	cooldown_time = .3
 	name = "cure_bullet"
 
-func activate(action_handler):
+func activate(action_handler, key):
 	#self.icon = preload("res://bullets/cure_bullet_icon.tscn")
 	var b = CureBullet.instance()
 	var pl = action_handler.get_parent()

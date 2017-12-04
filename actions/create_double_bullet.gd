@@ -5,7 +5,7 @@ func _init():
 	name = "double_bullet"
 	icon = preload("res://bullets/double_bullet_icon.tscn")
 
-func activate(action_handler):
+func activate(action_handler, key):
 	var SimpleBullet = preload('res://bullets/simple_bullet.tscn')
 	var b1 = SimpleBullet.instance()
 	var b2 = SimpleBullet.instance()

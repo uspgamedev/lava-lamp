@@ -4,8 +4,9 @@ func _init():
 	cooldown_time = 2.5
 	name = "wormhole"
 	icon = preload('res://scenario/props/wormhole/wormhole_sprite.tscn')
+	auto_play = true
 
-func activate(action_handler):
+func activate(action_handler, key):
 	var Wormhole = preload('res://bullets/wormhole.tscn')
 	var pl = action_handler.get_parent()
 	var wh1 = Wormhole.instance()
