@@ -173,6 +173,13 @@ func get_doctor_name():
 
 func skip_intro():
 	if can_skip:
+		if dialog_box.is_active():
+			dialog_box.deactivate_box()
+		
+		var logo = gui.get_node("Logo")
+		if logo.is_logo_active():
+			logo.stop_logo_animation()
+		
 		var timer = get_node("Intro_Timer")
 		if timer.is_active():
 			timer.stop()
@@ -184,6 +191,7 @@ func skip_intro():
 			tween.stop_all()
 			_on_Intro_Tween_tween_complete(null, null)
 			return
+
 
 
 func intro():
@@ -233,10 +241,11 @@ func intro():
 	unlock_controls()
 	
 	var timer = get_node("Intro_Timer")
-	timer.set_wait_time(5)
+	timer.set_wait_time(2)
 	timer.start()
 	
 	yield()
 	
+	#Start first wave
 	get_node('/root/Main/WaveManager').new_wave()
 	
