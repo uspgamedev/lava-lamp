@@ -16,5 +16,7 @@ config/polyphony = 1
 config/samples = SubResource( 1 )
 config/pitch_random = 0.0
 script/script = ExtResource( 1 )
+autoplay = false
+which = ""
 
 
