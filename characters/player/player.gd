@@ -112,10 +112,11 @@ func get_look_dir():
 func get_look_dir_value():
 	return self.dir
 
-func start_shooting():
+func start_shooting(time=0.45):
 	shooting = true
 	if not shoot_timer.is_active():
 		shoot_timer.stop()
+	shoot_timer.set_wait_time(time)
 	shoot_timer.start()
 
 func stop_shooting():

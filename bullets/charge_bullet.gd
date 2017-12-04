@@ -20,7 +20,7 @@ const polygons = [Vector2Array([Vector2(-5, -5), Vector2(5, -5),
 
 var shoot = false
 var scale = 0
-var hold_key
+var pressed = 0
 
 func _ready():
 	timer.connect('timeout', self, 'queue_free')
@@ -28,7 +28,7 @@ func _ready():
 	self.speed = Vector2()
 	self.sfx.play('Charging')
 	set_fixed_process(true)
-	set_process_unhandled_key_input(true)
+	set_process_unhandled_input(true)
 
 func update_scale():
 	self.scale = (charge_timer.get_wait_time() - charge_timer.get_time_left())/charge_timer.get_wait_time()
@@ -47,8 +47,16 @@ func _fixed_process(delta):
 	if not shoot:
 		update_scale()
 
-func _unhandled_key_input(ev):
-	if ev.scancode == hold_key and not ev.pressed:
+func _unhandled_input(ev):
+	if ev.is_action_released("keyboard2_click"):
+		pressed -= 1
+	elif ev.is_action_pressed("keyboard2_click"):
+		pressed += 1
+	if input.control_type == input.KEYBOARD2 and ev.type == InputEvent.KEY and \
+		pressed == 0:
+		_shoot()
+	elif input.control_type == input.MOUSE and ev.type == InputEvent.MOUSE_BUTTON and \
+		 ev.button_index == BUTTON_LEFT and not ev.pressed:
 		_shoot()
 
 func _shoot():

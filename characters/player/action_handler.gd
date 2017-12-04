@@ -7,6 +7,7 @@ onready var portrait = gui.get_node("Player_Portrait")
 onready var input = get_node('/root/input')
 
 var selected_action = null
+var can_do = true
 
 signal change_emotion(emotion, time)
 
@@ -58,27 +59,36 @@ func set_key_to_action(key, action):
 	print("Setted action ", action, " to key ", RawArray([key]).get_string_from_utf8())
 
 func actually_do(act, key):
+	if not can_do:
+		return
+	can_do = false
 	get_parent()._set_look_dir(input._get_look_direction(Input))
+	var name = act.get_name()
+	var player = get_parent()
+	if name == "wormhole":
+		emit_signal('change_emotion', "surprised", .7)
+	elif name != "dash":
+		var time = 0.45
+		if name == "flamethrower" or name == "laser":
+			time = 3
+		elif name == "charge_bullet":
+			time = 1.5
+		player.start_shooting(time)
 	var obj = act.activate(self, key)
 	if obj:
 		yield(obj, "finish")
 	act.on_cooldown = true
-	var name = act.get_name()
-	if name == "wormhole":
-		emit_signal('change_emotion', "surprised", .7)
-	elif name != "dash":
-		var player = get_parent()
-		player.start_shooting()
+	player.stop_shooting()
 	var cd = Cooldown.instance()
 	cd.icon = act.icon
 	get_node('/root/Main/GUI/Cooldowns').add_cooldown(cd)
 	cd.set_max(act.cooldown_time)
 	cd.connect('cooldown_end', self, 'cooldown_end', [act, key])
+	can_do = true
 
 func do_selected_action(_):
 	if selected_action == null or selected_action.on_cooldown: return
 	actually_do(selected_action, -1)
-
 
 func do_action(key):
 	var act = action_map[key]
