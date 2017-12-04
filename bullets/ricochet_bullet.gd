@@ -23,10 +23,5 @@ func apply_speed(delta):
 		self.speed = normal.reflect(self.speed)
 		move(motion)
 
-func _on_Area2D_area_enter(area):
-	if area.is_in_group('enemy_area'):
-		var enemy = area.get_parent()
-		enemy.ai.hit(self)
-
 func _queue_free():
 	self.queue_free()
