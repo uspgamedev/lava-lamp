@@ -32,11 +32,14 @@ func do_action(key):
 		var act = action_map[key]
 		var obj = act.activate(self)
 		if obj:
-			print("yay")
 			yield(obj, "finish")
 		act.on_cooldown = true
-		if act.get_name() == "wormhole":
+		var name = act.get_name()
+		if name == "wormhole":
 			emit_signal('change_emotion', "surprised", .7)
+		if name != "dash":
+			var player = get_parent()
+			player.start_shooting()
 		var cd = Cooldown.instance()
 		cd.icon = act.icon
 		get_node('/root/Main/GUI/Cooldowns').add_cooldown(cd)

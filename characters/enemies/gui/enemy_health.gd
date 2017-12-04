@@ -26,5 +26,5 @@ func _draw():
 				draw_line(rt[j], rt[(j + 1) % 4], color)
 		x += (w + gapx)
 		if ((i + 1) % wd) == 0:
-			x = -totw / 2 + w / 2
+			x = -totw / 2
 			y += h + gapy

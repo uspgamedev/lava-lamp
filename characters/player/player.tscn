@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=1]
+[gd_scene load_steps=29 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
@@ -8,9 +8,12 @@
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=6]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/player/mono_sound_player_dash.smp" type="Sample" id=8]
-[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=9]
-[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=10]
-[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=11]
+[ext_resource path="res://bullets/simple_bullet/mono_sound_bullet_simple.smp" type="Sample" id=9]
+[ext_resource path="res://bullets/simple_bullet/mono_sound_double_bullet.smp" type="Sample" id=10]
+[ext_resource path="res://bullets/mono_sound_special_bullet.smp" type="Sample" id=11]
+[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=12]
+[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=13]
+[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -230,15 +233,15 @@ collision/layers = 1
 collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+hp = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 0, -12 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 14
-frame = 10
+frame = 28
 script/script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
@@ -337,11 +340,23 @@ transform/pos = Vector2( 0, -20 )
 
 sample = ExtResource( 8 )
 
-[node name="AfterImage" parent="." instance=ExtResource( 9 )]
+[node name="Shoot" parent="SFX" instance=ExtResource( 7 )]
+
+sample = ExtResource( 9 )
+
+[node name="DoubleShoot" parent="SFX" instance=ExtResource( 7 )]
+
+sample = ExtResource( 10 )
+
+[node name="Special" parent="SFX" instance=ExtResource( 7 )]
+
+sample = ExtResource( 11 )
+
+[node name="AfterImage" parent="." instance=ExtResource( 12 )]
 
 transform/pos = Vector2( 0, -12 )
 
-[node name="GridManager" parent="." instance=ExtResource( 10 )]
+[node name="GridManager" parent="." instance=ExtResource( 13 )]
 
 [node name="Expression_Timer" type="Timer" parent="."]
 
@@ -350,10 +365,19 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="Helper_Arrow" parent="." instance=ExtResource( 11 )]
+[node name="Shooting_Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = true
+autostart = false
+
+[node name="Helper_Arrow" parent="." instance=ExtResource( 14 )]
 
 [connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir"]
 
 [connection signal="timeout" from="Expression_Timer" to="." method="_on_Expression_Timer_timeout"]
+
+[connection signal="timeout" from="Shooting_Timer" to="." method="stop_shooting"]
 
 

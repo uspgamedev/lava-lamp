@@ -1,7 +1,7 @@
 extends 'follow_player.gd'
 
 var charge_cooldown = 0
-var walk_cooldown = 0
+var walk_cooldown = 4
 
 enum {
 	WALK,
@@ -15,6 +15,7 @@ func _ready():
 	sp = 4000
 
 var charge_vec
+var max_charge = 3
 
 func think(dt, player):
 	var enemy = get_parent()
@@ -30,7 +31,12 @@ func think(dt, player):
 		if charge_cooldown <= 0:
 			charge_vec = (player.get_pos() - enemy.get_pos()).normalized()
 			state = CHARGE
+			max_charge = 3
 	elif state == CHARGE:
+		max_charge -= dt
+		if max_charge <= 0:
+			state = WALK
+			walk_cooldown = 5
 		enemy.speed += charge_vec * 20000 * dt
 		if enemy.is_colliding():
 			collided_with_wall()
@@ -45,11 +51,11 @@ func collided_with_player(player):
 	state = WALK
 	walk_cooldown = 3
 
-func hit_by_bullet(bullet):
+func hit(bullet):
 	if bullet extends preload('res://bullets/ion_bullet.gd'):
 		state = WALK
 		walk_cooldown = 1
-	.hit_by_bullet(bullet)
+	.hit(bullet)
 
 func collided_with_wall():
 	var enemy = get_parent()

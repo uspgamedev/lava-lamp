@@ -3,18 +3,28 @@ extends Node
 const ENEMIES = [
 	preload('res://characters/enemies/olhinho.tscn'),
 	preload('res://characters/enemies/charger.tscn'),
-	preload('res://characters/enemies/bouncer.tscn'),
 	preload('res://characters/enemies/shielded.tscn'),
+	preload('res://characters/enemies/mage.tscn'),
+	preload('res://characters/enemies/bouncer.tscn'),
+	preload('res://characters/enemies/ghost.tscn'),
+	preload('res://characters/enemies/undead.tscn'),
+	preload('res://characters/enemies/hard_mage.tscn'),
+	preload('res://characters/enemies/hard_charger.tscn'),
 ]
 
 const ENEMY_POINTS = [
-	2, # olhinho
-	5, # charger
-	10, # bouncer
-	15, # shielded
+	2, #olhinho
+	5, #charger
+	7, #shielded
+	12, #mage
+	15, #bouncer
+	20, #ghost
+	25, #undead
+	40, #hard mage
+	60, #hard charger
 ]
 
-const NEW_ENEMY_TYPE = 5
+const NEW_ENEMY_TYPE = 3
 const NEW_ENEMY_PROPORTION = 1/3
 
 var cur_wave = 1

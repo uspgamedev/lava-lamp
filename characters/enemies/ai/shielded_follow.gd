@@ -18,4 +18,4 @@ func hit(obj):
 		else:
 			.hit(obj)
 	elif obj extends preload('res://area_effects/area_effect.gd'):
-		pass
+		.hit(obj)

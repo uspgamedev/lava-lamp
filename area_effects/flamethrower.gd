@@ -17,7 +17,7 @@ func _ready():
 	set_fixed_process(true)
 	
 func _fixed_process(delta):
-	self.set_pos(pl.get_pos())
+	self.set_pos(pl.get_pos() + Vector2(0, -20))
 	self.set_rot(pl.get_look_dir().angle())
 
 func _finish():
@@ -33,12 +33,10 @@ func _on_Area2D_area_exit(area):
 	var cp = Array(enemyList)
 	for i in range(cp.size()-1, -1, -1):
 		if cp[i] == targEnemy:
-			print("remove")
 			cp.remove(i)
 	enemyList = cp
 
 func _hit():
-	print(enemyList)
 	for enemy in enemyList:
 		enemy.ai.hit(self)
 

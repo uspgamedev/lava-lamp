@@ -10,6 +10,8 @@ onready var afterimage = get_node('AfterImage')
 onready var sprite = get_node('Sprite')
 onready var gui = get_node('/root/Main/GUI')
 onready var portrait = gui.get_node("Player_Portrait")
+onready var shoot_timer = get_node("Shooting_Timer")
+onready var shooting = false
 
 signal change_emotion(emotion, time)
 signal look_dir_changed(dir)
@@ -39,6 +41,9 @@ func _ready():
 	ah.set_key_to_action(KEY_U, 'create_earthquake')
 	ah.set_key_to_action(KEY_Y, 'create_ion_bullet')
 	ah.set_key_to_action(KEY_C, 'create_flamethrower')
+	ah.set_key_to_action(KEY_X, 'create_laser')
+	ah.set_key_to_action(KEY_O, 'create_ghost_bullet')
+	ah.set_key_to_action(KEY_L, 'create_cure_bullet')
 
 	load_camera()
 
@@ -63,17 +68,32 @@ func get_look_dir():
 func get_look_dir_value():
 	return self.dir
 
+func start_shooting():
+	shooting = true
+	if not shoot_timer.is_active():
+		shoot_timer.stop()
+	shoot_timer.start()
+
+func stop_shooting():
+	shooting = false
+
+func is_shooting():
+	return shooting
+
 func load_camera():
 	camera.set_enable_follow_smoothing(true)
 	camera.set_follow_smoothing(5)
 	camera.make_current()
 
 func deal_damage(d):
-	self.damage += d
+	self.damage = max(0, self.damage + d)
 	if self.damage >= self.hp:
 		get_tree().change_scene('res://main.tscn')
 	gui.get_node('HealthBar').update()
-	emit_signal('change_emotion', "angry", 2)
+	if d > 0:
+		emit_signal('change_emotion', "angry", 2)
+	elif d < 0:
+		emit_signal('change_emotion', 'happy', 2)
 
 func _on_Expression_Timer_timeout():
 	emit_signal('change_emotion', "normal")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://bullets/base_bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://bullets/ghost_bullet.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="Bullet" instance=ExtResource( 1 )]
+
+collision/layers = 16
+script/script = ExtResource( 2 )
+
+[node name="Area2D" parent="."]
+
+collision/layers = 16
+collision/mask = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.34375, 0.34375 )
+texture = ExtResource( 3 )
+
+
