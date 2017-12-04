@@ -41,3 +41,9 @@ func set_description(text):
 func set_bottom_text(text):
 	get_node("Bottom Text").set_bbcode(text)
 	get_node("Bottom Text").set_scroll_active(false)
+
+func set_bg_color(mode):
+	if mode == "enemy":
+		set_color(Color(0.93, 0, 0.07, 0.88))
+	elif mode == "ability":
+		set_color(Color(0.07, 0.61, 0.1, 0.88))

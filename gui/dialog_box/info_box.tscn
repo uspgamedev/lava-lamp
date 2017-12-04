@@ -59,7 +59,7 @@ tracks/0/keys = {
 
 polygon = Vector2Array( -120, -120, -120, 200, 110, 200, 110, -120 )
 uv = Vector2Array(  )
-color = Color( 0.796875, 0.149414, 0.149414, 0.923529 )
+color = Color( 0.921875, 0.187256, 0.238909, 0.9 )
 vertex_colors = ColorArray(  )
 offset = Vector2( 0, 0 )
 texture/texture = null
