@@ -8,6 +8,7 @@
 
 collision/layers = 0
 script/script = ExtResource( 2 )
+speed_factor = 1.0
 damages_player = true
 
 [node name="Area2D" parent="."]
