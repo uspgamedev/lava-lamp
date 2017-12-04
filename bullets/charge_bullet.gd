@@ -53,6 +53,7 @@ func _shoot():
 		self.damage = 2*self.scale
 		self.sprite.stop_charge()
 		self.emit_signal('finish')
+		pl.sfx.play("Special")
 
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area') and shoot:
