@@ -1,7 +1,42 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/undead.gd" type="Script" id=2]
+[ext_resource path="res://characters/enemies/undead/undead.tex" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "move_down"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "move_up"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
 
 [node name="Undead" instance=ExtResource( 1 )]
 
@@ -9,6 +44,18 @@ script/script = ExtResource( 2 )
 hp = 16
 min_spawn_range = null
 max_spawn_range = null
+
+[node name="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 4
+
+[node name="AnimationPlayer" parent="Sprite"]
+
+anims/move_down = SubResource( 1 )
+anims/move_up = SubResource( 2 )
+autoplay = "move_down"
 
 [node name="EnemyHealth" parent="."]
 

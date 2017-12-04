@@ -50,7 +50,7 @@ func _ready():
 	self.connect('change_emotion', portrait, 'change_emotion')
 
 	ah.set_key_to_action(KEY_Q, 'create_simple_bullet')
-	ah.set_key_to_action(KEY_R, 'create_ion_bullet')
+	ah.set_key_to_action(KEY_R, 'create_flamethrower')
 	ah.set_key_to_action(KEY_C, 'create_cure_bullet')
 	ah.set_key_to_action(KEY_G, 'create_ghost_bullet')
 
