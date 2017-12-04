@@ -5,6 +5,7 @@ const CureBullet = preload('res://bullets/cure_bullet.tscn')
 func _init():
 	cooldown_time = .3
 	name = "cure_bullet"
+	icon = preload("res://bullets/cure_bullet/cure_bullet_sprite.tscn")
 
 func activate(action_handler, key):
 	#self.icon = preload("res://bullets/cure_bullet_icon.tscn")

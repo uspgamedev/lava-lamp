@@ -3,7 +3,7 @@ extends 'base_action.gd'
 func _init():
 	cooldown_time = 5
 	name = "ion_bullet"
-	#self.icon = preload("res://bullets/ion_bullet_sprite.tscn")
+	icon = preload('res://bullets/ion_bullet/ion_bullet_sprite.tscn')
 
 func activate(action_handler, key):
 	var ion = preload('res://bullets/ion_bullet.tscn').instance()

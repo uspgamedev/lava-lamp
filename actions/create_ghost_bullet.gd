@@ -5,6 +5,7 @@ const GhostBullet = preload('res://bullets/ghost_bullet.tscn')
 func _init():
 	cooldown_time = 2.5
 	name = "ghost_bullet"
+	icon = preload("res://bullets/ghost_bullet/ghost_bullet.tscn")
 
 func activate(action_handler, key):
 	#self.icon = preload("res://bullets/ghost_bullet_icon.tscn")
