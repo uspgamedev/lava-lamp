@@ -7,6 +7,7 @@ onready var main = get_node('../../')
 onready var input = get_node('/root/input')
 onready var pl = main.get_node('Props/Player')
 onready var area = get_node('Area2D')
+onready var sfx = get_node('SFX')
 
 signal finish
 
@@ -25,6 +26,7 @@ func _ready():
 	timer.connect('timeout', self, 'queue_free')
 	charge_timer.start()
 	self.speed = Vector2()
+	self.sfx.play('Charging')
 	set_fixed_process(true)
 	set_process_unhandled_key_input(true)
 
@@ -65,6 +67,7 @@ func _shoot():
 		self.sprite.stop_charge()
 		self.emit_signal('finish')
 		pl.sfx.play("Special")
+		self.sfx.play("Fly")
 
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area') and shoot:
