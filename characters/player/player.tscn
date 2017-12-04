@@ -257,7 +257,7 @@ hp = 4
 
 transform/pos = Vector2( 0, -12 )
 texture = ExtResource( 2 )
-vframes = 3
+vframes = 4
 hframes = 14
 frame = 28
 script/script = ExtResource( 3 )
