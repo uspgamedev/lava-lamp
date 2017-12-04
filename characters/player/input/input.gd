@@ -30,7 +30,7 @@ func _ready():
 	set_process_input(true)
 	for i in range(4):
 		last_dir_hold.append(-10)
-	set_control_type(KEYBOARD2)
+	set_control_type(MOUSE)
 
 func set_control_type(tp):
 	control_type = tp

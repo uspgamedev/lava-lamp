@@ -15,6 +15,7 @@ onready var shoot_timer = get_node("Shooting_Timer")
 onready var shooting = false
 onready var spinning = false
 onready var can_skip = false
+onready var can_complete = false
 
 #Possible doctor's first name
 const FIRST_NAMES = [
@@ -184,7 +185,19 @@ func get_doctor_name():
 	return DR_NAMES_AND_REASONS[randi()%DR_NAMES_AND_REASONS.size()]
 
 func skip_intro():
+	var logo = gui.get_node("Logo")
+	if logo.is_logo_active():
+		can_skip = true
+		can_complete = false
+	if can_complete:
+		can_complete = false
+		can_skip = true
+		dialog_box.text_tween.set_speed(500)
+		return
 	if can_skip:
+		can_skip = false
+		can_complete = true
+		dialog_box.text_tween.set_speed(1)
 		if dialog_box.is_active():
 			dialog_box.deactivate_box()
 
@@ -216,7 +229,7 @@ func intro():
 	yield()
 
 	stop_spinning()
-	can_skip = true
+	can_complete = true
 	var first_name = get_first_name()
 	var arg = get_doctor_name()
 	var dr_name = arg[0]
@@ -249,7 +262,7 @@ func intro():
 
 	yield()
 
-	can_skip = false
+	can_complete = false
 	unlock_controls()
 
 	var timer = get_node("Intro_Timer")
