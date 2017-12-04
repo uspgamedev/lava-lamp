@@ -23,11 +23,11 @@ func _ready():
 
 func cooldown_end(act, key):
 	act.on_cooldown = false
-	if (key != -1 and Input.is_key_pressed(KEY_A + key)) or (key == -1 and Input.is_mouse_button_pressed(BUTTON_LEFT)):
+	if (key != -1 and Input.is_key_pressed(KEY_A + key)) or (key == -1 and Input.is_mouse_button_pressed(BUTTON_LEFT) and selected_action == act):
 		actually_do(act, key)
 
 func set_key_to_action(key, action):
-	if key< KEY_A or key > KEY_Z:
+	if key < KEY_A or key > KEY_Z:
 		breakpoint
 	var action_script = load('res://actions/'+action+'.gd')
 	action_map[key - KEY_A] = action_script.new()
@@ -61,6 +61,8 @@ func do_action(key):
 	if act == null: return
 	if input.control_type == input.MOUSE and not act.auto_play:
 		selected_action = act
+		if Input.is_mouse_button_pressed(BUTTON_LEFT):
+			actually_do(selected_action, -1)
 	elif not act.on_cooldown:
 		actually_do(act, key)
 
