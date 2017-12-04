@@ -17,14 +17,14 @@ func _ready():
 func update_enemy_vector():
 	if (manager.cur_wave%manager.NEW_ENEMY_TYPE == 0):
 		var j = round((manager.NEW_ENEMY_PROPORTION*manager.wave_points)/ \
-		              (manager.ENEMY_POINTS[manager.enemy_types - 1]))
+		              (manager.ENEMIES[manager.enemy_types - 1][2]))
 		for i in range(j):
 			enemies_id.append(manager.enemy_types)
-			cur_points += manager.ENEMY_POINTS[manager.enemy_types]
+			cur_points += manager.ENEMIES[manager.enemy_types][2]
 	while (cur_points < manager.wave_points):
 		var new_enemy = randi()%manager.enemy_types
 		enemies_id.append(new_enemy)
-		cur_points += manager.ENEMY_POINTS[new_enemy]
+		cur_points += manager.ENEMIES[new_enemy][2]
 	shuffle()
 
 func shuffle():
@@ -37,7 +37,7 @@ func shuffle():
 func create_enemy():
 	if (iterator < enemies_id.size()):
 		var new_enemy = enemies_id[iterator]
-		var Enemy = manager.ENEMIES[new_enemy]
+		var Enemy = manager.ENEMIES[new_enemy][1]
 		iterator += 1
 		enemy_count += 1
 		var e = Enemy.instance()
