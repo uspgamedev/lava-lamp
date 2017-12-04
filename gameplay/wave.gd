@@ -37,7 +37,7 @@ func shuffle():
 func create_enemy():
 	if (iterator < enemies_id.size()):
 		var new_enemy = enemies_id[iterator]
-		var Enemy = manager.ENEMIES[9]
+		var Enemy = manager.ENEMIES[new_enemy]
 		iterator += 1
 		enemy_count += 1
 		var e = Enemy.instance()
