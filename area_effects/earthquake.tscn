@@ -44,7 +44,7 @@ trigger = false
 [node name="Timer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 0.8
+wait_time = 1.5
 one_shot = false
 autostart = false
 
