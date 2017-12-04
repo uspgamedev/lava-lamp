@@ -54,6 +54,11 @@ func _ready():
 	
 	intro_func = intro()
 
+func delayed_reload():
+	for i in range(30):
+		yield(get_tree(), "fixed_frame")
+	sfx.play("Reload")
+
 func stop_movimentation():
 	input.disconnect('hold_direction', self, '_add_speed')
 	input.disconnect('hold_direction', self, '_set_look_dir')
