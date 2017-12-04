@@ -74,7 +74,7 @@ func new_wave():
 func _ready():
 	self.connect('change_emotion', portrait, 'change_emotion')
 	t = Timer.new()
-	t.set_wait_time(2)
+	t.set_wait_time(5)
 	t.connect('timeout', self, 'new_wave')
 	t.set_one_shot(true)
 	t.start()
