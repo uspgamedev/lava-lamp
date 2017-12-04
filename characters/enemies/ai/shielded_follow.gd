@@ -7,14 +7,13 @@ func hit(obj):
 	var d = enemy.get_look_dir_value()
 
 	if obj extends preload('res://bullets/bullet.gd'):
-		if (d == DIR.UP and enemy.get_node('UpShield').overlaps_area(obj.get_node('Area2D'))) or \
+		if obj extends preload('res://bullets/trap.gd') or obj extends preload('res://bullets/tracer_bullet.gd'):
+			.hit(obj)
+		elif (d == DIR.UP and enemy.get_node('UpShield').overlaps_area(obj.get_node('Area2D'))) or \
 		   (d == DIR.DOWN and enemy.get_node('DownShield').overlaps_area(obj.get_node('Area2D'))) or \
 		   (d == DIR.LEFT and enemy.get_node('LeftShield').overlaps_area(obj.get_node('Area2D'))) or \
 		   (d == DIR.RIGHT and enemy.get_node('RightShield').overlaps_area(obj.get_node('Area2D'))):
-			if obj extends preload('res://bullets/trap.gd'):
-				.hit(obj)
-			else:
-				obj.queue_free()
+			obj.queue_free()
 		else:
 			.hit(obj)
 	elif obj extends preload('res://area_effects/area_effect.gd'):
