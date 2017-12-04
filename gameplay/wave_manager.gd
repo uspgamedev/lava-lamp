@@ -67,6 +67,7 @@ signal change_emotion(emotion, time)
 onready var gui = get_node('/root/Main/GUI')
 onready var portrait = gui.get_node('Player_Portrait')
 onready var dialog_box = gui.get_node('Dialog Box')
+onready var bgm = get_node('../BGM')
 
 func update_enemy_types():
 	if (cur_wave%NEW_ENEMY_TYPE == 0 and enemy_types < ENEMIES.size()):
@@ -78,6 +79,7 @@ func update_wave_points():
 
 func wave_ended():
 	print('Wave ', cur_wave, ' ended')
+	bgm._interlude_mode()
 	emit_signal('change_emotion', "happy", 3)
 	cur_wave += 1
 	update_enemy_types()
@@ -124,6 +126,7 @@ func start_wave():
 	var w = get_node('Wave')
 	dialog_box.clear_all_info_boxes()
 	print('Wave ', cur_wave, ' started')
+	bgm._action_mode()
 	w.start()
 
 func new_wave():
