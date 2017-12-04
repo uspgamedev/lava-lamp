@@ -2,17 +2,17 @@ extends Node
 
 const ENEMIES = [ # 12 enemies
 	['Olhinho', 'res://characters/enemies/olhinho', 2,              'DESCRIÇÃO', 4],
-	['Charger', 'res://characters/enemies/charger', 5,              'DESCRIÇÃO', 4],
 	['Shielded', 'res://characters/enemies/shielded', 7,            'DESCRIÇÃO', 4],
+	['Charger', 'res://characters/enemies/charger', 5,              'DESCRIÇÃO', 4],
+	['Ghost', 'res://characters/enemies/ghost', 20,                 'DESCRIÇÃO', 4],
 	['Mage', 'res://characters/enemies/mage', 12,                   'DESCRIÇÃO', 3],
 	['Bouncer', 'res://characters/enemies/bouncer', 15,             'DESCRIÇÃO', 4],
-	['Ghost', 'res://characters/enemies/ghost', 20,                 'DESCRIÇÃO', 4],
-	['Absorber', 'res://characters/enemies/absorber', 25,           'DESCRIÇÃO', 4],
 	['Undead', 'res://characters/enemies/undead', 30,               'DESCRIÇÃO', 16],
-	['Hard Shielded', 'res://characters/enemies/hard_shielded', 45, 'DESCRIÇÃO', 6],
+	['Absorber', 'res://characters/enemies/absorber', 25,           'DESCRIÇÃO', 4],
 	['Hard Bouncer', 'res://characters/enemies/hard_bouncer', 55,   'DESCRIÇÃO', 10],
 	['Hard Mage', 'res://characters/enemies/hard_mage', 65,         'DESCRIÇÃO', 5],
-	['Hard Charger', 'res://characters/enemies/hard_charger', 77,   'DESCRIÇÃO', 6]
+	['Hard Charger', 'res://characters/enemies/hard_charger', 77,   'DESCRIÇÃO', 6],
+	['Hard Shielded', 'res://characters/enemies/hard_shielded', 45, 'DESCRIÇÃO', 6]
 ]
 
 const MECHANICS = [ # 17 mechanics
@@ -58,17 +58,19 @@ const START_SPEECHES = [
 	'Prepare for war!',
 ]
 
-const NEW_ENEMY_TYPE = 1
+const NEW_ENEMY_TYPE = 3
+const NEW_MECH_TYPE = 2
 const NEW_ENEMY_PROPORTION = 1/3
 
 var reserved_keys = [ KEY_W, KEY_A, KEY_S, KEY_D, KEY_Q ]
 
 var cur_wave = 1
 var enemy_types = 1
-var wave_points = 10
+var wave_points = 1
 var key
 var waiting_key = false
 var cur_mechanics = 1
+var cur_enemy = 1
 
 var t
 
@@ -126,7 +128,6 @@ func _unhandled_key_input(ev):
 
 func give_new_mechanics():
 	dialog_box.display_new_ability(MECHANICS[cur_mechanics][0], MECHANICS[cur_mechanics][2], load("res://actions/" + MECHANICS[cur_mechanics][1] + ".gd").new().icon.instance())
-	dialog_box.display_new_enemy(ENEMIES[cur_mechanics][0], var2str(ENEMIES[cur_mechanics][4]), ENEMIES[cur_mechanics][3], load(ENEMIES[cur_mechanics][1] + '_icon.tscn').instance())
 	for i in DOUBLE_MECH_WAVES:
 		if i == cur_wave:
 			dialog_box.display_new_ability(MECHANICS[cur_mechanics + 1][0], MECHANICS[cur_mechanics + 1][2], load("res://actions/" + MECHANICS[cur_mechanics + 1][1] + ".gd").new().icon.instance())
@@ -170,15 +171,21 @@ func start_wave():
 
 func prepare_wave():
 	var w = get_node('Wave')
-	t.set_wait_time(3)
+	t.set_wait_time(5)
 	t.disconnect('timeout', self, 'new_wave')
 	t.connect('timeout', self, 'start_wave')
 	t.set_one_shot(true)
 	t.start()
 	w.connect('ended', self, 'wave_ended')
 
+func introduce_enemy_type():
+	dialog_box.display_new_enemy(ENEMIES[cur_enemy][0], var2str(ENEMIES[cur_enemy][4]), ENEMIES[cur_enemy][3], load(ENEMIES[cur_enemy][1] + '_icon.tscn').instance())
+	cur_enemy += 1
+
 func new_wave():
 	if (cur_wave%NEW_ENEMY_TYPE == 0):
+		introduce_enemy_type()
+	if (cur_wave%NEW_MECH_TYPE == 0):
 		give_new_mechanics()
 	else:
 		prepare_wave()
