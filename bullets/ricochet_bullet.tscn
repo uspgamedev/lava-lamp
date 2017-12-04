@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://bullets/ricochet_bullet.gd" type="Script" id=1]
 [ext_resource path="res://bullets/bounce_bullet/ricochet_bullet_sprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=3]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=4]
+[ext_resource path="res://bullets/bounce_bullet/mono_sound_ricochet_bullet_no_ar.smp" type="Sample" id=5]
+[ext_resource path="res://bullets/bounce_bullet/mono_sound_ricochet_bullet2_atingindo_parede.smp" type="Sample" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -62,6 +66,16 @@ process_mode = 1
 wait_time = 5.0
 one_shot = false
 autostart = false
+
+[node name="SFX" parent="." instance=ExtResource( 3 )]
+
+[node name="Fly" parent="SFX" instance=ExtResource( 4 )]
+
+sample = ExtResource( 5 )
+
+[node name="Bounce" parent="SFX" instance=ExtResource( 4 )]
+
+sample = ExtResource( 6 )
 
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
