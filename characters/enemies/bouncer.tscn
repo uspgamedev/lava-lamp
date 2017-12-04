@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/bouncer/bouncer.gd" type="Script" id=2]
 [ext_resource path="res://characters/enemies/bouncer/bouncer2-sheet.tex" type="Texture" id=3]
 [ext_resource path="res://characters/enemies/ai/bouncer_ai.gd" type="Script" id=4]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=5]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=6]
+[ext_resource path="res://characters/enemies/bouncer/monster_sound_bouncer_walking_loopar._Da_pra_fazer_um_crossfade_entre_os_loops.smp" type="Sample" id=7]
+[ext_resource path="res://characters/enemies/bouncer/monster_sound_bouncer_bouncing_bullet.smp" type="Sample" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -91,6 +95,20 @@ polygon = Vector2Array( -10, -40, -10, 0, 10, 0, 10, -40 )
 [node name="Ai" parent="."]
 
 script/script = ExtResource( 4 )
+
+[node name="SFX" parent="." instance=ExtResource( 5 )]
+
+config/polyphony = 2
+autoplay = true
+which = "Roll"
+
+[node name="Roll" parent="SFX" instance=ExtResource( 6 )]
+
+sample = ExtResource( 7 )
+
+[node name="Homerun" parent="SFX" instance=ExtResource( 6 )]
+
+sample = ExtResource( 8 )
 
 [connection signal="bounced" from="Ai" to="." method="_bounce"]
 

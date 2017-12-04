@@ -22,6 +22,8 @@ tracks/0/keys = {
 
 [node name="HardMage" instance=ExtResource( 1 )]
 
+hp = 5
+
 [node name="Sprite" parent="."]
 
 frame = 4

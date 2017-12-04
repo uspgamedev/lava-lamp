@@ -1,12 +1,6 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/enemies/mage.gd" type="Script" id=2]
-[ext_resource path="res://characters/enemies/olhinho_sprite_sheet.tex" type="Texture" id=3]
-[ext_resource path="res://characters/enemies/ai/mage_ai.gd" type="Script" id=4]
-[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=5]
-[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=6]
-[ext_resource path="res://characters/enemies/eye/monster_sound_eye_walking_loopar_enquanto_ele_estiver_vivo.smp" type="Sample" id=7]
+[ext_resource path="res://characters/enemies/olhinho_sprite_sheet.tex" type="Texture" id=1]
 
 [sub_resource type="Animation" id=1]
 
@@ -93,48 +87,38 @@ tracks/0/keys = {
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 0, 1, 1 ) ]
 }
 
-[node name="Mage" instance=ExtResource( 1 )]
+[node name="Sprite" type="Sprite"]
 
-script/script = ExtResource( 2 )
-hp = 3
-min_spawn_range = null
-max_spawn_range = null
-
-[node name="Sprite" parent="."]
-
-texture = ExtResource( 3 )
+visibility/self_opacity = 10.0
+texture = ExtResource( 1 )
 vframes = 4
 hframes = 4
 frame = 15
 modulate = Color( 1, 0, 1, 1 )
 
-[node name="AnimationPlayer" parent="Sprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
 anims/walk_down = SubResource( 1 )
 anims/walk_left = SubResource( 2 )
 anims/walk_right = SubResource( 3 )
 anims/walk_up = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
 autoplay = "walk_down"
 
-[node name="Hit" parent="Sprite"]
+[node name="Hit" type="AnimationPlayer" parent="."]
 
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
 anims/hit = SubResource( 5 )
-
-[node name="Ai" parent="."]
-
-script/script = ExtResource( 4 )
-
-[node name="EnemyHealth" parent="."]
-
-max_in_row = 3
-
-[node name="SFX" parent="." instance=ExtResource( 5 )]
-
-autoplay = true
-which = "Float"
-
-[node name="Float" parent="SFX" instance=ExtResource( 6 )]
-
-sample = ExtResource( 7 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 
