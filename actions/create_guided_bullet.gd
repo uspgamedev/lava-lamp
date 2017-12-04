@@ -5,7 +5,7 @@ func _init():
 	name = "guided_bullet"
 	icon = preload("res://bullets/guided_bullet/guided_bullet_sprite.tscn")
 
-func activate(action_handler):
+func activate(action_handler, key):
 	var GuidedBullet = preload('res://bullets/guided_bullet.tscn')
 	var pl = action_handler.get_parent()
 	pl.sfx.play("Special")

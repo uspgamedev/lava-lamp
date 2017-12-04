@@ -4,7 +4,7 @@ func _init():
 	cooldown_time = 5
 	name = "tracer_bullet"
 	
-func activate(action_handler):
+func activate(action_handler, key):
 	self.icon = preload("res://bullets/tracer_bullet/tracer_bullet_sprite.tscn")
 	var TracerBullet = preload('res://bullets/tracer_bullet.tscn')
 	var b = TracerBullet.instance()

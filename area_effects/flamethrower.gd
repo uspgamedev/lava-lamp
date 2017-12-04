@@ -8,19 +8,25 @@ onready var input = get_node('/root/input')
 signal finish
 
 var enemyList = []
+var hold_key
 
 func _ready():
 	damage = 1
 	timer.connect('timeout', self, '_finish')
-	input.connect('not_hold_action', self, '_finish')
 	timer.start()
 	set_fixed_process(true)
-	
+	set_process_unhandled_key_input(true)
+
+func _unhandled_key_input(ev):
+	if ev.scancode == hold_key and not ev.pressed:
+		_finish()
+
 func _fixed_process(delta):
 	self.set_pos(pl.get_pos() + Vector2(0, -20))
 	self.set_rot(pl.get_look_dir().angle())
 
 func _finish():
+	set_process_unhandled_key_input(false)
 	emit_signal('finish')
 	self.queue_free()
 

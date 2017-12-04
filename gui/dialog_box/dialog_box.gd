@@ -81,7 +81,6 @@ func clear_all_info_boxes():
 func display_text(text, delay = 3):
 	delay_time = delay
 	var text_tween = get_node("Text Tween")
-	
 	if is_active():
 		var timer = get_node("Deactivate Timer")
 		timer.stop()
@@ -96,7 +95,7 @@ func display_text(text, delay = 3):
 	var raw_text = tb.get_text()
 	var len = raw_text.length()
 	var text_speed = 20
-	var d = len/text_speed
+	var d = max(1, len/text_speed)
 	var delay = .3
 	text_tween.interpolate_property(tb, "visible_characters", 0, len, d, Tween.TRANS_LINEAR, Tween.EASE_IN, delay)
 	text_tween.start()

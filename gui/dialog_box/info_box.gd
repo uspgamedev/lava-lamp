@@ -11,6 +11,8 @@ func activate():
 	anim_player.play("Activate")
 
 func deactivate():
+	if active == false:
+		return
 	active = false
 	anim_player.play("Deactivate")
 	anim_player.connect("finished", self, "kill_me")

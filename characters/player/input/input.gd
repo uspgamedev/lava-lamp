@@ -12,6 +12,14 @@ signal not_hold_action
 signal press_quit
 signal skip_intro
 
+enum {
+KEYBOARD,
+MOUSE
+}
+
+var control_type
+var shoot_on_click
+
 var cur = 0
 # Last time this direction was held
 var last_dir_hold = []
@@ -21,6 +29,14 @@ func _ready():
 	set_process_input(true)
 	for i in range(4):
 		last_dir_hold.append(-10)
+	set_control_type(MOUSE)
+
+func set_control_type(tp):
+	control_type = tp
+	if tp == KEYBOARD:
+		shoot_on_click = true
+	elif tp == MOUSE:
+		shoot_on_click = false
 
 func _input(event):
 	var dir = self._get_direction(event)
@@ -49,12 +65,29 @@ func _get_skip_intro(e):
 		return true
 
 func _get_action(e):
-	var act = -1
-	if e.is_action_pressed('charge'):
-		act = 1
-	return act
+	if control_type == MOUSE:
+		if e.is_action_pressed('mouse_down'):
+			return 1
+		else:
+			return -1
+	else:
+		return -1
 
 func _get_look_direction(e):
+	if control_type == KEYBOARD:
+		if not Input.is_action_pressed("lock_dir"):
+			return _get_direction(e)
+		return -1
+	elif control_type == MOUSE:
+		var p = get_viewport().get_mouse_pos()
+		var pl_p = get_node('/root/Main/Props/Player').get_global_transform_with_canvas().o
+		var ang = atan2(p.x - pl_p.x, p.y  - pl_p.y)
+		if ang >= PI * 7.0 / 8 or ang <= -PI * 7.0 / 8:
+			return DIR.UP
+		var tp = floor((ang + PI * 7.0 / 8) / (PI / 4.0))
+		return [DIR.UP_LEFT, DIR.LEFT, DIR.DOWN_LEFT, DIR.DOWN, DIR.DOWN_RIGHT, DIR.RIGHT, DIR.UP_RIGHT][min(6, tp)]
+	else:
+		assert(false)
 	var i = 0
 	for cmd in ['look_up', 'look_down', 'look_right', 'look_left']:
 		if e.is_action_pressed(cmd):
@@ -96,6 +129,7 @@ func _get_look_direction(e):
 	return dir
 
 func _get_direction(e):
+	# Same for both control types
 	var dir = -1
 	if e.is_action_pressed('ui_up') and not e.is_action_pressed('ui_down'):
 		dir = DIR.UP

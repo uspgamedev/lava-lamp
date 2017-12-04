@@ -43,44 +43,40 @@ var intro_func
 
 func _ready():
 	set_fixed_process(true)
+	unlock_controls()
+	input.connect('skip_intro', self, 'skip_intro')
+
+	self.connect('change_emotion', portrait, 'change_emotion')
+
+	ah.set_key_to_action(KEY_Q, 'create_simple_bullet')
+
+	load_camera()
+
+	intro_func = intro()
+
+func delayed_reload():
+	for i in range(30):
+		yield(get_tree(), "fixed_frame")
+	sfx.play("Reload")
+
+func stop_movimentation():
+	input.disconnect('hold_direction', self, '_add_speed')
+	input.disconnect('hold_direction', self, '_set_look_dir')
+	input.disconnect('press_action', self, '_act')
+	input.disconnect('skip_intro', self, 'skip_intro')
+
+func resume_movimentation():
 	input.connect('hold_direction', self, '_add_speed')
 	input.connect('hold_direction', self, '_set_look_dir')
 	input.connect('press_action', self, '_act')
 	input.connect('skip_intro', self, 'skip_intro')
-	#input.connect('hold_look', self, '_set_look_dir')
-
-	self.connect('change_emotion', portrait, 'change_emotion')
-
-	ah.set_key_to_action(KEY_B, 'debug')
-	ah.set_key_to_action(KEY_G, 'create_simple_bullet')
-	ah.set_key_to_action(KEY_N, 'create_trap')
-	ah.set_key_to_action(KEY_M, 'create_wormhole')
-	ah.set_key_to_action(KEY_F, 'create_ricochet_bullet')
-	ah.set_key_to_action(KEY_V, 'dash')
-	ah.set_key_to_action(KEY_H, 'create_double_bullet')
-	ah.set_key_to_action(KEY_J, 'create_tracer_bullet')
-	ah.set_key_to_action(KEY_K, 'create_guided_bullet')
-	ah.set_key_to_action(KEY_R, 'create_charge_bullet')
-	ah.set_key_to_action(KEY_T, 'create_shotgun_bullet')
-	ah.set_key_to_action(KEY_U, 'create_earthquake')
-	ah.set_key_to_action(KEY_Y, 'create_ion_bullet')
-	ah.set_key_to_action(KEY_C, 'create_flamethrower')
-	ah.set_key_to_action(KEY_X, 'create_laser')
-	ah.set_key_to_action(KEY_O, 'create_ghost_bullet')
-	ah.set_key_to_action(KEY_L, 'create_cure_bullet')
-	ah.set_key_to_action(KEY_I, 'shield')
-
-	load_camera()
-	
-	intro_func = intro()
 
 func get_look_vec():
 	return DIR.VECTOR[self.dir]
 
 func _set_look_dir(dir):
-	if not Input.is_action_pressed("lock_dir"):
-		self.dir = dir
-		emit_signal("look_dir_changed", dir)
+	self.dir = dir
+	emit_signal("look_dir_changed", dir)
 
 func dash(time):
 	self.dashTime = time
@@ -126,13 +122,13 @@ func load_camera():
 	camera.set_enable_follow_smoothing(true)
 	camera.set_follow_smoothing(5)
 	camera.make_current()
-	
+
 func _stun():
 	lock_controls()
 	get_node("Stunned").set_hidden(false)
 	get_node("StunTimer").start()
 	get_node("Stunned/Timer").start()
-	
+
 func _unstun():
 	unlock_controls()
 
@@ -150,21 +146,19 @@ func deal_damage(d):
 
 func _on_Expression_Timer_timeout():
 	emit_signal('change_emotion', "normal")
-	
+
 func lock_controls():
 	input.disconnect('hold_direction', self, '_add_speed')
-	input.disconnect('hold_direction', self, '_set_look_dir')
-	input.disconnect('press_action', self, '_act')
+	input.disconnect('hold_look', self, '_set_look_dir')
 	ah.capturing = false
 	get_node("Hook").hide()
 
 func unlock_controls():
 	input.connect('hold_direction', self, '_add_speed')
-	input.connect('hold_direction', self, '_set_look_dir')
-	input.connect('press_action', self, '_act')
+	input.connect('hold_look', self, '_set_look_dir')
 	ah.capturing = true
 	get_node("Hook").show()
-	
+
 func _on_Intro_Tween_tween_complete( object, key ):
 	intro_func = intro_func.resume()
 
@@ -183,17 +177,17 @@ func skip_intro():
 	if can_skip:
 		if dialog_box.is_active():
 			dialog_box.deactivate_box()
-		
+
 		var logo = gui.get_node("Logo")
 		if logo.is_logo_active():
 			logo.stop_logo_animation()
-		
+
 		var timer = get_node("Intro_Timer")
 		if timer.is_active():
 			timer.stop()
 			_on_Intro_Timer_timeout()
 			return
-		
+
 		var tween = get_node("Intro_Tween")
 		if tween.is_active():
 			tween.stop_all()
@@ -208,9 +202,9 @@ func intro():
 	var tween = get_node("Intro_Tween")
 	tween.interpolate_property(get_node("Sprite"), "offset", Vector2(0,-200), Vector2(0,0), 2.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
-	
+
 	yield()
-	
+
 	stop_spinning()
 	can_skip = true
 	var first_name = get_first_name()
@@ -221,39 +215,38 @@ func intro():
 	var timer = get_node("Intro_Timer")
 	timer.set_wait_time(9)
 	timer.start()
-	
+
 	yield()
-	
+
 	dialog_box.display_text("Yet none of this matters now. Our world as we know it has become [color=black]APOCALYPTIC!!![/color] And [color=lime]you[/color] are our last hope to save humankind! And who are [color=lime]you[/color], you may ask? Well you are the [color=#6be51b]one[/color] and [color=#6be51b]only[/color]...", 5)
 	var timer = get_node("Intro_Timer")
 	timer.set_wait_time(12)
 	timer.start()
-	
+
 	yield()
-	
+
 	dialog_box.display_text("[center][color=yellow]L[/color][color=lime]egendary[/color] [color=yellow]A[/color][color=lime]utonamous[/color] [color=yellow]V[/color][color=lime]ersatile[/color] [color=yellow]A[/color][color=lime]ndroid[/color] [color=black]series[/color][fill] [/fill][/center] [center][color=yellow]L[/color][color=lime]atest-generation[/color] [color=yellow]A[/color][color=lime]nti-apocalyptic[/color] [color=yellow]M[/color][color=lime]oddable[/color] [color=yellow]P[/color][color=lime]rototype[/color] [color=black]edition![/color][fill] [/fill][/center]", 5)
 	var timer = get_node("Intro_Timer")
 	timer.set_wait_time(10)
 	timer.start()
-	
+
 	yield()
 
 	gui.get_node("Logo").start_logo_animation()
 	var timer = get_node("Intro_Timer")
 	timer.set_wait_time(6)
 	timer.start()
-	
+
 	yield()
-	
+
 	can_skip = false
 	unlock_controls()
-	
+
 	var timer = get_node("Intro_Timer")
 	timer.set_wait_time(2)
 	timer.start()
-	
+
 	yield()
-	
+
 	#Start first wave
 	get_node('/root/Main/WaveManager').new_wave()
-	
