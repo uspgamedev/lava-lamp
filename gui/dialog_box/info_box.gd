@@ -31,15 +31,18 @@ func set_title(text):
 	get_node("Title").set_bbcode(text)
 	get_node("Title").set_scroll_active(false)
 
+var B = preload('res://gui/3d/viewport_3d.tscn')
+
 var SpinningBox = preload('res://gui/3d/viewport_3d.tscn')
 
 func set_icon(icon):
+	add_child(icon)
+	icon.set_scale(Vector2(4, 4))
+	return
 	var sb = SpinningBox.instance()
 	sb.get_node('Viewport/Spatial').set_texture(icon)
+	sb.set_pos(Vector2(0, 0))
 	add_child(sb)
-	#sb.set_scale(Vector2(4, 4))
-	#sb.get_node('Viewport/Spatial').set_scale(Vector3(4,4,4))
-	sb.set_pos(Vector2(0,0))
 
 func set_description(text):
 	get_node("Description").set_bbcode(text)
