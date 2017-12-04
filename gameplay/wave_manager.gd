@@ -28,6 +28,7 @@ func new_wave():
 	var w = get_node('Wave')
 	w.start()
 	dialog_box.display_text("New wave incoming [color=purple]baby![/color]! Also this is a [color=blue]long[/color] [color=red]long[/color] [color=green]long[/color] long long long long long long long long long long long long text haha")
+	dialog_box.display_new_ability("DUMMY", "K", "Makes you even more stupid!", preload("res://actions/dash.gd").new().icon.instance())
 	w.connect('ended', self, 'wave_ended')
 
 func _ready():
