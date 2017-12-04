@@ -31,7 +31,7 @@ const ENEMY_POINTS = [
 ]
 
 const MECHANICS = [
-	'create_trap',
+	'create_flamethrower',#'create_trap',
 	'create_wormhole',
 	'create_ricochet_bullet',
 	'dash',

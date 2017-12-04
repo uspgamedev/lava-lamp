@@ -11,7 +11,7 @@ points = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -10, -30, 10, -30, 10, -10, -10, -10 )
+points = Vector2Array( -10, -20, 10, -20, 10, 0, -10, 0 )
 
 [node name="SimpleBullet" type="KinematicBody2D"]
 
@@ -36,7 +36,7 @@ trigger = false
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 0, -20 )
+transform/pos = Vector2( 0, -10 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -52,7 +52,7 @@ angular_damp = 1.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
 build_mode = 0
-polygon = Vector2Array( -10, -30, 10, -30, 10, -10, -10, -10 )
+polygon = Vector2Array( -10, -20, 10, -20, 10, 0, -10, 0 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
