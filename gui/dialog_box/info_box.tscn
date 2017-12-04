@@ -57,7 +57,7 @@ tracks/0/keys = {
 
 [node name="Info_Box" type="Polygon2D"]
 
-polygon = Vector2Array( -120, -120, -120, 200, -120, 200, -120, -120 )
+polygon = Vector2Array( -120, -120, -120, 200, 110, 200, 110, -120 )
 uv = Vector2Array(  )
 color = Color( 0.796875, 0.149414, 0.149414, 0.923529 )
 vertex_colors = ColorArray(  )
