@@ -1,0 +1,153 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://gui/dialog_box/info_box.gd" type="Script" id=1]
+[ext_resource path="res://gui/dialog_box/dialog_box_font.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://gui/dialog_box/dialog_box_bigger_font.fnt" type="BitmapFont" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "Activate"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:polygon")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2Array( -120, -120, -120, 200, -120, 200, -120, -120 ), Vector2Array( -120, -120, -120, 200, 110, 200, 110, -120 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "Deactivate"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:polygon")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2Array( -120, -120, -120, 200, 110, 200, 110, -120 ), Vector2Array( -120, -120, -120, 200, -120, 200, -120, -120 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "Not Active"
+length = 0.01
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:polygon")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2Array( -120, -120, -120, 200, -120, 200, -120, -120 ) ]
+}
+
+[node name="Info_Box" type="Polygon2D"]
+
+polygon = Vector2Array( -120, -120, -120, 200, -120, 200, -120, -120 )
+uv = Vector2Array(  )
+color = Color( 0.796875, 0.149414, 0.149414, 0.923529 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+script/script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Activate = SubResource( 1 )
+anims/Deactivate = SubResource( 2 )
+"anims/Not Active" = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "Not Active"
+
+[node name="Top Text" type="RichTextLabel" parent="."]
+
+rect/scale = Vector2( 0.8, 0.8 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -120.0
+margin/top = -110.0
+margin/right = 168.0
+margin/bottom = -90.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode/enabled = true
+bbcode/bbcode = "[center]NEW STUFF [color=lime]UNLOCKED:[/color][/center]"
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="Title" type="RichTextLabel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -120.0
+margin/top = -80.0
+margin/right = 110.0
+margin/bottom = -60.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode/enabled = true
+bbcode/bbcode = "[center][color=yellow]TITLE[/color][/center]"
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="Description" type="RichTextLabel" parent="."]
+
+rect/scale = Vector2( 0.8, 0.8 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -120.0
+margin/top = 50.0
+margin/right = 168.0
+margin/bottom = 188.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode/enabled = true
+bbcode/bbcode = "[center]description is here along with some words and stuff oh yeh.[/center]"
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="Bottom Text" type="RichTextLabel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -120.0
+margin/top = 170.0
+margin/right = 110.0
+margin/bottom = 200.0
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode/enabled = true
+bbcode/bbcode = "[center][color=yellow]This is the bottom text[/color][/center]"
+visible_characters = -1
+percent_visible = 1.0
+
+

@@ -3,9 +3,9 @@ extends 'base_action.gd'
 func _init():
 	cooldown_time = 1
 	name = "richochet_bullet"
+	icon = preload('res://bullets/bounce_bullet/ricochet_bullet_sprite.tscn')
 
 func activate(action_handler):
-	self.icon = preload('res://bullets/bounce_bullet/ricochet_bullet_sprite.tscn')
 	var RicochetBullet = preload('res://bullets/ricochet_bullet.tscn')
 	var b = RicochetBullet.instance()
 	var pl = action_handler.get_parent()

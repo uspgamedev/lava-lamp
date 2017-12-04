@@ -3,9 +3,9 @@ extends 'base_action.gd'
 func _init():
 	cooldown_time = 10
 	name = "charge_bullet"
-
+	icon = preload('res://bullets/charge_bullet/charge_bullet_sprite.tscn')
+	
 func activate(action_handler):
-	self.icon = preload('res://bullets/charge_bullet/charge_bullet_sprite.tscn')
 	var ChargeBullet = preload('res://bullets/charge_bullet.tscn')
 	var b = ChargeBullet.instance()
 	var pl = action_handler.get_parent()

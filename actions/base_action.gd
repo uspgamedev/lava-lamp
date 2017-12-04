@@ -8,3 +8,4 @@ var icon = preload("res://gui/godot_icon.tscn")
 
 func get_name():
 	return name
+
