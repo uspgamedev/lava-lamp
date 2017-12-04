@@ -19,8 +19,8 @@ func get_valid_position():
 	var cells = floor_tile_map.get_used_cells()
 	var cell = cells[randi()%cells.size()]
 	var player = wall_tile_map.get_node('Player')
-	while (cell - player.get_pos()).length() < 400 and \
-	      (floor_tile_map.get_cell(cell.x, cell.y) == 3 or wall_tile_map.get_cell(cell.x, cell.y) != -1):
+	while (((cell - floor_tile_map.world_to_map(player.get_pos())).length() < 15) or \
+	      (floor_tile_map.get_cell(cell.x, cell.y) == 3 or wall_tile_map.get_cell(cell.x, cell.y) != -1)):
 		cell = cells[randi()%cells.size()]
 	var position = wall_tile_map.map_to_world(cell) + Vector2(12, 24)
 	return position
