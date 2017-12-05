@@ -7,8 +7,10 @@ onready var active = false
 onready var infobox = load("res://gui/dialog_box/info_box.tscn")
 onready var infoboxes = get_node("Info Boxes")
 onready var text_tween = get_node("Text Tween")
+onready var sfx = get_node("SFX")
 
 var delay_time
+var lastNum = -1
 
 func _ready():
 	pass
@@ -114,3 +116,10 @@ func start_deactivate_timer():
 	timer.set_wait_time(delay_time)
 	timer.start()
 
+func _on_Text_Tween_tween_step( object, key, elapsed, value ):
+	var actual = floor(value)
+	if lastNum != actual:
+		if object.get_text().length() > lastNum and object.get_text()[lastNum] != " " and randi()%6 != 0:
+			
+			sfx.play("Tack")
+		lastNum = actual

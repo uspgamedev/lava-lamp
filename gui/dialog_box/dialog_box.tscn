@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://gui/dialog_box/dialog_box.gd" type="Script" id=1]
 [ext_resource path="res://gui/dialog_box/dialog_box_font.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=3]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/dialog_box/letras.smp" type="Sample" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -137,8 +140,19 @@ playback/speed = 1.0
 
 transform/pos = Vector2( 0, -350 )
 
+[node name="SFX" parent="." instance=ExtResource( 3 )]
+
+params/volume_db = 20.0
+config/polyphony = 4
+
+[node name="Tack" parent="SFX" instance=ExtResource( 4 )]
+
+sample = ExtResource( 5 )
+
 [connection signal="timeout" from="Deactivate Timer" to="." method="deactivate_box"]
 
 [connection signal="tween_complete" from="Text Tween" to="." method="_text_tween_complete"]
+
+[connection signal="tween_step" from="Text Tween" to="." method="_on_Text_Tween_tween_step"]
 
 
