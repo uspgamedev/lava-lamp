@@ -104,6 +104,7 @@ invert/border = 100.0
 [node name="PauseScreen" type="Control" parent="."]
 
 process/pause_mode = 2
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -266,6 +267,66 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Start over"
 flat = false
+
+[node name="MoveList" type="Control" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="Polygon2D2" type="Polygon2D" parent="MoveList"]
+
+transform/pos = Vector2( -410, -45.5005 )
+transform/scale = Vector2( 1, 1.69054 )
+polygon = Vector2Array( 500, 350, 790, 350, 790, 60, 500, 60 )
+uv = Vector2Array(  )
+color = Color( 0.148438, 0.115967, 0.115967, 0.530039 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Title" type="Label" parent="MoveList"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 150.0
+margin/top = 70.0
+margin/right = 306.0
+margin/bottom = 106.0
+custom_fonts/font = ExtResource( 8 )
+text = "Move List"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Description" type="Label" parent="MoveList"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 130.0
+margin/top = 130.0
+margin/right = 340.0
+margin/bottom = 410.0
+custom_fonts/font = ExtResource( 7 )
+text = "Placeholder"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="item_selected" from="PauseScreen/OptionButton" to="PauseScreen/OptionButton" method="_on_OptionButton_item_selected"]
 
