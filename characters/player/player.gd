@@ -171,6 +171,8 @@ func lock_controls():
 	input.disconnect('press_action', ah, 'do_selected_action')
 	ah.set_process_unhandled_key_input(false)
 	get_node("Hook").hide()
+	get_node("/root/Main/GUI/HealthBar").hide()
+	get_node("/root/Main/GUI/SelectedAction").hide()
 
 func unlock_controls():
 	input.connect('hold_direction', self, '_add_speed')
@@ -178,6 +180,8 @@ func unlock_controls():
 	input.connect('hold_look', self, '_set_look_dir')
 	input.connect('press_action', ah, 'do_selected_action')
 	ah.set_process_unhandled_key_input(true)
+	get_node("/root/Main/GUI/HealthBar").show()
+	get_node("/root/Main/GUI/SelectedAction").show()
 	get_node("Hook").show()
 
 func _on_Intro_Tween_tween_complete( object, key ):
