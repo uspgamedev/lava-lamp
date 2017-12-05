@@ -79,17 +79,17 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 
 length = 0.4
-loop = true
+loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0 ),
-"transitions": FloatArray( 1 ),
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
 "update": 1,
-"values": [ 3 ]
+"values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="Charger" instance=ExtResource( 1 )]
@@ -103,7 +103,8 @@ max_spawn_range = null
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 3
-frame = 5
+frame = 3
+modulate = Color( 255, 255, 255, 1 )
 
 [node name="AnimationPlayer" parent="Sprite"]
 
