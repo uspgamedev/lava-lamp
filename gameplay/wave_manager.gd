@@ -2,23 +2,23 @@ extends Node
 
 const ENEMIES = [ # 12 enemies
 	['Olhinho', 'res://characters/enemies/olhinho', 2,              'DESCRIÇÃO', 4],
-	['Shielded', 'res://characters/enemies/shielded', 7,            'DESCRIÇÃO', 4],
-	['Charger', 'res://characters/enemies/charger', 5,              'DESCRIÇÃO', 4],
-	['Ghost', 'res://characters/enemies/ghost', 20,                 'DESCRIÇÃO', 4],
-	['Mage', 'res://characters/enemies/mage', 12,                   'DESCRIÇÃO', 3],
-	['Bouncer', 'res://characters/enemies/bouncer', 15,             'DESCRIÇÃO', 4],
-	['Undead', 'res://characters/enemies/undead', 30,               'DESCRIÇÃO', 16],
-	['Absorber', 'res://characters/enemies/absorber', 25,           'DESCRIÇÃO', 4],
-	['Hard Bouncer', 'res://characters/enemies/hard_bouncer', 55,   'DESCRIÇÃO', 10],
-	['Hard Mage', 'res://characters/enemies/hard_mage', 65,         'DESCRIÇÃO', 5],
-	['Hard Charger', 'res://characters/enemies/hard_charger', 77,   'DESCRIÇÃO', 6],
-	['Hard Shielded', 'res://characters/enemies/hard_shielded', 45, 'DESCRIÇÃO', 6]
+	['Shielded', 'res://characters/enemies/shielded', 5,            'DESCRIÇÃO', 4],
+	['Charger', 'res://characters/enemies/charger', 7,              'DESCRIÇÃO', 4],
+	['Ghost', 'res://characters/enemies/ghost', 12,                 'DESCRIÇÃO', 4],
+	['Mage', 'res://characters/enemies/mage', 15,                   'DESCRIÇÃO', 3],
+	['Bouncer', 'res://characters/enemies/bouncer', 20,             'DESCRIÇÃO', 4],
+	['Undead', 'res://characters/enemies/undead', 25,               'DESCRIÇÃO', 16],
+	['Absorber', 'res://characters/enemies/absorber', 30,           'DESCRIÇÃO', 4],
+	['Hard Bouncer', 'res://characters/enemies/hard_bouncer', 45,   'DESCRIÇÃO', 10],
+	['Hard Mage', 'res://characters/enemies/hard_mage', 55,         'DESCRIÇÃO', 5],
+	['Hard Charger', 'res://characters/enemies/hard_charger', 65,   'DESCRIÇÃO', 6],
+	['Hard Shielded', 'res://characters/enemies/hard_shielded', 77, 'DESCRIÇÃO', 6]
 ]
 
 const MECHANICS = [ # 17 mechanics
 	['Simple Bullet', 'create_simple_bullet',     'DESCRIÇÃO'],
 	['Trap', 'create_trap',                       'DESCRIÇÃO'],
-	['Double Bullet', 'create_double_bullet',     'DESCRIÇÃO'],
+	['Tracer Bullet', 'create_tracer_bullet',     'DESCRIÇÃO'],
 	['Dash', 'dash',                              'DESCRIÇÃO'],
 	['Ghost Bullet', 'create_ghost_bullet',       'DESCRIÇÃO'],
 	['Wormhole', 'create_wormhole',               'DESCRIÇÃO'],
@@ -28,11 +28,11 @@ const MECHANICS = [ # 17 mechanics
 	['Cure Bullet', 'create_cure_bullet',         'DESCRIÇÃO'],
 	['Shotgun', 'create_shotgun_bullet',          'DESCRIÇÃO'],
 	['Ricochet Bullet', 'create_ricochet_bullet', 'DESCRIÇÃO'],
-	['Laser', 'create_laser',                     'DESCRIÇÃO'],
-	['Charge Bullet', 'create_charge_bullet',     'DESCRIÇÃO'],
 	['Storm', 'create_earthquake',                'DESCRIÇÃO'],
-	['Tracer Bullet', 'create_tracer_bullet',     'DESCRIÇÃO'],
+	['Charge Bullet', 'create_charge_bullet',     'DESCRIÇÃO'],
+	['Laser', 'create_laser',                     'DESCRIÇÃO'],
 	['Flamethrower', 'create_flamethrower',       'DESCRIÇÃO'],
+	['Double Bullet', 'create_double_bullet',     'DESCRIÇÃO'],
 ]
 
 const DOUBLE_MECH_WAVES = [
@@ -86,7 +86,7 @@ func update_enemy_types():
 		enemy_types += 1
 
 func update_wave_points():
-	wave_points += cur_wave*3
+	wave_points += cur_wave
 	print(cur_wave, ' wave points ', wave_points)
 
 var HealthPack = preload('res://scenario/props/health_pack.tscn')

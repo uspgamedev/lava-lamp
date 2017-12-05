@@ -60,6 +60,7 @@ func check_wave_end():
 
 func _fixed_process(delta):
 	check_wave_end()
+	manager.wave_ended()
 
 func start():
 	var t = Timer.new()
