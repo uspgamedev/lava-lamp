@@ -105,7 +105,7 @@ max_spawn_range = null
 texture = ExtResource( 3 )
 vframes = 4
 hframes = 4
-frame = 15
+frame = 5
 modulate = Color( 1, 0, 1, 1 )
 
 [node name="AnimationPlayer" parent="Sprite"]

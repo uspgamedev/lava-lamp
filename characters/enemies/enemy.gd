@@ -26,7 +26,7 @@ func get_look_dir_value():
 	if get_speed().length_squared() <= 1:
 		return _last_dir
 	var x = atan2(get_speed().x, get_speed().y)
-	if x > .75 * PI and x < -.75 * PI:
+	if x > .75 * PI or x < -.75 * PI:
 		_last_dir = DIR.UP
 	else:
 		_last_dir = [DIR.LEFT, DIR.DOWN, DIR.RIGHT][min(2, floor((x + .75 * PI) / (PI / 2.0)))]
