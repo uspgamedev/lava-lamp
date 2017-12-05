@@ -268,6 +268,7 @@ func intro():
 	var timer = get_node("Intro_Timer")
 	timer.set_wait_time(6)
 	timer.start()
+	sfx.play("Title")
 
 	yield()
 
