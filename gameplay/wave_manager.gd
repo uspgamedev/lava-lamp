@@ -47,7 +47,12 @@ const END_SPEECHES = [
 	'The biggest reward for a thing well done is to have done it.',
 	'The fruit of your labor is sweet, and I must say you deserve it.',
 	'That was a massacre!',
-	'HAHA! It was so much fun watching you running away from them!'
+	'HAHA! It was so much fun watching you running away from them!',
+	"Disappointed but not surprised.",
+	"This is useless, we're all going to die anyway...",
+	"I told them the LAMP edition would be awesome.",
+	"Damn, that was close.",
+	"Live and let live",
 ]
 
 const START_SPEECHES = [
@@ -56,6 +61,16 @@ const START_SPEECHES = [
 	'DESTROY THEM ALL!!!',
 	'You see it? They are coming to get you!',
 	'Prepare for war!',
+	'Get ready for the next battle!',
+	"You have no idea what's coming next.",
+	"Let's see what you're capable of",
+	"I loved my mother so much... now you must [color=red]avenge[/color] her!",
+	"Is there any point in going forward? Well, let's do it.",
+	"This is meaningless. Just do it.",
+	"This is what we were born to do. You and me, together, fighting these bastards.",
+	"I thought I saw someone in the lab the other day...",
+	"Hum? I just heard someone... Forget it, now I'm alone in here.",
+	"It's dangerous to go alone. Take this.",
 ]
 
 const NEW_ENEMY_TYPE = 3

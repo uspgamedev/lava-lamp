@@ -34,6 +34,7 @@ const FIRST_NAMES = [
 const DR_NAMES_AND_REASONS = [
 	["Phoenix", "because I rose from the ashes like a beautiful bird."],
 	["Yggdrasil", "because I am the Tree of Life in our forgotten realm."],
+	["Bonjovi", "because I am always livin' on a prayer."],
 ]
 
 signal change_emotion(emotion, time)
