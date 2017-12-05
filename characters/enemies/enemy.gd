@@ -9,6 +9,7 @@ var ai
 var stunned = 0
 
 signal enemy_dead
+signal hit_taken
 
 func _ready():
 	player = get_node("../Player")
@@ -39,6 +40,7 @@ func _on_Area2D_area_enter( area ):
 func deal_damage(d):
 	self.damage = max(0, self.damage + d)
 	self.get_node("Sprite/Hit").play("hit")
+	emit_signal("hit_taken")
 	if self.damage >= self.hp:
 		self._queue_free()
 	get_node('EnemyHealth').update()
