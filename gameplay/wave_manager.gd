@@ -112,7 +112,7 @@ func wave_ended():
 	cur_wave += 1
 	update_enemy_types()
 	update_wave_points()
-	t.set_wait_time(6)
+	t.set_wait_time(wait_time)
 	t.disconnect('timeout', self, 'start_wave')
 	t.connect('timeout', self, 'new_wave')
 	t.set_one_shot(true)
