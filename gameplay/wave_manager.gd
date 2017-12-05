@@ -66,7 +66,7 @@ var reserved_keys = [ KEY_W, KEY_A, KEY_S, KEY_D, KEY_Q ]
 
 var cur_wave = 1
 var enemy_types = 1
-var wave_points = 1
+var wave_points = 10
 var key
 var waiting_key = false
 var cur_mechanics = 1
