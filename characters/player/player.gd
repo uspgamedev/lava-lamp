@@ -152,6 +152,7 @@ func deal_damage(d):
 	if (self.shieldTime == 0):
 		self.damage = max(0, self.damage + d)
 	self.get_node("Sprite/Hit").play("hit")
+	self.sfx.play("Damage")
 	if self.damage >= self.hp:
 		get_node('/root/Main/GUI/GameOver').start()
 	gui.get_node('HealthBar').update()
