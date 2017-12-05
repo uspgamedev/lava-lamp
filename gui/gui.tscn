@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/health_bar.tscn" type="PackedScene" id=2]
@@ -11,6 +11,26 @@
 [ext_resource path="res://gui/control_button.gd" type="Script" id=9]
 [ext_resource path="res://gui/game_over.gd" type="Script" id=10]
 [ext_resource path="res://assets/sounds/game_over.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/fonts/Geo-Regular.ttf" type="DynamicFontData" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 32
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 12 )
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Label
+
+func _ready():
+	set_process_input(true)
+
+func _input(ev):
+	if ev.is_action_pressed(\"toggle_fullscreen\"):
+		OS.set_window_fullscreen(!OS.is_window_fullscreen())
+"
 
 [node name="GUI" type="CanvasLayer"]
 
@@ -366,8 +386,35 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="FullscreenNotice" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 16.0
+margin/top = 0.0
+margin/right = 371.0
+margin/bottom = 64.0
+custom_fonts/font = SubResource( 1 )
+text = "F11: Toggle Fullscreen"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="FullscreenNotice"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = true
+
 [connection signal="item_selected" from="PauseScreen/OptionButton" to="PauseScreen/OptionButton" method="_on_OptionButton_item_selected"]
 
 [connection signal="pressed" from="GameOver/Button" to="GameOver" method="_on_Button_pressed"]
+
+[connection signal="timeout" from="FullscreenNotice/Timer" to="FullscreenNotice" method="hide"]
 
 
