@@ -177,6 +177,7 @@ func lock_controls():
 	get_node("Hook").hide()
 	get_node("/root/Main/GUI/HealthBar").hide()
 	get_node("/root/Main/GUI/SelectedAction").hide()
+	get_node("/root/Main/GUI/WaveCount").hide()
 
 func unlock_controls():
 	input.connect('hold_direction', self, '_add_speed')
@@ -187,6 +188,7 @@ func unlock_controls():
 	get_node("/root/Main/GUI/HealthBar").show()
 	get_node("/root/Main/GUI/SelectedAction").show()
 	get_node("Hook").show()
+	get_node("/root/Main/GUI/WaveCount").show()
 
 func _on_Intro_Tween_tween_complete( object, key ):
 	intro_func = intro_func.resume()

@@ -63,7 +63,7 @@ const START_SPEECHES = [
 	'Prepare for war!',
 	'Get ready for the next battle!',
 	"You have no idea what's coming next.",
-	"Let's see what you're capable of",
+	"Let's see what you're capable of.",
 	"I loved my mother so much... now you must [color=red]avenge[/color] her!",
 	"Is there any point in going forward? Well, let's do it.",
 	"This is meaningless. Just do it.",
@@ -181,6 +181,7 @@ func start_wave():
 	var w = get_node('Wave')
 	dialog_box.clear_all_info_boxes()
 	print('Wave ', cur_wave, ' started')
+	get_node('/root/Main/GUI/WaveCount').set_text("Wave %d" % cur_wave)
 	bgm._action_mode()
 	w.start()
 
