@@ -1,22 +1,23 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://characters/enemies/olhinho.gd" type="Script" id=1]
 [ext_resource path="res://characters/enemies/olhinho_sprite_sheet.tex" type="Texture" id=2]
 [ext_resource path="res://characters/enemies/simple_animation.gd" type="Script" id=3]
-[ext_resource path="res://characters/enemies/ai/eye_ai.gd" type="Script" id=4]
-[ext_resource path="res://characters/enemies/gui/enemy_health.tscn" type="PackedScene" id=5]
-[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=6]
-[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=7]
-[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=8]
-[ext_resource path="res://characters/enemies/eye/monster_sound_eye_walking_loopar_enquanto_ele_estiver_vivo.smp" type="Sample" id=9]
-[ext_resource path="res://characters/enemies/dmg-sfx.tscn" type="PackedScene" id=10]
+[ext_resource path="res://characters/hit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/enemies/ai/eye_ai.gd" type="Script" id=5]
+[ext_resource path="res://characters/enemies/gui/enemy_health.tscn" type="PackedScene" id=6]
+[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=7]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=8]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=9]
+[ext_resource path="res://characters/enemies/eye/monster_sound_eye_walking_loopar_enquanto_ele_estiver_vivo.smp" type="Sample" id=10]
+[ext_resource path="res://characters/enemies/dmg-sfx.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 10, -10, 10, 10, -10, 10, -10, -10 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 
 resource/name = "hit"
 length = 0.4
@@ -32,10 +33,19 @@ tracks/0/keys = {
 "update": 1,
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hit 2:config/emitting")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
-resource/name = "Walk_Down"
 length = 0.8
 loop = true
 step = 0.2
@@ -50,9 +60,8 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource/name = "Walk_Left"
 length = 0.8
 loop = true
 step = 0.2
@@ -67,9 +76,8 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource/name = "Walk_Right"
 length = 0.8
 loop = true
 step = 0.2
@@ -84,9 +92,8 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource/name = "Walk_Up"
 length = 0.8
 loop = true
 step = 0.2
@@ -135,7 +142,7 @@ script/script = ExtResource( 3 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/hit = SubResource( 6 )
+anims/hit = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -146,14 +153,18 @@ autoplay = ""
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Walk_Down = SubResource( 2 )
-anims/Walk_Left = SubResource( 3 )
-anims/Walk_Right = SubResource( 4 )
-anims/Walk_Up = SubResource( 5 )
+anims/Walk_Down = SubResource( 3 )
+anims/Walk_Left = SubResource( 4 )
+anims/Walk_Right = SubResource( 5 )
+anims/Walk_Up = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "Walk_Down"
+
+[node name="Hit 2" parent="Sprite" instance=ExtResource( 4 )]
+
+z/z = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
@@ -188,28 +199,28 @@ trigger = false
 
 [node name="Ai" type="Node" parent="."]
 
-script/script = ExtResource( 4 )
+script/script = ExtResource( 5 )
 
-[node name="EnemyHealth" parent="." instance=ExtResource( 5 )]
+[node name="EnemyHealth" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 0, -20 )
 transform/scale = Vector2( 0.937999, 0.3125 )
 tot_width = 40
 
-[node name="Stunned" parent="." instance=ExtResource( 6 )]
+[node name="Stunned" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 0, -30 )
 
-[node name="SFX" parent="." instance=ExtResource( 7 )]
+[node name="SFX" parent="." instance=ExtResource( 8 )]
 
 autoplay = true
 which = "Float"
 
-[node name="Float" parent="SFX" instance=ExtResource( 8 )]
+[node name="Float" parent="SFX" instance=ExtResource( 9 )]
 
-sample = ExtResource( 9 )
+sample = ExtResource( 10 )
 
-[node name="DMG-SFX" parent="." instance=ExtResource( 10 )]
+[node name="DMG-SFX" parent="." instance=ExtResource( 11 )]
 
 [connection signal="hit_taken" from="." to="DMG-SFX" method="play" binds= [ "Damage" ]]
 
