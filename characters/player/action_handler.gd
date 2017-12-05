@@ -77,8 +77,8 @@ func actually_do(act, key):
 	var obj = act.activate(self, key)
 	if obj:
 		yield(obj, "finish")
+		player.stop_shooting()
 	act.on_cooldown = true
-	player.stop_shooting()
 	var cd = Cooldown.instance()
 	cd.icon = act.icon
 	get_node('/root/Main/GUI/Cooldowns').add_cooldown(cd)
