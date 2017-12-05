@@ -1,5 +1,7 @@
 extends 'res://characters/body.gd'
 
+const DEATH = preload("res://effects/death.tscn")
+
 export (Vector2) var min_spawn_range
 export (Vector2) var max_spawn_range
 
@@ -47,4 +49,7 @@ func deal_damage(d):
 
 func _queue_free():
 	emit_signal('enemy_dead')
+	var death = DEATH.instance()
+	death.set_pos(self.get_pos())
+	self.get_parent().add_child(death)
 	self.queue_free()
