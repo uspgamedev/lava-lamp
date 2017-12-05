@@ -17,22 +17,22 @@ const ENEMIES = [ # 12 enemies
 
 const MECHANICS = [ # 17 mechanics
 	['Simple Bullet', 'create_simple_bullet',     'DESCRIÇÃO'],
+	['Trap', 'create_trap',                       'DESCRIÇÃO'],
 	['Double Bullet', 'create_double_bullet',     'DESCRIÇÃO'],
+	['Dash', 'dash',                              'DESCRIÇÃO'],
+	['Ghost Bullet', 'create_ghost_bullet',       'DESCRIÇÃO'],
+	['Wormhole', 'create_wormhole',               'DESCRIÇÃO'],
+	['Armor', 'shield',                           'DESCRIÇÃO'],
+	['Ion Bullet', 'create_ion_bullet',           'DESCRIÇÃO'],
+	['Guided Bullet', 'create_guided_bullet',     'DESCRIÇÃO'],
+	['Cure Bullet', 'create_cure_bullet',         'DESCRIÇÃO'],
 	['Shotgun', 'create_shotgun_bullet',          'DESCRIÇÃO'],
 	['Ricochet Bullet', 'create_ricochet_bullet', 'DESCRIÇÃO'],
-	['Dash', 'dash',                              'DESCRIÇÃO'],
-	['Trap', 'create_trap',                       'DESCRIÇÃO'],
+	['Laser', 'create_laser',                     'DESCRIÇÃO'],
 	['Charge Bullet', 'create_charge_bullet',     'DESCRIÇÃO'],
+	['Storm', 'create_earthquake',                'DESCRIÇÃO'],
 	['Tracer Bullet', 'create_tracer_bullet',     'DESCRIÇÃO'],
 	['Flamethrower', 'create_flamethrower',       'DESCRIÇÃO'],
-	['Wormhole', 'create_wormhole',               'DESCRIÇÃO'],
-	['Guided Bullet', 'create_guided_bullet',     'DESCRIÇÃO'],
-	['Storm', 'create_earthquake',                'DESCRIÇÃO'],
-	['Ion Bullet', 'create_ion_bullet',           'DESCRIÇÃO'],
-	['Laser', 'create_laser',                     'DESCRIÇÃO'],
-	['Ghost Bullet', 'create_ghost_bullet',       'DESCRIÇÃO'],
-	['Cure Bullet', 'create_cure_bullet',         'DESCRIÇÃO'],
-	['Armor', 'shield',                           'DESCRIÇÃO']
 ]
 
 const DOUBLE_MECH_WAVES = [
