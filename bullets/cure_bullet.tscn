@@ -19,6 +19,7 @@ func _ready():
 [node name="CureBullet" instance=ExtResource( 1 )]
 
 script/script = SubResource( 1 )
+damage = -1
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 
