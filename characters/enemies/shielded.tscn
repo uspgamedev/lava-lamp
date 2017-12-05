@@ -114,6 +114,7 @@ points = Vector2Array( -8.6932, 3.05176e-05, -8.6932, 73.6234, -78.2385, 73.6234
 
 [node name="ShieldedEnemy" instance=ExtResource( 1 )]
 
+z/z = 0
 script/script = ExtResource( 2 )
 min_spawn_range = null
 max_spawn_range = null

@@ -22,7 +22,6 @@ points = Vector2Array( 35, -35, 35, 35, -35, 35, -35, -35 )
 "enemy",
 ]]
 
-z/z = 2
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -106,9 +105,9 @@ transform/scale = Vector2( 0.9375, 0.3125 )
 
 [node name="Hit" parent="." instance=ExtResource( 7 )]
 
-[connection signal="hit_taken" from="." to="DMG-SFX" method="play" binds= [ "Damage" ]]
-
 [connection signal="hit_taken" from="." to="Hit" method="set_emitting" binds= [ true ]]
+
+[connection signal="hit_taken" from="." to="DMG-SFX" method="play" binds= [ "Damage" ]]
 
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
