@@ -32,7 +32,7 @@ const FIRST_NAMES = [
 
 #Possible doctor's self chosen name and reason
 const DR_NAMES_AND_REASONS = [
-	["Phoenix", "because I rose from the ashes like a beautiful birb."],
+	["Phoenix", "because I rose from the ashes like a beautiful bird."],
 	["Yggdrasil", "because I am the Tree of Life in our forgotten realm."],
 ]
 
@@ -258,7 +258,7 @@ func intro():
 
 	yield()
 
-	dialog_box.display_text("[center][color=yellow]L[/color][color=lime]egendary[/color] [color=yellow]A[/color][color=lime]utonamous[/color] [color=yellow]V[/color][color=lime]ersatile[/color] [color=yellow]A[/color][color=lime]ndroid[/color] [color=black]series[/color][/center] [center][color=yellow]L[/color][color=lime]atest-generation[/color] [color=yellow]A[/color][color=lime]nti-apocalyptic[/color] [color=yellow]M[/color][color=lime]oddable[/color] [color=yellow]P[/color][color=lime]rototype[/color] [color=black]edition![/color][fill] [/fill][/center]", 5)
+	dialog_box.display_text("[center][color=yellow]L[/color][color=lime]egendary[/color] [color=yellow]A[/color][color=lime]utonomous[/color] [color=yellow]V[/color][color=lime]ersatile[/color] [color=yellow]A[/color][color=lime]ndroid[/color] [color=black]series[/color][/center] [center][color=yellow]L[/color][color=lime]atest-generation[/color] [color=yellow]A[/color][color=lime]nti-apocalyptic[/color] [color=yellow]M[/color][color=lime]oddable[/color] [color=yellow]P[/color][color=lime]rototype[/color] [color=black]edition![/color][fill] [/fill][/center]", 5)
 	var timer = get_node("Intro_Timer")
 	timer.set_wait_time(10)
 	timer.start()
