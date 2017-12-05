@@ -54,7 +54,19 @@ func _input(event):
 	else:
 		if event.is_action_pressed('pause'):
 			get_tree().set_pause(true)
+			get_node('/root/Main/GUI/MoveList').set_hidden(true)
 			get_node('/root/Main/GUI/PauseScreen').set_hidden(false)
+	if event.is_action_pressed('show_moves'):
+		var ah = get_node('/root/Main/Props/Player/ActionHandler')
+		var mp = ah.action_map
+		var txt = ""
+		for i in range(26 + 10):
+			if mp[i] != null:
+				txt += "%s:  %s\n" % [OS.get_scancode_string(ah.unmap_key(i)), mp[i].get_name().replace("_", " ")]
+		get_node('/root/Main/GUI/MoveList/Description').set_text(txt)
+		get_node('/root/Main/GUI/MoveList').set_hidden(false)
+	elif event.is_action_released('show_moves'):
+		get_node('/root/Main/GUI/MoveList').set_hidden(true)
 	var dir = self._get_direction(event)
 	var act = self._get_action(event)
 	if dir != -1: emit_signal('press_direction', dir)
