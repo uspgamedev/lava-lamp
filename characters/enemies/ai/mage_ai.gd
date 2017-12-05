@@ -32,3 +32,8 @@ func think(dt, player):
 			dest = null
 		else:
 			enemy.speed += (dest - enemy.get_pos()).normalized() * 150
+
+func hit(obj):
+	if obj extends preload('res://bullets/trap.gd'):
+		return
+	.hit(obj)
