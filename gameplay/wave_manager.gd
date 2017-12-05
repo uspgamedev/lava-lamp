@@ -96,7 +96,7 @@ func wave_ended():
 	var text = END_SPEECHES[randi()%END_SPEECHES.size()]
 	var wait_time = 6
 	if lives > 0:
-		text += " I left %d health pack%s for you as a reward. Go search for them." % [lives, "s" if lives > 1 else ""]
+		text += " I left %d health pack%s for you as a reward. Go search for %s." % [lives, "s" if lives > 1 else "", "them" if lives > 1 else "it"]
 		wait_time += 4
 	var main = get_node('/root/Main')
 	for i in range(lives):
