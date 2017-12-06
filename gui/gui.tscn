@@ -27,6 +27,10 @@ script/source = "extends Label
 func _ready():
 	set_process_input(true)
 
+func start():
+	show()
+	get_node('Timer').start()
+
 func _input(ev):
 	if ev.is_action_pressed(\"toggle_fullscreen\"):
 		OS.set_window_fullscreen(!OS.is_window_fullscreen())
@@ -128,12 +132,12 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -90.0
-margin/top = 57.0
-margin/right = 152.0
-margin/bottom = 79.0
+margin/left = -95.0
+margin/top = 60.0
+margin/right = 147.0
+margin/bottom = 107.0
 custom_fonts/font = ExtResource( 7 )
-text = "Hold TAB for move list"
+text = "Hold TAB for abilities list"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -142,7 +146,6 @@ max_lines_visible = -1
 [node name="PauseScreen" type="Control" parent="."]
 
 process/pause_mode = 2
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -156,7 +159,7 @@ margin/bottom = 40.0
 [node name="Polygon2D" type="Polygon2D" parent="PauseScreen"]
 
 transform/pos = Vector2( -20, 0 )
-polygon = Vector2Array( 500, 350, 790, 350, 790, 60, 500, 60 )
+polygon = Vector2Array( 430, 100, 900, 100, 900, 395, 430, 395 )
 uv = Vector2Array(  )
 color = Color( 0.148438, 0.115967, 0.115967, 0.530039 )
 vertex_colors = ColorArray(  )
@@ -168,37 +171,45 @@ texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
 
-[node name="Label 2" type="Label" parent="PauseScreen"]
+[node name="Title" type="Label" parent="PauseScreen"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 566.0
-margin/top = 126.0
-margin/right = 679.0
-margin/bottom = 162.0
+margin/left = 410.0
+margin/top = 115.0
+margin/right = 880.0
+margin/bottom = 151.0
 custom_fonts/font = ExtResource( 8 )
 text = "PAUSED"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label" type="Label" parent="PauseScreen"]
+[node name="Label" type="RichTextLabel" parent="PauseScreen"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 558.0
-margin/top = 196.0
-margin/right = 677.0
-margin/bottom = 218.0
-custom_fonts/font = ExtResource( 7 )
-text = "Control Type"
+margin/left = 485.0
+margin/top = 175.0
+margin/right = 835.0
+margin/bottom = 365.0
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode/enabled = true
+bbcode/bbcode = "Controls:
+
+  Use [color=red]WASD[/color] to move.
+  Aim with                    . Hold to shoot.
+  
+  Hold [color=red]TAB[/color] to show you abilities list.
+  Press [color=red]F10[/color] to toggle fullscreen.
+  "
+visible_characters = -1
 percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="OptionButton" type="OptionButton" parent="PauseScreen"]
 
@@ -206,10 +217,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 566.0
-margin/top = 240.0
-margin/right = 681.0
-margin/bottom = 270.0
+margin/left = 585.0
+margin/top = 245.0
+margin/right = 675.0
+margin/bottom = 265.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -386,35 +397,36 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="FullscreenNotice" type="Label" parent="."]
+[node name="PauseNotice" type="Label" parent="."]
 
+visibility/visible = false
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 16.0
-margin/top = 0.0
-margin/right = 371.0
-margin/bottom = 64.0
+margin/left = 8.0
+margin/top = 84.0
+margin/right = 514.0
+margin/bottom = 148.0
 custom_fonts/font = SubResource( 1 )
-text = "F10: Toggle Fullscreen"
+text = "Press ESC to pause and see the controls"
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="FullscreenNotice"]
+[node name="Timer" type="Timer" parent="PauseNotice"]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 10.0
 one_shot = true
-autostart = true
+autostart = false
 
 [connection signal="item_selected" from="PauseScreen/OptionButton" to="PauseScreen/OptionButton" method="_on_OptionButton_item_selected"]
 
 [connection signal="pressed" from="GameOver/Button" to="GameOver" method="_on_Button_pressed"]
 
-[connection signal="timeout" from="FullscreenNotice/Timer" to="FullscreenNotice" method="hide"]
+[connection signal="timeout" from="PauseNotice/Timer" to="PauseNotice" method="hide"]
 
 

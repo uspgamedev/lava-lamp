@@ -55,6 +55,7 @@ func _input(event):
 		if event.is_action_pressed('pause'):
 			get_tree().set_pause(true)
 			get_node('/root/Main/GUI/MoveList').set_hidden(true)
+			get_node('/root/Main/GUI/PauseNotice').hide()
 			get_node('/root/Main/GUI/PauseScreen').set_hidden(false)
 	if event.is_action_pressed('show_moves'):
 		var ah = get_node('/root/Main/Props/Player/ActionHandler')

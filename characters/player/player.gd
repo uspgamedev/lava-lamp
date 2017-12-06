@@ -285,6 +285,7 @@ func intro():
 
 	can_complete = false
 	unlock_controls()
+	get_node('/root/Main/GUI/PauseNotice').start()
 
 	var timer = get_node("Intro_Timer")
 	timer.set_wait_time(2)
