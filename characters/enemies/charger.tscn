@@ -94,7 +94,6 @@ tracks/0/keys = {
 
 [node name="Charger" instance=ExtResource( 1 )]
 
-z/z = 0
 script/script = ExtResource( 2 )
 min_spawn_range = null
 max_spawn_range = null
@@ -120,7 +119,7 @@ anims/hit = SubResource( 5 )
 [node name="CollisionPolygon2D" parent="."]
 
 visibility/visible = true
-polygon = Vector2Array( -20, -20, -20, 20, 20, 20, 20, -20 )
+polygon = Vector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
 
 [node name="Area2D" parent="."]
 
@@ -129,7 +128,7 @@ transform/pos = Vector2( -0.581131, 0.19371 )
 [node name="CollisionPolygon2D" parent="Area2D"]
 
 visibility/visible = true
-polygon = Vector2Array( -29.4189, -30.1937, -29.4189, 29.8063, 30.5811, 29.8063, 30.5811, -30.1937 )
+polygon = Vector2Array( -19.4189, -20.1937, -19.4189, 19.8063, 20.5811, 19.8063, 20.5811, -20.1937 )
 
 [node name="Ai" parent="."]
 

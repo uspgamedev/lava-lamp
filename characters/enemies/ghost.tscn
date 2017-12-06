@@ -68,6 +68,7 @@ max_spawn_range = null
 [node name="Sprite" parent="."]
 
 visibility/self_opacity = 0.5
+transform/pos = Vector2( 0, -37 )
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 4
@@ -83,9 +84,19 @@ autoplay = "move_down"
 
 anims/hit = SubResource( 3 )
 
+[node name="CollisionPolygon2D" parent="."]
+
+visibility/visible = true
+polygon = Vector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
+
 [node name="Area2D" parent="."]
 
 collision/mask = 16
+
+[node name="CollisionPolygon2D" parent="Area2D"]
+
+visibility/visible = true
+polygon = Vector2Array( -20, -40, -20, 10, 20, 10, 20, -40 )
 
 [node name="Ai" parent="."]
 
