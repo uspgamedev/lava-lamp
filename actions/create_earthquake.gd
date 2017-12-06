@@ -2,7 +2,7 @@ extends 'base_action.gd'
 
 func _init():
 	cooldown_time = 25
-	name = "earthquake"
+	name = "storm"
 	auto_play = true
 	self.icon = preload("res://effects/lightning/sprite.tscn")
 
