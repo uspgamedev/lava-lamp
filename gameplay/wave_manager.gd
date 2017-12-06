@@ -199,9 +199,9 @@ func introduce_enemy_type():
 	cur_enemy += 1
 
 func new_wave():
-	if (cur_wave%NEW_ENEMY_TYPE == 0):
+	if (cur_wave % NEW_ENEMY_TYPE == 0) and (cur_enemy < ENEMIES.size()):
 		introduce_enemy_type()
-	if (cur_wave%NEW_MECH_TYPE == 0):
+	if (cur_wave % NEW_MECH_TYPE == 0) and (cur_mechanics < MECHANICS.size()):
 		give_new_mechanics()
 	else:
 		prepare_wave()
