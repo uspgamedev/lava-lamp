@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=1]
+[gd_scene load_steps=45 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
@@ -18,11 +18,12 @@
 [ext_resource path="res://scenario/bgm/title.smp" type="Sample" id=16]
 [ext_resource path="res://characters/player/damage.smp" type="Sample" id=17]
 [ext_resource path="res://characters/player/get_heart.smp" type="Sample" id=18]
-[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=19]
-[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=20]
-[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=21]
-[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=22]
-[ext_resource path="res://characters/enemies/gui/shielded.tscn" type="PackedScene" id=23]
+[ext_resource path="res://characters/player/error.smp" type="Sample" id=19]
+[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=20]
+[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=21]
+[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=22]
+[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=23]
+[ext_resource path="res://characters/enemies/gui/shielded.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -505,11 +506,15 @@ sample = ExtResource( 17 )
 
 sample = ExtResource( 18 )
 
-[node name="AfterImage" parent="." instance=ExtResource( 19 )]
+[node name="Fail" parent="SFX" instance=ExtResource( 7 )]
+
+sample = ExtResource( 19 )
+
+[node name="AfterImage" parent="." instance=ExtResource( 20 )]
 
 transform/pos = Vector2( 0, -12 )
 
-[node name="GridManager" parent="." instance=ExtResource( 20 )]
+[node name="GridManager" parent="." instance=ExtResource( 21 )]
 
 [node name="Expression_Timer" type="Timer" parent="."]
 
@@ -525,7 +530,7 @@ wait_time = 0.45
 one_shot = true
 autostart = false
 
-[node name="Helper_Arrow" parent="." instance=ExtResource( 21 )]
+[node name="Helper_Arrow" parent="." instance=ExtResource( 22 )]
 
 [node name="StunTimer" type="Timer" parent="."]
 
@@ -534,11 +539,11 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="Stunned" parent="." instance=ExtResource( 22 )]
+[node name="Stunned" parent="." instance=ExtResource( 23 )]
 
 transform/pos = Vector2( 10, -50 )
 
-[node name="Shielded" parent="." instance=ExtResource( 23 )]
+[node name="Shielded" parent="." instance=ExtResource( 24 )]
 
 transform/pos = Vector2( 0, -10 )
 

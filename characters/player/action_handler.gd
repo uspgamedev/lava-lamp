@@ -87,7 +87,9 @@ func actually_do(act, key):
 	can_do = true
 
 func do_selected_action(_):
-	if selected_action == null or selected_action.on_cooldown: return
+	if selected_action == null or selected_action.on_cooldown:
+		self.get_parent().sfx.play("Fail")
+		return
 	actually_do(selected_action, -1)
 
 func do_action(key):
