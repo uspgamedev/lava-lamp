@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=1]
+[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=2]
+[ext_resource path="res://bullets/trap/mono_sound_trap_estourando.smp" type="Sample" id=3]
+
+[node name="Explo" type="Node2D"]
+
+[node name="SFX" parent="." instance=ExtResource( 1 )]
+
+autoplay = true
+which = "Boom"
+
+[node name="Boom" parent="SFX" instance=ExtResource( 2 )]
+
+sample = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="queue_free"]
+
+
