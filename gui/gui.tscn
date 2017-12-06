@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/health_bar.tscn" type="PackedScene" id=2]
@@ -9,16 +9,17 @@
 [ext_resource path="res://gui/dialog_box/dialog_box_font.fnt" type="BitmapFont" id=7]
 [ext_resource path="res://gui/dialog_box/dialog_box_bigger_font.fnt" type="BitmapFont" id=8]
 [ext_resource path="res://gui/control_button.gd" type="Script" id=9]
-[ext_resource path="res://gui/game_over.gd" type="Script" id=10]
-[ext_resource path="res://assets/sounds/game_over.ogg" type="AudioStream" id=11]
-[ext_resource path="res://assets/fonts/Geo-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://gui/quit_button.gd" type="Script" id=10]
+[ext_resource path="res://gui/game_over.gd" type="Script" id=11]
+[ext_resource path="res://assets/sounds/game_over.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/fonts/Geo-Regular.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 
 font/size = 32
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 12 )
+font/font = ExtResource( 13 )
 
 [sub_resource type="GDScript" id=2]
 
@@ -158,7 +159,8 @@ margin/bottom = 40.0
 
 [node name="Polygon2D" type="Polygon2D" parent="PauseScreen"]
 
-transform/pos = Vector2( -20, 0 )
+transform/pos = Vector2( -20, -13.1343 )
+transform/scale = Vector2( 1, 1.16418 )
 polygon = Vector2Array( 430, 100, 900, 100, 900, 395, 430, 395 )
 uv = Vector2Array(  )
 color = Color( 0.148438, 0.115967, 0.115967, 0.530039 )
@@ -230,6 +232,23 @@ selected = -1
 items = [  ]
 script/script = ExtResource( 9 )
 
+[node name="QuitButton" type="Button" parent="PauseScreen"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 610.0
+margin/top = 390.0
+margin/right = 690.0
+margin/bottom = 410.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Quit"
+flat = false
+script/script = ExtResource( 10 )
+
 [node name="GameOver" type="Control" parent="."]
 
 process/pause_mode = 2
@@ -243,11 +262,11 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
-script/script = ExtResource( 10 )
+script/script = ExtResource( 11 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="GameOver"]
 
-stream/stream = ExtResource( 11 )
+stream/stream = ExtResource( 12 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 0.0
@@ -399,6 +418,7 @@ max_lines_visible = -1
 
 [node name="PauseNotice" type="Label" parent="."]
 
+process/pause_mode = 2
 visibility/visible = false
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -424,6 +444,8 @@ one_shot = true
 autostart = false
 
 [connection signal="item_selected" from="PauseScreen/OptionButton" to="PauseScreen/OptionButton" method="_on_OptionButton_item_selected"]
+
+[connection signal="pressed" from="PauseScreen/QuitButton" to="PauseScreen/QuitButton" method="_on_QuitButton_pressed"]
 
 [connection signal="pressed" from="GameOver/Button" to="GameOver" method="_on_Button_pressed"]
 
