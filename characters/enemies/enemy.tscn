@@ -11,12 +11,12 @@
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 30, -30, 30, 30, -30, 30, -30, -30 )
+points = Vector2Array( 10, -10, 10, 10, -10, 10, -10, -10 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 35, -35, 35, 35, -35, 35, -35, -35 )
+points = Vector2Array( 20, -20, 20, 20, -20, 20, -20, -20 )
 
 [node name="Enemy" type="KinematicBody2D" groups=[
 "enemy",
@@ -61,9 +61,8 @@ autoplay = ""
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
-visibility/visible = false
 build_mode = 0
-polygon = Vector2Array( -30, -30, -30, 30, 30, 30, 30, -30 )
+polygon = Vector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
@@ -82,9 +81,8 @@ angular_damp = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
-visibility/visible = false
 build_mode = 0
-polygon = Vector2Array( -35, -35, -35, 35, 35, 35, 35, -35 )
+polygon = Vector2Array( -20, -20, -20, 20, 20, 20, 20, -20 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
@@ -105,9 +103,9 @@ transform/scale = Vector2( 0.9375, 0.3125 )
 
 [node name="Hit" parent="." instance=ExtResource( 7 )]
 
-[connection signal="hit_taken" from="." to="Hit" method="set_emitting" binds= [ true ]]
-
 [connection signal="hit_taken" from="." to="DMG-SFX" method="play" binds= [ "Damage" ]]
+
+[connection signal="hit_taken" from="." to="Hit" method="set_emitting" binds= [ true ]]
 
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 

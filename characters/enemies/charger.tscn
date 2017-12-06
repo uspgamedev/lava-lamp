@@ -116,18 +116,12 @@ autoplay = "down"
 
 anims/hit = SubResource( 5 )
 
-[node name="CollisionPolygon2D" parent="."]
-
-visibility/visible = true
-polygon = Vector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
-
 [node name="Area2D" parent="."]
 
 transform/pos = Vector2( -0.581131, 0.19371 )
 
 [node name="CollisionPolygon2D" parent="Area2D"]
 
-visibility/visible = true
 polygon = Vector2Array( -19.4189, -20.1937, -19.4189, 19.8063, 20.5811, 19.8063, 20.5811, -20.1937 )
 
 [node name="Ai" parent="."]

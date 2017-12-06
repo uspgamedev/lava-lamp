@@ -82,14 +82,8 @@ autoplay = "move_down"
 
 anims/hit = SubResource( 3 )
 
-[node name="CollisionPolygon2D" parent="."]
-
-visibility/visible = true
-polygon = Vector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
-
 [node name="CollisionPolygon2D" parent="Area2D"]
 
-visibility/visible = true
 polygon = Vector2Array( -20, -40, -20, 10, 20, 10, 20, -40 )
 
 [node name="EnemyHealth" parent="."]
