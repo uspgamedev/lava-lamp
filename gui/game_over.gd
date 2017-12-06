@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	get_node('/root/input').set_control_type(get_node('/root/input').control_type)
+
 func start():
 	get_node('/root/Main/BGM').stop()
 	get_node('StreamPlayer').play()
