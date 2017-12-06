@@ -101,6 +101,8 @@ func do_action(key):
 			actually_do(selected_action, -1)
 	elif not act.on_cooldown:
 		actually_do(act, key)
+	else:
+		self.get_parent().sfx.play("Fail")
 
 func _unhandled_key_input(ev):
 	var key = map_key(ev.scancode)
