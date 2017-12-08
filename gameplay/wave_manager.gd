@@ -52,7 +52,7 @@ const END_SPEECHES = [
 	"This is useless, we're all going to die anyway...",
 	"I told them the LAMP edition would be awesome.",
 	"Damn, that was close.",
-	"Live and let live",
+	"Live and let live.",
 ]
 
 const START_SPEECHES = [
