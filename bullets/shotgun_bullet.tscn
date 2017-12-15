@@ -11,7 +11,7 @@ points = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -10, -30, 10, -30, 10, -10, -10, -10 )
+points = Vector2Array( -10, -20, 10, -20, 10, 20, -10, 20 )
 
 [node name="ShotgunBullet" type="KinematicBody2D"]
 
@@ -23,6 +23,9 @@ collision/layers = 8
 collision/mask = 2
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 speed_factor = 1.5
 damage = 1
 damages_player = false
@@ -33,6 +36,9 @@ build_mode = 0
 polygon = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 
@@ -48,13 +54,19 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
 build_mode = 0
-polygon = Vector2Array( -10, -30, 10, -30, 10, -10, -10, -10 )
+polygon = Vector2Array( -10, -20, 10, -20, 10, 20, -10, 20 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Timer" type="Timer" parent="."]
 
