@@ -330,7 +330,7 @@ tracks/0/keys = {
 [sub_resource type="ConvexPolygonShape2D" id=20]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 10, -30, 10, 10, -10, 10, -10, -30 )
+points = Vector2Array( 10, -8, 10, 10, -10, 10, -10, -8 )
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -342,17 +342,22 @@ collision/layers = 1
 collision/mask = 3
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 hp = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 0, -12 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 14
-frame = 22
+frame = 42
 script/script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 
@@ -394,7 +399,6 @@ autoplay = ""
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
-visibility/visible = false
 build_mode = 0
 polygon = Vector2Array( -10, -6, 10, -6, 10, 9, -10, 9 )
 shape_range = Vector2( 0, 0 )
@@ -431,7 +435,6 @@ visibility/visible = false
 "player_area",
 ]]
 
-editor/display_folded = true
 transform/pos = Vector2( 0, -12 )
 input/pickable = true
 shapes/0/shape = SubResource( 20 )
@@ -441,26 +444,35 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
 transform/pos = Vector2( 0, 10 )
 build_mode = 0
-polygon = Vector2Array( -10, -30, -10, 10, 10, 10, 10, -30 )
+polygon = Vector2Array( -10, -8, -10, 10, 10, 10, 10, -8 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="Hook" type="Node2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 0, -20 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LookArrow" parent="Hook" instance=ExtResource( 5 )]
 
 [node name="SFX" parent="." instance=ExtResource( 6 )]
+
+editor/display_folded = true
 
 [node name="Dash" parent="SFX" instance=ExtResource( 7 )]
 
