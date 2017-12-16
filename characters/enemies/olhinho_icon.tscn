@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://characters/enemies/olhinho_sprite_sheet.tex" type="Texture" id=1]
-[ext_resource path="res://characters/enemies/simple_animation.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -94,7 +93,6 @@ texture = ExtResource( 1 )
 vframes = 4
 hframes = 4
 frame = 4
-script/script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

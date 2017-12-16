@@ -1,7 +1,7 @@
 extends Node
 
 const ENEMIES = [ # 12 enemies
-	['Olhinho', 'res://characters/enemies/olhinho', 2,              'A little floating eye.', 4],
+	['Eye', 'res://characters/enemies/olhinho', 2,                  'A little floating eye.', 4],
 	['Shielded', 'res://characters/enemies/shielded', 5,            "It thinks it's a knight.", 4],
 	['Charger', 'res://characters/enemies/charger', 7,              "It has little kids for breakfast. Now it can't have breakfast anymore.", 4],
 	['Ghost', 'res://characters/enemies/ghost', 12,                 "It's a ghost and a robot. Don't ask me.", 3],
@@ -77,15 +77,15 @@ const NEW_ENEMY_TYPE = 3
 const NEW_MECH_TYPE = 2
 const NEW_ENEMY_PROPORTION = 1/3
 
-var reserved_keys = [ KEY_W, KEY_A, KEY_S, KEY_D, KEY_Q ]
+var reserved_keys = [ KEY_W, KEY_A, KEY_S, KEY_D ]
 
-var cur_wave = 1
+var cur_wave = 0
 var enemy_types = 1
 var wave_points = 10
 var key
 var waiting_key = false
-var cur_mechanics = 1
-var cur_enemy = 1
+var cur_mechanics = 0
+var cur_enemy = 0
 
 var t
 
@@ -102,7 +102,7 @@ func update_enemy_types():
 
 func update_wave_points():
 	wave_points += cur_wave
-	print(cur_wave, ' wave points ', wave_points)
+	print(cur_wave + 1, ' wave points ', wave_points)
 
 var HealthPack = preload('res://scenario/props/health_pack.tscn')
 
@@ -121,7 +121,7 @@ func wave_ended():
 		main.get_node('Props').add_child(hp)
 
 	dialog_box.display_text(text, wait_time)
-	print('Wave ', cur_wave, ' ended')
+	print('Wave ', cur_wave + 1, ' ended')
 	bgm._interlude_mode()
 	emit_signal('change_emotion', "happy", 3)
 	cur_wave += 1
@@ -180,8 +180,8 @@ func start_wave():
 	dialog_box.display_text(START_SPEECHES[randi()%START_SPEECHES.size()], 6)
 	var w = get_node('Wave')
 	dialog_box.clear_all_info_boxes()
-	print('Wave ', cur_wave, ' started')
-	get_node('/root/Main/GUI/WaveCount').set_text("Wave %d" % cur_wave)
+	print('Wave ', cur_wave + 1, ' started')
+	get_node('/root/Main/GUI/WaveCount').set_text("Wave %d" % (cur_wave + 1))
 	bgm._action_mode()
 	w.start()
 
