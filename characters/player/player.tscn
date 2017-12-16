@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=1]
+[gd_scene load_steps=46 format=1]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.tex" type="Texture" id=2]
@@ -327,7 +327,24 @@ tracks/0/keys = {
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="ConvexPolygonShape2D" id=20]
+[sub_resource type="Animation" id=20]
+
+resource/name = "damage_cooldown"
+length = 2.0
+loop = false
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 10, -8, 10, 10, -10, 10, -10, -8 )
@@ -397,6 +414,17 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
+[node name="DamageCooldown" type="AnimationPlayer" parent="Sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/damage_cooldown = SubResource( 20 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
@@ -437,7 +465,7 @@ visibility/visible = false
 
 transform/pos = Vector2( 0, -12 )
 input/pickable = true
-shapes/0/shape = SubResource( 20 )
+shapes/0/shape = SubResource( 21 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 10 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -570,6 +598,13 @@ playback/speed = 1.0
 
 process_mode = 1
 wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="DamageCooldown" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 2.0
 one_shot = true
 autostart = false
 

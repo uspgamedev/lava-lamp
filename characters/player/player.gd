@@ -12,6 +12,7 @@ onready var gui = get_node('/root/Main/GUI')
 onready var portrait = gui.get_node("Player_Portrait")
 onready var dialog_box = gui.get_node("Dialog Box")
 onready var shoot_timer = get_node("Shooting_Timer")
+onready var damage_cooldown = get_node("DamageCooldown")
 onready var shooting = false
 onready var spinning = false
 onready var can_skip = false
@@ -149,9 +150,18 @@ func _stun():
 func _unstun():
 	unlock_controls()
 
+
+
 func deal_damage(d):
-	if (self.shieldTime == 0):
+	if (damage_cooldown.get_time_left() == 0 and d > 0):
+		damage_cooldown.start()
+		self.get_node("Sprite/DamageCooldown").play("damage_cooldown")
+	else:
+		d = min(0, d)
+	if (self.shieldTime == 0): # Shield is not activated
 		self.damage = max(0, self.damage + d)
+	else:
+		self.damage = min(self.damage, self.damage + d)
 	self.get_node("Sprite/Hit").play("hit")
 	if d >= 0:
 		self.sfx.play("Damage")
