@@ -77,7 +77,10 @@ const NEW_ENEMY_TYPE = 3
 const NEW_MECH_TYPE = 2
 const NEW_ENEMY_PROPORTION = 1/3
 
-var reserved_keys = [ KEY_W, KEY_A, KEY_S, KEY_D ]
+var reserved_keys = [ 
+KEY_W, KEY_A, KEY_S, KEY_D, KEY_ESCAPE, KEY_TAB, KEY_LEFT, KEY_UP, KEY_RIGHT, \
+KEY_DOWN, BUTTON_LEFT, KEY_ALT, KEY_SUPER_L
+]
 
 var cur_wave = 0
 var enemy_types = 1
@@ -133,13 +136,16 @@ func wave_ended():
 	t.set_one_shot(true)
 	t.start()
 
-func _unhandled_key_input(ev):
-	key = ev.scancode
-	if (key >= KEY_0 and key <= KEY_9) or (key >= KEY_A and key <= KEY_Z):
-		for i in reserved_keys:
-			if key == i:
-				return
-		waiting_key = false
+func _unhandled_input(ev):
+	if (ev.type == InputEvent.MOUSE_BUTTON):
+		key = ev.button_index
+	elif (ev.type == InputEvent.KEY):
+		key = ev.scancode
+	else: return
+	for i in reserved_keys:
+		if key == i:
+			return
+	waiting_key = false
 
 func give_new_mechanics():
 	dialog_box.display_new_ability(MECHANICS[cur_mechanics][0], MECHANICS[cur_mechanics][2], load("res://actions/" + MECHANICS[cur_mechanics][1] + ".gd").new().icon.instance())
@@ -152,7 +158,7 @@ func give_new_mechanics():
 
 func get_new_mechanics_input(double_mech):
 	dialog_box.display_text("Press a button to assign the input for " + MECHANICS[cur_mechanics][0] + '.', 10e+10)
-	set_process_unhandled_key_input(true)
+	set_process_unhandled_input(true)
 	var player = get_node('../Props/Player')
 	var ah = player.get_node('ActionHandler')
 	player.stop_movimentation()
@@ -160,10 +166,11 @@ func get_new_mechanics_input(double_mech):
 	while(waiting_key):
 		yield(get_tree(), 'fixed_frame')
 	ah.set_key_to_action(key, MECHANICS[cur_mechanics][1])
+	ah.set_used_key(key)
 	reserved_keys.append(key)
 	player.resume_movimentation()
-	set_process_unhandled_key_input(false)
-	dialog_box.display_text("To use " + MECHANICS[cur_mechanics][0] + ", press " + OS.get_scancode_string(key) + '.', 4)
+	set_process_unhandled_input(false)
+	dialog_box.display_text("To use " + MECHANICS[cur_mechanics][0] + ", press " + get_node("/root/input").get_key_string(key) + '.', 4)
 	cur_mechanics += 1
 	if (double_mech):
 		var timer = Timer.new()

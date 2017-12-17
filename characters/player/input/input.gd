@@ -45,6 +45,16 @@ func set_control_type(tp):
 	else:
 		pl.get_node('Hook/LookArrow').set_hidden(false)
 
+func get_key_string(key):
+	if (key >= KEY_SPACE):
+		return OS.get_scancode_string(key)
+	if key == BUTTON_RIGHT: return 'Right Mouse Button'
+	if key == BUTTON_MIDDLE: return 'Middle Mouse Button'
+	if key == BUTTON_WHEEL_UP: return 'Mouse wheel up'
+	if key == BUTTON_WHEEL_DOWN: return 'Mouse wheel down'
+	if key == BUTTON_WHEEL_LEFT: return 'Mouse wheel left button'
+	if key == BUTTON_WHEEL_RIGHT: return 'Mouse wheel right button'
+
 func _input(event):
 	if get_tree().is_paused():
 		if not get_node('/root/Main/GUI/GameOver').is_visible() and event.is_action_pressed('pause'):
@@ -61,9 +71,9 @@ func _input(event):
 		var ah = get_node('/root/Main/Props/Player/ActionHandler')
 		var mp = ah.action_map
 		var txt = ""
-		for i in range(26 + 10):
-			if mp[i] != null:
-				txt += "%s:  %s\n" % [OS.get_scancode_string(ah.unmap_key(i)), mp[i].get_name().replace("_", " ")]
+		var keys = ah.get_keys_used()
+		for i in range(keys.size()):
+			txt += "%s:  %s\n" % [get_key_string(keys[i]), mp[keys[i]].get_name().replace("_", " ")]
 		get_node('/root/Main/GUI/MoveList/Description').set_text(txt)
 		get_node('/root/Main/GUI/MoveList').set_hidden(false)
 	elif event.is_action_released('show_moves'):

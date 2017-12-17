@@ -17,7 +17,7 @@ func _ready():
 func update_enemy_vector():
 	if (manager.cur_wave%manager.NEW_ENEMY_TYPE == 0):
 		var j = round((manager.NEW_ENEMY_PROPORTION*manager.wave_points)/ \
-		              (manager.ENEMIES[manager.enemy_types - 1][2]))
+		              (manager.ENEMIES[manager.enemy_types][2]))
 		for i in range(j):
 			enemies_id.append(manager.enemy_types)
 			cur_points += manager.ENEMIES[manager.enemy_types][2]
