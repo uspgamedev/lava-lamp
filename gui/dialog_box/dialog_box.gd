@@ -108,8 +108,11 @@ func display_text(text, delay = 3):
 	
 func _text_tween_complete( object, key ):
 	var portrait = get_parent().get_node("Cientist_Portrait")
+	var player = get_node("/root/Main/Props/Player")
 	portrait.stop_talking()
-	get_node("/root/Main/Props/Player").dialogue_end()
+	player.dialogue_end()
+	if !get_node('/root/input').is_connected('skip_intro', player, 'skip_intro'):
+		start_deactivate_timer()
 	
 func start_deactivate_timer():
 	var timer = get_node("Deactivate Timer")

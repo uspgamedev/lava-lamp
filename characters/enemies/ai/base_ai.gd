@@ -6,8 +6,13 @@ var enemy_dmg = 1
 func collided_with_player(player):
 	var enemy = get_parent()
 	var vec = player.get_pos() - enemy.get_pos()
-	player.speed += knockback * vec.normalized()
-	player.deal_damage(enemy_dmg)
+	if (player.shieldTime != 0 and enemy.get_name() != 'Ghost' and \
+	                               enemy.get_name() != 'Absorber'):
+		enemy.deal_damage(enemy_dmg)
+		enemy.speed += knockback * vec.normalized()
+	else:
+		player.speed += knockback * vec.normalized()
+		player.deal_damage(enemy_dmg)
 	player.dashTime = 0
 
 func process_stunned(stun_time):
