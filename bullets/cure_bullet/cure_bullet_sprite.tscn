@@ -21,6 +21,7 @@ tracks/0/keys = {
 
 [node name="Sprite" type="Sprite"]
 
+transform/pos = Vector2( 0, -2 )
 texture = ExtResource( 1 )
 hframes = 3
 

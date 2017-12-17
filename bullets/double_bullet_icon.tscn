@@ -4,12 +4,14 @@
 
 [node name="DoubleBulletIcon" type="Node2D"]
 
+transform/pos = Vector2( 1, -1 )
+
 [node name="Sprite" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 5.55344, -5.55344 )
+transform/pos = Vector2( 6, -5 )
 
 [node name="Sprite1" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( -7.2622, 8.25896 )
+transform/pos = Vector2( -7, 7 )
 
 

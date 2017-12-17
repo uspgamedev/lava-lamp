@@ -7,9 +7,10 @@
 offsets = FloatArray( 0.230496, 0.691489, 1 )
 colors = ColorArray( 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
 
-[node name="Particles2D" type="Particles2D"]
+[node name="FireParticles" type="Particles2D"]
 
 visibility/blend_mode = 1
+transform/pos = Vector2( 0, 4 )
 transform/scale = Vector2( 0.5, 0.5 )
 config/amount = 32
 config/lifetime = 0.5

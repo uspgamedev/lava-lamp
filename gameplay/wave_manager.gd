@@ -23,7 +23,7 @@ const MECHANICS = [ # 17 mechanics
 	['Ghost Bullet', 'create_ghost_bullet',       'They used to say its scream sound comes from a test subject of an old evil experiment.'],
 	['Wormhole', 'create_wormhole',               "A wormhole, it probably won't reduce your sanity."],
 	['Armor', 'shield',                           "Won't protect you for long, don't rely too much on it."],
-	['Ion Bullet', 'create_ion_bullet',           "It fries these damn robots circuits for a little time. It has a very different effect on organic lifeforms. Good old times."],
+	['Ion Bullet', 'create_ion_bullet',           "It fries these damn robots circuits for a little time. It has a very different effect on organic lifeforms. Good old \n times.                                         "],
 	['Cure Bullet', 'create_cure_bullet',         "You're the last of the LAVA series LAMP edition. And you want to HEAL your enemies??"],
 	['Guided Bullet', 'create_guided_bullet',     "Are you that lazy that you can't even bother to target the damn enemy?"],
 	['Shotgun', 'create_shotgun_bullet',          "The good old shotgun. It reloads automatically and it's probably the last of it's kind."],

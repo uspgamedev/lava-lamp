@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2Array( -120, -120, -120, 200, -120, 200, -120, -120 ), Vector2Array( -120, -120, -120, 200, 110, 200, 110, -120 ) ]
+"values": [ Vector2Array( -140, -140, -140, 220, -140, 220, -140, -140 ), Vector2Array( -140, -140, -140, 220, 140, 220, 140, -140 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -57,7 +57,7 @@ tracks/0/keys = {
 
 [node name="Info_Box" type="Polygon2D"]
 
-polygon = Vector2Array( -120, -120, -120, 200, 110, 200, 110, -120 )
+polygon = Vector2Array( -140, -140, -140, 220, 140, 220, 140, -140 )
 uv = Vector2Array(  )
 color = Color( 0.921875, 0.187256, 0.238909, 0.9 )
 vertex_colors = ColorArray(  )
@@ -90,10 +90,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -120.0
-margin/top = -110.0
-margin/right = 168.0
-margin/bottom = -90.0
+margin/left = -130.0
+margin/top = -115.0
+margin/right = 195.0
+margin/bottom = -95.0
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode/enabled = true
 bbcode/bbcode = "[center]NEW STUFF [color=lime]UNLOCKED:[/color][/center]"
@@ -106,10 +106,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -120.0
-margin/top = -80.0
-margin/right = 110.0
-margin/bottom = -60.0
+margin/left = -130.0
+margin/top = -85.0
+margin/right = 130.0
+margin/bottom = -65.0
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode/enabled = true
 bbcode/bbcode = "[center][color=yellow]TITLE[/color][/center]"
@@ -123,10 +123,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -120.0
-margin/top = 70.0
-margin/right = 168.0
-margin/bottom = 208.0
+margin/left = -135.0
+margin/top = 75.0
+margin/right = 202.0
+margin/bottom = 250.0
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode/enabled = true
 bbcode/bbcode = "[center]description is here along with some words and stuff oh yeh.[/center]"
@@ -139,10 +139,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -120.0
-margin/top = 170.0
-margin/right = 110.0
-margin/bottom = 200.0
+margin/left = -130.0
+margin/top = 185.0
+margin/right = 130.0
+margin/bottom = 210.0
 custom_fonts/bold_italics_font = ExtResource( 3 )
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode/enabled = true

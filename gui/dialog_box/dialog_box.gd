@@ -54,9 +54,9 @@ func display_new_enemy(name, health, description, icon):
 	infoboxes.add_child(ib)
 	
 	#Configure info box
+	ib.set_icon(icon)
 	ib.set_top_text("[center]NEW ENEMY [color=lime]UNLOCKED:[/color][/center]")
 	ib.set_title("[center][color=yellow][u]"+name+"[/u][/color][/center]")
-	ib.set_icon(icon)
 	ib.set_description("[center]"+description+"[/center]")
 	ib.set_bottom_text("[center][color=yellow]Enemy Health: [/color][color=black]"+health+" [/color][/center]")
 	ib.set_bg_color("enemy")
@@ -68,7 +68,7 @@ func fix_info_boxes():
 	var n = infoboxes.get_child_count()
 	if n <= 0:
 		return
-	var gap = 20
+	var gap = 60
 	var w = infoboxes.get_child(0).get_width()
 	var total_width = (n-1)*w + (n-1)*gap
 	var x_pos = -total_width/2 #Inicial x position for a infobox
