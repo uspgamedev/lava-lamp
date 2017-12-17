@@ -13,6 +13,7 @@ onready var portrait = gui.get_node("Player_Portrait")
 onready var dialog_box = gui.get_node("Dialog Box")
 onready var shoot_timer = get_node("Shooting_Timer")
 onready var damage_cooldown = get_node("DamageCooldown")
+onready var intro_timer = get_node("Intro_Timer")
 onready var shooting = false
 onready var spinning = false
 onready var can_skip = false
@@ -67,13 +68,11 @@ func stop_movimentation():
 	input.disconnect('hold_direction', self, '_add_speed')
 	input.disconnect('hold_direction', self, '_set_look_dir')
 	input.disconnect('hold_look', self, '_set_look_dir')
-	input.disconnect('skip_intro', self, 'skip_intro')
 
 func resume_movimentation():
 	input.connect('hold_direction', self, '_add_speed')
 	input.connect('hold_direction', self, '_set_look_dir')
 	input.connect('hold_look', self, '_set_look_dir')
-	input.connect('skip_intro', self, 'skip_intro')
 
 func get_look_vec():
 	return get_look_dir()
@@ -148,8 +147,6 @@ func _stun():
 func _unstun():
 	unlock_controls()
 
-
-
 func deal_damage(d):
 	if (damage_cooldown.get_time_left() == 0 and d > 0):
 		damage_cooldown.start()
@@ -199,10 +196,12 @@ func unlock_controls():
 	get_node("/root/Main/GUI/WaveCount").show()
 
 func _on_Intro_Tween_tween_complete( object, key ):
-	intro_func = intro_func.resume()
+	if (intro_func != null):
+		intro_func = intro_func.resume()
 
 func _on_Intro_Timer_timeout():
-	intro_func = intro_func.resume()
+	if (intro_func != null):
+		intro_func = intro_func.resume()
 
 func get_first_name():
 	randomize()
@@ -220,6 +219,7 @@ func skip_intro():
 	if can_complete:
 		can_complete = false
 		can_skip = true
+		intro_timer.stop()
 		dialog_box.text_tween.set_speed(500)
 		return
 	if can_skip:
@@ -232,10 +232,10 @@ func skip_intro():
 		var logo = gui.get_node("Logo")
 		if logo.is_logo_active():
 			logo.stop_logo_animation()
+			input.disconnect('skip_intro', self, 'skip_intro')
 
-		var timer = get_node("Intro_Timer")
-		if timer.is_active():
-			timer.stop()
+		if intro_timer.is_active():
+			intro_timer.stop()
 			_on_Intro_Timer_timeout()
 			return
 
@@ -245,7 +245,10 @@ func skip_intro():
 			_on_Intro_Tween_tween_complete(null, null)
 			return
 
-
+func dialogue_end():
+	can_complete = false
+	can_skip = true
+	dialog_box.text_tween.set_speed(1)
 
 func intro():
 	lock_controls()
@@ -263,30 +266,31 @@ func intro():
 	var dr_name = arg[0]
 	var reason = arg[1]
 	dialog_box.display_text("Welcome, my beloved [color=lime]creation[/color]! My name is [color=#f442b9]"+first_name+"[/color], but you can call me [color=yellow]Dr. "+dr_name+"[/color], "+reason, 5)
-	var timer = get_node("Intro_Timer")
-	timer.set_wait_time(9)
-	timer.start()
+	intro_timer.set_wait_time(9)
+	intro_timer.start()
 
 	yield()
 
+	can_complete = true
+	can_skip = false
 	dialog_box.display_text("Yet none of this matters now. Our world as we know it has become [color=black]APOCALYPTIC!!![/color] And [color=lime]you[/color] are our last hope to save humankind! And who are [color=lime]you[/color], you may ask? Well you are the [color=#6be51b]one[/color] and [color=#6be51b]only[/color]...", 5)
-	var timer = get_node("Intro_Timer")
-	timer.set_wait_time(12)
-	timer.start()
+	intro_timer.set_wait_time(12)
+	intro_timer.start()
 
 	yield()
 
+	can_complete = true
+	can_skip = false
 	dialog_box.display_text("[center][color=yellow]L[/color][color=lime]egendary[/color] [color=yellow]A[/color][color=lime]utonomous[/color] [color=yellow]V[/color][color=lime]ersatile[/color] [color=yellow]A[/color][color=lime]ndroid[/color] [color=black]series[/color][/center] [center][color=yellow]L[/color][color=lime]atest-generation[/color] [color=yellow]A[/color][color=lime]nti-apocalyptic[/color] [color=yellow]M[/color][color=lime]oddable[/color] [color=yellow]P[/color][color=lime]rototype[/color] [color=black]edition![/color][fill] [/fill][/center]", 5)
-	var timer = get_node("Intro_Timer")
-	timer.set_wait_time(10)
-	timer.start()
+	intro_timer.set_wait_time(10)
+	intro_timer.start()
 
 	yield()
 
+	dialog_box.deactivate_box()
 	gui.get_node("Logo").start_logo_animation()
-	var timer = get_node("Intro_Timer")
-	timer.set_wait_time(6)
-	timer.start()
+	intro_timer.set_wait_time(4)
+	intro_timer.start()
 	sfx.play("Title")
 
 	yield()
@@ -295,9 +299,8 @@ func intro():
 	unlock_controls()
 	get_node('/root/Main/GUI/PauseNotice').start()
 
-	var timer = get_node("Intro_Timer")
-	timer.set_wait_time(2)
-	timer.start()
+	intro_timer.set_wait_time(2)
+	intro_timer.start()
 
 	yield()
 

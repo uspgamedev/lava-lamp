@@ -109,7 +109,7 @@ func display_text(text, delay = 3):
 func _text_tween_complete( object, key ):
 	var portrait = get_parent().get_node("Cientist_Portrait")
 	portrait.stop_talking()
-	start_deactivate_timer()
+	get_node("/root/Main/Props/Player").dialogue_end()
 	
 func start_deactivate_timer():
 	var timer = get_node("Deactivate Timer")

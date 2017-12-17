@@ -13,6 +13,7 @@ func start_logo_animation():
 	timer.start()
 		
 func stop_logo_animation():
+	get_node('/root/input').disconnect('skip_intro', get_node('/root/Main/Props/Player'), 'skip_intro')
 	active = false
 	hide()
 
