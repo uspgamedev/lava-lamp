@@ -88,6 +88,10 @@ anims/hit = SubResource( 3 )
 
 polygon = Vector2Array( -10, -40, -10, 0, 10, 0, 10, -40 )
 
+[node name="Area2D" parent="."]
+
+editor/display_folded = true
+
 [node name="CollisionPolygon2D" parent="Area2D"]
 
 polygon = Vector2Array( -10, -40, -10, 0, 10, 0, 10, -40 )
@@ -96,8 +100,13 @@ polygon = Vector2Array( -10, -40, -10, 0, 10, 0, 10, -40 )
 
 script/script = ExtResource( 4 )
 
+[node name="EnemyHealth" parent="."]
+
+transform/pos = Vector2( 1.66893e-06, -61 )
+
 [node name="SFX" parent="." instance=ExtResource( 5 )]
 
+editor/display_folded = true
 config/polyphony = 2
 autoplay = true
 which = "Roll"

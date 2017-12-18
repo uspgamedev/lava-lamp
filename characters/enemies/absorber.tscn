@@ -103,6 +103,7 @@ max_spawn_range = null
 
 [node name="Sprite" parent="."]
 
+editor/display_folded = true
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 3
@@ -120,9 +121,17 @@ autoplay = "down_moving"
 
 anims/hit = SubResource( 5 )
 
+[node name="Area2D" parent="."]
+
+editor/display_folded = true
+
 [node name="Ai" parent="."]
 
 script/script = ExtResource( 4 )
+
+[node name="EnemyHealth" parent="."]
+
+transform/pos = Vector2( 1.66893e-06, -40 )
 
 [node name="Particles2D" parent="." instance=ExtResource( 5 )]
 

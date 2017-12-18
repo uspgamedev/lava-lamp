@@ -26,11 +26,16 @@ hp = 6
 
 [node name="Sprite" parent="."]
 
+editor/display_folded = true
 modulate = Color( 1, 0.703125, 0.703125, 1 )
 
 [node name="Hit" parent="Sprite"]
 
 anims/hit = SubResource( 1 )
+
+[node name="Area2D" parent="."]
+
+editor/display_folded = true
 
 [node name="Ai" parent="."]
 
@@ -38,6 +43,7 @@ script/script = ExtResource( 2 )
 
 [node name="EnemyHealth" parent="."]
 
+transform/pos = Vector2( 1.66893e-06, -66 )
 max_in_row = 3
 
 

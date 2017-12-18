@@ -32,20 +32,13 @@ modulate = Color( 1, 0.59375, 0.59375, 1 )
 
 anims/hit = SubResource( 1 )
 
-[node name="CollisionPolygon2D" parent="."]
-
-visibility/visible = false
-
-[node name="CollisionPolygon2D" parent="Area2D"]
-
-visibility/visible = false
-
 [node name="Ai" parent="."]
 
 script/script = ExtResource( 2 )
 
 [node name="EnemyHealth" parent="."]
 
+transform/pos = Vector2( 0, -51 )
 max_in_row = 3
 
 

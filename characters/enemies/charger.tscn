@@ -100,6 +100,7 @@ max_spawn_range = null
 
 [node name="Sprite" parent="."]
 
+editor/display_folded = true
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 3
@@ -118,6 +119,7 @@ anims/hit = SubResource( 5 )
 
 [node name="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -0.581131, 0.19371 )
 
 [node name="CollisionPolygon2D" parent="Area2D"]
@@ -130,10 +132,11 @@ script/script = ExtResource( 4 )
 
 [node name="EnemyHealth" parent="."]
 
-transform/pos = Vector2( 0, -45 )
+transform/pos = Vector2( 0, -41 )
 
 [node name="SFX" parent="." instance=ExtResource( 5 )]
 
+editor/display_folded = true
 config/polyphony = 2
 autoplay = true
 which = "Walk"

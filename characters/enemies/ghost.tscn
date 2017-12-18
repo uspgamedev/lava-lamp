@@ -68,12 +68,12 @@ max_spawn_range = null
 
 [node name="Sprite" parent="."]
 
+editor/display_folded = true
 visibility/self_opacity = 0.5
 transform/pos = Vector2( 0, -37 )
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 4
-frame = 4
 
 [node name="AnimationPlayer" parent="Sprite"]
 
@@ -87,6 +87,7 @@ anims/hit = SubResource( 3 )
 
 [node name="Area2D" parent="."]
 
+editor/display_folded = true
 collision/mask = 16
 
 [node name="CollisionPolygon2D" parent="Area2D"]
@@ -96,6 +97,10 @@ polygon = Vector2Array( -20, -40, -20, 10, 20, 10, 20, -40 )
 [node name="Ai" parent="."]
 
 script/script = ExtResource( 4 )
+
+[node name="EnemyHealth" parent="."]
+
+transform/pos = Vector2( 1.66893e-06, -75 )
 
 [node name="SFX" parent="." instance=ExtResource( 5 )]
 

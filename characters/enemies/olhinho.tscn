@@ -109,6 +109,7 @@ script/script = ExtResource( 2 )
 
 [node name="Sprite" parent="."]
 
+editor/display_folded = true
 visibility/self_opacity = 1.0
 texture = ExtResource( 3 )
 vframes = 4
@@ -127,6 +128,10 @@ anims/Walk_Up = SubResource( 4 )
 
 anims/hit = SubResource( 5 )
 
+[node name="Area2D" parent="."]
+
+editor/display_folded = true
+
 [node name="CollisionPolygon2D" parent="Area2D"]
 
 polygon = Vector2Array( -16, -16, -16, 16, 16, 16, 16, -16 )
@@ -135,8 +140,13 @@ polygon = Vector2Array( -16, -16, -16, 16, 16, 16, 16, -16 )
 
 script/script = ExtResource( 5 )
 
+[node name="EnemyHealth" parent="."]
+
+transform/pos = Vector2( 0, -26 )
+
 [node name="SFX" parent="." instance=ExtResource( 6 )]
 
+editor/display_folded = true
 autoplay = true
 which = "Float"
 

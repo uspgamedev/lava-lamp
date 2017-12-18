@@ -102,6 +102,7 @@ max_spawn_range = null
 
 [node name="Sprite" parent="."]
 
+editor/display_folded = true
 texture = ExtResource( 3 )
 vframes = 4
 hframes = 4
@@ -120,12 +121,17 @@ autoplay = "walk_down"
 
 anims/hit = SubResource( 5 )
 
+[node name="Area2D" parent="."]
+
+editor/display_folded = true
+
 [node name="Ai" parent="."]
 
 script/script = ExtResource( 4 )
 
 [node name="EnemyHealth" parent="."]
 
+transform/pos = Vector2( 1.66893e-06, -30 )
 max_in_row = 3
 
 [node name="SFX" parent="." instance=ExtResource( 5 )]

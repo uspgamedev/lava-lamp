@@ -148,6 +148,7 @@ script/script = ExtResource( 4 )
 
 [node name="LeftShield" type="Area2D" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( -29.1763, 0.434619 )
 transform/scale = Vector2( 0.235805, 1.16752 )
@@ -171,6 +172,7 @@ trigger = false
 
 [node name="RightShield" type="Area2D" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 28.3804, 0.00533867 )
 transform/scale = Vector2( 0.241469, 1.16752 )
@@ -192,6 +194,7 @@ trigger = false
 
 [node name="UpShield" type="Area2D" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 0, -30 )
 transform/scale = Vector2( 1.15033, 0.271653 )
@@ -214,6 +217,7 @@ trigger = false
 
 [node name="DownShield" type="Area2D" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( -0.273972, 29.9341 )
 transform/scale = Vector2( 1.15033, 0.271653 )
@@ -236,6 +240,7 @@ trigger = false
 
 [node name="SFX" parent="." instance=ExtResource( 5 )]
 
+editor/display_folded = true
 config/polyphony = 5
 
 [node name="Roll" parent="SFX" instance=ExtResource( 6 )]

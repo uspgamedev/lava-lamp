@@ -26,6 +26,7 @@ hp = 10
 
 [node name="Sprite" parent="."]
 
+editor/display_folded = true
 modulate = Color( 0.695801, 1, 0.652344, 1 )
 
 [node name="Hit" parent="Sprite"]
@@ -38,6 +39,7 @@ script/script = ExtResource( 2 )
 
 [node name="EnemyHealth" parent="."]
 
+transform/pos = Vector2( 1.66893e-06, -66 )
 max_in_row = 5
 
 
