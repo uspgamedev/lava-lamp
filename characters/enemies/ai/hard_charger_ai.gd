@@ -52,12 +52,15 @@ func think(dt, player):
 func collided_with_player(player):
 	var enemy = get_parent()
 	var vec = player.get_pos() - enemy.get_pos()
-	player.speed += ([4000, 500, 10000][state]) * vec.normalized()
-	player.deal_damage([2, 1, 4][state])
-	move_cooldown = move_cooldown_max
-	player.dashTime = 0
-	state = WALK
-	walk_cooldown = 3
+	if (player.shieldTime != 0):
+		enemy.speed += knockback * vec.normalized()
+	else:
+		player.speed += ([4000, 500, 10000][state]) * vec.normalized()
+		player.deal_damage([2, 1, 4][state])
+		move_cooldown = move_cooldown_max
+		player.dashTime = 0
+		state = WALK
+		walk_cooldown = 3
 
 func hit(obj):
 	if obj extends preload('res://bullets/ion_bullet.gd') or \

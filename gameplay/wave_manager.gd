@@ -35,10 +35,6 @@ const MECHANICS = [ # 17 mechanics
 	['Double Bullet', 'create_double_bullet',     "The ultimate weapon. All science has converged to this. You are lucky to be alive and witness this."],
 ]
 
-const DOUBLE_MECH_WAVES = [
-	
-]
-
 const END_SPEECHES = [
 	'That was easy!',
 	'You did it! I just can\'t believe...',
@@ -136,7 +132,7 @@ func wave_ended():
 	t.set_one_shot(true)
 	t.start()
 
-func _unhandled_input(ev):
+func _input(ev):
 	if (ev.type == InputEvent.MOUSE_BUTTON):
 		key = ev.button_index
 	elif (ev.type == InputEvent.KEY):
@@ -149,16 +145,11 @@ func _unhandled_input(ev):
 
 func give_new_mechanics():
 	dialog_box.display_new_ability(MECHANICS[cur_mechanics][0], MECHANICS[cur_mechanics][2], load("res://actions/" + MECHANICS[cur_mechanics][1] + ".gd").new().icon.instance())
-	for i in DOUBLE_MECH_WAVES:
-		if i == cur_wave:
-			dialog_box.display_new_ability(MECHANICS[cur_mechanics + 1][0], MECHANICS[cur_mechanics + 1][2], load("res://actions/" + MECHANICS[cur_mechanics + 1][1] + ".gd").new().icon.instance())
-			get_new_mechanics_input(true)
-			return
-	get_new_mechanics_input(false)
+	get_new_mechanics_input()
 
-func get_new_mechanics_input(double_mech):
+func get_new_mechanics_input():
 	dialog_box.display_text("Press a button to assign the input for " + MECHANICS[cur_mechanics][0] + '.', 10e+10)
-	set_process_unhandled_input(true)
+	set_process_input(true)
 	var player = get_node('../Props/Player')
 	var ah = player.get_node('ActionHandler')
 	player.stop_movimentation()
@@ -169,19 +160,10 @@ func get_new_mechanics_input(double_mech):
 	ah.set_used_key(key)
 	reserved_keys.append(key)
 	player.resume_movimentation()
-	set_process_unhandled_input(false)
+	set_process_input(false)
 	dialog_box.display_text("To use " + MECHANICS[cur_mechanics][0] + ", press " + get_node("/root/input").get_key_string(key) + '.', 4)
 	cur_mechanics += 1
-	if (double_mech):
-		var timer = Timer.new()
-		timer.set_wait_time(4)
-		timer.set_one_shot(true)
-		timer.start()
-		add_child(timer)
-		yield(timer, 'timeout')
-		get_new_mechanics_input(false)
-	else:
-		prepare_wave()
+	prepare_wave(false)
 
 func start_wave():
 	dialog_box.display_text(START_SPEECHES[randi()%START_SPEECHES.size()], 6)
@@ -192,9 +174,15 @@ func start_wave():
 	bgm._action_mode()
 	w.start()
 
-func prepare_wave():
+func prepare_wave(only_new_enemy):
+	var time = 4
+	if (only_new_enemy):
+		time += 4
+		var timer = dialog_box.get_node("Deactivate Timer")
+		timer.stop()
+		dialog_box.text_tween.stop_all()
 	var w = get_node('Wave')
-	t.set_wait_time(5)
+	t.set_wait_time(time)
 	t.disconnect('timeout', self, 'new_wave')
 	t.connect('timeout', self, 'start_wave')
 	t.set_one_shot(true)
@@ -206,12 +194,15 @@ func introduce_enemy_type():
 	cur_enemy += 1
 
 func new_wave():
+	var only_new_enemy = false
 	if (cur_wave % NEW_ENEMY_TYPE == 0) and (cur_enemy < ENEMIES.size()):
 		introduce_enemy_type()
+		only_new_enemy = true
 	if (cur_wave % NEW_MECH_TYPE == 0) and (cur_mechanics < MECHANICS.size()):
+		only_new_enemy = false
 		give_new_mechanics()
 	else:
-		prepare_wave()
+		prepare_wave(only_new_enemy)
 
 func _ready():
 	self.connect('change_emotion', portrait, 'change_emotion')

@@ -13,7 +13,9 @@ func collided_with_player(player):
 func hit(obj):
 	var enemy = get_parent()
 	if obj extends preload('res://bullets/bullet.gd'):
-		if obj extends preload('res://bullets/ion_bullet.gd'):
+		if enemy.stunned > 0:
+			.hit(obj)
+		elif obj extends preload('res://bullets/ion_bullet.gd'):
 			.hit(obj)
 		elif obj extends preload('res://bullets/trap.gd'):
 			.hit(obj)
