@@ -21,62 +21,77 @@ COLOR = color(0.2, 0.1, 0.1, step(UV.y, 24.0/64.0) * 0.4);
 shader/shader = SubResource( 1 )
 shader/shading_mode = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=16]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -16, -32, 16, -32, 16, -4, -16, -4 )
+points = Vector2Array( -16, -37, 16, -37, 16, -7, -16, -7 )
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
-
-custom_solver_bias = 0.0
-points = Vector2Array( -16, 0, 16, 0, 16, 24, -16, 24 )
-
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=17]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -16, 0, 16, 0, 16, 24, -16, 24 )
+points = Vector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=18]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -16, 0, 16, 0, 16, 24, -16, 24 )
+points = Vector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )
 
 [node name="Tileset" type="Node2D"]
 
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="FloorA" type="Sprite" parent="."]
 
-transform/pos = Vector2( 40.4494, 61.8026 )
+transform/pos = Vector2( 21, 37 )
 texture = ExtResource( 1 )
 hframes = 4
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="FloorB" type="Sprite" parent="."]
 
-transform/pos = Vector2( 88.9793, 63.4202 )
+transform/pos = Vector2( 62, 37 )
 texture = ExtResource( 1 )
 hframes = 4
 frame = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Plate" type="Sprite" parent="."]
 
-transform/pos = Vector2( 160.48, 75.0674 )
+transform/pos = Vector2( 103, 37 )
 texture = ExtResource( 1 )
 hframes = 4
 frame = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Fall" type="Sprite" parent="."]
 
 visibility/opacity = 0.2
 material/material = SubResource( 2 )
-transform/pos = Vector2( 208.968, 72.6957 )
+transform/pos = Vector2( 144, 37 )
 texture = ExtResource( 1 )
 hframes = 4
 frame = 3
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody2D1" type="StaticBody2D" parent="Fall"]
 
-visibility/visible = false
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 16 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -85,25 +100,33 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fall/StaticBody2D1"]
 
 build_mode = 0
-polygon = Vector2Array( -16, -32, 16, -32, 16, -4, -16, -4 )
+polygon = Vector2Array( -16, -37, 16, -37, 16, -7, -16, -7 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="WallA" type="Sprite" parent="."]
 
-editor/display_folded = true
-transform/pos = Vector2( 77.6556, 129.745 )
+transform/pos = Vector2( 22, 110 )
 texture = ExtResource( 2 )
 hframes = 3
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WallA"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 17 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -112,26 +135,34 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallA/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -16, 0, 16, 0, 16, 24, -16, 24 )
+polygon = Vector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="WallB" type="Sprite" parent="."]
 
-editor/display_folded = true
-transform/pos = Vector2( 117.774, 127.804 )
+transform/pos = Vector2( 63, 110 )
 texture = ExtResource( 2 )
 hframes = 3
 frame = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody2D1" type="StaticBody2D" parent="WallB"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 18 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -140,26 +171,34 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D1" type="CollisionPolygon2D" parent="WallB/StaticBody2D1"]
 
 build_mode = 0
-polygon = Vector2Array( -16, 0, 16, 0, 16, 24, -16, 24 )
+polygon = Vector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="WallB1" type="Sprite" parent="."]
 
-editor/display_folded = true
-transform/pos = Vector2( 156.598, 126.51 )
+transform/pos = Vector2( 104, 110 )
 texture = ExtResource( 2 )
 hframes = 3
 frame = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody2D1" type="StaticBody2D" parent="WallB1"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 15 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -168,12 +207,18 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D1" type="CollisionPolygon2D" parent="WallB1/StaticBody2D1"]
 
 build_mode = 0
-polygon = Vector2Array( -16, 0, 16, 0, 16, 24, -16, 24 )
+polygon = Vector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 
