@@ -7,7 +7,8 @@ func collided_with_player(player):
 	var enemy = get_parent()
 	var vec = player.get_pos() - enemy.get_pos()
 	if (player.shieldTime != 0 and enemy.get_name() != 'Ghost' and \
-	                               enemy.get_name() != 'Absorber'):
+	                               enemy.get_name() != 'Absorber' and \
+	                               enemy.get_name() != 'HardShielded'):
 		enemy.deal_damage(enemy_dmg)
 		enemy.speed += knockback * vec.normalized()
 	else:

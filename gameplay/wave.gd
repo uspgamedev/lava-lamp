@@ -15,14 +15,14 @@ func _ready():
 	set_fixed_process(true)
 
 func update_enemy_vector():
-	if (manager.cur_wave%manager.NEW_ENEMY_TYPE == 0):
-		var j = ceil((manager.NEW_ENEMY_PROPORTION*manager.wave_points)/ \
-		              (manager.ENEMIES[manager.enemy_types][2]))
+	if (manager.cur_wave % manager.NEW_ENEMY_TYPE == 1):
+		var j = ceil(ceil(manager.NEW_ENEMY_PROPORTION*manager.wave_points)/ \
+		              (manager.ENEMIES[manager.cur_enemy][2]))
 		for i in range(j):
-			enemies_id.append(manager.enemy_types)
-			cur_points += manager.ENEMIES[manager.enemy_types][2]
+			enemies_id.append(manager.cur_enemy)
+			cur_points += manager.ENEMIES[manager.cur_enemy][2]
 	while (cur_points < manager.wave_points):
-		var new_enemy = randi()%manager.enemy_types
+		var new_enemy = randi()%(manager.cur_enemy + 1)
 		enemies_id.append(new_enemy)
 		cur_points += manager.ENEMIES[new_enemy][2]
 	shuffle()

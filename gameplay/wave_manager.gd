@@ -71,20 +71,19 @@ const START_SPEECHES = [
 
 const NEW_ENEMY_TYPE = 3
 const NEW_MECH_TYPE = 2
-const NEW_ENEMY_PROPORTION = 1/3
+const NEW_ENEMY_PROPORTION = float(1)/3
 
 var reserved_keys = [ 
 KEY_W, KEY_A, KEY_S, KEY_D, KEY_ESCAPE, KEY_TAB, KEY_LEFT, KEY_UP, KEY_RIGHT, \
 KEY_DOWN, BUTTON_LEFT, KEY_ALT, KEY_SUPER_L
 ]
 
-var cur_wave = 0
-var enemy_types = 1
+var cur_wave = 1
 var wave_points = 10
 var key
 var waiting_key = false
-var cur_mechanics = 0
-var cur_enemy = 0
+var cur_mechanics = -1
+var cur_enemy = -1
 
 var t
 
@@ -95,23 +94,19 @@ onready var portrait = gui.get_node('Player_Portrait')
 onready var dialog_box = gui.get_node('Dialog Box')
 onready var bgm = get_node('../BGM')
 
-func update_enemy_types():
-	if (cur_wave%NEW_ENEMY_TYPE == 0 and enemy_types < ENEMIES.size()):
-		enemy_types += 1
-
 func update_wave_points():
 	wave_points += cur_wave
-	print(cur_wave + 1, ' wave points ', wave_points)
+	print('Next wave: ', cur_wave, '; Points: ', wave_points)
 
 var HealthPack = preload('res://scenario/props/health_pack.tscn')
 
 func wave_ended():
 	var lives = randi() % 3
 	var text = END_SPEECHES[randi()%END_SPEECHES.size()]
-	var wait_time = 6
+	var wait_time = 4
 	if lives > 0:
 		text += " I left %d [color=lime]health pack%s[/color] for you as a reward. Go search for %s." % [lives, "s" if lives > 1 else "", "them" if lives > 1 else "it"]
-		wait_time += 4
+		wait_time += 3
 	var main = get_node('/root/Main')
 	for i in range(lives):
 		var p = main.get_valid_position()
@@ -120,11 +115,10 @@ func wave_ended():
 		main.get_node('Props').add_child(hp)
 
 	dialog_box.display_text(text, wait_time)
-	print('Wave ', cur_wave + 1, ' ended')
+	print('Wave ', cur_wave, ' ended')
 	bgm._interlude_mode()
 	emit_signal('change_emotion', "happy", 3)
 	cur_wave += 1
-	update_enemy_types()
 	update_wave_points()
 	t.set_wait_time(wait_time)
 	t.disconnect('timeout', self, 'start_wave')
@@ -141,9 +135,11 @@ func _input(ev):
 	for i in reserved_keys:
 		if key == i:
 			return
+	set_process_input(false)
 	waiting_key = false
 
 func give_new_mechanics():
+	cur_mechanics += 1
 	dialog_box.display_new_ability(MECHANICS[cur_mechanics][0], MECHANICS[cur_mechanics][2], load("res://actions/" + MECHANICS[cur_mechanics][1] + ".gd").new().icon.instance())
 	get_new_mechanics_input()
 
@@ -160,24 +156,22 @@ func get_new_mechanics_input():
 	ah.set_used_key(key)
 	reserved_keys.append(key)
 	player.resume_movimentation()
-	set_process_input(false)
-	dialog_box.display_text("To use " + MECHANICS[cur_mechanics][0] + ", press " + get_node("/root/input").get_key_string(key) + '.', 4)
-	cur_mechanics += 1
+	dialog_box.display_text("To use " + MECHANICS[cur_mechanics][0] + ", press " + get_node("/root/input").get_key_string(key) + '.', 3)
 	prepare_wave(false)
 
 func start_wave():
-	dialog_box.display_text(START_SPEECHES[randi()%START_SPEECHES.size()], 6)
+	dialog_box.display_text(START_SPEECHES[randi()%START_SPEECHES.size()], 5)
 	var w = get_node('Wave')
 	dialog_box.clear_all_info_boxes()
-	print('Wave ', cur_wave + 1, ' started')
-	get_node('/root/Main/GUI/WaveCount').set_text("Wave %d" % (cur_wave + 1))
+	print('Wave ', cur_wave, ' started')
+	get_node('/root/Main/GUI/WaveCount').set_text("Wave %d" % cur_wave)
 	bgm._action_mode()
 	w.start()
 
 func prepare_wave(only_new_enemy):
-	var time = 4
+	var time = 3
 	if (only_new_enemy):
-		time += 4
+		time += 3
 		var timer = dialog_box.get_node("Deactivate Timer")
 		timer.stop()
 		dialog_box.text_tween.stop_all()
@@ -190,15 +184,15 @@ func prepare_wave(only_new_enemy):
 	w.connect('ended', self, 'wave_ended')
 
 func introduce_enemy_type():
-	dialog_box.display_new_enemy(ENEMIES[cur_enemy][0], var2str(ENEMIES[cur_enemy][4]), ENEMIES[cur_enemy][3], load(ENEMIES[cur_enemy][1] + '_icon.tscn').instance())
 	cur_enemy += 1
-
+	dialog_box.display_new_enemy(ENEMIES[cur_enemy][0], var2str(ENEMIES[cur_enemy][4]), ENEMIES[cur_enemy][3], load(ENEMIES[cur_enemy][1] + '_icon.tscn').instance())
+	
 func new_wave():
 	var only_new_enemy = false
-	if (cur_wave % NEW_ENEMY_TYPE == 0) and (cur_enemy < ENEMIES.size()):
+	if (cur_wave % NEW_ENEMY_TYPE == 1) and (cur_enemy < (ENEMIES.size() - 1)):
 		introduce_enemy_type()
 		only_new_enemy = true
-	if (cur_wave % NEW_MECH_TYPE == 0) and (cur_mechanics < MECHANICS.size()):
+	if (cur_wave % NEW_MECH_TYPE == 1) and (cur_mechanics < (MECHANICS.size() - 1)):
 		only_new_enemy = false
 		give_new_mechanics()
 	else:
@@ -207,7 +201,7 @@ func new_wave():
 func _ready():
 	self.connect('change_emotion', portrait, 'change_emotion')
 	t = Timer.new()
-	t.set_wait_time(5)
+	t.set_wait_time(3)
 	t.connect('timeout', self, 'new_wave')
 	t.set_one_shot(true)
 	add_child(t)

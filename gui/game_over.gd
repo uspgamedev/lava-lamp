@@ -8,7 +8,7 @@ func start():
 	get_node('StreamPlayer').play()
 	get_tree().set_pause(true)
 	set_hidden(false)
-	var w = get_node('/root/Main/WaveManager').cur_wave
+	var w = get_node('/root/Main/WaveManager').cur_wave - 1
 	get_node('WaveCount').set_text("You survived %d wave%s." % [w, "s" if w > 1 else ""])
 	var props = get_node('/root/Main/Props').get_children()
 	for i in props:

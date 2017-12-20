@@ -1,7 +1,7 @@
 extends 'base_action.gd'
 
 func _init():
-	cooldown_time = 2
+	cooldown_time = 3
 	name = "guided_bullet"
 	icon = preload("res://bullets/guided_bullet/guided_bullet_sprite.tscn")
 
