@@ -11,7 +11,7 @@ func _ready():
 	self.sfx.play("Fly")
 
 func _fixed_process(delta):
-	if get_node("../../Floor").world_to_map(self.get_pos()) > Vector2(50, 50) or get_node("../../Floor").world_to_map(self.get_pos()) < Vector2(-50, -50):
+	if get_node("../../Floor").world_to_map(self.get_pos()) > Vector2(70, 70) or get_node("../../Floor").world_to_map(self.get_pos()) < Vector2(-10, -10):
 		self.queue_free()
 		
 func apply_speed(delta):
