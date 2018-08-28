@@ -15,19 +15,19 @@ var damage = 0
 var motion
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 
-func _fixed_process(delta):
-	apply_speed(delta)
+func _physics_process(delta):
+	apply_speed_scale(delta)
 	deaccelerate()
 
-func _add_speed(dir):
+func _add_speed_scale(dir):
 	self.speed += DIR.VECTOR[dir] * ACC
 	
-func get_speed():
+func get_speed_scale():
 	return speed
 
-func apply_speed(delta):
+func apply_speed_scale(delta):
 	var motionScale = Vector2()
 
 	if self.dashTime > 0:
@@ -37,16 +37,17 @@ func apply_speed(delta):
 		motionScale = self.speed * delta
 		self.dashTime = 0
 
-	var motion = move( motionScale )
+	var motion = move_and_collide( motionScale )
 	if (is_colliding()):
 		var collider = get_collider()
 		var normal = get_collision_normal()
 		motion = normal.slide(motion)
 		self.speed = normal.slide(self.speed)
-		move(motion)
+		move_and_collide(motion)
 
 func deaccelerate():
 	if (speed.length_squared() < EPSILON):
 		speed = Vector2(0, 0)
 	else:
 		speed *= .5
+

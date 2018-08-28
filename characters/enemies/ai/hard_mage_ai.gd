@@ -15,13 +15,13 @@ func think(dt, player):
 		var pos = null
 		for tries in range(10):
 			var p = main.get_valid_position()
-			b.set_pos(p)
-			if not b.test_move(player.get_pos() - p):
+			b.set_position(p)
+			if not b.test_move_and_collide(player.get_position() - p):
 				pos = p
 				break
 		if pos == null:
 			pos = main.get_valid_position()
-		enemy.set_pos(pos)
+		enemy.set_position(pos)
 		enemy.emit_signal('teleporting')
 		shoot_cd = 1
 		dest = null
@@ -29,6 +29,6 @@ func think(dt, player):
 	.think(dt, player)
 
 func hit(obj):
-	if obj extends preload('res://bullets/trap.gd'):
+	if obj is preload('res://bullets/trap.gd'):
 		return
 	.hit(obj)

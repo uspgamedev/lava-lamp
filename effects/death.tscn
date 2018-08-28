@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://bullets/shrapnel_bullet/sprite.tex" type="Texture" id=1]
+[ext_resource path="res://bullets/shrapnel_bullet/sprite.texture" type="Texture" id=1]
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=2]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=3]
-[ext_resource path="res://characters/enemies/dano_inimigo.smp" type="Sample" id=4]
+[ext_resource path="res://characters/enemies/dano_inimigo.sample" type="Sample" id=4]
 
 [sub_resource type="GDScript" id=1]
 
@@ -16,17 +16,17 @@ func _ready():
 [node name="Death" type="Particles2D"]
 
 visibility/blend_mode = 1
-transform/scale = Vector2( 0.5, 0.5 )
-config/amount = 64
-config/lifetime = 0.4
-config/preprocess = 2.0
+scale = Vector2( 0.5, 0.5 )
+amount = 64
+lifetime = 0.4
+preprocess = 2.0
 config/emit_timeout = 0.1
-config/emitting = false
+emitting = false
 config/process_mode = 1
 config/half_extents = Vector2( 3, 3 )
-config/local_space = false
-config/texture = ExtResource( 1 )
-config/h_frames = 4
+local_coords = false
+texture = ExtResource( 1 )
+h_frames = 4
 params/direction = 180.0
 params/spread = 180.0
 params/linear_velocity = 400.0
@@ -43,7 +43,7 @@ params/final_size = 1.0
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
-script/script = SubResource( 1 )
+script = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -61,6 +61,4 @@ which = "explo"
 
 sample = ExtResource( 4 )
 
-[connection signal="timeout" from="Timer" to="." method="queue_free"]
-
-
+[connection signal="timeout" from="Timer" to="." method="queue_free" binds=[  ]]

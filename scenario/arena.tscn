@@ -1,64 +1,63 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://gameplay/gameplay.gd" type="Script" id=1]
-
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 0, 720, -70, 720, -70, 0, 0, 0 )
+points = PoolVector2Array( 0, 720, -70, 720, -70, 0, 0, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -70, 720, 1350, 720, 1350, 770, -70, 770 )
+points = PoolVector2Array( -70, 720, 1350, 720, 1350, 770, -70, 770 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 1280, -60, 1350, -60, 1350, 720, 1280, 720 )
+points = PoolVector2Array( 1280, -60, 1350, -60, 1350, 720, 1280, 720 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -70, 0, -70, -60, 1280, -60, 1280, 0 )
+points = PoolVector2Array( -70, 0, -70, -60, 1280, -60, 1280, 0 )
 
 [node name="Arena" type="Node2D"]
 
-transform/pos = Vector2( -280, -130 )
-script/script = ExtResource( 1 )
+position = Vector2( -280, -130 )
+script = ExtResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 
-polygon = Vector2Array( 0, 0, 1280, 0, 1280, 720, 0, 720 )
-uv = Vector2Array(  )
+polygon = PoolVector2Array( 0, 0, 1280, 0, 1280, 720, 0, 720 )
+uv = PoolVector2Array(  )
 color = Color( 0.496094, 0.496094, 0.496094, 1 )
-vertex_colors = ColorArray(  )
+vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
-texture/texture = null
-texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
-texture/rotation = 0.0
-invert/enable = false
-invert/border = 100.0
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
 
 [node name="Wall" type="StaticBody2D" parent="."]
 
-input/pickable = false
+input_pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 shapes/1/shape = SubResource( 2 )
-shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
 shapes/2/shape = SubResource( 3 )
-shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 shapes/2/trigger = false
 shapes/3/shape = SubResource( 4 )
-shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 shapes/3/trigger = false
-collision/layers = 1
-collision/mask = 1
+collision_layer = 1
+collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
@@ -67,29 +66,27 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
 
 build_mode = 0
-polygon = Vector2Array( 0, 0, -70, 0, -70, 720, 0, 720 )
+polygon = PoolVector2Array( 0, 0, -70, 0, -70, 720, 0, 720 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="CollisionPolygon2D 2" type="CollisionPolygon2D" parent="Wall"]
 
 build_mode = 0
-polygon = Vector2Array( -70, 720, 1350, 720, 1350, 770, -70, 770 )
+polygon = PoolVector2Array( -70, 720, 1350, 720, 1350, 770, -70, 770 )
 shape_range = Vector2( 1, 1 )
 trigger = false
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Wall"]
 
 build_mode = 0
-polygon = Vector2Array( 1280, 720, 1350, 720, 1350, -60, 1280, -60 )
+polygon = PoolVector2Array( 1280, 720, 1350, 720, 1350, -60, 1280, -60 )
 shape_range = Vector2( 2, 2 )
 trigger = false
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Wall"]
 
 build_mode = 0
-polygon = Vector2Array( 1280, 0, 1280, -60, -70, -60, -70, 0 )
+polygon = PoolVector2Array( 1280, 0, 1280, -60, -70, -60, -70, 0 )
 shape_range = Vector2( 3, 3 )
 trigger = false
-
-

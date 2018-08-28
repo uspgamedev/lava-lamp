@@ -11,8 +11,9 @@ func _ready():
 
 func _exit_tree():
 	var explo = Explo.instance()
-	explo.set_pos(self.get_pos())
+	explo.set_position(self.get_position())
 	var death = Death.instance()
-	death.set_pos(self.get_pos())
+	death.set_position(self.get_position())
 	self.get_parent().add_child(explo)
 	self.get_parent().add_child(death)
+

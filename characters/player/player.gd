@@ -49,7 +49,7 @@ var shieldTime = 0
 onready var shielded = get_node('Shielded')
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 	unlock_controls()
 	input.connect('skip_intro', self, 'skip_intro')
 
@@ -92,19 +92,19 @@ func dash(time):
 func shield(time):
 	self.shieldTime = time
 	self.sfx.play('ArmorUp')
-	self.shielded.set_hidden(false)
+	self.shielded.visible = !(false)
 	self.shielded.get_node("Particles2D").set_emitting(true)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	self.shieldTime = max(self.shieldTime - delta, 0)
 	if self.shieldTime == 0 and !self.shielded.is_hidden():
-		self.shielded.set_hidden(true)
+		self.shielded.visible = !(true)
 		self.shielded.get_node("Particles2D").set_emitting(false)
 		self.sfx.play('ArmorDown')
 
 func get_look_dir():
 	if input.control_type == input.MOUSE:
-		return (get_viewport().get_mouse_pos() - get_global_transform_with_canvas().o).normalized()
+		return (get_viewport().get_mouse_position() - get_global_transform_with_canvas().o).normalized()
 	else:
 		return DIR.VECTOR[self.dir]
 
@@ -140,7 +140,7 @@ func load_camera():
 
 func _stun():
 	lock_controls()
-	get_node("Stunned").set_hidden(false)
+	get_node("Stunned").visible = !(false)
 	get_node("StunTimer").start()
 	get_node("Stunned/Timer").start()
 
@@ -220,12 +220,12 @@ func skip_intro():
 		can_complete = false
 		can_skip = true
 		intro_timer.stop()
-		dialog_box.text_tween.set_speed(500)
+		dialog_box.text_tween.set_speed_scale(500)
 		return
 	if can_skip:
 		can_skip = false
 		can_complete = true
-		dialog_box.text_tween.set_speed(1)
+		dialog_box.text_tween.set_speed_scale(1)
 		if dialog_box.is_active():
 			dialog_box.deactivate_box()
 
@@ -248,7 +248,7 @@ func skip_intro():
 func dialogue_end():
 	can_complete = false
 	can_skip = true
-	dialog_box.text_tween.set_speed(1)
+	dialog_box.text_tween.set_speed_scale(1)
 
 func intro():
 	lock_controls()
@@ -306,3 +306,4 @@ func intro():
 
 	#Start first wave
 	get_node('/root/Main/WaveManager').new_wave()
+

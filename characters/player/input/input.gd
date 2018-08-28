@@ -26,7 +26,7 @@ var cur = 0
 var last_dir_hold = []
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 	set_process_input(true)
 	for i in range(4):
 		last_dir_hold.append(-10)
@@ -41,9 +41,9 @@ func set_control_type(tp):
 	elif tp == MOUSE or tp == KEYBOARD2:
 		shoot_on_click = false
 	if tp == MOUSE:
-		pl.get_node('Hook/LookArrow').set_hidden(true)
+		pl.get_node('Hook/LookArrow').visible = !(true)
 	else:
-		pl.get_node('Hook/LookArrow').set_hidden(false)
+		pl.get_node('Hook/LookArrow').visible = !(false)
 
 func get_key_string(key):
 	if (key >= KEY_SPACE):
@@ -59,14 +59,14 @@ func _input(event):
 	if get_tree().is_paused():
 		if not get_node('/root/Main/GUI/GameOver').is_visible() and event.is_action_pressed('pause'):
 			get_tree().set_pause(false)
-			get_node('/root/Main/GUI/PauseScreen').set_hidden(true)
+			get_node('/root/Main/GUI/PauseScreen').visible = !(true)
 		return
 	else:
 		if event.is_action_pressed('pause'):
 			get_tree().set_pause(true)
-			get_node('/root/Main/GUI/MoveList').set_hidden(true)
+			get_node('/root/Main/GUI/MoveList').visible = !(true)
 			get_node('/root/Main/GUI/PauseNotice').hide()
-			get_node('/root/Main/GUI/PauseScreen').set_hidden(false)
+			get_node('/root/Main/GUI/PauseScreen').visible = !(false)
 	if event.is_action_pressed('show_moves'):
 		var ah = get_node('/root/Main/Props/Player/ActionHandler')
 		var mp = ah.action_map
@@ -75,9 +75,9 @@ func _input(event):
 		for i in range(keys.size()):
 			txt += "%s:  %s\n" % [get_key_string(keys[i]), mp[keys[i]].get_name().replace("_", " ")]
 		get_node('/root/Main/GUI/MoveList/Description').set_text(txt)
-		get_node('/root/Main/GUI/MoveList').set_hidden(false)
+		get_node('/root/Main/GUI/MoveList').visible = !(false)
 	elif event.is_action_released('show_moves'):
-		get_node('/root/Main/GUI/MoveList').set_hidden(true)
+		get_node('/root/Main/GUI/MoveList').visible = !(true)
 	var dir = self._get_direction(event)
 	var act = self._get_action(event)
 	if dir != -1: emit_signal('press_direction', dir)
@@ -85,7 +85,7 @@ func _input(event):
 	if _get_skip_intro(event): emit_signal('skip_intro')
 	if _get_quit(event): emit_signal('press_quit')
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	cur += delta
 	var dir = self._get_direction(Input)
 	var act = self._get_action(Input)
@@ -125,7 +125,7 @@ func _get_look_direction(e):
 			return _get_direction(e)
 		return -1
 	elif control_type == MOUSE:
-		var p = get_viewport().get_mouse_pos()
+		var p = get_viewport().get_mouse_position()
 		var pl_p = get_node('/root/Main/Props/Player').get_global_transform_with_canvas().o
 		var ang = atan2(p.x - pl_p.x, p.y  - pl_p.y)
 		if ang >= PI * 7.0 / 8 or ang <= -PI * 7.0 / 8:
@@ -200,3 +200,4 @@ func _get_direction(e):
 		and not e.is_action_pressed('ui_down') and not e.is_action_pressed('ui_right'):
 		dir = DIR.UP_LEFT
 	return dir
+

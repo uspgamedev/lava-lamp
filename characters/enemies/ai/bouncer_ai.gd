@@ -12,19 +12,20 @@ func collided_with_player(player):
 
 func hit(obj):
 	var enemy = get_parent()
-	if obj extends preload('res://bullets/bullet.gd'):
+	if obj is preload('res://bullets/bullet.gd'):
 		if enemy.stunned > 0:
 			.hit(obj)
-		elif obj extends preload('res://bullets/ion_bullet.gd'):
+		elif obj is preload('res://bullets/ion_bullet.gd'):
 			.hit(obj)
-		elif obj extends preload('res://bullets/trap.gd'):
+		elif obj is preload('res://bullets/trap.gd'):
 			.hit(obj)
-		elif obj extends preload('res://bullets/guided_bullet.gd'):
+		elif obj is preload('res://bullets/guided_bullet.gd'):
 			emit_signal("bounced")
 			obj.guided_speed = -obj.guided_speed
 			obj.enemy = null
 		else:
 			obj.speed = -obj.speed
 			emit_signal("bounced")
-	elif obj extends preload('res://area_effects/area_effect.gd'):
+	elif obj is preload('res://area_effects/area_effect.gd'):
 		.hit(obj)
+

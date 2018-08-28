@@ -8,13 +8,13 @@ onready var ap
 
 func _ready():
 	ap = get_node("AnimationPlayer")
-	set_fixed_process(true)
+	set_physics_process(true)
 	
-func _fixed_process(delta):
+func _physics_process(delta):
 	var dir = player.get_look_dir_value()
 	var shooting = player.is_shooting()
 	var spinning = player.is_spinning()
-	var moving = (player.get_speed().length() > 0)
+	var moving = (player.get_speed_scale().length() > 0)
 	var anim
 	
 	if spinning:
@@ -57,3 +57,4 @@ func _fixed_process(delta):
 			anim = "Idle_Right"
 	if anim != ap.get_current_animation():
 		ap.play(anim)
+

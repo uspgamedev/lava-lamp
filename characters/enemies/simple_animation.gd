@@ -7,11 +7,11 @@ onready var ap
 
 func _ready():
 	ap = get_node("AnimationPlayer")
-	set_fixed_process(true)
+	set_physics_process(true)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	var dir = enemy.get_look_dir_value()
-	var moving = (enemy.get_speed().length() > 0)
+	var moving = (enemy.get_speed_scale().length() > 0)
 	var anim
 
 	if dir == DIR.UP or dir == DIR.UP_LEFT or dir == DIR.UP_RIGHT:

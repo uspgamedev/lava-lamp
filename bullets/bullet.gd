@@ -13,18 +13,18 @@ export var damage = 1
 export var damages_player = false
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 
-func _fixed_process(delta):
-	apply_speed(delta)
-	sprite.set_rot(self.speed.angle())
+func _physics_process(delta):
+	apply_speed_scale(delta)
+	sprite.set_rotation(self.speed.angle())
 	if (is_colliding_with_wall(self)):
 		self.queue_free()
 
-func apply_speed(delta):
-	move(self.speed * delta * self.speed_factor)
+func apply_speed_scale(delta):
+	move_and_collide(self.speed * delta * self.speed_factor)
 
-func get_speed():
+func get_speed_scale():
 	return speed
 
 func is_colliding_with_wall(bullet):
@@ -40,3 +40,4 @@ func _on_Area2D_area_enter(area):
 		var player = area.get_parent()
 		player.deal_damage(self.damage)
 		queue_free()
+

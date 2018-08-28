@@ -13,9 +13,9 @@ var last_dir = -1
 var shield = true
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	var temp = self.speed
 	var dir = temp.y/abs(temp.y)
 	var append = ""
@@ -35,3 +35,4 @@ func _fixed_process(delta):
 	elif not shield and stunned <= 0:
 		shield = true
 		get_node("Particles2D").set_emitting(true)
+

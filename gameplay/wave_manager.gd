@@ -111,7 +111,7 @@ func wave_ended():
 	for i in range(lives):
 		var p = main.get_valid_position()
 		var hp = HealthPack.instance()
-		hp.set_pos(p)
+		hp.set_position(p)
 		main.get_node('Props').add_child(hp)
 
 	dialog_box.display_text(text, wait_time)
@@ -127,9 +127,9 @@ func wave_ended():
 	t.start()
 
 func _input(ev):
-	if (ev.type == InputEvent.MOUSE_BUTTON):
+	if (ev is InputEventMouseButton):
 		key = ev.button_index
-	elif (ev.type == InputEvent.KEY):
+	elif (ev is InputEventKey):
 		key = ev.scancode
 	else: return
 	for i in reserved_keys:
@@ -205,3 +205,4 @@ func _ready():
 	t.connect('timeout', self, 'new_wave')
 	t.set_one_shot(true)
 	add_child(t)
+

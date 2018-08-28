@@ -8,8 +8,8 @@ const DIR_ANIMS = [
 
 var last_dir = -1
 
-func _fixed_process(delta):
-	var temp = get_speed()
+func _physics_process(delta):
+	var temp = get_speed_scale()
 	var dir = temp.y/abs(temp.y)
 	if dir != self.last_dir:
 		if dir == 1:

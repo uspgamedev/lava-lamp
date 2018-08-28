@@ -10,8 +10,9 @@ const DIR_ANIMS = [
 
 var last_dir = -1
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	var dir = self.get_look_dir_value()
 	if dir != self.last_dir:
 		anim.set_current_animation(DIR_ANIMS[dir])
 		last_dir = dir
+

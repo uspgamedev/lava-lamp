@@ -8,7 +8,7 @@ func _ready():
 	self.set_collision_mask(2)
 	self.sfx.play("Fly")
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	if hitting:
 		self.sfx.play("Hit")
 		hitting = false

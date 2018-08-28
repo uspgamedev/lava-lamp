@@ -1,0 +1,55 @@
+[application]
+
+config/icon = "res://icon.png"
+config/name = "Legendary Autonomous Versatile Android series Latest-Generation Anti-Apocalyptic Moddable Prototype edition VS THE WORLD"
+run/main_scene = "res://main.tscn"
+
+[autoload]
+
+input = "*res://characters/player/input/input.gd"
+
+[display]
+
+window/size/fullscreen = false
+window/size/height = 720
+window/size/resizable = true
+window/size/width = 1280
+window/stretch/aspect = "keep"
+window/stretch/mode = "2d"
+
+[importer_defaults]
+
+texture = {
+"flags/filter": true,
+"flags/mipmaps": true
+}
+
+[input]
+
+charge = [ InputEvent(KEY,82), InputEvent(KEY,67) ]
+keyboard2_click = [ InputEvent(KEY,16777231), InputEvent(KEY,16777233), InputEvent(KEY,16777234), InputEvent(KEY,16777232) ]
+lock_dir = [ InputEvent(KEY,16777237), InputEvent(KEY,32) ]
+look_down = [ InputEvent(KEY,16777234) ]
+look_left = [ InputEvent(KEY,16777231) ]
+look_right = [ InputEvent(KEY,16777233) ]
+look_up = [ InputEvent(KEY,16777232) ]
+mouse_down = [ InputEvent(MBUTTON,1) ]
+pause = [ InputEvent(KEY,16777217) ]
+show_moves = [ InputEvent(KEY,16777218) ]
+skip_intro = [ InputEvent(MBUTTON,1) ]
+toggle_fullscreen = [ InputEvent(KEY,16777253) ]
+ui_down = [ InputEvent(JBUTTON,13), InputEvent(KEY,83) ]
+ui_left = [ InputEvent(JBUTTON,14), InputEvent(KEY,65) ]
+ui_quit = [  ]
+ui_right = [ InputEvent(JBUTTON,15), InputEvent(KEY,68) ]
+ui_up = [ InputEvent(JBUTTON,12), InputEvent(KEY,87) ]
+
+[physics_2d]
+
+motion_fix_enabled = true
+
+[rendering]
+
+environment/default_clear_color = Color( 0.0313726, 0.0156863, 0.054902, 1 )
+quality/2d/use_pixel_snap = true
+

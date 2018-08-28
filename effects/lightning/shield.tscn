@@ -1,18 +1,18 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=1 format=2]
 
-[ext_resource path="res://effects/lightning/spark.tex" type="Texture" id=1]
+[ext_resource path="res://effects/lightning/spark.texture" type="Texture" id=1]
 
 [node name="Particles2D" type="Particles2D"]
 
 visibility/blend_mode = 1
-transform/scale = Vector2( 1, 0.5 )
-config/amount = 24
-config/lifetime = 0.5
+scale = Vector2( 1, 0.5 )
+amount = 24
+lifetime = 0.5
 config/process_mode = 1
 config/half_extents = Vector2( 10, 40 )
-config/texture = ExtResource( 1 )
-config/h_frames = 3
-config/v_frames = 4
+texture = ExtResource( 1 )
+h_frames = 3
+v_frames = 4
 params/direction = 0.0
 params/spread = 0.0
 params/linear_velocity = 0.0
@@ -30,5 +30,3 @@ params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 randomness/initial_angle = 1.0
-
-

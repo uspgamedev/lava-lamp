@@ -1,6 +1,6 @@
 extends 'base_action.gd'
 
-const poly = Vector2Array([Vector2(-8, -16), Vector2(8, -16),
+const poly = PoolVector2Array([Vector2(-8, -16), Vector2(8, -16),
 						   Vector2(8, 16), Vector2(-8, 16)])
 
 func _init():

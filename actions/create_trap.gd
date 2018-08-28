@@ -10,7 +10,7 @@ func activate(action_handler, key):
 	var Trap = preload('res://bullets/trap.tscn')
 	var b = Trap.instance()
 	var pl = action_handler.get_parent()
-	b.set_pos(pl.get_pos())
+	b.set_position(pl.get_position())
 	b.speed = Vector2()
 	pl.get_parent().add_child(b)
 	return null

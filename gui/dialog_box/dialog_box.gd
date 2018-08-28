@@ -73,7 +73,7 @@ func fix_info_boxes():
 	var total_width = (n-1)*w + (n-1)*gap
 	var x_pos = -total_width/2 #Inicial x position for a infobox
 	for infob in infoboxes.get_children():
-		infob.set_pos(Vector2(x_pos, infob.get_pos().y))
+		infob.set_position(Vector2(x_pos, infob.get_position().y))
 		x_pos += w + gap
 
 func clear_all_info_boxes():
@@ -126,3 +126,4 @@ func _on_Text_Tween_tween_step( object, key, elapsed, value ):
 			
 			sfx.play("Tack")
 		lastNum = actual
+

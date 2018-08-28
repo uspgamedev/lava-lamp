@@ -8,6 +8,7 @@ func _init():
 func activate(action_handler, key):
 	var ion = preload('res://bullets/ion_bullet.tscn').instance()
 	var pl = action_handler.get_parent()
-	ion.set_pos(pl.get_pos())
+	ion.set_position(pl.get_position())
 	ion.speed = pl.get_look_dir().normalized() * 500
 	pl.get_parent().add_child(ion)
+

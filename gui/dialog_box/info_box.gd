@@ -41,13 +41,13 @@ func set_icon(icon):
 		var arrow = icon.get_node('Arrow')
 		if arrow != null:
 			arrow.hide()
-			icon.set_pos(Vector2(0, 40))
+			icon.set_position(Vector2(0, 40))
 		icon.set_scale(Vector2(4, 4))
 	elif (icon.get_type() == 'Particles2D'):
 		icon.set_scale(Vector2(3, 1.3))
 		if (icon.get_name() == 'FireParticles'):
 			icon.set_scale(Vector2(2, 2))
-			icon.set_pos(Vector2(0, 40))
+			icon.set_position(Vector2(0, 40))
 	elif (icon.get_type() == 'Sprite'):
 		var size = icon.get_texture().get_size()
 		size = Vector2(size.x/icon.get_hframes(), size.y/icon.get_vframes())
@@ -57,7 +57,7 @@ func set_icon(icon):
 		icon.set_scale(Vector2(scale, scale))
 		if (icon.get_name() == 'StormSprite'):
 			icon.set_scale(Vector2(2, 2))
-			icon.set_pos(Vector2(0, 10))
+			icon.set_position(Vector2(0, 10))
 
 func set_description(text):
 	get_node("Description").set_bbcode(text)

@@ -8,10 +8,10 @@ onready var polygon = get_node("Polygon2D")
 
 func _ready():
 	polygon.hide()
-	set_fixed_process(true)
+	set_physics_process(true)
 	
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	if active_enemy == null or active_enemy.get_ref() == null:
 		pick_active_enemy()
 	else:
@@ -44,7 +44,7 @@ func is_far_enough(e_pos):
 	var player = get_node('/root/Main/Props/Player')
 	if not player:
 		return false
-	var p_pos = player.get_pos()
+	var p_pos = player.get_position()
 	
 	var rect = get_viewport().get_visible_rect()
 	var rw = rect.size.x
@@ -68,8 +68,8 @@ func pick_active_enemy():
 		return
 
 	for enemy in get_tree().get_nodes_in_group("enemy"):
-		var e_pos = enemy.get_pos()
-		var p_pos = player.get_pos()
+		var e_pos = enemy.get_position()
+		var p_pos = player.get_position()
 		if is_far_enough(e_pos):
 			active_enemy = weakref(enemy)
 			return
@@ -82,7 +82,7 @@ func check_distance_of_active_enemy():
 		deactivate_arrow()
 		return
 		
-	var e_pos = e.get_pos()
+	var e_pos = e.get_position()
 	if not is_far_enough(e_pos):
 		deactivate_arrow()
 		return
@@ -100,18 +100,19 @@ func update_helper_arrow():
 	if not camera:
 		return
 
-	var e_pos = e.get_pos()*scale
-	var p_pos = player.get_pos()*scale
+	var e_pos = e.get_position()*scale
+	var p_pos = player.get_position()*scale
 
 	var w = get_viewport().get_rect().size.x
 	var h = get_viewport().get_rect().size.y
 	
 	var angle = p_pos.angle_to_point(e_pos)
-	polygon.set_rot(p_pos.angle_to_point(e_pos))
+	polygon.set_rotation(p_pos.angle_to_point(e_pos))
 	
 	var x = clamp(e_pos.x, p_pos.x - w/2, p_pos.x + w/2)
 	var y = clamp(e_pos.y, p_pos.y - h/2, p_pos.y + h/2)
 	var polygon_pos = Vector2(x, y)
-	polygon.set_pos(polygon_pos)
+	polygon.set_position(polygon_pos)
 	
 	
+

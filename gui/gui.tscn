@@ -1,12 +1,12 @@
-[gd_scene load_steps=16 format=1]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://gui/cooldowns.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/health_bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/player_portrait.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/cientist_portrait.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/dialog_box/dialog_box.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/dialog_box/dialog_box_font.fnt" type="BitmapFont" id=6]
-[ext_resource path="res://gui/dialog_box/dialog_box_bigger_font.fnt" type="BitmapFont" id=7]
+[ext_resource path="res://gui/dialog_box/dialog_box_font.font" type="BitmapFont" id=6]
+[ext_resource path="res://gui/dialog_box/dialog_box_bigger_font.font" type="BitmapFont" id=7]
 [ext_resource path="res://assets/fonts/Geo-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://gui/logo.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/control_button.gd" type="Script" id=10]
@@ -16,10 +16,10 @@
 
 [sub_resource type="DynamicFont" id=1]
 
-font/size = 32
-font/use_mipmaps = false
-font/use_filter = false
-font/font = ExtResource( 8 )
+size = 32
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 8 )
 
 [sub_resource type="GDScript" id=2]
 
@@ -46,153 +46,157 @@ scale = Vector2( 1, 1 )
 
 [node name="Cooldowns" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 1080, 70 )
+position = Vector2( 1080, 70 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 60, 60 )
+position = Vector2( 60, 60 )
 
 [node name="Player_Portrait" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1184, 624 )
-transform/scale = Vector2( 2, 2 )
+position = Vector2( 1184, 624 )
+scale = Vector2( 2, 2 )
 
 [node name="Cientist_Portrait" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 92, 624 )
-transform/scale = Vector2( 2, 2 )
+position = Vector2( 92, 624 )
+scale = Vector2( 2, 2 )
 
 [node name="Dialog Box" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 630, 650 )
+position = Vector2( 630, 650 )
 
 [node name="SelectedAction" type="Node2D" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( 1190, 441 )
+position = Vector2( 1190, 441 )
 
 [node name="Node2D" type="Node2D" parent="SelectedAction"]
 
-transform/scale = Vector2( 4, 4 )
+scale = Vector2( 4, 4 )
 
 [node name="Label" type="Label" parent="SelectedAction"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -35.0
-margin/top = -89.0
-margin/right = 39.0
-margin/bottom = -67.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -35.0
+margin_top = -89.0
+margin_right = 39.0
+margin_bottom = -67.0
 custom_fonts/font = ExtResource( 6 )
 text = "Current"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="SelectedAction"]
 
-polygon = Vector2Array( -66, -66, -66, 62, 68, 62, 68, 60, -64, 60, -64, -66 )
-uv = Vector2Array(  )
+polygon = PoolVector2Array( -66, -66, -66, 62, 68, 62, 68, 60, -64, 60, -64, -66 )
+uv = PoolVector2Array(  )
 color = Color( 0.808594, 0.660141, 0.660141, 0.579216 )
-vertex_colors = ColorArray(  )
+vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
-texture/texture = null
-texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
-texture/rotation = 0.0
-invert/enable = false
-invert/border = 100.0
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
 
 [node name="Polygon2D1" type="Polygon2D" parent="SelectedAction"]
 
-transform/pos = Vector2( 4, -4 )
-polygon = Vector2Array( -70, -62, -70, -64, 66, -64, 66, 66, 64, 66, 64, -62 )
-uv = Vector2Array(  )
+position = Vector2( 4, -4 )
+polygon = PoolVector2Array( -70, -62, -70, -64, 66, -64, 66, 66, 64, 66, 64, -62 )
+uv = PoolVector2Array(  )
 color = Color( 0.808594, 0.660141, 0.660141, 0.579216 )
-vertex_colors = ColorArray(  )
+vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
-texture/texture = null
-texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
-texture/rotation = 0.0
-invert/enable = false
-invert/border = 100.0
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
 
 [node name="Tab" type="Label" parent="SelectedAction"]
 
-rect/scale = Vector2( 0.75, 0.75 )
+rect_scale = Vector2( 0.75, 0.75 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -89.0
-margin/top = 67.0
-margin/right = 153.0
-margin/bottom = 114.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -89.0
+margin_top = 67.0
+margin_right = 153.0
+margin_bottom = 114.0
 custom_fonts/font = ExtResource( 6 )
 text = "Hold TAB for moves list"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="MoveList" type="Control" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
+visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 0
 
 [node name="Polygon2D2" type="Polygon2D" parent="MoveList"]
 
-transform/pos = Vector2( -450, -45.5005 )
-transform/scale = Vector2( 1, 1.69054 )
-polygon = Vector2Array( 500, 352.255, 950, 352.255, 950, 62.4064, 500, 62.4064 )
-uv = Vector2Array(  )
+position = Vector2( -450, -45.5005 )
+scale = Vector2( 1, 1.69054 )
+polygon = PoolVector2Array( 500, 352.255, 950, 352.255, 950, 62.4064, 500, 62.4064 )
+uv = PoolVector2Array(  )
 color = Color( 0.148438, 0.115967, 0.115967, 0.530039 )
-vertex_colors = ColorArray(  )
+vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
-texture/texture = null
-texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
-texture/rotation = 0.0
-invert/enable = false
-invert/border = 100.0
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
 
 [node name="Title" type="Label" parent="MoveList"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 164.0
-margin/top = 74.0
-margin/right = 320.0
-margin/bottom = 110.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 164.0
+margin_top = 74.0
+margin_right = 320.0
+margin_bottom = 110.0
 custom_fonts/font = ExtResource( 7 )
 text = "Move List"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Description" type="Label" parent="MoveList"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 86.0
-margin/top = 119.0
-margin/right = 463.0
-margin/bottom = 541.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 86.0
+margin_top = 119.0
+margin_right = 463.0
+margin_bottom = 541.0
 custom_fonts/font = ExtResource( 6 )
 text = "Mouse wheel right button: Simple Bullet
 2
@@ -214,36 +218,38 @@ text = "Mouse wheel right button: Simple Bullet
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="WaveCount" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 30.0
-margin/right = 1280.0
-margin/bottom = 66.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 30.0
+margin_right = 1280.0
+margin_bottom = 66.0
 custom_fonts/font = ExtResource( 7 )
 text = "Wave 0"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="PauseNotice" type="Label" parent="."]
 
-process/pause_mode = 2
+pause_mode = 2
 editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 800.0
-margin/top = 80.0
-margin/right = 1306.0
-margin/bottom = 151.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 800.0
+margin_top = 80.0
+margin_right = 1306.0
+margin_bottom = 151.0
 custom_fonts/font = SubResource( 1 )
 text = "Press ESC to pause
 and see the controls"
@@ -251,7 +257,8 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script/script = SubResource( 2 )
+script = SubResource( 2 )
+mouse_filter = 1
 
 [node name="Timer" type="Timer" parent="PauseNotice"]
 
@@ -262,70 +269,72 @@ autostart = false
 
 [node name="Logo" parent="." instance=ExtResource( 9 )]
 
-visibility/visible = false
-transform/pos = Vector2( 680, 310 )
-transform/scale = Vector2( 2.2, 2.2 )
+visible = false
+position = Vector2( 680, 310 )
+scale = Vector2( 2.2, 2.2 )
 
 [node name="PauseScreen" type="Control" parent="."]
 
-process/pause_mode = 2
+pause_mode = 2
 editor/display_folded = true
-visibility/visible = false
+visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 0
 
 [node name="Polygon2D" type="Polygon2D" parent="PauseScreen"]
 
-transform/pos = Vector2( -20, -13.1343 )
-transform/scale = Vector2( 1, 1.16418 )
-polygon = Vector2Array( 430, 100, 900, 100, 900, 395, 430, 395 )
-uv = Vector2Array(  )
+position = Vector2( -20, -13.1343 )
+scale = Vector2( 1, 1.16418 )
+polygon = PoolVector2Array( 430, 100, 900, 100, 900, 395, 430, 395 )
+uv = PoolVector2Array(  )
 color = Color( 0.148438, 0.115967, 0.115967, 0.530039 )
-vertex_colors = ColorArray(  )
+vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
-texture/texture = null
-texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
-texture/rotation = 0.0
-invert/enable = false
-invert/border = 100.0
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
 
 [node name="Title" type="Label" parent="PauseScreen"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 410.0
-margin/top = 115.0
-margin/right = 880.0
-margin/bottom = 151.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 410.0
+margin_top = 115.0
+margin_right = 880.0
+margin_bottom = 151.0
 custom_fonts/font = ExtResource( 7 )
 text = "PAUSED"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Label" type="RichTextLabel" parent="PauseScreen"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 485.0
-margin/top = 175.0
-margin/right = 835.0
-margin/bottom = 365.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 485.0
+margin_top = 175.0
+margin_right = 835.0
+margin_bottom = 365.0
 custom_fonts/normal_font = ExtResource( 6 )
-bbcode/enabled = true
-bbcode/bbcode = "Controls:
+bbcode_enabled = true
+bbcode_text = "Controls:
 
   Use [color=red]WASD[/color] to move.
   Aim with                    . Hold to shoot.
@@ -335,17 +344,18 @@ bbcode/bbcode = "Controls:
   "
 visible_characters = -1
 percent_visible = 1.0
+mouse_filter = 1
 
 [node name="OptionButton" type="OptionButton" parent="PauseScreen"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 585.0
-margin/top = 245.0
-margin/right = 675.0
-margin/bottom = 265.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 585.0
+margin_top = 245.0
+margin_right = 675.0
+margin_bottom = 265.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -353,120 +363,124 @@ flat = false
 align = 0
 selected = -1
 items = [  ]
-script/script = ExtResource( 10 )
+script = ExtResource( 10 )
+mouse_filter = 0
 
 [node name="QuitButton" type="Button" parent="PauseScreen"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 610.0
-margin/top = 390.0
-margin/right = 690.0
-margin/bottom = 410.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 610.0
+margin_top = 390.0
+margin_right = 690.0
+margin_bottom = 410.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Quit"
 flat = false
-script/script = ExtResource( 11 )
+script = ExtResource( 11 )
+mouse_filter = 0
 
 [node name="GameOver" type="Control" parent="."]
 
-process/pause_mode = 2
+pause_mode = 2
 editor/display_folded = true
-visibility/visible = false
+visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-script/script = ExtResource( 12 )
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 12 )
+mouse_filter = 0
 
-[node name="StreamPlayer" type="StreamPlayer" parent="GameOver"]
+[node name="StreamPlayer" type="AudioStreamPlayer" parent="GameOver"]
 
-stream/stream = ExtResource( 13 )
-stream/play = false
-stream/loop = false
-stream/volume_db = 0.0
-stream/autoplay = false
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
+stream = ExtResource( 13 )
+playing = false
+loop = false
+volume_db = 0.0
+autoplay = false
+paused = false
+loop_offset = 0.0
+buffering_msec = 500
 
 [node name="Polygon2D1" type="Polygon2D" parent="GameOver"]
 
-transform/pos = Vector2( -20, 0 )
-polygon = Vector2Array( 500, 350, 790, 350, 790, 60, 500, 60 )
-uv = Vector2Array(  )
+position = Vector2( -20, 0 )
+polygon = PoolVector2Array( 500, 350, 790, 350, 790, 60, 500, 60 )
+uv = PoolVector2Array(  )
 color = Color( 0.148438, 0.115967, 0.115967, 0.530039 )
-vertex_colors = ColorArray(  )
+vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
-texture/texture = null
-texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
-texture/rotation = 0.0
-invert/enable = false
-invert/border = 100.0
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
 
 [node name="Label" type="Label" parent="GameOver"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 540.0
-margin/top = 100.0
-margin/right = 705.0
-margin/bottom = 136.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 540.0
+margin_top = 100.0
+margin_right = 705.0
+margin_bottom = 136.0
 custom_fonts/font = ExtResource( 7 )
 text = "Game Over"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="WaveCount" type="Label" parent="GameOver"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 520.0
-margin/top = 170.0
-margin/right = 733.0
-margin/bottom = 206.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 520.0
+margin_top = 170.0
+margin_right = 733.0
+margin_bottom = 206.0
 custom_fonts/font = ExtResource( 6 )
 text = "You survived XX waves"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="Button" type="Button" parent="GameOver"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 540.0
-margin/top = 270.0
-margin/right = 710.0
-margin/bottom = 290.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 540.0
+margin_top = 270.0
+margin_right = 710.0
+margin_bottom = 290.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Start over"
 flat = false
+mouse_filter = 0
 
-[connection signal="timeout" from="PauseNotice/Timer" to="PauseNotice" method="hide"]
+[connection signal="timeout" from="PauseNotice/Timer" to="PauseNotice" method="hide" binds=[  ]]
 
-[connection signal="item_selected" from="PauseScreen/OptionButton" to="PauseScreen/OptionButton" method="_on_OptionButton_item_selected"]
+[connection signal="item_selected" from="PauseScreen/OptionButton" to="PauseScreen/OptionButton" method="_on_OptionButton_item_selected" binds=[  ]]
 
-[connection signal="pressed" from="PauseScreen/QuitButton" to="PauseScreen/QuitButton" method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="PauseScreen/QuitButton" to="PauseScreen/QuitButton" method="_on_QuitButton_pressed" binds=[  ]]
 
-[connection signal="pressed" from="GameOver/Button" to="GameOver" method="_on_Button_pressed"]
-
-
+[connection signal="pressed" from="GameOver/Button" to="GameOver" method="_on_Button_pressed" binds=[  ]]

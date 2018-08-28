@@ -15,3 +15,4 @@ func _on_OptionButton_item_selected( id ):
 		input.set_control_type(input.KEYBOARD2)
 	elif id == 1:
 		input.set_control_type(input.MOUSE)
+

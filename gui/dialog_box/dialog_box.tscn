@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://gui/dialog_box/dialog_box.gd" type="Script" id=1]
-[ext_resource path="res://gui/dialog_box/dialog_box_font.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://gui/dialog_box/dialog_box_font.font" type="BitmapFont" id=2]
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=3]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/dialog_box/letras.smp" type="Sample" id=5]
+[ext_resource path="res://gui/dialog_box/letras.sample" type="Sample" id=5]
 
 [sub_resource type="Animation" id=1]
 
-resource/name = "Activate"
+resource_name = "Activate"
 length = 0.2
 loop = false
 step = 0.1
@@ -17,15 +17,15 @@ tracks/0/path = NodePath(".:polygon")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.2 ),
-"transitions": FloatArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2Array( -450, -60, -450, 60, -450, 60, -450, -60 ), Vector2Array( -450, -60, -450, 60, 450, 60, 450, -60 ) ]
+"values": [ PoolVector2Array( -450, -60, -450, 60, -450, 60, -450, -60 ), PoolVector2Array( -450, -60, -450, 60, 450, 60, 450, -60 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 
-resource/name = "Active"
+resource_name = "Active"
 length = 0.01
 loop = false
 step = 0.1
@@ -34,15 +34,15 @@ tracks/0/path = NodePath(".:polygon")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0 ),
-"transitions": FloatArray( 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2Array( -450, -60, -450, 60, 450, 60, 450, -60 ) ]
+"values": [ PoolVector2Array( -450, -60, -450, 60, 450, 60, 450, -60 ) ]
 }
 
 [sub_resource type="Animation" id=3]
 
-resource/name = "Deactivate"
+resource_name = "Deactivate"
 length = 0.2
 loop = false
 step = 0.1
@@ -51,10 +51,10 @@ tracks/0/path = NodePath(".:polygon")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.2 ),
-"transitions": FloatArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2Array( -450, -60, -450, 60, 450, 60, 450, -60 ), Vector2Array( -450, -60, -450, 60, -450, 60, -450, -60 ) ]
+"values": [ PoolVector2Array( -450, -60, -450, 60, 450, 60, 450, -60 ), PoolVector2Array( -450, -60, -450, 60, -450, 60, -450, -60 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -67,41 +67,41 @@ tracks/0/path = NodePath(".:polygon")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0 ),
-"transitions": FloatArray( 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2Array( -450, -60, -450, 60, -450, 60, -450, -60 ) ]
+"values": [ PoolVector2Array( -450, -60, -450, 60, -450, 60, -450, -60 ) ]
 }
 
 [node name="Dialog Box" type="Node2D"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 
 [node name="Text Box BG" type="Polygon2D" parent="."]
 
-polygon = Vector2Array( -450, -60, -450, 60, 450, 60, 450, -60 )
-uv = Vector2Array(  )
+polygon = PoolVector2Array( -450, -60, -450, 60, 450, 60, 450, -60 )
+uv = PoolVector2Array(  )
 color = Color( 0.149414, 0.341629, 0.796875, 0.748196 )
-vertex_colors = ColorArray(  )
+vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
-texture/texture = null
-texture/offset = Vector2( 0, 0 )
-texture/scale = Vector2( 1, 1 )
-texture/rotation = 0.0
-invert/enable = false
-invert/border = 100.0
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Text Box BG"]
 
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
 anims/Activate = SubResource( 1 )
 anims/Active = SubResource( 2 )
 anims/Deactivate = SubResource( 3 )
 "anims/Not Active" = SubResource( 4 )
-playback/active = true
-playback/speed = 1.0
+playback_active = true
+playback_speed = 1.0
 blend_times = [  ]
 autoplay = "Not Active"
 
@@ -109,18 +109,19 @@ autoplay = "Not Active"
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -400.0
-margin/top = -40.0
-margin/right = 400.0
-margin/bottom = 40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -400.0
+margin_top = -40.0
+margin_right = 400.0
+margin_bottom = 40.0
 custom_fonts/mono_font = ExtResource( 2 )
 custom_fonts/normal_font = ExtResource( 2 )
-bbcode/enabled = true
-bbcode/bbcode = ""
+bbcode_enabled = true
+bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
+mouse_filter = 0
 
 [node name="Deactivate Timer" type="Timer" parent="."]
 
@@ -131,28 +132,26 @@ autostart = false
 
 [node name="Text Tween" type="Tween" parent="."]
 
-playback/process_mode = 1
+playback_process_mode = 1
 playback/active = false
-playback/repeat = false
-playback/speed = 1.0
+playback_speed = false
+playback_speed = 1.0
 
 [node name="Info Boxes" type="Node2D" parent="."]
 
-transform/pos = Vector2( 0, -350 )
+position = Vector2( 0, -350 )
 
 [node name="SFX" parent="." instance=ExtResource( 3 )]
 
-params/volume_db = 20.0
+volume_db = 20.0
 config/polyphony = 4
 
 [node name="Tack" parent="SFX" instance=ExtResource( 4 )]
 
 sample = ExtResource( 5 )
 
-[connection signal="timeout" from="Deactivate Timer" to="." method="deactivate_box"]
+[connection signal="timeout" from="Deactivate Timer" to="." method="deactivate_box" binds=[  ]]
 
-[connection signal="tween_complete" from="Text Tween" to="." method="_text_tween_complete"]
+[connection signal="tween_completed" from="Text Tween" to="." method="_text_tween_complete" binds=[  ]]
 
-[connection signal="tween_step" from="Text Tween" to="." method="_on_Text_Tween_tween_step"]
-
-
+[connection signal="tween_step" from="Text Tween" to="." method="_on_Text_Tween_tween_step" binds=[  ]]

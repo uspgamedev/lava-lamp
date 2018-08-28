@@ -12,7 +12,7 @@ var iterator = 0
 
 func _ready():
 	main = get_parent().get_parent()
-	set_fixed_process(true)
+	set_physics_process(true)
 
 func update_enemy_vector():
 	if (manager.cur_wave % manager.NEW_ENEMY_TYPE == 1):
@@ -41,7 +41,7 @@ func create_enemy():
 		iterator += 1
 		enemy_count += 1
 		var e = Enemy.instance()
-		e.set_pos(main.get_valid_position())
+		e.set_position(main.get_valid_position())
 	
 		main.get_node("Props").add_child(e)
 		get_node('EnemyTimer').set_wait_time(3 + randi()%3)
@@ -58,7 +58,7 @@ func check_wave_end():
 		enemies_id.clear()
 		manager.wave_ended()
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	check_wave_end()
 
 func start():
@@ -70,3 +70,4 @@ func start():
 	t.set_one_shot(true)
 	add_child(t)
 	update_enemy_vector()
+

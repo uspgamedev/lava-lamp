@@ -7,3 +7,4 @@ const WORMHOLE = 3
 const RICOCHET = 4
 const CHARGE = KEY_R
 const FLAME = KEY_C
+

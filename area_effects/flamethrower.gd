@@ -20,29 +20,29 @@ func _ready():
 	timer.start()
 	self.sfx.play('Burn')
 	self.sprite.set_emitting(true)
-	set_fixed_process(true)
+	set_physics_process(true)
 	set_process_unhandled_input(true)
-	self._set_rot(self.angle)
+	self._set_rotation(self.angle)
 
-func _set_rot(angle):
-	sprite.set_rot(angle)
-	area.set_rot(angle)
+func _set_rotation(angle):
+	sprite.set_rotation(angle)
+	area.set_rotation(angle)
 
 func _unhandled_input(ev):
 	if ev.is_action_released("keyboard2_click"):
 		pressed -= 1
 	elif ev.is_action_pressed("keyboard2_click"):
 		pressed += 1
-	if input.control_type == input.KEYBOARD2 and ev.type == InputEvent.KEY and \
+	if input.control_type == input.KEYBOARD2 and ev is InputEventKey and \
 		pressed == 0:
 		_finish()
-	elif input.control_type == input.MOUSE and ev.type == InputEvent.MOUSE_BUTTON and \
+	elif input.control_type == input.MOUSE and ev is InputEventMouseButton and \
 		 ev.button_index == BUTTON_LEFT and not ev.pressed:
 		_finish()
 
-func _fixed_process(delta):
-	self.set_pos(pl.get_pos() + 20*pl.get_look_vec())
-	self._set_rot(pl.get_look_dir().angle())
+func _physics_process(delta):
+	self.set_position(pl.get_position() + 20*pl.get_look_vec())
+	self._set_rotation(pl.get_look_dir().angle())
 
 func _finish():
 	set_process_unhandled_key_input(false)
@@ -58,10 +58,11 @@ func _on_Area2D_area_exit(area):
 	var cp = Array(enemyList)
 	for i in range(cp.size()-1, -1, -1):
 		if cp[i] == targEnemy:
-			cp.remove(i)
+			cp.remove_and_collide(i)
 	enemyList = cp
 
 func _hit():
 	for enemy in enemyList:
 		enemy.ai.hit(self)
+
 

@@ -8,11 +8,11 @@ onready var ap
 
 func _ready():
 	ap = get_node("Sprite/AnimationPlayer")
-	set_fixed_process(true)
+	set_physics_process(true)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	var dir = self.get_look_dir_value()
-	var moving = (self.get_speed().length() > 0)
+	var moving = (self.get_speed_scale().length() > 0)
 	var anim
 	
 	if not moving or dir == DIR.DOWN or dir == DIR.DOWN_LEFT or dir == DIR.DOWN_RIGHT:

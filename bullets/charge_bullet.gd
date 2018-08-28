@@ -11,11 +11,11 @@ onready var sfx = get_node('SFX')
 
 signal finish
 
-const polygons = [Vector2Array([Vector2(-5, -5), Vector2(5, -5),
+const polygons = [PoolVector2Array([Vector2(-5, -5), Vector2(5, -5),
 								Vector2(5, 5), Vector2(-5, 5)]),
-				  Vector2Array([Vector2(-8, -8), Vector2(8, -8),
+				  PoolVector2Array([Vector2(-8, -8), Vector2(8, -8),
 								Vector2(8, 8), Vector2(-8, 8)]),
-				  Vector2Array([Vector2(-15, -15), Vector2(15, -15),
+				  PoolVector2Array([Vector2(-15, -15), Vector2(15, -15),
 							    Vector2(15, 15), Vector2(-15, 15)])]
 
 var shoot = false
@@ -27,7 +27,7 @@ func _ready():
 	charge_timer.start()
 	self.speed = Vector2()
 	self.sfx.play('Charging')
-	set_fixed_process(true)
+	set_physics_process(true)
 	set_process_unhandled_input(true)
 
 func update_scale():
@@ -41,9 +41,9 @@ func update_scale():
 	else:
 		self.sprite.charge_large()
 		col_poly.set_polygon(polygons[2])
-	self.set_pos(pl.get_pos() + pl.get_look_vec()*16)
+	self.set_position(pl.get_position() + pl.get_look_vec()*16)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	if not shoot:
 		update_scale()
 
@@ -52,10 +52,10 @@ func _unhandled_input(ev):
 		pressed -= 1
 	elif ev.is_action_pressed("keyboard2_click"):
 		pressed += 1
-	if input.control_type == input.KEYBOARD2 and ev.type == InputEvent.KEY and \
+	if input.control_type == input.KEYBOARD2 and ev is InputEventKey and \
 		pressed == 0:
 		_shoot()
-	elif input.control_type == input.MOUSE and ev.type == InputEvent.MOUSE_BUTTON and \
+	elif input.control_type == input.MOUSE and ev is InputEventMouseButton and \
 		 ev.button_index == BUTTON_LEFT and not ev.pressed:
 		_shoot()
 
@@ -85,3 +85,4 @@ func _on_Area2D_area_enter(area):
 		var player = area.get_parent()
 		player.deal_damage(self.damage)
 		queue_free()
+

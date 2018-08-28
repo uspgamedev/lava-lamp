@@ -26,3 +26,4 @@ static func vec2rot(vec):
 	var angle = vec.angle()
 	var int_angle = round(angle/(PI/2)) * PI/2
 	return int_angle
+

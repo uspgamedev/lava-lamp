@@ -13,10 +13,10 @@ func set_brother(b):
 
 func _on_Area2D_area_enter(area):
 	if (area.is_in_group('walls')):
-		set_pos(randi()%1280, randi()%720)
+		set_position(randi()%1280, randi()%720)
 	if (area.is_in_group('enemy_area') or area.is_in_group('player_area')) and brother:
 		var other = area.get_parent()
-		var mem = other.get_pos()
-		other.set_pos(brother.get_pos())
+		var mem = other.get_position()
+		other.set_position(brother.get_position())
 		if (other.is_colliding()):
-			other.set_pos(mem)
+			other.set_position(mem)

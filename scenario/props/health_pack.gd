@@ -6,3 +6,4 @@ func _on_Area2D_area_enter(area):
 		if p.damage != 0:
 			p.deal_damage(-1)
 			queue_free()
+
