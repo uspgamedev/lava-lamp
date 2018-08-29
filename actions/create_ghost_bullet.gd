@@ -11,6 +11,6 @@ func activate(action_handler, key):
 	#self.icon = preload("res://bullets/ghost_bullet_icon.tscn")
 	var b = GhostBullet.instance()
 	var pl = action_handler.get_parent()
-	b.set_pos(pl.get_pos())
+	b.set_position(pl.get_position())
 	b.speed = pl.get_look_dir().normalized() * 300
 	pl.get_parent().add_child(b)

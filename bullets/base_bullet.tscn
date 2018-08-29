@@ -1,27 +1,27 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://bullets/simple_bullet.gd" type="Script" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+points = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -10, -20, 10, -20, 10, 20, -10, 20 )
+points = PoolVector2Array( -10, -20, 10, -20, 10, 20, -10, 20 )
 
 [node name="Bullet" type="KinematicBody2D"]
 
-input/pickable = false
+input_pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-collision/layers = 8
-collision/mask = 2
-collision/margin = 0.08
-script/script = ExtResource( 1 )
+collision_layer = 8
+collision_mask = 2
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -32,7 +32,7 @@ damages_player = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 __meta__ = {
@@ -41,9 +41,9 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="."]
 
-input/pickable = true
+input_pickable = true
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -56,7 +56,7 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
 build_mode = 0
-polygon = Vector2Array( -10, -20, 10, -20, 10, 20, -10, 20 )
+polygon = PoolVector2Array( -10, -20, 10, -20, 10, 20, -10, 20 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 __meta__ = {
@@ -70,6 +70,4 @@ wait_time = 5.0
 one_shot = false
 autostart = true
 
-[connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
-
-
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter" binds=[  ]]

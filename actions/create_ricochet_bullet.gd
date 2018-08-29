@@ -10,7 +10,8 @@ func activate(action_handler, key):
 	var b = RicochetBullet.instance()
 	var pl = action_handler.get_parent()
 	pl.sfx.play("Special")
-	b.set_pos(pl.get_pos())
+	b.set_position(pl.get_position())
 	b.speed = pl.get_look_dir().normalized() * 400
 	pl.get_parent().add_child(b)
 	return null
+

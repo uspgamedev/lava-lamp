@@ -4,16 +4,16 @@ const gap = 70
 const eps = 1
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 
-func _fixed_process(dt):
+func _physics_process(dt):
 	for child in get_children():
 		var nxy
-		if abs(child.get_pos().y - child.correct_y) < eps:
+		if abs(child.get_position().y - child.correct_y) < eps:
 			nxy = child.correct_y
 		else:
-			nxy = child.correct_y * .07 + child.get_pos().y * .93
-		child.set_pos(Vector2(child.get_pos().x, nxy))
+			nxy = child.correct_y * .07 + child.get_position().y * .93
+		child.set_position(Vector2(child.get_position().x, nxy))
 
 func fix_y():
 	var y = 0
@@ -27,6 +27,6 @@ func add_cooldown(cd):
 	for c in get_children():
 		if not c.is_queued_for_deletion():
 			ct += 1
-	cd.set_pos(Vector2(cd.get_pos().x, gap * ct))
+	cd.set_position(Vector2(cd.get_position().x, gap * ct))
 	add_child(cd)
 	fix_y()

@@ -16,9 +16,9 @@ signal hit_taken
 func _ready():
 	player = get_node("../Player")
 	ai = get_node("Ai")
-	set_fixed_process(true)
+	set_physics_process(true)
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	stunned -= delta
 	if stunned <= 0:
 		ai.think(delta, player)
@@ -26,9 +26,9 @@ var _last_dir = DIR.UP
 
 #Return aproximate direction (only 4 cardinal directions) enemy is moving at
 func get_look_dir_value():
-	if get_speed().length_squared() <= 1:
+	if get_speed_scale().length_squared() <= 1:
 		return _last_dir
-	var x = atan2(get_speed().x, get_speed().y)
+	var x = atan2(get_speed_scale().x, get_speed_scale().y)
 	if x > .75 * PI or x < -.75 * PI:
 		_last_dir = DIR.UP
 	else:
@@ -50,6 +50,6 @@ func deal_damage(d):
 func _queue_free():
 	emit_signal('enemy_dead')
 	var death = DEATH.instance()
-	death.set_pos(self.get_pos())
+	death.set_position(self.get_position())
 	self.get_parent().add_child(death)
 	self.queue_free()

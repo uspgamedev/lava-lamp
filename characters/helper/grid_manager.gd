@@ -7,7 +7,7 @@ onready var tm = get_node('/root/Main/Floor')
 onready var tm2 = get_node('/root/Main/Props')
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 	start_calc()
 
 var q = []
@@ -21,13 +21,13 @@ func start_calc():
 	seen = {}
 	q = []
 	qi = 0
-	var cood = tm.world_to_map(get_parent().get_pos() - Vector2(0, 30))
+	var cood = tm.world_to_map(get_parent().get_position() - Vector2(0, 30))
 	q.append(cood)
 	seen[cood] = true
 	dist[cood] = 0
 	nxt[cood] = cood
 
-func _fixed_process(dt):
+func _physics_process(dt):
 	for i in range(10):
 		continue_calc_distances()
 
@@ -56,7 +56,7 @@ func continue_calc_distances():
 		qc = []
 		seenc = {}
 		qic = 0
-		var cood = tm.world_to_map(get_parent().get_pos() - Vector2(0, 30))
+		var cood = tm.world_to_map(get_parent().get_position() - Vector2(0, 30))
 		qc.append(cood)
 		seenc[cood] = true
 		dist[cood] = 0

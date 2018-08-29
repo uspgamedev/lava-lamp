@@ -45,7 +45,7 @@ func set_key_to_action(key, action):
 	action_map[key] = action_script.new()
 	if action == 'create_simple_bullet':
 		set_selected_action(action_map[key])
-	print("Setted action ", action, " to key ", RawArray([key]).get_string_from_utf8())
+	print("Setted action ", action, " to key ", PoolByteArray([key]).get_string_from_utf8())
 
 func actually_do(act, key):
 	if not can_do:
@@ -96,11 +96,12 @@ func do_action(key):
 
 func _unhandled_input(ev):
 	var key
-	if (ev.type == InputEvent.MOUSE_BUTTON):
+	if (ev is InputEventMouseButton):
 		key = ev.button_index
-	elif (ev.type == InputEvent.KEY):
+	elif (ev is InputEventKey):
 		key = ev.scancode
 		if not ev.pressed or ev.echo:
 			return
 	else: return
 	do_action(key)
+

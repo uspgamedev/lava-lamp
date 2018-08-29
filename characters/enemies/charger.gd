@@ -11,7 +11,7 @@ const DIR_ANIMS = [
 
 var last_dir = 1
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	var temp = self.speed
 	var dir = temp.y/abs(temp.y)
 	var append = ""
@@ -26,7 +26,7 @@ func _fixed_process(delta):
 			anim.set_current_animation(DIR_ANIMS[0] + append)
 		last_dir = dir
 
-func apply_speed(delta):
+func apply_speed_scale(delta):
 	var motionScale = Vector2()
 
 	if self.dashTime > 0:
@@ -36,12 +36,12 @@ func apply_speed(delta):
 		motionScale = self.speed * delta
 		self.dashTime = 0
 
-	var motion = move( motionScale )
+	var motion = move_and_collide( motionScale )
 	if (is_colliding() and self.ai.state != self.ai.CHARGE):
 		var collider = get_collider()
 		var normal = get_collision_normal()
 		motion = normal.slide(motion)
 		self.speed = normal.slide(self.speed)
-		move(motion)
+		move_and_collide(motion)
 
 	

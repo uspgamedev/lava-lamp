@@ -11,7 +11,7 @@ var go_time = 0
 
 func think(dt, player):
 	var enemy = get_parent()
-	var ep = enemy.get_pos() - Vector2(0, 30)
+	var ep = enemy.get_position() - Vector2(0, 30)
 	move_cooldown -= dt
 	if move_cooldown <= 0:
 		go_time -= dt
@@ -30,9 +30,10 @@ func think(dt, player):
 			goto_dir = vec
 			go_time = .4
 		else:
-			var vec = player.get_pos() - enemy.get_pos()
+			var vec = player.get_position() - enemy.get_position()
 			enemy.speed += (sp * dt * vec.normalized())
 
 func collided_with_player(player):
 	move_cooldown = move_cooldown_max
 	.collided_with_player(player)
+

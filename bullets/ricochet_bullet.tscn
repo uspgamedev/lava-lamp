@@ -1,32 +1,32 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://bullets/ricochet_bullet.gd" type="Script" id=1]
 [ext_resource path="res://bullets/bounce_bullet/ricochet_bullet_sprite.tscn" type="PackedScene" id=2]
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=3]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=4]
-[ext_resource path="res://bullets/bounce_bullet/mono_sound_ricochet_bullet_no_ar.smp" type="Sample" id=5]
-[ext_resource path="res://bullets/bounce_bullet/mono_sound_ricochet_bullet2_atingindo_parede.smp" type="Sample" id=6]
+[ext_resource path="res://bullets/bounce_bullet/mono_sound_ricochet_bullet_no_ar.sample" type="Sample" id=5]
+[ext_resource path="res://bullets/bounce_bullet/mono_sound_ricochet_bullet2_atingindo_parede.sample" type="Sample" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+points = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -10, -30, 10, -30, 10, -10, -10, -10 )
+points = PoolVector2Array( -10, -30, 10, -30, 10, -10, -10, -10 )
 
 [node name="RicochetBullet" type="KinematicBody2D"]
 
-input/pickable = false
+input_pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-collision/layers = 8
-collision/mask = 2
-collision/margin = 0.08
-script/script = ExtResource( 1 )
+collision_layer = 8
+collision_mask = 2
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
 speed_factor = 1.5
 damage = 1
 damages_player = false
@@ -34,19 +34,19 @@ damages_player = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 0, -20 )
+position = Vector2( 0, -20 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
-input/pickable = true
+input_pickable = true
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -56,7 +56,7 @@ angular_damp = 1.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
 build_mode = 0
-polygon = Vector2Array( -10, -30, 10, -30, 10, -10, -10, -10 )
+polygon = PoolVector2Array( -10, -30, 10, -30, 10, -10, -10, -10 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
@@ -69,6 +69,7 @@ autostart = false
 
 [node name="SFX" parent="." instance=ExtResource( 3 )]
 
+
 [node name="Fly" parent="SFX" instance=ExtResource( 4 )]
 
 sample = ExtResource( 5 )
@@ -77,6 +78,4 @@ sample = ExtResource( 5 )
 
 sample = ExtResource( 6 )
 
-[connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
-
-
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter" binds=[  ]]

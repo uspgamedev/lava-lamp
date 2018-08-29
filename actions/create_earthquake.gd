@@ -10,6 +10,7 @@ func activate(action_handler, key):
 	var Earthquake = preload('res://area_effects/earthquake.tscn')
 	var b = Earthquake.instance()
 	var pl = action_handler.get_parent()
-	b.set_pos(pl.get_pos())
+	b.set_position(pl.get_position())
 	pl.get_parent().add_child(b)
 	return null
+

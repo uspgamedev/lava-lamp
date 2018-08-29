@@ -1,10 +1,8 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=1 format=2]
 
 [ext_resource path="res://effects/sound/sample.gd" type="Script" id=1]
 
 [node name="Sample" type="Node"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 sample = null
-
-

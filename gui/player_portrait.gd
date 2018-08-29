@@ -35,3 +35,4 @@ func change_emotion(emotion, time = 2):
 				exp_timer.stop()
 			exp_timer.set_wait_time(time)
 			exp_timer.start()
+

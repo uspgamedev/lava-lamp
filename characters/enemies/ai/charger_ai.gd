@@ -23,7 +23,7 @@ func think(dt, player):
 	var enemy = get_parent()
 	if state == WALK:
 		walk_cooldown -= dt
-		if walk_cooldown <= 0 and enemy.get_pos().distance_squared_to(player.get_pos()) < 200 * 200 and not enemy.test_move(player.get_pos() - enemy.get_pos()):
+		if walk_cooldown <= 0 and enemy.get_position().distance_squared_to(player.get_position()) < 200 * 200 and not enemy.test_move_and_collide(player.get_position() - enemy.get_position()):
 			charge_cooldown = 2
 			state = LOAD_CHARGE
 		else:
@@ -31,7 +31,7 @@ func think(dt, player):
 	elif state == LOAD_CHARGE:
 		charge_cooldown -= dt
 		if charge_cooldown <= 0:
-			charge_vec = (player.get_pos() - enemy.get_pos()).normalized()
+			charge_vec = (player.get_position() - enemy.get_position()).normalized()
 			state = CHARGE
 			max_charge = 3
 			get_parent().sfx.play('Assault')
@@ -46,7 +46,7 @@ func think(dt, player):
 
 func collided_with_player(player):
 	var enemy = get_parent()
-	var vec = player.get_pos() - enemy.get_pos()
+	var vec = player.get_position() - enemy.get_position()
 	if (player.shieldTime != 0):
 		enemy.deal_damage([2, 1, 3][state])
 		enemy.speed += knockback * vec.normalized()
@@ -59,10 +59,10 @@ func collided_with_player(player):
 		walk_cooldown = 3
 
 func hit(obj):
-	if obj extends preload('res://bullets/ion_bullet.gd') or \
-	   obj extends preload('res://bullets/shotgun_bullet.gd') or \
-	   obj extends preload('res://bullets/trap.gd') or \
-	   obj extends preload('res://area_effects/earthquake.gd'):
+	if obj is preload('res://bullets/ion_bullet.gd') or \
+	   obj is preload('res://bullets/shotgun_bullet.gd') or \
+	   obj is preload('res://bullets/trap.gd') or \
+	   obj is preload('res://area_effects/earthquake.gd'):
 		state = WALK
 		walk_cooldown = 2
 	.hit(obj)

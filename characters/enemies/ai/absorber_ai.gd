@@ -5,11 +5,11 @@ func _init():
 
 func hit(obj):
 	var enemy = get_parent()
-	if obj extends preload('res://bullets/ion_bullet.gd'):
+	if obj is preload('res://bullets/ion_bullet.gd'):
 		process_stunned(5)
 		obj.queue_free()
 	else:
 		if enemy.stunned > 0:
 			.hit(obj)
-		elif obj extends preload('res://bullets/bullet.gd'):
+		elif obj is preload('res://bullets/bullet.gd'):
 			obj.queue_free()

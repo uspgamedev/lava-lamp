@@ -1,17 +1,17 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/shielded/shielded.gd" type="Script" id=2]
-[ext_resource path="res://characters/enemies/shielded/shield.tex" type="Texture" id=3]
+[ext_resource path="res://characters/enemies/shielded/shield.texture" type="Texture" id=3]
 [ext_resource path="res://characters/enemies/ai/shielded_follow.gd" type="Script" id=4]
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=5]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=6]
-[ext_resource path="res://characters/enemies/shielded/monster_sound_shield_walking_loopar_sem_crossfade.smp" type="Sample" id=7]
-[ext_resource path="res://characters/enemies/shielded/monster_sound_shield_shielding_bullet.smp" type="Sample" id=8]
+[ext_resource path="res://characters/enemies/shielded/monster_sound_shield_walking_loopar_sem_crossfade.sample" type="Sample" id=7]
+[ext_resource path="res://characters/enemies/shielded/monster_sound_shield_shielding_bullet.sample" type="Sample" id=8]
 
 [sub_resource type="Animation" id=1]
 
-resource/name = "down"
+resource_name = "down"
 length = 0.4
 loop = true
 step = 0.1
@@ -20,15 +20,15 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": FloatArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
 
 [sub_resource type="Animation" id=2]
 
-resource/name = "left"
+resource_name = "left"
 length = 0.4
 loop = true
 step = 0.1
@@ -37,8 +37,8 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": FloatArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 8, 9, 10, 11 ]
 }
@@ -53,8 +53,8 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": FloatArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 12, 13, 14, 15 ]
 }
@@ -69,15 +69,15 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": FloatArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 4, 5, 6, 7 ]
 }
 
 [sub_resource type="Animation" id=5]
 
-resource/name = "hit"
+resource_name = "hit"
 length = 0.4
 loop = false
 step = 0.1
@@ -86,8 +86,8 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.2 ),
-"transitions": FloatArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -95,32 +95,32 @@ tracks/0/keys = {
 [sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -8.6932, 3.05176e-05, -8.6932, 73.6234, -78.2385, 73.6234, -78.2385, 3.05176e-05 )
+points = PoolVector2Array( -8.6932, 3.05176e-05, -8.6932, 73.6234, -78.2385, 73.6234, -78.2385, 3.05176e-05 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -34.7059, -34.2652, 48.1205, -34.2652, 48.1205, 34.2561, -34.7059, 34.2561 )
+points = PoolVector2Array( -34.7059, -34.2652, 48.1205, -34.2652, 48.1205, 34.2561, -34.7059, 34.2561 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -60.8521, -404.928, -60.8521, -331.305, -130.397, -331.305, -130.397, -404.928 )
+points = PoolVector2Array( -60.8521, -404.928, -60.8521, -331.305, -130.397, -331.305, -130.397, -404.928 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -8.6932, 3.05176e-05, -8.6932, 73.6234, -78.2385, 73.6234, -78.2385, 3.05176e-05 )
+points = PoolVector2Array( -8.6932, 3.05176e-05, -8.6932, 73.6234, -78.2385, 73.6234, -78.2385, 3.05176e-05 )
 
 [node name="ShieldedEnemy" instance=ExtResource( 1 )]
 
-script/script = ExtResource( 2 )
+script = ExtResource( 2 )
 min_spawn_range = null
 max_spawn_range = null
 
 [node name="Sprite" parent="."]
 
-transform/pos = Vector2( 0, -14 )
+position = Vector2( 0, -14 )
 texture = ExtResource( 3 )
 vframes = 4
 hframes = 4
@@ -140,21 +140,21 @@ anims/hit = SubResource( 5 )
 
 [node name="CollisionPolygon2D" parent="Area2D"]
 
-polygon = Vector2Array( -20, -30, -20, 10, 20, 10, 20, -30 )
+polygon = PoolVector2Array( -20, -30, -20, 10, 20, 10, 20, -30 )
 
 [node name="Ai" parent="."]
 
-script/script = ExtResource( 4 )
+script = ExtResource( 4 )
 
 [node name="LeftShield" type="Area2D" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
-transform/pos = Vector2( -29.1763, 0.434619 )
-transform/scale = Vector2( 0.235805, 1.16752 )
-input/pickable = true
+visible = false
+position = Vector2( -29.1763, 0.434619 )
+scale = Vector2( 0.235805, 1.16752 )
+input_pickable = true
 shapes/0/shape = SubResource( 6 )
-shapes/0/transform = Matrix32( 3.04931, 0, 0, 3.24481, 81.3227, -26.0678 )
+shapes/0/transform = Transform2D( 3.04931, 0, 0, 3.24481, 81.3227, -26.0678 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -163,22 +163,22 @@ angular_damp = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftShield"]
 
-transform/pos = Vector2( 81.3227, -26.0678 )
-transform/scale = Vector2( 3.04931, 3.24481 )
+position = Vector2( 81.3227, -26.0678 )
+scale = Vector2( 3.04931, 3.24481 )
 build_mode = 0
-polygon = Vector2Array( -41.7222, -2.63965, -41.7222, 18.4775, -13.9074, 18.4775, -13.9074, -2.63965 )
+polygon = PoolVector2Array( -41.7222, -2.63965, -41.7222, 18.4775, -13.9074, 18.4775, -13.9074, -2.63965 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="RightShield" type="Area2D" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
-transform/pos = Vector2( 28.3804, 0.00533867 )
-transform/scale = Vector2( 0.241469, 1.16752 )
-input/pickable = true
+visible = false
+position = Vector2( 28.3804, 0.00533867 )
+scale = Vector2( 0.241469, 1.16752 )
+input_pickable = true
 shapes/0/shape = SubResource( 7 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -188,19 +188,19 @@ angular_damp = 1.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightShield"]
 
 build_mode = 0
-polygon = Vector2Array( -34.7059, -34.2652, 48.1205, -34.2652, 48.1205, 34.2561, -34.7059, 34.2561 )
+polygon = PoolVector2Array( -34.7059, -34.2652, 48.1205, -34.2652, 48.1205, 34.2561, -34.7059, 34.2561 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="UpShield" type="Area2D" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
-transform/pos = Vector2( 0, -30 )
-transform/scale = Vector2( 1.15033, 0.271653 )
-input/pickable = true
+visible = false
+position = Vector2( 0, -30 )
+scale = Vector2( 1.15033, 0.271653 )
+input_pickable = true
 shapes/0/shape = SubResource( 8 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 95.6247, 368.117 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 95.6247, 368.117 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -209,21 +209,21 @@ angular_damp = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UpShield"]
 
-transform/pos = Vector2( 95.6247, 368.117 )
+position = Vector2( 95.6247, 368.117 )
 build_mode = 0
-polygon = Vector2Array( -130.397, -404.928, -130.397, -331.305, -60.8521, -331.305, -60.8521, -404.928 )
+polygon = PoolVector2Array( -130.397, -404.928, -130.397, -331.305, -60.8521, -331.305, -60.8521, -404.928 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="DownShield" type="Area2D" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
-transform/pos = Vector2( -0.273972, 29.9341 )
-transform/scale = Vector2( 1.15033, 0.271653 )
-input/pickable = true
+visible = false
+position = Vector2( -0.273972, 29.9341 )
+scale = Vector2( 1.15033, 0.271653 )
+input_pickable = true
 shapes/0/shape = SubResource( 9 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 43.704, -36.5691 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 43.704, -36.5691 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -232,9 +232,9 @@ angular_damp = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DownShield"]
 
-transform/pos = Vector2( 43.704, -36.5691 )
+position = Vector2( 43.704, -36.5691 )
 build_mode = 0
-polygon = Vector2Array( -78.2385, 3.05176e-05, -78.2385, 73.6234, -8.6932, 73.6234, -8.6932, 3.05176e-05 )
+polygon = PoolVector2Array( -78.2385, 3.05176e-05, -78.2385, 73.6234, -8.6932, 73.6234, -8.6932, 3.05176e-05 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
@@ -258,6 +258,4 @@ wait_time = 1.0
 one_shot = false
 autostart = true
 
-[connection signal="timeout" from="SFX/Timer" to="SFX" method="play" binds= [ "Roll" ]]
-
-
+[connection signal="timeout" from="SFX/Timer" to="SFX" method="play" binds=[ "Roll" ]]
