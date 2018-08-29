@@ -7,8 +7,5 @@ var auto_play = false
 
 var icon = preload("res://gui/godot_icon.tscn")
 
-func get_name():
-	return name
-
 func activate(action_handler, key):
 	pass

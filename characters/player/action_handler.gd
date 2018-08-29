@@ -1,6 +1,6 @@
 extends Node2D
 
-const Cooldown = preload('res://gui/cooldown.tscn')
+const COOLDOWN = preload('res://gui/cooldown.tscn')
 
 onready var gui = get_node('/root/Main/GUI')
 onready var portrait = gui.get_node("Player_Portrait")
@@ -15,8 +15,6 @@ var action_map = []
 var keys_used = []
 
 func _ready():
-	set_process_unhandled_input(true)
-	
 	self.connect('change_emotion', portrait, 'change_emotion')
 	
 	action_map.resize(KEY_LAUNCHF)
@@ -33,7 +31,7 @@ func set_used_key(key):
 	keys_used.append(key)
 
 func set_selected_action(act):
-	print("selecting %s" % act.get_name())
+	print("selecting %s" % act.name)
 	selected_action = act
 	var sa = get_node('/root/Main/GUI/SelectedAction/Node2D')
 	for i in range(sa.get_child_count()):
@@ -52,7 +50,7 @@ func actually_do(act, key):
 		return
 	can_do = false
 	get_parent()._set_look_dir(input._get_look_direction(Input))
-	var name = act.get_name()
+	var name = act.name
 	var player = get_parent()
 	if name == "wormhole":
 		emit_signal('change_emotion', "surprised", .7)
@@ -68,14 +66,14 @@ func actually_do(act, key):
 		yield(obj, "finish")
 		player.stop_shooting()
 	act.on_cooldown = true
-	var cd = Cooldown.instance()
+	var cd = COOLDOWN.instance()
 	cd.icon = act.icon
 	get_node('/root/Main/GUI/Cooldowns').add_cooldown(cd)
 	cd.set_max(act.cooldown_time)
 	cd.connect('cooldown_end', self, 'cooldown_end', [act, key])
 	can_do = true
 
-func do_selected_action(_):
+func do_selected_action(_arg):
 	if selected_action == null or selected_action.on_cooldown:
 		#self.get_parent().sfx.play("Fail")
 		return
@@ -104,4 +102,3 @@ func _unhandled_input(ev):
 			return
 	else: return
 	do_action(key)
-

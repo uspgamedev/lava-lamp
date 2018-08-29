@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/music_layer_3.ogg-f19eaefb81f61a2258b582c4a02f9e04.oggstr"
+
+[deps]
+
+source_file="res://scenario/bgm/music_layer_3.ogg"
+dest_files=[ "res://.import/music_layer_3.ogg-f19eaefb81f61a2258b582c4a02f9e04.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

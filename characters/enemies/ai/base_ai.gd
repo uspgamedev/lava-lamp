@@ -5,10 +5,10 @@ var enemy_dmg = 1
 
 func collided_with_player(player):
 	var enemy = get_parent()
-	var vec = player.get_position() - enemy.get_position()
-	if (player.shieldTime != 0 and enemy.get_name() != 'Ghost' and \
-	                               enemy.get_name() != 'Absorber' and \
-	                               enemy.get_name() != 'HardShielded'):
+	var vec = player.position - enemy.position
+	if (player.shieldTime != 0 and enemy.name != 'Ghost' and \
+	                               enemy.name != 'Absorber' and \
+	                               enemy.name != 'HardShielded'):
 		enemy.deal_damage(enemy_dmg)
 		enemy.speed += knockback * vec.normalized()
 	else:
@@ -19,9 +19,9 @@ func collided_with_player(player):
 func process_stunned(stun_time):
 	var enemy = get_parent()
 	enemy.stunned = 5
-	enemy.get_node('Stunned').visible = !(false)
+	enemy.get_node('Stunned').visible = true
 	var t = enemy.get_node('Stunned/Timer')
-	t.set_wait_time(enemy.stunned)
+	t.wait_time = enemy.stunned
 	t.start()
 
 func hit(obj):
@@ -34,9 +34,6 @@ func hit(obj):
 			process_stunned(3)
 		if not obj is preload('res://bullets/tracer_bullet.gd'):
 			obj.queue_free()
-	elif obj is preload('res://area_effects/area_effect.gd'):
-		pass
 
 func think(dt, player):
 	pass
-
