@@ -1,6 +1,7 @@
 [gd_scene load_steps=1 format=2]
 
-[ext_resource path="res://bullets/ghost_bullet/ghost_bullet.texture" type="Texture" id=1]
+[ext_resource path="res://bullets/ghost_bullet/ghost_bullet.png" type="Texture" id=1]
+
 
 [node name="Sprite" type="Sprite"]
 

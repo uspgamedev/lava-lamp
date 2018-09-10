@@ -1,7 +1,7 @@
 [gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
-[ext_resource path="res://characters/player/android_sprite_sheet.texture" type="Texture" id=2]
+[ext_resource path="res://characters/player/android_sprite_sheet.png" type="Texture" id=2]
 [ext_resource path="res://characters/player/player_animation.gd" type="Script" id=3]
 [ext_resource path="res://characters/player/action_handler.tscn" type="PackedScene" id=4]
 [ext_resource path="res://characters/player/look_arrow.tscn" type="PackedScene" id=5]
@@ -24,6 +24,9 @@
 [ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=22]
 [ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=23]
 [ext_resource path="res://characters/enemies/gui/shielded.tscn" type="PackedScene" id=24]
+
+
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
