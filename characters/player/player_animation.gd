@@ -5,10 +5,8 @@ const DIR = preload('res://characters/player/input/directions.gd')
 onready var player = get_parent()
 onready var ap
 
-
 func _ready():
 	ap = get_node("AnimationPlayer")
-	set_physics_process(true)
 	
 func _physics_process(delta):
 	var dir = player.get_look_dir_value()
@@ -57,4 +55,3 @@ func _physics_process(delta):
 			anim = "Idle_Right"
 	if anim != ap.get_current_animation():
 		ap.play(anim)
-

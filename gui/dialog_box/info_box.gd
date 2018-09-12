@@ -3,6 +3,9 @@ extends Polygon2D
 onready var anim_player = get_node("AnimationPlayer")
 onready var active = false
 
+var B = preload('res://gui/3d/viewport_3d.tscn')
+var SpinningBox = preload('res://gui/3d/viewport_3d.tscn')
+
 func is_active():
 	return active
 
@@ -30,10 +33,6 @@ func set_top_text(text):
 func set_title(text):
 	get_node("Title").set_bbcode(text)
 	get_node("Title").set_scroll_active(false)
-
-var B = preload('res://gui/3d/viewport_3d.tscn')
-
-var SpinningBox = preload('res://gui/3d/viewport_3d.tscn')
 
 func set_icon(icon):
 	add_child(icon)

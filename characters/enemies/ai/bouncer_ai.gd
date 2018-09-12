@@ -28,4 +28,3 @@ func hit(obj):
 			emit_signal("bounced")
 	elif obj is preload('res://area_effects/area_effect.gd'):
 		.hit(obj)
-

@@ -5,9 +5,7 @@ const DIR = preload("res://characters/player/input/directions.gd")
 onready var anim = get_node("Sprite/AnimationPlayer")
 onready var sfx = get_node("SFX")
 
-const DIR_ANIMS = [
-	"up", "down"
-]
+const DIR_ANIMS = ["up", "down"]
 
 var last_dir = 1
 
@@ -43,5 +41,3 @@ func apply_speed_scale(delta):
 		motion = normal.slide(motion)
 		self.speed = normal.slide(self.speed)
 		move_and_collide(motion)
-
-	

@@ -12,7 +12,6 @@ func _ready():
 	timer.start()
 	self.sfx.play('Fly')
 	search_nearest_enemy()
-	set_physics_process(true)
 
 func _physics_process(delta):
 	update_speed_scale()
@@ -38,4 +37,3 @@ func search_nearest_enemy():
 		enemy = weakref(enemy)
 	var player = get_node('../Player')
 	guided_speed = player.get_look_dir().normalized() * 300
-

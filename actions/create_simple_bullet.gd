@@ -14,4 +14,3 @@ func activate(action_handler, key):
 	b.speed = pl.get_look_dir().normalized() * 400
 	pl.get_parent().add_child(b)
 	return null
-

@@ -7,8 +7,6 @@ onready var polygon = get_node("Polygon2D")
 
 func _ready():
 	polygon.hide()
-	set_physics_process(true)
-	
 
 func _physics_process(delta):
 	if active_enemy == null or active_enemy.get_ref() == null:
@@ -21,7 +19,6 @@ func _physics_process(delta):
 	else:
 		deactivate_arrow()
 
-
 func activate_arrow():
 	if not polygon.is_visible():
 		polygon.show()
@@ -30,7 +27,6 @@ func activate_arrow():
 func deactivate_arrow():
 	active_enemy = null
 	polygon.hide()
-
 
 func is_far_enough(e_pos):
 	var scale = get_node('/root/Main/').get_scale()
@@ -74,7 +70,6 @@ func check_distance_of_active_enemy():
 		deactivate_arrow()
 		return
 
-
 func update_helper_arrow():
 	var scale = get_node('/root/Main/').get_scale()
 	var e = active_enemy.get_ref()
@@ -88,7 +83,6 @@ func update_helper_arrow():
 	var w = get_viewport().get_rect().size.x
 	var h = get_viewport().get_rect().size.y
 	
-	
 	polygon.set_rotation(p_pos.angle_to_point(e_pos))
 	
 	var angle = p_pos.angle_to_point(e_pos)
@@ -99,6 +93,3 @@ func update_helper_arrow():
 	var y = center.y + -cos(angle)*dist 
 	var polygon_pos = Vector2(x, y)
 	polygon.set_position(polygon_pos)
-	
-	
-

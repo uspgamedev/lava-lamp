@@ -8,7 +8,6 @@ onready var ap
 
 func _ready():
 	ap = get_node("Sprite/AnimationPlayer")
-	set_physics_process(true)
 
 func _physics_process(delta):
 	var dir = self.get_look_dir_value()

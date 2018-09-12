@@ -19,4 +19,3 @@ func activate(action_handler, key):
 	pl.sfx.play("Shotgun")
 	pl.delayed_reload()
 	return null
-

@@ -16,4 +16,3 @@ func _exit_tree():
 	death.set_position(self.get_position())
 	self.get_parent().add_child(explo)
 	self.get_parent().add_child(death)
-

@@ -16,8 +16,6 @@ func _ready():
 	timer.connect('timeout', self, '_queue_free')
 	timer.start()
 	self.sfx.play('Bling')
-	set_physics_process(true)
-	set_process_unhandled_input(true)
 	var head = self.tiles.get_node('Head')
 	for i in range(40):
 		var tile = LaserTile.instance()
@@ -68,4 +66,3 @@ func update_tiles():
 func _queue_free():
 	emit_signal("finish")
 	queue_free()
-

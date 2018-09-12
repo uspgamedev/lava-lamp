@@ -18,4 +18,3 @@ func activate(action_handler, key):
 	pl.get_parent().add_child(b1)
 	pl.get_parent().add_child(b2)
 	return null
-

@@ -3,9 +3,6 @@ extends Node2D
 const gap = 70
 const eps = 1
 
-func _ready():
-	set_physics_process(true)
-
 func _physics_process(dt):
 	for child in get_children():
 		var nxy

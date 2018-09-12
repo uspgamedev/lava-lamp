@@ -12,9 +12,6 @@ onready var sfx = get_node("SFX")
 var delay_time
 var lastNum = -1
 
-func _ready():
-	pass
-	
 func activate_box():
 	active = true
 	anim_player.play("Activate")
@@ -43,8 +40,6 @@ func display_new_ability(name, description, icon):
 	ib.set_icon(icon)
 	ib.set_description("[center]"+description+"[/center]")
 	ib.set_bg_color("ability")
-	
-
 	ib.activate()
 	fix_info_boxes()
 
@@ -95,11 +90,11 @@ func display_text(text, delay = 3):
 	
 	#Create gradual text effect
 	var raw_text = tb.get_text()
-	var len = raw_text.length()
+	var _len = raw_text.length()
 	var text_speed = 20
-	var d = max(1, len/text_speed)
-	var delay = .3
-	text_tween.interpolate_property(tb, "visible_characters", 0, len, d, Tween.TRANS_LINEAR, Tween.EASE_IN, delay)
+	var d = max(1, _len/text_speed)
+	delay = .3
+	text_tween.interpolate_property(tb, "visible_characters", 0, _len, d, Tween.TRANS_LINEAR, Tween.EASE_IN, delay)
 	text_tween.start()
 	
 	#Make cientist talk while text appear
@@ -126,4 +121,3 @@ func _on_Text_Tween_tween_step( object, key, elapsed, value ):
 			
 			sfx.play("Tack")
 		lastNum = actual
-

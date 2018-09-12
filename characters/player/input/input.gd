@@ -13,9 +13,9 @@ signal press_quit
 signal skip_intro
 
 enum {
-KEYBOARD,
-KEYBOARD2,
-MOUSE
+	KEYBOARD,
+	KEYBOARD2,
+	MOUSE
 }
 
 var control_type
@@ -26,8 +26,6 @@ var cur = 0
 var last_dir_hold = []
 
 func _ready():
-	set_physics_process(true)
-	set_process_input(true)
 	for i in range(4):
 		last_dir_hold.append(-10)
 	set_control_type(MOUSE)
@@ -200,4 +198,3 @@ func _get_direction(e):
 		and not e.is_action_pressed('ui_down') and not e.is_action_pressed('ui_right'):
 		dir = DIR.UP_LEFT
 	return dir
-

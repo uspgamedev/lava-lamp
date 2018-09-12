@@ -20,8 +20,6 @@ func _ready():
 	timer.start()
 	self.sfx.play('Burn')
 	self.sprite.set_emitting(true)
-	set_physics_process(true)
-	set_process_unhandled_input(true)
 	self._set_rotation(self.angle)
 
 func _set_rotation(angle):
@@ -64,5 +62,3 @@ func _on_Area2D_area_exit(area):
 func _hit():
 	for enemy in enemyList:
 		enemy.ai.hit(self)
-
-

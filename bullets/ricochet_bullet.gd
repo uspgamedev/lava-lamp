@@ -7,7 +7,6 @@ onready var sfx = get_node("SFX")
 func _ready():
 	timer.connect('timeout', self, '_queue_free')
 	timer.start()
-	set_physics_process(true)
 	self.sfx.play("Fly")
 
 func _physics_process(delta):
@@ -28,4 +27,3 @@ func apply_speed_scale(delta):
 
 func _queue_free():
 	self.queue_free()
-

@@ -12,7 +12,6 @@ var iterator = 0
 
 func _ready():
 	main = get_parent().get_parent()
-	set_physics_process(true)
 
 func update_enemy_vector():
 	if (manager.cur_wave % manager.NEW_ENEMY_TYPE == 1):
@@ -70,4 +69,3 @@ func start():
 	t.set_one_shot(true)
 	add_child(t)
 	update_enemy_vector()
-

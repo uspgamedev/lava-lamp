@@ -2,9 +2,7 @@ extends 'enemy.gd'
 
 onready var anim = get_node("Sprite/AnimationPlayer")
 
-const DIR_ANIMS = [
-	"move_up", "move_down"
-]
+const DIR_ANIMS = ["move_up", "move_down"]
 
 var last_dir = -1
 

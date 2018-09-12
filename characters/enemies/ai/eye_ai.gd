@@ -7,4 +7,3 @@ func hit(obj):
 			.hit(obj)
 	elif obj is preload('res://area_effects/area_effect.gd'):
 		.hit(obj)
-

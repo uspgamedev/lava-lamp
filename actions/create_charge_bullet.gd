@@ -11,4 +11,3 @@ func activate(action_handler, key):
 	var pl = action_handler.get_parent()
 	pl.get_parent().add_child(b)
 	return b
-

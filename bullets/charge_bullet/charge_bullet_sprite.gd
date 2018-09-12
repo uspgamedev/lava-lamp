@@ -18,4 +18,3 @@ func charge_large():
 
 func stop_charge():
 	self.anim.set_current_animation(self.size)
-

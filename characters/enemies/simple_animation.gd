@@ -7,7 +7,6 @@ onready var ap
 
 func _ready():
 	ap = get_node("AnimationPlayer")
-	set_physics_process(true)
 
 func _physics_process(delta):
 	var dir = enemy.get_look_dir_value()

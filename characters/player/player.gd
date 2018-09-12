@@ -49,7 +49,6 @@ var shieldTime = 0
 onready var shielded = get_node('Shielded')
 
 func _ready():
-	set_physics_process(true)
 	unlock_controls()
 	input.connect('skip_intro', self, 'skip_intro')
 
@@ -229,7 +228,7 @@ func skip_intro():
 		if dialog_box.is_active():
 			dialog_box.deactivate_box()
 
-		var logo = gui.get_node("Logo")
+		#var logo = gui.get_node("Logo")
 		if logo.is_logo_active():
 			logo.stop_logo_animation()
 			input.disconnect('skip_intro', self, 'skip_intro')
@@ -306,4 +305,3 @@ func intro():
 
 	#Start first wave
 	get_node('/root/Main/WaveManager').new_wave()
-

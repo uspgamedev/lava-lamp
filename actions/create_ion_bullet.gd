@@ -11,4 +11,3 @@ func activate(action_handler, key):
 	ion.set_position(pl.get_position())
 	ion.speed = pl.get_look_dir().normalized() * 500
 	pl.get_parent().add_child(ion)
-

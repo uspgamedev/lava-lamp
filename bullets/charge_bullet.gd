@@ -27,8 +27,6 @@ func _ready():
 	charge_timer.start()
 	self.speed = Vector2()
 	self.sfx.play('Charging')
-	set_physics_process(true)
-	set_process_unhandled_input(true)
 
 func update_scale():
 	self.scale = (charge_timer.get_wait_time() - charge_timer.get_time_left())/charge_timer.get_wait_time()
@@ -85,4 +83,3 @@ func _on_Area2D_area_enter(area):
 		var player = area.get_parent()
 		player.deal_damage(self.damage)
 		queue_free()
-

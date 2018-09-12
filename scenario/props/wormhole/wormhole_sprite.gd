@@ -17,6 +17,3 @@ func set_brother():
 	arrow.set_color(Color(1, 0.4, 0))
 	for sprite in sprites:
 		sprite.set_modulate(Color(0.5, 1, 1))
-
-
-

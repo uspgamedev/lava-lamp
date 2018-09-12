@@ -4,16 +4,11 @@ const DIR = preload("res://characters/player/input/directions.gd")
 
 onready var sprite = get_node("Sprite")
 
-export var speed_factor = 1.5
-
 var speed = Vector2(400, 400)
 
 export var damage = 1
-
+export var speed_factor = 1.5
 export var damages_player = false
-
-func _ready():
-	set_physics_process(true)
 
 func _physics_process(delta):
 	apply_speed_scale(delta)
@@ -40,4 +35,3 @@ func _on_Area2D_area_enter(area):
 		var player = area.get_parent()
 		player.deal_damage(self.damage)
 		queue_free()
-

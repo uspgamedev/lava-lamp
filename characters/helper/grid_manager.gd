@@ -1,3 +1,5 @@
+extends Node
+
 var dist = {}
 var nxt = {}
 var seen = {}
@@ -7,7 +9,6 @@ onready var tm = get_node('/root/Main/Floor')
 onready var tm2 = get_node('/root/Main/Props')
 
 func _ready():
-	set_physics_process(true)
 	start_calc()
 
 var q = []

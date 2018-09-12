@@ -9,9 +9,6 @@ func _ready():
 func quit():
 	get_tree().quit()
 
-func get_size():
-	return Vector2(1280, 720)
-
 func get_valid_position():
 	var wall_tile_map = get_node("Props")
 	var floor_tile_map = get_node("Floor")
@@ -31,4 +28,3 @@ func is_a_valid_position(pos):
 	if (cell == 3 or cell != -1):
 		return true
 	return false
-

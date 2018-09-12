@@ -7,8 +7,8 @@ export (Vector2) var max_spawn_range
 
 var player
 var ai
-
 var stunned = 0
+var _last_dir = DIR.UP
 
 signal enemy_dead
 signal hit_taken
@@ -16,13 +16,11 @@ signal hit_taken
 func _ready():
 	player = get_node("../Player")
 	ai = get_node("Ai")
-	set_physics_process(true)
 
 func _physics_process(delta):
 	stunned -= delta
 	if stunned <= 0:
 		ai.think(delta, player)
-var _last_dir = DIR.UP
 
 #Return aproximate direction (only 4 cardinal directions) enemy is moving at
 func get_look_dir_value():

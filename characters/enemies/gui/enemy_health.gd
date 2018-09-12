@@ -21,7 +21,10 @@ func _draw():
 		if i < enemy.hp - enemy.damage:
 			draw_rect(Rect2(x * sc, y * sc, w * sc, h * sc), color)
 		else:
-			var rt = [Vector2(x * sc, y * sc), Vector2((x + w) * sc, y * sc), Vector2((x + w) * sc, (y + h) * sc), Vector2(x * sc, (y + h) * sc)]
+			var rt = [Vector2(x * sc, y * sc), \
+					  Vector2((x + w) * sc, y * sc), \
+					  Vector2((x + w) * sc, (y + h) * sc), \
+					  Vector2(x * sc, (y + h) * sc)]
 			for j in range(4):
 				draw_line(rt[j], rt[(j + 1) % 4], color)
 		x += (w + gapx)

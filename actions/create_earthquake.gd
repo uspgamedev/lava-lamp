@@ -13,4 +13,3 @@ func activate(action_handler, key):
 	b.set_position(pl.get_position())
 	pl.get_parent().add_child(b)
 	return null
-

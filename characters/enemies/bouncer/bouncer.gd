@@ -9,4 +9,3 @@ func _bounce():
 	yield(anim, "finished")
 	anim.set_current_animation("move")
 	anim.play()
-

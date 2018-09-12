@@ -8,7 +8,6 @@ func _init():
 	icon = preload("res://bullets/cure_bullet/cure_bullet_sprite.tscn")
 
 func activate(action_handler, key):
-	#self.icon = preload("res://bullets/cure_bullet_icon.tscn")
 	var b = CureBullet.instance()
 	var pl = action_handler.get_parent()
 	b.set_position(pl.get_position())

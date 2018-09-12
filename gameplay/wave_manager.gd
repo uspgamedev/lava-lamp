@@ -205,4 +205,3 @@ func _ready():
 	t.connect('timeout', self, 'new_wave')
 	t.set_one_shot(true)
 	add_child(t)
-

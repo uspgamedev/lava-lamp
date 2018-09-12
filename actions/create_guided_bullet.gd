@@ -11,5 +11,4 @@ func activate(action_handler, key):
 	pl.sfx.play("Special")
 	var b = GuidedBullet.instance()
 	b.set_position(pl.get_position())
-	#b.fixed_speed = pl.get_look_dir().normalized() * 400
 	pl.get_parent().add_child(b)

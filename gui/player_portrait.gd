@@ -2,9 +2,6 @@ extends Node2D
 
 onready var ap = get_node("Sprite/AnimationPlayer")
 
-func _ready():
-	pass
-
 #Changed player portrait animation given an emotion
 #Valid emotions: "normal", "angry", "happy", "surprised"
 func change_emotion(emotion, time = 2):
@@ -35,4 +32,3 @@ func change_emotion(emotion, time = 2):
 				exp_timer.stop()
 			exp_timer.set_wait_time(time)
 			exp_timer.start()
-

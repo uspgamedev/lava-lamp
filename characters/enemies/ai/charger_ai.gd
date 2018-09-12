@@ -2,16 +2,15 @@ extends 'follow_player.gd'
 
 var charge_cooldown = 0
 var walk_cooldown = 4
+var state = WALK
+
+const DASHFACTOR = 8
 
 enum {
 	WALK,
 	LOAD_CHARGE,
 	CHARGE
 }
-
-const DASHFACTOR = 8
-
-var state = WALK
 
 func _ready():
 	sp = 4000

@@ -1,4 +1,4 @@
 extends Node
 
-export(Sample) var sample
+#export(Sample) var sample
 

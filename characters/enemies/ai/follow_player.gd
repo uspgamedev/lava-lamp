@@ -2,9 +2,7 @@ extends 'base_ai.gd'
 
 var move_cooldown_max = 1
 var move_cooldown = 0
-
 var enemy
-
 var sp = 5000
 var goto_dir = null
 var go_time = 0
@@ -36,4 +34,4 @@ func think(dt, player):
 func collided_with_player(player):
 	move_cooldown = move_cooldown_max
 	.collided_with_player(player)
-
+	

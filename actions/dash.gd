@@ -10,4 +10,3 @@ func _init():
 func activate(action_handler, key):
 	var player = action_handler.get_parent()
 	player.dash(DASHTIME)
-

@@ -14,9 +14,6 @@ export(int, 1, 50) var hp = 4
 var damage = 0
 var motion
 
-func _ready():
-	set_physics_process(true)
-
 func _physics_process(delta):
 	apply_speed_scale(delta)
 	deaccelerate()
@@ -50,4 +47,3 @@ func deaccelerate():
 		speed = Vector2(0, 0)
 	else:
 		speed *= .5
-

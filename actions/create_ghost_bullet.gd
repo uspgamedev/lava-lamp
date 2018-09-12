@@ -8,7 +8,6 @@ func _init():
 	icon = preload("res://bullets/ghost_bullet/ghost_bullet.tscn")
 
 func activate(action_handler, key):
-	#self.icon = preload("res://bullets/ghost_bullet_icon.tscn")
 	var b = GhostBullet.instance()
 	var pl = action_handler.get_parent()
 	b.set_position(pl.get_position())

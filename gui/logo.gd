@@ -22,4 +22,3 @@ func is_logo_active():
 
 func _on_Timer_timeout():
 	stop_logo_animation()
-
