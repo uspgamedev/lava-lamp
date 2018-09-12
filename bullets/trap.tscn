@@ -1,17 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://bullets/trap.gd" type="Script" id=1]
 [ext_resource path="res://scenario/props/trap_sprite.tscn" type="PackedScene" id=2]
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=3]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=4]
-[ext_resource path="res://bullets/mono_sound_trap_placement.sample" type="Sample" id=5]
+[ext_resource path="res://bullets/trap/mono sound trap placement.wav" type="AudioStream" id=5]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-
-custom_solver_bias = 0.0
-points = PoolVector2Array( 30, -30, 30, 30, -30, 30, -30, -30 )
-
-[node name="Trap" type="KinematicBody2D"]
+[node name="Trap" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 8
@@ -22,33 +17,31 @@ speed_factor = 1.5
 damage = 1
 damages_player = false
 
-[node name="Sprite" parent="." instance=ExtResource( 2 )]
+[node name="Sprite" parent="." index="0" instance=ExtResource( 2 )]
 
 z_index = 0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." index="1"]
 
 input_pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( -30, -30, -30, 30, 30, 30, 30, -30 )
-shape_range = Vector2( 0, 0 )
-trigger = false
 
-[node name="SFX" parent="." instance=ExtResource( 3 )]
+[node name="SFX" parent="." index="2" instance=ExtResource( 3 )]
+
+[node name="Place" parent="SFX" index="0" instance=ExtResource( 4 )]
+
+stream = ExtResource( 5 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
 
-[node name="Place" parent="SFX" instance=ExtResource( 4 )]
-
-sample = ExtResource( 5 )
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter" binds=[  ]]

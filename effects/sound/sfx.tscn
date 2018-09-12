@@ -2,19 +2,18 @@
 
 [ext_resource path="res://effects/sound/sfx.gd" type="Script" id=1]
 
-[sub_resource type="Resource" id=1]
+[node name="SFX" type="AudioStreamPlayer2D" index="0"]
 
-
-[node name="SFX" type="AudioStreamPlayer2D"]
-
+stream = null
 volume_db = 0.0
 pitch_scale = 1.0
-attenuation_min_distance = 1.0
-attenuation_max_distance = 2048.0
-attenuation_distance_exp = 1.0
-config/polyphony = 1
-config/samples = SubResource( 1 )
-config/pitch_random = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 script = ExtResource( 1 )
 autoplay = false
 which = ""
+
+

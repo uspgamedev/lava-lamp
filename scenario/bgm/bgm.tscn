@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenario/bgm/bgm.gd" type="Script" id=1]
 [ext_resource path="res://scenario/bgm/music_layer_2.ogg" type="AudioStream" id=2]
@@ -6,66 +6,64 @@
 [ext_resource path="res://scenario/bgm/music_layer_3.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scenario/bgm/opening.ogg" type="AudioStream" id=5]
 
-[node name="BGM" type="Node"]
+[node name="BGM" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
-[node name="Base" type="AudioStreamPlayer" parent="."]
+[node name="Base" type="AudioStreamPlayer" parent="." index="0"]
 
 stream = ExtResource( 2 )
-playing = false
-loop = true
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
-paused = false
-loop_offset = 13.2146
-buffering_msec = 500
+mix_target = 0
+bus = "Master"
 
-[node name="Action" type="AudioStreamPlayer" parent="."]
+[node name="Action" type="AudioStreamPlayer" parent="." index="1"]
 
 stream = ExtResource( 3 )
-playing = false
-loop = true
 volume_db = -80.0
+pitch_scale = 1.0
 autoplay = false
-paused = false
-loop_offset = 13.2146
-buffering_msec = 500
+mix_target = 0
+bus = "Master"
 
-[node name="Interlude" type="AudioStreamPlayer" parent="."]
+[node name="Interlude" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 4 )
-playing = false
-loop = true
 volume_db = -80.0
+pitch_scale = 1.0
 autoplay = false
-paused = false
-loop_offset = 13.2146
-buffering_msec = 500
+mix_target = 0
+bus = "Master"
 
-[node name="Opening" type="AudioStreamPlayer" parent="."]
+[node name="Opening" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 5 )
-playing = false
-loop = false
 volume_db = -9.0
+pitch_scale = 1.0
 autoplay = true
-paused = false
-loop_offset = 0.0
-buffering_msec = 500
+mix_target = 0
+bus = "Master"
 
-[node name="Tween1" type="Tween" parent="."]
+[node name="Tween1" type="Tween" parent="." index="4"]
 
+repeat = false
 playback_process_mode = 1
-playback/active = false
-playback_speed = false
 playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
-[node name="Tween2" type="Tween" parent="."]
+[node name="Tween2" type="Tween" parent="." index="5"]
 
+repeat = false
 playback_process_mode = 1
-playback/active = false
-playback_speed = false
 playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
-[connection signal="finished" from="Opening" to="." method="_action_mode" binds=[  ]]
+[connection signal="finished" from="Opening" to="." method="_action_mode"]
+
+

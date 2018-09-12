@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/monster sound bouncer walking (loopar. Dá pra fazer um crossfade entre os loops?).wav-fbe06cf03baaff23d228f8d1bc068093.sample"
+
+[deps]
+
+source_file="res://characters/enemies/bouncer/monster sound bouncer walking (loopar. Dá pra fazer um crossfade entre os loops?).wav"
+dest_files=[ "res://.import/monster sound bouncer walking (loopar. Dá pra fazer um crossfade entre os loops?).wav-fbe06cf03baaff23d228f8d1bc068093.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

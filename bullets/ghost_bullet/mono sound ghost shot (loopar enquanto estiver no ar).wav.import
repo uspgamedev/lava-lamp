@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mono sound ghost shot (loopar enquanto estiver no ar).wav-d4c098c11b06e08a2e435bc1ce8610df.sample"
+
+[deps]
+
+source_file="res://bullets/ghost_bullet/mono sound ghost shot (loopar enquanto estiver no ar).wav"
+dest_files=[ "res://.import/mono sound ghost shot (loopar enquanto estiver no ar).wav-d4c098c11b06e08a2e435bc1ce8610df.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

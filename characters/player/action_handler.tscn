@@ -1,7 +1,9 @@
-[gd_scene load_steps=1 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://characters/player/action_handler.gd" type="Script" id=1]
 
-[node name="ActionHandler" type="Node2D"]
+[node name="ActionHandler" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+
+

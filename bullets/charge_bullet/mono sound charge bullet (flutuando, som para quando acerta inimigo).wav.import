@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mono sound charge bullet (flutuando, som para quando acerta inimigo).wav-aa222b068f57d24e35e0ebdb2fa511c1.sample"
+
+[deps]
+
+source_file="res://bullets/charge_bullet/mono sound charge bullet (flutuando, som para quando acerta inimigo).wav"
+dest_files=[ "res://.import/mono sound charge bullet (flutuando, som para quando acerta inimigo).wav-aa222b068f57d24e35e0ebdb2fa511c1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

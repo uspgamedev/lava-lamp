@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://bullets/shrapnel_bullet/sprite.texture" type="Texture" id=1]
+[ext_resource path="res://bullets/shrapnel_bullet/sprite.png" type="Texture" id=1]
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=2]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=3]
-[ext_resource path="res://characters/enemies/dano_inimigo.sample" type="Sample" id=4]
+[ext_resource path="res://characters/enemies/dano_inimigo.wav" type="AudioStream" id=4]
 
 [sub_resource type="GDScript" id=1]
 
@@ -13,52 +13,46 @@ func _ready():
 	set_emitting(true)
 "
 
-[node name="Death" type="Particles2D"]
+[node name="Death" type="Particles2D" index="0"]
 
-visibility/blend_mode = 1
 scale = Vector2( 0.5, 0.5 )
+emitting = false
 amount = 64
 lifetime = 0.4
+one_shot = false
 preprocess = 2.0
-config/emit_timeout = 0.1
-emitting = false
-config/process_mode = 1
-config/half_extents = Vector2( 3, 3 )
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
+draw_order = 0
+process_material = null
 texture = ExtResource( 1 )
+normal_map = null
 h_frames = 4
-params/direction = 180.0
-params/spread = 180.0
-params/linear_velocity = 400.0
-params/spin_velocity = 50.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 0.0
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 1000.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 1.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
+v_frames = 1
 script = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." index="0"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="SFX" parent="." instance=ExtResource( 2 )]
+[node name="SFX" parent="." index="1" instance=ExtResource( 2 )]
 
+autoplay = true
 autoplay = true
 which = "explo"
 
-[node name="explo" parent="SFX" instance=ExtResource( 3 )]
+[node name="explo" parent="SFX" index="0" instance=ExtResource( 3 )]
 
-sample = ExtResource( 4 )
+stream = ExtResource( 4 )
 
-[connection signal="timeout" from="Timer" to="." method="queue_free" binds=[  ]]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]
+
+

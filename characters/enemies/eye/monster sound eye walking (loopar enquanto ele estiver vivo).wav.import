@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/monster sound eye walking (loopar enquanto ele estiver vivo).wav-bf8d33540977fcc11cb22026e3a6d9aa.sample"
+
+[deps]
+
+source_file="res://characters/enemies/eye/monster sound eye walking (loopar enquanto ele estiver vivo).wav"
+dest_files=[ "res://.import/monster sound eye walking (loopar enquanto ele estiver vivo).wav-bf8d33540977fcc11cb22026e3a6d9aa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
