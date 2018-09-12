@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/monster sound undead walking (loopar, sem crossfade).wav-67139cfa1a476d7d8eaa0f12fa68a16f.sample"
+
+[deps]
+
+source_file="res://characters/enemies/undead/monster sound undead walking (loopar, sem crossfade).wav"
+dest_files=[ "res://.import/monster sound undead walking (loopar, sem crossfade).wav-67139cfa1a476d7d8eaa0f12fa68a16f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

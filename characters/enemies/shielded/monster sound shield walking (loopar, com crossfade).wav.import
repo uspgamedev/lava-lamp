@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/monster sound shield walking (loopar, com crossfade).wav-d1dd9cb2458b25d7b628bcb2b055e75f.sample"
+
+[deps]
+
+source_file="res://characters/enemies/shielded/monster sound shield walking (loopar, com crossfade).wav"
+dest_files=[ "res://.import/monster sound shield walking (loopar, com crossfade).wav-d1dd9cb2458b25d7b628bcb2b055e75f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mono sound wormhole open.wav-2b083810134a553e50a1f02ffe6eafed.sample"
+
+[deps]
+
+source_file="res://scenario/props/wormhole/mono sound wormhole open.wav"
+dest_files=[ "res://.import/mono sound wormhole open.wav-2b083810134a553e50a1f02ffe6eafed.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/letras.wav-4c1eceb855ba5531cd810ffe6b0b9cda.sample"
+
+[deps]
+
+source_file="res://gui/dialog_box/letras.wav"
+dest_files=[ "res://.import/letras.wav-4c1eceb855ba5531cd810ffe6b0b9cda.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

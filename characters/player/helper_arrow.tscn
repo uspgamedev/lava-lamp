@@ -2,11 +2,11 @@
 
 [ext_resource path="res://gui/helper_arrow.gd" type="Script" id=1]
 
-[node name="Helper_Arrow" type="Node2D"]
+[node name="Helper_Arrow" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
 
 position = Vector2( 0, -2.96667 )
 polygon = PoolVector2Array( -5, 10, 5, 10, 0, -10 )
@@ -14,9 +14,12 @@ uv = PoolVector2Array(  )
 color = Color( 1, 0.0078125, 0.0775757, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
+antialiased = false
 texture = null
 texture_offset = Vector2( 0, -2.96667 )
 texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
+
+

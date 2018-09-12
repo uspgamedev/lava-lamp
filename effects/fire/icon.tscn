@@ -2,36 +2,27 @@
 
 [ext_resource path="res://effects/fire/flame.png" type="Texture" id=1]
 
+[node name="FireParticles" type="Particles2D" index="0"]
 
-[sub_resource type="Gradient" id=1]
-
-offsets = PoolRealArray( 0.230496, 0.691489, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
-
-[node name="FireParticles" type="Particles2D"]
-
-visibility/blend_mode = 1
 position = Vector2( 0, 4 )
 scale = Vector2( 0.5, 0.5 )
+emitting = true
 amount = 32
 lifetime = 0.5
-config/process_mode = 1
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = null
 texture = ExtResource( 1 )
-params/direction = 180.0
-params/spread = 30.0
-params/linear_velocity = 100.0
-params/spin_velocity = 0.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 180.0
-params/gravity_strength = 200.0
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 1.0
-params/final_size = 1.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-color/color = Color( 1, 1, 1, 0.868863 )
-color/color_ramp = SubResource( 1 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+
+

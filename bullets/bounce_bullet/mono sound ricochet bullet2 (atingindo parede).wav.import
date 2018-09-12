@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mono sound ricochet bullet2 (atingindo parede).wav-f21811a80039c3301ceb056e11303db5.sample"
+
+[deps]
+
+source_file="res://bullets/bounce_bullet/mono sound ricochet bullet2 (atingindo parede).wav"
+dest_files=[ "res://.import/mono sound ricochet bullet2 (atingindo parede).wav-f21811a80039c3301ceb056e11303db5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

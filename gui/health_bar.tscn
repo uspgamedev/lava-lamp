@@ -1,14 +1,14 @@
-[gd_scene load_steps=1 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gui/health_bar.gd" type="Script" id=1]
 [ext_resource path="res://gui/life_points/life-point.png" type="Texture" id=2]
 [ext_resource path="res://gui/life_points/life-point-empty.png" type="Texture" id=3]
 
-
-
-[node name="HealthBar" type="Node2D"]
+[node name="HealthBar" type="Node2D" index="0"]
 
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 full_heart = ExtResource( 2 )
 empty_heart = ExtResource( 3 )
+
+

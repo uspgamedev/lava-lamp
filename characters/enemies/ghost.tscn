@@ -1,12 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/ghost.gd" type="Script" id=2]
-[ext_resource path="res://characters/enemies/undead/undead.texture" type="Texture" id=3]
+[ext_resource path="res://characters/enemies/undead/undead.png" type="Texture" id=3]
 [ext_resource path="res://characters/enemies/ai/ghost_ai.gd" type="Script" id=4]
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=5]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=6]
-[ext_resource path="res://characters/enemies/undead/monster_sound_undead_walking_loopar_sem_crossfade.sample" type="Sample" id=7]
+[ext_resource path="res://characters/enemies/undead/monster sound undead walking (loopar, sem crossfade).wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -17,7 +17,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -34,7 +36,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -51,7 +55,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -59,14 +65,14 @@ tracks/0/keys = {
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Ghost" instance=ExtResource( 1 )]
+[node name="Ghost" index="0" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 hp = 3
 min_spawn_range = null
 max_spawn_range = null
 
-[node name="Sprite" parent="."]
+[node name="Sprite" parent="." index="0"]
 
 editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0.5 )
@@ -75,48 +81,79 @@ texture = ExtResource( 3 )
 vframes = 2
 hframes = 4
 
-[node name="AnimationPlayer" parent="Sprite"]
+[node name="AnimationPlayer" parent="Sprite" index="0"]
 
+autoplay = "move_down"
 anims/move_down = SubResource( 1 )
 anims/move_up = SubResource( 2 )
-autoplay = "move_down"
 
-[node name="Hit" parent="Sprite"]
+[node name="Hit" parent="Sprite" index="1"]
 
 anims/hit = SubResource( 3 )
 
-[node name="Area2D" parent="."]
+[node name="Area2D" parent="." index="2"]
 
 editor/display_folded = true
 collision_mask = 16
+audio_bus_override = false
+audio_bus_name = "Master"
 
-[node name="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" parent="Area2D" index="0"]
 
 polygon = PoolVector2Array( -20, -40, -20, 10, 20, 10, 20, -40 )
 
-[node name="Ai" parent="."]
+[node name="Ai" parent="." index="3"]
 
 script = ExtResource( 4 )
 
-[node name="EnemyHealth" parent="."]
+[node name="EnemyHealth" parent="." index="5"]
 
 position = Vector2( 1.66893e-06, -75 )
 
-[node name="SFX" parent="." instance=ExtResource( 5 )]
+[node name="DMG-SFX" parent="." index="6"]
 
-config/polyphony = 2
+stream = null
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Hit" parent="." index="7"]
+
+one_shot = false
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+draw_order = 0
+process_material = null
+normal_map = null
+v_frames = 1
+
+[node name="SFX" parent="." index="8" instance=ExtResource( 5 )]
+
+stream = null
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 autoplay = true
 which = "Creep"
 
-[node name="Creep" parent="SFX" instance=ExtResource( 6 )]
+[node name="Creep" parent="SFX" index="0" instance=ExtResource( 6 )]
 
-sample = ExtResource( 7 )
+stream = ExtResource( 7 )
 
-[node name="Timer" type="Timer" parent="SFX"]
+[node name="Timer" type="Timer" parent="SFX" index="1"]
 
 process_mode = 1
 wait_time = 3.0
 one_shot = false
 autostart = true
 
-[connection signal="timeout" from="SFX/Timer" to="SFX" method="play" binds=[ "Creep" ]]
+[connection signal="timeout" from="SFX/Timer" to="SFX" method="play" binds= [ "Creep" ]]
+
+

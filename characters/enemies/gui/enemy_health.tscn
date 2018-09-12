@@ -1,8 +1,8 @@
-[gd_scene load_steps=1 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://characters/enemies/gui/enemy_health.gd" type="Script" id=1]
 
-[node name="EnemyHealth" type="Node2D"]
+[node name="EnemyHealth" type="Node2D" index="0"]
 
 position = Vector2( -1, -9.53674e-07 )
 scale = Vector2( 0.96875, 0.3125 )
@@ -12,3 +12,5 @@ color = Color( 0, 1, 0, 1 )
 max_in_row = 4
 gapx = 10
 gapy = 20
+
+
