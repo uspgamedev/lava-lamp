@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mono sound bullet simple.wav-c75a3ff592cfcd8a3164bc60b6c84e43.sample"
+
+[deps]
+
+source_file="res://bullets/simple_bullet/mono sound bullet simple.wav"
+dest_files=[ "res://.import/mono sound bullet simple.wav-c75a3ff592cfcd8a3164bc60b6c84e43.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

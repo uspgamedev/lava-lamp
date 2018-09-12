@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sound armor activating.wav-adf033644d49b776efd5eea1ed8ebc8e.sample"
+
+[deps]
+
+source_file="res://characters/player/sound armor activating.wav"
+dest_files=[ "res://.import/sound armor activating.wav-adf033644d49b776efd5eea1ed8ebc8e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
