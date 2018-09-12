@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mono sound shotgun reload.wav-241ed095ed7dbcfa1b359ae0080ec0cf.sample"
+
+[deps]
+
+source_file="res://bullets/shrapnel_bullet/mono sound shotgun reload.wav"
+dest_files=[ "res://.import/mono sound shotgun reload.wav-241ed095ed7dbcfa1b359ae0080ec0cf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

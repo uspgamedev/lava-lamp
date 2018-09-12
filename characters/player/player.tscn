@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.png" type="Texture" id=2]
@@ -7,33 +7,21 @@
 [ext_resource path="res://characters/player/look_arrow.tscn" type="PackedScene" id=5]
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=6]
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=7]
-[ext_resource path="res://characters/player/mono_sound_player_dash.sample" type="Sample" id=8]
-[ext_resource path="res://bullets/simple_bullet/mono_sound_bullet_simple.sample" type="Sample" id=9]
-[ext_resource path="res://bullets/simple_bullet/mono_sound_double_bullet.sample" type="Sample" id=10]
-[ext_resource path="res://bullets/mono_sound_special_bullet_v2.sample" type="Sample" id=11]
-[ext_resource path="res://bullets/shrapnel_bullet/mono_sound_shotgun_fire.sample" type="Sample" id=12]
-[ext_resource path="res://bullets/shrapnel_bullet/mono_sound_shotgun_reload.sample" type="Sample" id=13]
-[ext_resource path="res://characters/player/sound_armor_activating.sample" type="Sample" id=14]
-[ext_resource path="res://characters/player/sound_armor_ending.sample" type="Sample" id=15]
-[ext_resource path="res://scenario/bgm/title.sample" type="Sample" id=16]
-[ext_resource path="res://characters/player/damage.sample" type="Sample" id=17]
-[ext_resource path="res://characters/player/get_heart.sample" type="Sample" id=18]
-[ext_resource path="res://characters/player/error.sample" type="Sample" id=19]
-[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=20]
-[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=21]
-[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=22]
-[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=23]
-[ext_resource path="res://characters/enemies/gui/shielded.tscn" type="PackedScene" id=24]
+[ext_resource path="res://characters/player/mono sound player dash.wav" type="AudioStream" id=8]
+[ext_resource path="res://bullets/simple_bullet/mono sound bullet simple.wav" type="AudioStream" id=9]
+[ext_resource path="res://bullets/simple_bullet/mono sound double bullet.wav" type="AudioStream" id=10]
+[ext_resource path="res://bullets/mono sound special bullet v2.wav" type="AudioStream" id=11]
+[ext_resource path="res://bullets/shrapnel_bullet/mono sound shotgun fire.wav" type="AudioStream" id=12]
+[ext_resource path="res://bullets/shrapnel_bullet/mono sound shotgun reload.wav" type="AudioStream" id=13]
+[ext_resource path="res://characters/player/sound armor activating.wav" type="AudioStream" id=14]
+[ext_resource path="res://characters/player/sound armor ending.wav" type="AudioStream" id=15]
+[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=16]
+[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=17]
+[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=18]
+[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=19]
+[ext_resource path="res://characters/enemies/gui/shielded.tscn" type="PackedScene" id=20]
 
-
-
-
-[sub_resource type="ConvexPolygonShape2D" id=1]
-
-custom_solver_bias = 0.0
-points = PoolVector2Array( -10, -6, 10, -6, 10, 9, -10, 9 )
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 resource_name = "Fire_Down"
 length = 0.25
@@ -42,7 +30,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -50,7 +40,7 @@ tracks/0/keys = {
 "values": [ 42 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 resource_name = "Fire_Left"
 length = 0.25
@@ -59,7 +49,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -67,7 +59,7 @@ tracks/0/keys = {
 "values": [ 34 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 
 resource_name = "Fire_Right"
 length = 0.25
@@ -76,7 +68,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -84,7 +78,7 @@ tracks/0/keys = {
 "values": [ 35 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 
 resource_name = "Fire_Up"
 length = 0.25
@@ -93,7 +87,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -101,7 +97,7 @@ tracks/0/keys = {
 "values": [ 49 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 resource_name = "Fire_Walk_Down"
 length = 0.4
@@ -110,7 +106,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -118,7 +116,7 @@ tracks/0/keys = {
 "values": [ 42, 43, 44, 45 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 
 resource_name = "Fire_Walk_Left"
 length = 0.7
@@ -127,7 +125,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
@@ -135,7 +135,7 @@ tracks/0/keys = {
 "values": [ 28, 29, 30, 31, 32, 33, 34 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 
 resource_name = "Fire_Walk_Right"
 length = 0.7
@@ -144,7 +144,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
@@ -152,7 +154,7 @@ tracks/0/keys = {
 "values": [ 35, 36, 37, 38, 39, 40, 41 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 
 resource_name = "Fire_Walk_Up"
 length = 0.7
@@ -161,7 +163,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -169,7 +173,7 @@ tracks/0/keys = {
 "values": [ 46, 47, 48, 49 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 
 length = 0.5
 loop = true
@@ -177,12 +181,32 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 18, 19 ]
+}
+
+[sub_resource type="Animation" id=10]
+
+length = 0.25
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -193,23 +217,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 3 ]
-}
-
-[sub_resource type="Animation" id=12]
-
-length = 0.25
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -217,7 +227,7 @@ tracks/0/keys = {
 "values": [ 10 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 
 length = 0.5
 loop = true
@@ -225,7 +235,9 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -233,7 +245,7 @@ tracks/0/keys = {
 "values": [ 20, 21 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 
 resource_name = "Spinning"
 length = 0.4
@@ -242,7 +254,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -250,7 +264,7 @@ tracks/0/keys = {
 "values": [ 22, 10, 14, 2 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=14]
 
 length = 0.4
 loop = true
@@ -258,12 +272,32 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 14, 15, 16, 17 ]
+}
+
+[sub_resource type="Animation" id=15]
+
+length = 0.7
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -274,23 +308,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6 ]
-}
-
-[sub_resource type="Animation" id=17]
-
-length = 0.7
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
@@ -298,7 +318,7 @@ tracks/0/keys = {
 "values": [ 7, 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=17]
 
 length = 0.4
 loop = true
@@ -306,7 +326,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -314,7 +336,7 @@ tracks/0/keys = {
 "values": [ 22, 23, 24, 25 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=18]
 
 length = 0.4
 loop = false
@@ -322,7 +344,9 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -330,7 +354,7 @@ tracks/0/keys = {
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=19]
 
 resource_name = "damage_cooldown"
 length = 2.0
@@ -339,7 +363,9 @@ step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
@@ -347,17 +373,9 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="ConvexPolygonShape2D" id=21]
-
-custom_solver_bias = 0.0
-points = PoolVector2Array( 10, -8, 10, 10, -10, 10, -10, -8 )
-
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
 collision_layer = 1
 collision_mask = 3
 collision/safe_margin = 0.08
@@ -365,9 +383,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-hp = 4
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
 position = Vector2( 0, -12 )
 texture = ExtResource( 2 )
@@ -379,69 +396,64 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite" index="0"]
 
-playback_process_mode = 1
-playback_default_blend_time = 0.0
 root_node = NodePath("..")
-anims/Fire_Down = SubResource( 2 )
-anims/Fire_Left = SubResource( 3 )
-anims/Fire_Right = SubResource( 4 )
-anims/Fire_Up = SubResource( 5 )
-anims/Fire_Walk_Down = SubResource( 6 )
-anims/Fire_Walk_Left = SubResource( 7 )
-anims/Fire_Walk_Right = SubResource( 8 )
-anims/Fire_Walk_Up = SubResource( 9 )
-anims/Idle_Down = SubResource( 10 )
-anims/Idle_Left = SubResource( 11 )
-anims/Idle_Right = SubResource( 12 )
-anims/Idle_Up = SubResource( 13 )
-anims/Spinning = SubResource( 14 )
-anims/Walk_Down = SubResource( 15 )
-anims/Walk_Left = SubResource( 16 )
-anims/Walk_Right = SubResource( 17 )
-anims/Walk_Up = SubResource( 18 )
-playback_active = true
-playback_speed = 1.0
-blend_times = [  ]
 autoplay = "Idle_Down"
-
-[node name="Hit" type="AnimationPlayer" parent="Sprite"]
-
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
-anims/hit = SubResource( 19 )
-playback_active = true
 playback_speed = 1.0
+anims/Fire_Down = SubResource( 1 )
+anims/Fire_Left = SubResource( 2 )
+anims/Fire_Right = SubResource( 3 )
+anims/Fire_Up = SubResource( 4 )
+anims/Fire_Walk_Down = SubResource( 5 )
+anims/Fire_Walk_Left = SubResource( 6 )
+anims/Fire_Walk_Right = SubResource( 7 )
+anims/Fire_Walk_Up = SubResource( 8 )
+anims/Idle_Down = SubResource( 9 )
+anims/Idle_Left = SubResource( 10 )
+anims/Idle_Right = SubResource( 11 )
+anims/Idle_Up = SubResource( 12 )
+anims/Spinning = SubResource( 13 )
+anims/Walk_Down = SubResource( 14 )
+anims/Walk_Left = SubResource( 15 )
+anims/Walk_Right = SubResource( 16 )
+anims/Walk_Up = SubResource( 17 )
 blend_times = [  ]
+
+[node name="Hit" type="AnimationPlayer" parent="Sprite" index="1"]
+
+root_node = NodePath("..")
 autoplay = ""
-
-[node name="DamageCooldown" type="AnimationPlayer" parent="Sprite"]
-
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
-anims/damage_cooldown = SubResource( 20 )
-playback_active = true
 playback_speed = 1.0
+anims/hit = SubResource( 18 )
 blend_times = [  ]
-autoplay = ""
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="DamageCooldown" type="AnimationPlayer" parent="Sprite" index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/damage_cooldown = SubResource( 19 )
+blend_times = [  ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
 build_mode = 0
 polygon = PoolVector2Array( -10, -6, 10, -6, 10, 9, -10, 9 )
-shape_range = Vector2( 0, 0 )
-trigger = false
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="." index="2"]
 
 visible = false
-anchor_mode = 1.0
+anchor_mode = 1
 rotating = false
 current = false
 zoom = Vector2( 1, 1 )
@@ -449,49 +461,52 @@ limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
 limit_bottom = 10000000
+limit_smoothed = false
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = false
 smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
 drag_margin_left = 0.2
 drag_margin_top = 0.1
 drag_margin_right = 0.2
 drag_margin_bottom = 0.1
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
 
-[node name="ActionHandler" parent="." instance=ExtResource( 4 )]
+[node name="ActionHandler" parent="." index="3" instance=ExtResource( 4 )]
 
 visible = false
 
-[node name="Area2D" type="Area2D" parent="." groups=[
+[node name="Area2D" type="Area2D" parent="." index="4" groups=[
 "player_area",
 ]]
 
 position = Vector2( 0, -12 )
 input_pickable = true
-shapes/0/shape = SubResource( 21 )
-shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 10 )
-shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
 
 position = Vector2( 0, 10 )
 build_mode = 0
 polygon = PoolVector2Array( -10, -8, -10, 10, 10, 10, 10, -8 )
-shape_range = Vector2( 0, 0 )
-trigger = false
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="Hook" type="Node2D" parent="."]
+[node name="Hook" type="Node2D" parent="." index="5"]
 
 editor/display_folded = true
 position = Vector2( 0, -20 )
@@ -499,129 +514,153 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="LookArrow" parent="Hook" instance=ExtResource( 5 )]
+[node name="LookArrow" parent="Hook" index="0" instance=ExtResource( 5 )]
 
+antialiased = false
 
-[node name="SFX" parent="." instance=ExtResource( 6 )]
+[node name="SFX" parent="." index="6" instance=ExtResource( 6 )]
 
-editor/display_folded = true
+stream = null
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
-[node name="Dash" parent="SFX" instance=ExtResource( 7 )]
+[node name="Dash" parent="SFX" index="0" instance=ExtResource( 7 )]
 
-sample = ExtResource( 8 )
+stream = ExtResource( 8 )
+script = null
 
-[node name="Shoot" parent="SFX" instance=ExtResource( 7 )]
+[node name="Shoot" parent="SFX" index="1" instance=ExtResource( 7 )]
 
-sample = ExtResource( 9 )
+stream = ExtResource( 9 )
+script = null
 
-[node name="DoubleShoot" parent="SFX" instance=ExtResource( 7 )]
+[node name="DoubleShoot" parent="SFX" index="2" instance=ExtResource( 7 )]
 
-sample = ExtResource( 10 )
+stream = ExtResource( 10 )
+script = null
 
-[node name="Special" parent="SFX" instance=ExtResource( 7 )]
+[node name="Special" parent="SFX" index="3" instance=ExtResource( 7 )]
 
-sample = ExtResource( 11 )
+stream = ExtResource( 11 )
+script = null
 
-[node name="Shotgun" parent="SFX" instance=ExtResource( 7 )]
+[node name="Shotgun" parent="SFX" index="4" instance=ExtResource( 7 )]
 
-sample = ExtResource( 12 )
+stream = ExtResource( 12 )
+script = null
 
-[node name="Reload" parent="SFX" instance=ExtResource( 7 )]
+[node name="Reload" parent="SFX" index="5" instance=ExtResource( 7 )]
 
-sample = ExtResource( 13 )
+stream = ExtResource( 13 )
+script = null
 
-[node name="ArmorUp" parent="SFX" instance=ExtResource( 7 )]
+[node name="ArmorUp" parent="SFX" index="6" instance=ExtResource( 7 )]
 
-sample = ExtResource( 14 )
+stream = ExtResource( 14 )
+script = null
 
-[node name="ArmorDown" parent="SFX" instance=ExtResource( 7 )]
+[node name="ArmorDown" parent="SFX" index="7" instance=ExtResource( 7 )]
 
-sample = ExtResource( 15 )
+stream = ExtResource( 15 )
+script = null
 
-[node name="Title" parent="SFX" instance=ExtResource( 7 )]
+[node name="Title" parent="SFX" index="8" instance=ExtResource( 7 )]
 
-sample = ExtResource( 16 )
+script = null
 
-[node name="Damage" parent="SFX" instance=ExtResource( 7 )]
+[node name="Damage" parent="SFX" index="9" instance=ExtResource( 7 )]
 
-sample = ExtResource( 17 )
+script = null
 
-[node name="Heal" parent="SFX" instance=ExtResource( 7 )]
+[node name="Heal" parent="SFX" index="10" instance=ExtResource( 7 )]
 
-sample = ExtResource( 18 )
+script = null
 
-[node name="Fail" parent="SFX" instance=ExtResource( 7 )]
+[node name="Fail" parent="SFX" index="11" instance=ExtResource( 7 )]
 
-sample = ExtResource( 19 )
+script = null
 
-[node name="AfterImage" parent="." instance=ExtResource( 20 )]
+[node name="AfterImage" parent="." index="7" instance=ExtResource( 16 )]
 
 position = Vector2( 0, -12 )
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+draw_order = 0
+process_material = null
+normal_map = null
 
-[node name="GridManager" parent="." instance=ExtResource( 21 )]
+[node name="GridManager" parent="." index="8" instance=ExtResource( 17 )]
 
-
-[node name="Expression_Timer" type="Timer" parent="."]
+[node name="Expression_Timer" type="Timer" parent="." index="9"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="Shooting_Timer" type="Timer" parent="."]
+[node name="Shooting_Timer" type="Timer" parent="." index="10"]
 
 process_mode = 1
 wait_time = 0.45
 one_shot = true
 autostart = false
 
-[node name="Helper_Arrow" parent="." instance=ExtResource( 22 )]
+[node name="Helper_Arrow" parent="." index="11" instance=ExtResource( 18 )]
 
-
-[node name="StunTimer" type="Timer" parent="."]
+[node name="StunTimer" type="Timer" parent="." index="12"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="Stunned" parent="." instance=ExtResource( 23 )]
+[node name="Stunned" parent="." index="13" instance=ExtResource( 19 )]
 
 position = Vector2( 10, -50 )
 
-[node name="Shielded" parent="." instance=ExtResource( 24 )]
+[node name="Shielded" parent="." index="14" instance=ExtResource( 20 )]
 
 position = Vector2( 0, -10 )
 
-[node name="Intro_Tween" type="Tween" parent="."]
+[node name="Intro_Tween" type="Tween" parent="." index="15"]
 
+repeat = false
 playback_process_mode = 1
-playback/active = false
-playback_speed = false
 playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
-[node name="Intro_Timer" type="Timer" parent="."]
+[node name="Intro_Timer" type="Timer" parent="." index="16"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="DamageCooldown" type="Timer" parent="."]
+[node name="DamageCooldown" type="Timer" parent="." index="17"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
 
-[connection signal="look_dir_changed" from="." to="Hook/LookArrow" method="_set_look_dir" binds=[  ]]
+[connection signal="timeout" from="Expression_Timer" to="." method="_on_Expression_Timer_timeout"]
 
-[connection signal="timeout" from="Expression_Timer" to="." method="_on_Expression_Timer_timeout" binds=[  ]]
+[connection signal="timeout" from="Shooting_Timer" to="." method="stop_shooting"]
 
-[connection signal="timeout" from="Shooting_Timer" to="." method="stop_shooting" binds=[  ]]
+[connection signal="timeout" from="StunTimer" to="." method="_unstun"]
 
-[connection signal="timeout" from="StunTimer" to="." method="_unstun" binds=[  ]]
+[connection signal="tween_completed" from="Intro_Tween" to="." method="_on_Intro_Tween_tween_complete"]
 
-[connection signal="tween_completed" from="Intro_Tween" to="." method="_on_Intro_Tween_tween_complete" binds=[  ]]
+[connection signal="timeout" from="Intro_Timer" to="." method="_on_Intro_Timer_timeout"]
 
-[connection signal="timeout" from="Intro_Timer" to="." method="_on_Intro_Timer_timeout" binds=[  ]]
+
