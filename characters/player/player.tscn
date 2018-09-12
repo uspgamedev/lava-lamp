@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://characters/player/player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/android_sprite_sheet.png" type="Texture" id=2]
@@ -15,11 +15,15 @@
 [ext_resource path="res://bullets/shrapnel_bullet/mono sound shotgun reload.wav" type="AudioStream" id=13]
 [ext_resource path="res://characters/player/sound armor activating.wav" type="AudioStream" id=14]
 [ext_resource path="res://characters/player/sound armor ending.wav" type="AudioStream" id=15]
-[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=16]
-[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=17]
-[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=18]
-[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=19]
-[ext_resource path="res://characters/enemies/gui/shielded.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenario/bgm/title.wav" type="AudioStream" id=16]
+[ext_resource path="res://characters/player/damage.wav" type="AudioStream" id=17]
+[ext_resource path="res://characters/player/get_heart.wav" type="AudioStream" id=18]
+[ext_resource path="res://characters/player/error.wav" type="AudioStream" id=19]
+[ext_resource path="res://characters/player/afterimage.tscn" type="PackedScene" id=20]
+[ext_resource path="res://characters/helper/grid_manager.tscn" type="PackedScene" id=21]
+[ext_resource path="res://characters/player/helper_arrow.tscn" type="PackedScene" id=22]
+[ext_resource path="res://characters/enemies/gui/stunned.tscn" type="PackedScene" id=23]
+[ext_resource path="res://characters/enemies/gui/shielded.tscn" type="PackedScene" id=24]
 
 [sub_resource type="Animation" id=1]
 
@@ -383,6 +387,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+hp = 4
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -568,21 +573,25 @@ script = null
 
 [node name="Title" parent="SFX" index="8" instance=ExtResource( 7 )]
 
+stream = ExtResource( 16 )
 script = null
 
 [node name="Damage" parent="SFX" index="9" instance=ExtResource( 7 )]
 
+stream = ExtResource( 17 )
 script = null
 
 [node name="Heal" parent="SFX" index="10" instance=ExtResource( 7 )]
 
+stream = ExtResource( 18 )
 script = null
 
 [node name="Fail" parent="SFX" index="11" instance=ExtResource( 7 )]
 
+stream = ExtResource( 19 )
 script = null
 
-[node name="AfterImage" parent="." index="7" instance=ExtResource( 16 )]
+[node name="AfterImage" parent="." index="7" instance=ExtResource( 20 )]
 
 position = Vector2( 0, -12 )
 one_shot = false
@@ -597,7 +606,7 @@ draw_order = 0
 process_material = null
 normal_map = null
 
-[node name="GridManager" parent="." index="8" instance=ExtResource( 17 )]
+[node name="GridManager" parent="." index="8" instance=ExtResource( 21 )]
 
 [node name="Expression_Timer" type="Timer" parent="." index="9"]
 
@@ -613,7 +622,7 @@ wait_time = 0.45
 one_shot = true
 autostart = false
 
-[node name="Helper_Arrow" parent="." index="11" instance=ExtResource( 18 )]
+[node name="Helper_Arrow" parent="." index="11" instance=ExtResource( 22 )]
 
 [node name="StunTimer" type="Timer" parent="." index="12"]
 
@@ -622,11 +631,11 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="Stunned" parent="." index="13" instance=ExtResource( 19 )]
+[node name="Stunned" parent="." index="13" instance=ExtResource( 23 )]
 
 position = Vector2( 10, -50 )
 
-[node name="Shielded" parent="." index="14" instance=ExtResource( 20 )]
+[node name="Shielded" parent="." index="14" instance=ExtResource( 24 )]
 
 position = Vector2( 0, -10 )
 
