@@ -7,7 +7,7 @@
 [ext_resource path="res://gui/gui.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenario/bgm/bgm.tscn" type="PackedScene" id=6]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
@@ -22,7 +22,7 @@ cell_size = Vector2( 32, 24 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
-cell_tile_origin = 1
+cell_tile_origin = 0
 cell_y_sort = true
 cell_clip_uv = false
 collision_use_kinematic = false
@@ -37,14 +37,13 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="Props" type="TileMap" parent="." index="1"]
 
-position = Vector2( 0, -31 )
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 24 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
-cell_tile_origin = 1
+cell_tile_origin = 0
 cell_y_sort = true
 cell_clip_uv = false
 collision_use_kinematic = false
