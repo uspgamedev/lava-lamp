@@ -119,5 +119,5 @@ func _on_Text_Tween_tween_step( object, key, elapsed, value ):
 	if lastNum != actual:
 		if object.get_text().length() > lastNum and object.get_text()[lastNum] != " " and randi()%6 != 0:
 			
-			sfx.play("Tack")
+			sfx.get_node('Tack').play()
 		lastNum = actual

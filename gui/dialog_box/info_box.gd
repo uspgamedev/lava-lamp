@@ -36,7 +36,7 @@ func set_title(text):
 
 func set_icon(icon):
 	add_child(icon)
-	if (icon.get_type() == 'Node2D'):
+	if (icon is Node2D):
 		var arrow = icon.get_node('Arrow')
 		if arrow != null:
 			arrow.hide()

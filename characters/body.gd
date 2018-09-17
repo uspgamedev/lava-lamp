@@ -34,13 +34,7 @@ func apply_speed_scale(delta):
 		motionScale = self.speed * delta
 		self.dashTime = 0
 
-	var motion = move_and_collide( motionScale )
-	if (is_colliding()):
-		var collider = get_collider()
-		var normal = get_collision_normal()
-		motion = normal.slide(motion)
-		self.speed = normal.slide(self.speed)
-		move_and_collide(motion)
+	var motion = move_and_collide(motionScale)
 
 func deaccelerate():
 	if (speed.length_squared() < EPSILON):

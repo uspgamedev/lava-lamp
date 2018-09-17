@@ -165,12 +165,7 @@ position = Vector2( 0, -350 )
 
 [node name="SFX" parent="." index="5" instance=ExtResource( 3 )]
 
-stream = null
 volume_db = 20.0
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [node name="Tack" parent="SFX" index="0" instance=ExtResource( 4 )]
 

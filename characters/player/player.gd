@@ -96,10 +96,10 @@ func shield(time):
 
 func _physics_process(delta):
 	self.shieldTime = max(self.shieldTime - delta, 0)
-	if self.shieldTime == 0 and !self.shielded.is_hidden():
-		self.shielded.visible = !(true)
+	if self.shieldTime == 0 and self.shielded.visible:
+		self.shielded.visible = false
 		self.shielded.get_node("Particles2D").set_emitting(false)
-		self.sfx.play('ArmorDown')
+		self.sfx.get_node('ArmorDown').play()
 
 func get_look_dir():
 	if input.control_type == input.MOUSE:
@@ -112,7 +112,7 @@ func get_look_dir_value():
 
 func start_shooting(time=0.45):
 	shooting = true
-	if not shoot_timer.is_active():
+	if not shoot_timer.time_left == 0:
 		shoot_timer.stop()
 	shoot_timer.set_wait_time(time)
 	shoot_timer.start()
@@ -225,7 +225,7 @@ func skip_intro():
 		can_skip = false
 		can_complete = true
 		dialog_box.text_tween.set_speed_scale(1)
-		if dialog_box.is_active():
+		if dialog_box.active:
 			dialog_box.deactivate_box()
 
 		#var logo = gui.get_node("Logo")
@@ -233,13 +233,13 @@ func skip_intro():
 			logo.stop_logo_animation()
 			input.disconnect('skip_intro', self, 'skip_intro')
 
-		if intro_timer.is_active():
+		if intro_timer.time_left == 0:
 			intro_timer.stop()
 			_on_Intro_Timer_timeout()
 			return
 
 		var tween = get_node("Intro_Tween")
-		if tween.is_active():
+		if tween.time_left == 0:
 			tween.stop_all()
 			_on_Intro_Tween_tween_complete(null, null)
 			return
@@ -290,7 +290,7 @@ func intro():
 	gui.get_node("Logo").start_logo_animation()
 	intro_timer.set_wait_time(4)
 	intro_timer.start()
-	sfx.play("Title")
+	sfx.get_node('Title').play()
 
 	yield()
 

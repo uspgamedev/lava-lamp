@@ -124,7 +124,7 @@ func _get_look_direction(e):
 		return -1
 	elif control_type == MOUSE:
 		var p = get_viewport().get_mouse_position()
-		var pl_p = get_node('/root/Main/Props/Player').get_global_transform_with_canvas().o
+		var pl_p = get_node('/root/Main/Props/Player').get_global_transform_with_canvas().origin
 		var ang = atan2(p.x - pl_p.x, p.y  - pl_p.y)
 		if ang >= PI * 7.0 / 8 or ang <= -PI * 7.0 / 8:
 			return DIR.UP
