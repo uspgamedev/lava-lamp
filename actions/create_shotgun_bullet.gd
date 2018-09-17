@@ -16,6 +16,6 @@ func activate(action_handler, key):
 		bs[i].speed = pl.get_look_dir().rotated(PI/6 - i*PI/12).normalized() * 500
 		bs[i].damage = 0.5
 		pl.get_parent().add_child(bs[i])
-	pl.sfx.play("Shotgun")
+	pl.sfx.get_node("Shotgun").play()
 	pl.delayed_reload()
 	return null

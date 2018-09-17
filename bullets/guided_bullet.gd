@@ -10,7 +10,7 @@ onready var enemy = null
 func _ready():
 	timer.connect('timeout', self, 'queue_free')
 	timer.start()
-	self.sfx.play('Fly')
+	self.sfx.get_node('Fly').play()
 	search_nearest_enemy()
 
 func _physics_process(delta):

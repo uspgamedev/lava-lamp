@@ -5,7 +5,7 @@ var brother = false
 onready var sfx = get_node("SFX")
 
 func _ready():
-	sfx.play('Warp')
+	sfx.get_node('Warp').play()
 
 func set_brother(b):
 	brother = b

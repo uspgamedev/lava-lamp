@@ -75,7 +75,7 @@ func actually_do(act, key):
 
 func do_selected_action(_arg):
 	if selected_action == null or selected_action.on_cooldown:
-		#self.get_parent().sfx.play("Fail")
+		#self.get_parent().sfx.get_node("Fail").play()
 		return
 	actually_do(selected_action, -1)
 
@@ -89,7 +89,7 @@ func do_action(key):
 	elif not act.on_cooldown:
 		actually_do(act, key)
 	else:
-		#self.get_parent().sfx.play("Fail")
+		#self.get_parent().sfx.get_node("Fail").play()
 		pass
 
 func _unhandled_input(ev):

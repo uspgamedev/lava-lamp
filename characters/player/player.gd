@@ -61,7 +61,7 @@ func _ready():
 func delayed_reload():
 	for i in range(30):
 		yield(get_tree(), "fixed_frame")
-	sfx.play("Reload")
+	sfx.get_node("Reload").play()
 
 func stop_movimentation():
 	input.disconnect('hold_direction', self, '_add_speed_scale')
@@ -83,14 +83,14 @@ func _set_look_dir(dir):
 
 func dash(time):
 	self.dashTime = time
-	sfx.play('Dash')
+	sfx.get_node('Dash').play()
 	var frame = sprite.get_frame() * 1.0 / (sprite.get_hframes() * sprite.get_vframes())
 	afterimage.set_param(Particles2D.PARAM_ANIM_INITIAL_POS, frame)
 	afterimage.set_emitting(true)
 
 func shield(time):
 	self.shieldTime = time
-	self.sfx.play('ArmorUp')
+	self.sfx.get_node('ArmorUp').play()
 	self.shielded.visible = !(false)
 	self.shielded.get_node("Particles2D").set_emitting(true)
 
@@ -158,9 +158,9 @@ func deal_damage(d):
 		self.damage = min(self.damage, self.damage + d)
 	self.get_node("Sprite/Hit").play("hit")
 	if d >= 0:
-		self.sfx.play("Damage")
+		self.sfx.get_node("Damage").play()
 	else:
-		self.sfx.play("Heal")
+		self.sfx.get_node("Heal").play()
 	if self.damage >= self.hp:
 		get_node('/root/Main/GUI/GameOver').start()
 	gui.get_node('HealthBar').update()
