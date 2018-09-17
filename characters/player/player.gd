@@ -231,7 +231,8 @@ func skip_intro():
 		#var logo = gui.get_node("Logo")
 		if logo.is_logo_active():
 			logo.stop_logo_animation()
-			input.disconnect('skip_intro', self, 'skip_intro')
+			if input.is_connected('skip_intro', self, 'skip_intro'):
+				input.disconnect('skip_intro', self, 'skip_intro')
 
 		if intro_timer.time_left == 0:
 			intro_timer.stop()
