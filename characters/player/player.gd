@@ -64,12 +64,12 @@ func delayed_reload():
 	sfx.get_node("Reload").play()
 
 func stop_movimentation():
-	input.disconnect('hold_direction', self, '_add_speed')
+	input.disconnect('hold_direction', self, '_add_speed_scale')
 	input.disconnect('hold_direction', self, '_set_look_dir')
 	input.disconnect('hold_look', self, '_set_look_dir')
 
 func resume_movimentation():
-	input.connect('hold_direction', self, '_add_speed')
+	input.connect('hold_direction', self, '_add_speed_scale')
 	input.connect('hold_direction', self, '_set_look_dir')
 	input.connect('hold_look', self, '_set_look_dir')
 
@@ -173,7 +173,7 @@ func _on_Expression_Timer_timeout():
 	emit_signal('change_emotion', "normal")
 
 func lock_controls():
-	input.disconnect('hold_direction', self, '_add_speed')
+	input.disconnect('hold_direction', self, '_add_speed_scale')
 	input.disconnect('hold_direction', self, '_set_look_dir')
 	input.disconnect('hold_look', self, '_set_look_dir')
 	input.disconnect('press_action', ah, 'do_selected_action')
@@ -184,7 +184,7 @@ func lock_controls():
 	get_node("/root/Main/GUI/WaveCount").hide()
 
 func unlock_controls():
-	input.connect('hold_direction', self, '_add_speed')
+	input.connect('hold_direction', self, '_add_speed_scale')
 	input.connect('hold_direction', self, '_set_look_dir')
 	input.connect('hold_look', self, '_set_look_dir')
 	input.connect('press_action', ah, 'do_selected_action')
