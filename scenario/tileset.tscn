@@ -7,7 +7,7 @@
 
 render_priority = 0
 
-[node name="Tileset" type="Node2D"]
+[node name="Tileset" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -84,6 +84,7 @@ editor/display_folded = true
 position = Vector2( 22, 110 )
 texture = ExtResource( 2 )
 hframes = 3
+_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -116,6 +117,7 @@ position = Vector2( 63, 110 )
 texture = ExtResource( 2 )
 hframes = 3
 frame = 1
+_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -133,7 +135,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D1" type="CollisionPolygon2D" parent="WallB/StaticBody2D1" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallB/StaticBody2D1" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )
@@ -148,6 +150,7 @@ position = Vector2( 104, 110 )
 texture = ExtResource( 2 )
 hframes = 3
 frame = 2
+_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -165,7 +168,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D1" type="CollisionPolygon2D" parent="WallB1/StaticBody2D1" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallB1/StaticBody2D1" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )

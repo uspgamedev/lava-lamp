@@ -103,7 +103,7 @@ func _physics_process(delta):
 
 func get_look_dir():
 	if input.control_type == input.MOUSE:
-		return (get_viewport().get_mouse_position() - get_global_transform_with_canvas().o).normalized()
+		return (get_viewport().get_mouse_position() - get_global_transform_with_canvas().origin).normalized()
 	else:
 		return DIR.VECTOR[self.dir]
 

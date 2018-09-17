@@ -2,7 +2,7 @@
 
 [ext_resource path="res://bullets/simple_bullet.gd" type="Script" id=1]
 
-[node name="Bullet" type="KinematicBody2D" index="0"]
+[node name="Bullet" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8
@@ -12,8 +12,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-speed_factor = 1.5
 damage = 1
+speed_factor = 1.5
 damages_player = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
@@ -52,6 +52,6 @@ wait_time = 5.0
 one_shot = false
 autostart = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 
 

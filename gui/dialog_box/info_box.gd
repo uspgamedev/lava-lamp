@@ -18,9 +18,9 @@ func deactivate():
 		return
 	active = false
 	anim_player.play("Deactivate")
-	anim_player.connect("finished", self, "kill_me")
+	anim_player.connect("animation_finished", self, "kill_me")
 
-func kill_me():
+func kill_me(anim_name):
 	queue_free()
 
 func get_width():

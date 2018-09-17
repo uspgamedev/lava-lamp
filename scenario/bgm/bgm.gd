@@ -14,14 +14,14 @@ func _action_mode():
 		action.play()
 		interlude.play()
 		base.play()
-	tween1.interpolate_method(interlude, 'set_volume', interlude.get_volume(), 0, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween2.interpolate_method(action, 'set_volume', action.get_volume(), 1, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween1.interpolate_method(interlude, 'set_volume_db', interlude.get_volume_db(), 0, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween2.interpolate_method(action, 'set_volume_db', action.get_volume_db(), 1, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween1.start()
 	tween2.start()
 
 func _interlude_mode():
-	tween1.interpolate_method(action, 'set_volume', action.get_volume(), 0, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween2.interpolate_method(interlude, 'set_volume', interlude.get_volume(), 1, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween1.interpolate_method(action, 'set_volume_db', action.get_volume_db(), 0, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween2.interpolate_method(interlude, 'set_volume_db', interlude.get_volume_db(), 1, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween1.start()
 	tween2.start()
 

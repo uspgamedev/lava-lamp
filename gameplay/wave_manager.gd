@@ -151,7 +151,7 @@ func get_new_mechanics_input():
 	player.stop_movimentation()
 	waiting_key = true
 	while(waiting_key):
-		yield(get_tree(), 'fixed_frame')
+		yield(get_tree(), 'physics_frame')
 	ah.set_key_to_action(key, MECHANICS[cur_mechanics][1])
 	ah.set_used_key(key)
 	reserved_keys.append(key)

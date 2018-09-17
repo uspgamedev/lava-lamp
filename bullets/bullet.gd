@@ -13,19 +13,14 @@ export var damages_player = false
 func _physics_process(delta):
 	apply_speed_scale(delta)
 	sprite.set_rotation(self.speed.angle())
-	if (is_colliding_with_wall(self)):
-		self.queue_free()
 
 func apply_speed_scale(delta):
-	move_and_collide(self.speed * delta * self.speed_factor)
+	var kinematic_collision = move_and_collide(self.speed * delta * self.speed_factor)
+	if kinematic_collision != null and kinematic_collision.collider is TileMap:
+		self.queue_free()
 
 func get_speed_scale():
 	return speed
-
-func is_colliding_with_wall(bullet):
-	if (bullet.is_colliding() and bullet.get_collider().get_type() == 'TileMap'):
-		return true
-	return false
 
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area'):

@@ -80,8 +80,8 @@ func update_helper_arrow():
 	var e_pos = e.get_position()
 	var p_pos = player.get_position()
 
-	var w = get_viewport().get_rect().size.x
-	var h = get_viewport().get_rect().size.y
+	var w = get_viewport().size.x
+	var h = get_viewport().size.y
 	
 	polygon.set_rotation(p_pos.angle_to_point(e_pos))
 	
