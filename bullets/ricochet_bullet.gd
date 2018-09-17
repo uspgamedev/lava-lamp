@@ -7,7 +7,7 @@ onready var sfx = get_node("SFX")
 func _ready():
 	timer.connect('timeout', self, '_queue_free')
 	timer.start()
-	self.sfx.play("Fly")
+	self.sfx.get_node("Fly").play()
 
 func _physics_process(delta):
 	if get_node("../../Floor").world_to_map(self.get_position()) > Vector2(70, 70) or get_node("../../Floor").world_to_map(self.get_position()) < Vector2(-10, -10):
@@ -22,7 +22,7 @@ func apply_speed_scale(delta):
 		var normal = get_collision_normal()
 		motion = normal.reflect(motion)
 		self.speed = normal.reflect(self.speed)
-		self.sfx.play("Bounce")
+		self.sfx.get_node("Bounce").play()
 		move_and_collide(motion)
 
 func _queue_free():

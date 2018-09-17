@@ -6,7 +6,7 @@ const Death = preload("res://effects/death.tscn")
 onready var sfx = get_node("SFX")
 
 func _ready():
-	sfx.play('Place')
+	sfx.get_node('Place').play()
 	damage = 5
 
 func _exit_tree():

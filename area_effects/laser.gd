@@ -15,7 +15,7 @@ func _ready():
 	damage = 0.5
 	timer.connect('timeout', self, '_queue_free')
 	timer.start()
-	self.sfx.play('Bling')
+	self.sfx.get_node('Bling').play()
 	var head = self.tiles.get_node('Head')
 	for i in range(40):
 		var tile = LaserTile.instance()

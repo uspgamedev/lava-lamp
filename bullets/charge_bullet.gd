@@ -26,7 +26,7 @@ func _ready():
 	timer.connect('timeout', self, 'queue_free')
 	charge_timer.start()
 	self.speed = Vector2()
-	self.sfx.play('Charging')
+	self.sfx.get_node('Charging').play()
 
 func update_scale():
 	self.scale = (charge_timer.get_wait_time() - charge_timer.get_time_left())/charge_timer.get_wait_time()
@@ -72,8 +72,8 @@ func _shoot():
 			self.damage = 3
 		self.sprite.stop_charge()
 		self.emit_signal('finish')
-		pl.sfx.play("Special")
-		self.sfx.play("Fly")
+		pl.sfx.get_node("Special").play()
+		self.sfx.get_node("Fly").play()
 
 func _on_Area2D_area_enter(area):
 	if area.is_in_group('enemy_area') and shoot:

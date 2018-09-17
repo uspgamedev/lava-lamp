@@ -8,7 +8,7 @@ func _init():
 func activate(action_handler, key):
 	var GuidedBullet = preload('res://bullets/guided_bullet.tscn')
 	var pl = action_handler.get_parent()
-	pl.sfx.play("Special")
+	pl.sfx.get_node("Special").play()
 	var b = GuidedBullet.instance()
 	b.set_position(pl.get_position())
 	pl.get_parent().add_child(b)

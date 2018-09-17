@@ -14,7 +14,7 @@ func hit(obj):
 		   (d == DIR.LEFT and enemy.get_node('LeftShield').overlaps_area(obj.get_node('Area2D'))) or \
 		   (d == DIR.RIGHT and enemy.get_node('RightShield').overlaps_area(obj.get_node('Area2D'))):
 			obj.queue_free()
-			enemy.sfx.play('Block')
+			enemy.sfx.get_node('Block').play()
 		else:
 			.hit(obj)
 	elif obj is preload('res://area_effects/area_effect.gd'):

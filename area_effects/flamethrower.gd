@@ -18,7 +18,7 @@ func _ready():
 	damage = 1
 	timer.connect('timeout', self, '_finish')
 	timer.start()
-	self.sfx.play('Burn')
+	self.sfx.get_node('Burn').play()
 	self.sprite.set_emitting(true)
 	self._set_rotation(self.angle)
 
