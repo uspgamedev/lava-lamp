@@ -37,7 +37,11 @@ func set_title(text):
 func set_icon(icon):
 	add_child(icon)
 	if (icon is Node2D):
-		var arrow = icon.get_node('Arrow')
+		var arrow
+		if (icon.has_node('Arrow')):
+			arrow = icon.get_node('Arrow')
+		else:
+			arrow = null
 		if arrow != null:
 			arrow.hide()
 			icon.set_position(Vector2(0, 40))

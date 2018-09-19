@@ -97,7 +97,7 @@ tracks/0/keys = {
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Sprite" type="Sprite" index="0"]
+[node name="Sprite" type="Sprite"]
 
 position = Vector2( 0, -1 )
 texture = ExtResource( 1 )

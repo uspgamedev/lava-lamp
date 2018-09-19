@@ -185,6 +185,7 @@ func prepare_wave(only_new_enemy):
 
 func introduce_enemy_type():
 	cur_enemy += 1
+	print (ENEMIES[cur_enemy])
 	dialog_box.display_new_enemy(ENEMIES[cur_enemy][0], var2str(ENEMIES[cur_enemy][4]), ENEMIES[cur_enemy][3], load(ENEMIES[cur_enemy][1] + '_icon.tscn').instance())
 	
 func new_wave():
