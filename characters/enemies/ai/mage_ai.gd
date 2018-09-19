@@ -24,7 +24,7 @@ func think(dt, player):
 		var main = get_node('/root/Main')
 		for i in range(10):
 			var p = main.get_valid_position()
-			if not enemy.test_move_and_collide(p - enemy.get_position()):
+			if not enemy.test_move(p - enemy.get_position()):
 				dest = p
 				break
 	if dest != null:

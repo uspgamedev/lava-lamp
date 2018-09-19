@@ -22,7 +22,7 @@ func think(dt, player):
 	var enemy = get_parent()
 	if state == WALK:
 		walk_cooldown -= dt
-		if walk_cooldown <= 0 and enemy.get_position().distance_squared_to(player.get_position()) < 200 * 200 and not enemy.test_move_and_collide(player.get_position() - enemy.get_position()):
+		if walk_cooldown <= 0 and enemy.get_position().distance_squared_to(player.get_position()) < 200 * 200 and not enemy.test_move(player.get_position() - enemy.get_position()):
 			charge_cooldown = 2
 			state = LOAD_CHARGE
 		else:

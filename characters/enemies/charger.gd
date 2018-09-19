@@ -34,10 +34,4 @@ func apply_speed_scale(delta):
 		motionScale = self.speed * delta
 		self.dashTime = 0
 
-	var motion = move_and_collide( motionScale )
-	if (is_colliding() and self.ai.state != self.ai.CHARGE):
-		var collider = get_collider()
-		var normal = get_collision_normal()
-		motion = normal.slide(motion)
-		self.speed = normal.slide(self.speed)
-		move_and_collide(motion)
+	move_and_slide( motionScale )
