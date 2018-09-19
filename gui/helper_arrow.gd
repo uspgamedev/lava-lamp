@@ -83,13 +83,13 @@ func update_helper_arrow():
 	var w = get_viewport().size.x
 	var h = get_viewport().size.y
 	
-	polygon.set_rotation(p_pos.angle_to_point(e_pos))
+	var angle = p_pos.angle_to_point(e_pos) - PI/2
 	
-	var angle = p_pos.angle_to_point(e_pos)
+	polygon.set_rotation(angle)
 	
 	var dist = 120
 	var center = camera.get_offset()*scale
-	var x = center.x + -sin(angle)*dist 
+	var x = center.x + sin(angle)*dist 
 	var y = center.y + -cos(angle)*dist 
 	var polygon_pos = Vector2(x, y)
 	polygon.set_position(polygon_pos)

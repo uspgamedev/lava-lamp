@@ -21,14 +21,14 @@ func change_emotion(emotion, time = 2):
 	if anim != ap.get_current_animation():
 		ap.play(anim)
 		if anim != "Normal":
-			if not exp_timer.is_active():
+			if not exp_timer.is_paused():
 				exp_timer.stop()
 			exp_timer.set_wait_time(time)
 			exp_timer.start()
 	#If playing the same animation, just update timer
 	else:
 		if anim != "Normal":
-			if not exp_timer.is_active():
+			if not exp_timer.is_paused():
 				exp_timer.stop()
 			exp_timer.set_wait_time(time)
 			exp_timer.start()
