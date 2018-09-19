@@ -61,11 +61,10 @@ tracks/0/keys = {
 
 [node name="Sprite" type="Sprite" index="0"]
 
-self_modulate = Color( 1, 1, 1, 10 )
-position = Vector2( 0, -5 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 4
+_sections_unfolded = [ "Animation", "Region" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
