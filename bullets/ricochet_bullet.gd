@@ -15,15 +15,13 @@ func _physics_process(delta):
 		
 func apply_speed_scale(delta):
 	var motionScale = self.speed * delta * self.speed_factor
-	var motion = move_and_collide( motionScale )
+	var kinematic_collision = move_and_collide( motionScale )
 	
-	if (is_colliding()):
-		var collider = get_collider()
-		var normal = get_collision_normal()
-		motion = normal.reflect(motion)
+	if kinematic_collision != null and kinematic_collision.collider is TileMap:
+		kinematic_collision = kinematic_collision.normal.reflect(kinematic_collision)
 		self.speed = normal.reflect(self.speed)
 		self.sfx.get_node("Bounce").play()
-		move_and_collide(motion)
+		move_and_collide(kinematic_collision)
 
 func _queue_free():
 	self.queue_free()

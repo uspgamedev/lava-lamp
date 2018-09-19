@@ -20,21 +20,18 @@ func _physics_process(delta):
 
 func _add_speed_scale(dir):
 	self.speed += DIR.VECTOR[dir] * ACC
-	
+
 func get_speed_scale():
 	return speed
 
 func apply_speed_scale(delta):
-	var motionScale = Vector2()
-
 	if self.dashTime > 0:
-		motionScale = self.speed * delta * DASHFACTOR
+		self.speed *= DASHFACTOR
 		self.dashTime -= delta
 	else:
-		motionScale = self.speed * delta
 		self.dashTime = 0
-
-	var motion = move_and_collide(motionScale)
+	
+	move_and_slide(self.speed)
 
 func deaccelerate():
 	if (speed.length_squared() < EPSILON):
