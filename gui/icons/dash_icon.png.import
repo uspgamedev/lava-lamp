@@ -2,23 +2,22 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/dash_icon.png-af454e3d3d91f8e2c6a3a2222ccd45cd.s3tc.stex"
-path.etc2="res://.import/dash_icon.png-af454e3d3d91f8e2c6a3a2222ccd45cd.etc2.stex"
+path="res://.import/dash_icon.png-af454e3d3d91f8e2c6a3a2222ccd45cd.stex"
 
 [deps]
 
 source_file="res://gui/icons/dash_icon.png"
-dest_files=[ "res://.import/dash_icon.png-af454e3d3d91f8e2c6a3a2222ccd45cd.s3tc.stex", "res://.import/dash_icon.png-af454e3d3d91f8e2c6a3a2222ccd45cd.etc2.stex" ]
+dest_files=[ "res://.import/dash_icon.png-af454e3d3d91f8e2c6a3a2222ccd45cd.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
-flags/repeat=true
-flags/filter=true
-flags/mipmaps=true
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
