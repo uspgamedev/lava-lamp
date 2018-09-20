@@ -7,7 +7,7 @@
 
 render_priority = 0
 
-[node name="Tileset" type="Node2D" index="0"]
+[node name="Tileset" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -18,8 +18,9 @@ __meta__ = {
 
 position = Vector2( 21, 37 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
 hframes = 4
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Offset", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -28,8 +29,10 @@ __meta__ = {
 
 position = Vector2( 62, 37 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
 hframes = 4
 frame = 1
+_sections_unfolded = [ "Offset" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -38,21 +41,24 @@ __meta__ = {
 
 position = Vector2( 103, 37 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
 hframes = 4
 frame = 2
+_sections_unfolded = [ "Animation", "Offset" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Fall" type="Sprite" parent="." index="3"]
 
-editor/display_folded = true
 modulate = Color( 1, 1, 1, 0.2 )
 material = SubResource( 1 )
 position = Vector2( 144, 37 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
 hframes = 4
 frame = 3
+_sections_unfolded = [ "Offset" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -72,19 +78,21 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fall/StaticBody2D1" index="0"]
 
+position = Vector2( 0, -32 )
 build_mode = 0
 polygon = PoolVector2Array( -16, -37, 16, -37, 16, -7, -16, -7 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="WallA" type="Sprite" parent="." index="4"]
 
-editor/display_folded = true
-position = Vector2( 22, 110 )
+position = Vector2( 20, 130 )
 texture = ExtResource( 2 )
+offset = Vector2( 0, -32 )
 hframes = 3
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Offset", "Region", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -104,20 +112,22 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallA/StaticBody2D" index="0"]
 
+position = Vector2( 0, -32 )
 build_mode = 0
 polygon = PoolVector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="WallB" type="Sprite" parent="." index="5"]
 
-editor/display_folded = true
-position = Vector2( 63, 110 )
+position = Vector2( 70, 130 )
 texture = ExtResource( 2 )
+offset = Vector2( 0, -32 )
 hframes = 3
 frame = 1
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Offset", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -131,29 +141,22 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallB/StaticBody2D1" index="0"]
 
+position = Vector2( 0, -32 )
 build_mode = 0
 polygon = PoolVector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Transform" ]
 
 [node name="WallB1" type="Sprite" parent="." index="6"]
 
-editor/display_folded = true
-position = Vector2( 104, 110 )
+position = Vector2( 110, 130 )
 texture = ExtResource( 2 )
+offset = Vector2( 0, -32 )
 hframes = 3
 frame = 2
-_sections_unfolded = [ "Z Index" ]
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Offset", "Z Index" ]
 
 [node name="StaticBody2D1" type="StaticBody2D" parent="WallB1" index="0"]
 
@@ -170,8 +173,10 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallB1/StaticBody2D1" index="0"]
 
+position = Vector2( 0, -32 )
 build_mode = 0
 polygon = PoolVector2Array( -16, -8, 16, -8, 16, 17, -16, 17 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
