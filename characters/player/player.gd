@@ -228,11 +228,9 @@ func skip_intro():
 		if dialog_box.active:
 			dialog_box.deactivate_box()
 
-		#var logo = gui.get_node("Logo")
 		if logo.is_logo_active():
 			logo.stop_logo_animation()
-			if input.is_connected('skip_intro', self, 'skip_intro'):
-				input.disconnect('skip_intro', self, 'skip_intro')
+			intro_timer.stop()
 
 		if intro_timer.time_left == 0:
 			intro_timer.stop()
@@ -292,6 +290,7 @@ func intro():
 	intro_timer.set_wait_time(4)
 	intro_timer.start()
 	sfx.get_node('Title').play()
+
 
 	yield()
 
