@@ -11,7 +11,6 @@ var stunned = 0
 var _last_dir = DIR.UP
 
 signal enemy_dead
-signal hit_taken
 
 func _ready():
 	player = get_node("../Player")
@@ -40,14 +39,33 @@ func _on_Area2D_area_enter( area ):
 func deal_damage(d):
 	self.damage = max(0, self.damage + d)
 	self.get_node("Sprite/Hit").play("hit")
-	emit_signal("hit_taken")
+	get_node('DMG-SFX').play()
+	if get_node('Hit').emitting:
+		get_node('Hit').restart()
+	else:
+		get_node('Hit').emitting = true
+	var timer = Timer.new()
+	timer.wait_time = 0.3
+	timer.connect('timeout', self, 'set_emitting_to_false', [timer])
+	self.add_child(timer)
+	timer.start()
 	if self.damage >= self.hp:
 		self._queue_free()
 	get_node('EnemyHealth').update()
 
+func set_emitting_to_false(timer):
+	get_node('Hit').emitting = false
+	timer.queue_free()
+
 func _queue_free():
 	emit_signal('enemy_dead')
 	var death = DEATH.instance()
+	var timer = Timer.new()
+	timer.wait_time = 0.3
+	death.add_child(timer)
+	timer.connect('timeout', death, 'queue_free')
+	timer.start()
+	death.emitting = true
 	death.set_position(self.get_position())
 	self.get_parent().add_child(death)
 	self.queue_free()

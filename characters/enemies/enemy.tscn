@@ -8,7 +8,7 @@
 [ext_resource path="res://characters/enemies/dmg-sfx.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/hit.tscn" type="PackedScene" id=7]
 
-[node name="Enemy" type="KinematicBody2D" index="0" groups=[
+[node name="Enemy" type="KinematicBody2D" groups=[
 "enemy",
 ]]
 
@@ -81,17 +81,7 @@ scale = Vector2( 0.9375, 0.3125 )
 
 [node name="DMG-SFX" parent="." index="6" instance=ExtResource( 6 )]
 
-stream = null
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
 [node name="Hit" parent="." index="7" instance=ExtResource( 7 )]
-
-[connection signal="hit_taken" from="." to="Hit" method="set_emitting" binds= [ true ]]
-
-[connection signal="hit_taken" from="." to="DMG-SFX" method="play" binds= [ "Damage" ]]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
