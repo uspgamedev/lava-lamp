@@ -28,10 +28,11 @@ var last_dir_hold = []
 func _ready():
 	for i in range(4):
 		last_dir_hold.append(-10)
-	set_control_type(MOUSE)
-	set_pause_mode(PAUSE_MODE_PROCESS)
+
 
 func set_control_type(tp):
+	if (!has_node('/root/Main')):
+		return
 	var pl = get_node('/root/Main/Props/Player')
 	control_type = tp
 	if tp == KEYBOARD:
@@ -44,6 +45,8 @@ func set_control_type(tp):
 		pl.get_node('Hook/LookArrow').visible = !(false)
 
 func get_key_string(key):
+	if (!has_node('/root/Main')):
+		return
 	if (key >= KEY_SPACE):
 		return OS.get_scancode_string(key)
 	if key == BUTTON_RIGHT: return 'Right Mouse Button'
@@ -54,6 +57,8 @@ func get_key_string(key):
 	if key == BUTTON_WHEEL_RIGHT: return 'Mouse wheel right button'
 
 func _input(event):
+	if (!has_node('/root/Main')):
+		return
 	if get_tree().is_paused():
 		if not get_node('/root/Main/GUI/GameOver').is_visible() and event.is_action_pressed('pause'):
 			get_tree().set_pause(false)
@@ -84,6 +89,8 @@ func _input(event):
 	if _get_quit(event): emit_signal('press_quit')
 
 func _physics_process(delta):
+	if (!has_node('/root/Main')):
+		return
 	cur += delta
 	var dir = self._get_direction(Input)
 	var act = self._get_action(Input)

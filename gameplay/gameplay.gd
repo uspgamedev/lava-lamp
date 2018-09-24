@@ -4,6 +4,8 @@ onready var input = get_node('/root/input')
 onready var bgm = get_node("BGM")
 
 func _ready():
+	input.set_control_type(input.MOUSE)
+	input.set_pause_mode(input.PAUSE_MODE_PROCESS)
 	input.connect('press_quit', self, 'quit')
 
 func quit():
