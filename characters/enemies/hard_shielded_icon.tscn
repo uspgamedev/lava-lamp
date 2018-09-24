@@ -98,16 +98,11 @@ tracks/0/keys = {
 
 [node name="Sprite" type="Sprite" index="0"]
 
-modulate = Color( 1, 0.703125, 0.703125, 1 )
-self_modulate = Color( 1, 1, 1, 10 )
-position = Vector2( 0, 9 )
+modulate = Color( 1, 0.701961, 0.701961, 1 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 4
-frame = 2
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Animation", "Visibility" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 

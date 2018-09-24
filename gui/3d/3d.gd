@@ -25,4 +25,4 @@ func _physics_process(delta):
 	s.translate(Vector3(0, 0, 0.025))
 	s.rotate_y(delta * 2)
 	s.translate(Vector3(0, 0, -0.025))
-	get_node('MeshInstance').set_rotation(s.get_rotation())
+	get_node('TestCube').set_rotation(s.get_rotation())

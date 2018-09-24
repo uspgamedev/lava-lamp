@@ -4,6 +4,8 @@ onready var input = get_node('/root/input')
 onready var bgm = get_node("BGM")
 
 func _ready():
+	input.set_control_type(input.MOUSE)
+	input.set_pause_mode(input.PAUSE_MODE_PROCESS)
 	input.connect('press_quit', self, 'quit')
 
 func quit():
@@ -18,7 +20,7 @@ func get_valid_position():
 	while (((cell - floor_tile_map.world_to_map(player.get_position())).length() < 15) or \
 	      (floor_tile_map.get_cell(cell.x, cell.y) == 3 or wall_tile_map.get_cell(cell.x, cell.y) != -1)):
 		cell = cells[randi()%cells.size()]
-	var position = wall_tile_map.map_to_world(cell) + Vector2(12, 24)
+	var position = wall_tile_map.map_to_world(cell) + Vector2(12, -12)
 	return position
 
 func is_a_valid_position(pos):
