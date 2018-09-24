@@ -85,7 +85,6 @@ func dash(time):
 	self.dashTime = time
 	sfx.get_node('Dash').play()
 	var frame = sprite.get_frame() * 1.0 / (sprite.get_hframes() * sprite.get_vframes())
-	afterimage.set_param(Particles2D.PARAM_ANIM_INITIAL_POS, frame)
 	afterimage.set_emitting(true)
 
 func shield(time):
