@@ -11,7 +11,9 @@ var last_dir = 1
 
 func _physics_process(delta):
 	var temp = self.speed
-	var dir = temp.y/abs(temp.y)
+	var dir = 0
+	if (temp.y != 0):
+		dir = temp.y/abs(temp.y)
 	var append = ""
 	if self.speed.length_squared() > 1:
 		append = "_moving"

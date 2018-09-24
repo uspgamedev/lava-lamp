@@ -16,7 +16,7 @@ func think(dt, player):
 		for tries in range(10):
 			var p = main.get_valid_position()
 			b.set_position(p)
-			if not b.test_move(player.get_position() - p):
+			if not b.test_move(Transform2D(b.rotation, b.position), player.get_position() - p):
 				pos = p
 				break
 		if pos == null:

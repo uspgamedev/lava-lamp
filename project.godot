@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 input="*res://characters/player/input/input.gd"
+game_mode="*res://menu/game_mode.gd"
 
 [display]
 

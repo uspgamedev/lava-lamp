@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gameplay/gameplay.gd" type="Script" id=1]
 [ext_resource path="res://scenario/tileset.tres" type="TileSet" id=2]
@@ -6,9 +6,8 @@
 [ext_resource path="res://gameplay/wave_manager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/gui.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenario/bgm/bgm.tscn" type="PackedScene" id=6]
-[ext_resource path="res://menu/menu.tscn" type="PackedScene" id=7]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
@@ -65,13 +64,9 @@ _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="WaveManager" parent="." index="2" instance=ExtResource( 4 )]
 
-editor/display_folded = true
-
 [node name="GUI" parent="." index="3" instance=ExtResource( 5 )]
 
 [node name="BGM" parent="." index="4" instance=ExtResource( 6 )]
-
-[node name="Menu" parent="." index="5" instance=ExtResource( 7 )]
 
 
 [editable path="WaveManager"]

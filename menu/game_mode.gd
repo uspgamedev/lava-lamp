@@ -1,8 +1,12 @@
-extends Control
+extends Node
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+
+# 0: Arcade
+# 1: Survival
+var mode = 0
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -13,17 +17,3 @@ func _ready():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-
-
-func _on_Button_pressed():
-	get_node('/root/game_mode').mode = 0
-	get_tree().change_scene('res://main.tscn')
-
-
-func _on_Quit_pressed():
-	get_tree().quit()
-
-
-func _on_Play_Survival_pressed():
-	get_node('/root/game_mode').mode = 1
-	get_tree().change_scene('res://main.tscn')

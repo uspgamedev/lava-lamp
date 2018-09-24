@@ -79,7 +79,7 @@ KEY_DOWN, BUTTON_LEFT, KEY_ALT, KEY_SUPER_L
 ]
 
 var cur_wave = 1
-var wave_points = 10
+var wave_points = 100
 var key
 var waiting_key = false
 var cur_mechanics = -1
@@ -93,6 +93,18 @@ onready var gui = get_node('/root/Main/GUI')
 onready var portrait = gui.get_node('Player_Portrait')
 onready var dialog_box = gui.get_node('Dialog Box')
 onready var bgm = get_node('../BGM')
+
+func _ready():
+	if (get_node('/root/game_mode').mode == 1):
+		cur_mechanics = 16
+		cur_enemy = 11
+	self.connect('change_emotion', portrait, 'change_emotion')
+	t = Timer.new()
+	t.set_wait_time(3)
+	t.connect('timeout', self, 'new_wave')
+	t.set_one_shot(true)
+	add_child(t)
+
 
 func update_wave_points():
 	wave_points += cur_wave
@@ -199,10 +211,3 @@ func new_wave():
 	else:
 		prepare_wave(only_new_enemy)
 
-func _ready():
-	self.connect('change_emotion', portrait, 'change_emotion')
-	t = Timer.new()
-	t.set_wait_time(3)
-	t.connect('timeout', self, 'new_wave')
-	t.set_one_shot(true)
-	add_child(t)
