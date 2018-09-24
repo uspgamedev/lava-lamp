@@ -5,7 +5,7 @@ const ACT = preload('player/input/actions.gd')
 
 const ACC = 200
 const EPSILON = 1
-const DASHFACTOR = 8
+const DASHFACTOR = 2
 
 var dashTime = 0
 var speed = Vector2()
