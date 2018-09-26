@@ -8,6 +8,7 @@ onready var sfx = get_node("SFX")
 const DIR_ANIMS = ["up", "down"]
 
 var last_dir = 1
+var collider
 
 func _physics_process(delta):
 	var temp = self.speed
@@ -30,10 +31,10 @@ func apply_speed_scale(delta):
 	var motionScale = Vector2()
 
 	if self.dashTime > 0:
-		motionScale = self.speed * delta * DASHFACTOR
+		motionScale = self.speed * DASHFACTOR
 		self.dashTime -= delta
 	else:
-		motionScale = self.speed * delta
+		motionScale = self.speed
 		self.dashTime = 0
 
 	move_and_slide( motionScale )

@@ -56,7 +56,7 @@ func _on_Area2D_area_exit(area):
 	var cp = Array(enemyList)
 	for i in range(cp.size()-1, -1, -1):
 		if cp[i] == targEnemy:
-			cp.remove_and_collide(i)
+			cp.remove(i)
 	enemyList = cp
 
 func _hit():

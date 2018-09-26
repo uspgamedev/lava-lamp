@@ -2,37 +2,37 @@ extends Node
 
 const ENEMIES = [ # 12 enemies
 	['Eye', 'res://characters/enemies/olhinho', 2,                  'A little floating eye.', 4],
-	['Shielded', 'res://characters/enemies/shielded', 5,            "It thinks it's a knight.", 4],
-	['Charger', 'res://characters/enemies/charger', 7,              "It has little kids for breakfast. Now it can't have breakfast anymore.", 4],
-	['Ghost', 'res://characters/enemies/ghost', 12,                 "It's a ghost and a robot. Don't ask me.", 3],
-	['Mage', 'res://characters/enemies/mage', 15,                   'A little eye that shoots bullets.', 3],
-	['Bouncer', 'res://characters/enemies/bouncer', 20,             "It's capable of doing 1 homerun for every 5 swings.", 4],
-	['Undead', 'res://characters/enemies/undead', 25,               "It's a zombie and a robot. Don't.", 16],
-	['Absorber', 'res://characters/enemies/absorber', 30,           'You figure out what it does.', 4],
-	['Hard Bouncer', 'res://characters/enemies/hard_bouncer', 45,   "It's capable of doing 5 homeruns for every 1 swing.", 10],
-	['Hard Mage', 'res://characters/enemies/hard_mage', 55,         'A little eye that shoots bullets and teleports.', 5],
-	['Hard Charger', 'res://characters/enemies/hard_charger', 65,   'Your greatest nightmare. Good luck.', 6],
-	['Hard Shielded', 'res://characters/enemies/hard_shielded', 77, "It thinks it's a paladin.", 6]
+	#['Shielded', 'res://characters/enemies/shielded', 5,            "It thinks it's a knight.", 4],
+	#['Charger', 'res://characters/enemies/charger', 7,              "It has little kids for breakfast. Now it can't have breakfast anymore.", 4],
+	#['Ghost', 'res://characters/enemies/ghost', 12,                 "It's a ghost and a robot. Don't ask me.", 3],
+	#['Mage', 'res://characters/enemies/mage', 15,                   'A little eye that shoots bullets.', 3],
+	#['Bouncer', 'res://characters/enemies/bouncer', 20,             "It's capable of doing 1 homerun for every 5 swings.", 4],
+	#['Undead', 'res://characters/enemies/undead', 25,               "It's a zombie and a robot. Don't.", 16],
+	#['Absorber', 'res://characters/enemies/absorber', 30,           'You figure out what it does.', 4],
+	#['Hard Bouncer', 'res://characters/enemies/hard_bouncer', 45,   "It's capable of doing 5 homeruns for every 1 swing.", 10],
+	#['Hard Mage', 'res://characters/enemies/hard_mage', 55,         'A little eye that shoots bullets and teleports.', 5],
+	#['Hard Charger', 'res://characters/enemies/hard_charger', 65,   'Your greatest nightmare. Good luck.', 6],
+	#['Hard Shielded', 'res://characters/enemies/hard_shielded', 77, "It thinks it's a paladin.", 6]
 ]
 
 const MECHANICS = [ # 17 mechanics
 	['Simple Bullet', 'create_simple_bullet',     "It's simple. Do you want to know more? What part of simple did you not understand?"],
-	['Trap', 'create_trap',                       "It goes off if an enemy goes over it. Of course they have to step on it first. *Giggle*"],
-	['Tracer Bullet', 'create_tracer_bullet',     "If you make a hole in my wall I'll make sure you regret it."],
-	['Dash', 'dash',                              "Dash!"],
-	['Ghost Bullet', 'create_ghost_bullet',       'They used to say its scream sound comes from a test subject of an old evil experiment.'],
-	['Wormhole', 'create_wormhole',               "A wormhole, it probably won't reduce your sanity."],
-	['Armor', 'shield',                           "Won't protect you for long, don't rely too much on it."],
-	['Ion Bullet', 'create_ion_bullet',           "It fries these damn robots circuits for a little time. It has a very different effect on organic lifeforms. Good old \n times.                                         "],
-	['Cure Bullet', 'create_cure_bullet',         "You're the last of the LAVA series LAMP edition. And you want to HEAL your enemies??"],
-	['Guided Bullet', 'create_guided_bullet',     "Are you that lazy that you can't even bother to target the damn enemy?"],
-	['Shotgun', 'create_shotgun_bullet',          "The good old shotgun. It reloads automatically and it's probably the last of it's kind."],
-	['Ricochet Bullet', 'create_ricochet_bullet', "A hardcore way to play pong."],
-	['Storm', 'create_earthquake',                "You're part of the goddamn LAVA series, do you really need an upgrade to do a little Storm?"],
-	['Charge Bullet', 'create_charge_bullet',     "Do you wanna be a megaman fanboy or something? Goddamn LAMPs these days."],
-	['Laser', 'create_laser',                     "Light amplified by Anti A.T. Field until it becomes a deadly energy beam. Cats love them for some reason."],
-	['Flamethrower', 'create_flamethrower',       "Try to not break it. I want to roast some marshmallows later."],
-	['Double Bullet', 'create_double_bullet',     "The ultimate weapon. All science has converged to this. You are lucky to be alive and witness this."],
+	#['Trap', 'create_trap',                       "It goes off if an enemy goes over it. Of course they have to step on it first. *Giggle*"],
+	#['Tracer Bullet', 'create_tracer_bullet',     "If you make a hole in my wall I'll make sure you regret it."],
+	#['Dash', 'dash',                              "Dash!"],
+	#['Ghost Bullet', 'create_ghost_bullet',       'They used to say its scream sound comes from a test subject of an old evil experiment.'],
+	#['Wormhole', 'create_wormhole',               "A wormhole, it probably won't reduce your sanity."],
+	#['Armor', 'shield',                           "Won't protect you for long, don't rely too much on it."],
+	#['Ion Bullet', 'create_ion_bullet',           "It fries these damn robots circuits for a little time. It has a very different effect on organic lifeforms. Good old \n times.                                         "],
+	#['Cure Bullet', 'create_cure_bullet',         "You're the last of the LAVA series LAMP edition. And you want to HEAL your enemies??"],
+	#['Guided Bullet', 'create_guided_bullet',     "Are you that lazy that you can't even bother to target the damn enemy?"],
+	#['Shotgun', 'create_shotgun_bullet',          "The good old shotgun. It reloads automatically and it's probably the last of it's kind."],
+	#['Ricochet Bullet', 'create_ricochet_bullet', "A hardcore way to play pong."],
+	#['Storm', 'create_earthquake',                "You're part of the goddamn LAVA series, do you really need an upgrade to do a little Storm?"],
+	#['Charge Bullet', 'create_charge_bullet',     "Do you wanna be a megaman fanboy or something? Goddamn LAMPs these days."],
+	#['Laser', 'create_laser',                     "Light amplified by Anti A.T. Field until it becomes a deadly energy beam. Cats love them for some reason."],
+	#['Flamethrower', 'create_flamethrower',       "Try to not break it. I want to roast some marshmallows later."],
+	#['Double Bullet', 'create_double_bullet',     "The ultimate weapon. All science has converged to this. You are lucky to be alive and witness this."],
 ]
 
 const END_SPEECHES = [
@@ -96,8 +96,9 @@ onready var bgm = get_node('../BGM')
 
 func _ready():
 	if (get_node('/root/game_mode').mode == 1):
-		cur_mechanics = 16
-		cur_enemy = 11
+		wave_points = 100
+		cur_mechanics = -1
+		cur_enemy = -1
 	self.connect('change_emotion', portrait, 'change_emotion')
 	t = Timer.new()
 	t.set_wait_time(3)
