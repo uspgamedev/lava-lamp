@@ -84,8 +84,8 @@ var key
 var waiting_key = false
 var cur_mechanics = -1
 var cur_enemy = -1
-
 var t
+var HealthPack = preload('res://scenario/props/health_pack.tscn')
 
 signal change_emotion(emotion, time)
 
@@ -109,8 +109,6 @@ func _ready():
 func update_wave_points():
 	wave_points += cur_wave
 	print('Next wave: ', cur_wave, '; Points: ', wave_points)
-
-var HealthPack = preload('res://scenario/props/health_pack.tscn')
 
 func wave_ended():
 	var lives = randi() % 3
