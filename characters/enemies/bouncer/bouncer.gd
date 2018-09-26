@@ -6,6 +6,6 @@ onready var sfx = get_node('SFX')
 func _bounce():
 	sfx.get_node('Homerun').play()
 	anim.set_current_animation("strike")
-	yield(anim, "finished")
+	yield(anim, "animation_finished")
 	anim.set_current_animation("move")
 	anim.play()

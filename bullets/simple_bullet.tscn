@@ -3,15 +3,15 @@
 [ext_resource path="res://bullets/simple_bullet.gd" type="Script" id=1]
 [ext_resource path="res://bullets/simple_bullet_sprite.tscn" type="PackedScene" id=2]
 
-[node name="SimpleBullet" type="KinematicBody2D" index="0"]
+[node name="SimpleBullet" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8
 collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-speed_factor = 1.5
 damage = 1
+speed_factor = 1.5
 damages_player = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
@@ -32,6 +32,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
 
@@ -45,6 +46,6 @@ wait_time = 5.0
 one_shot = false
 autostart = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 
 

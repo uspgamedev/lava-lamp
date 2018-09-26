@@ -22,7 +22,7 @@ func think(dt, player):
 	var enemy = get_parent()
 	if state == WALK:
 		walk_cooldown -= dt
-		if walk_cooldown <= 0 and enemy.get_position().distance_squared_to(player.get_position()) < 200 * 200 and not enemy.test_move(player.get_position() - enemy.get_position()):
+		if walk_cooldown <= 0 and enemy.get_position().distance_squared_to(player.get_position()) < 200 * 200 and not enemy.test_move(Transform2D(enemy.get_rotation(),enemy.get_position()), player.get_position() - enemy.get_position()):
 			charge_cooldown = 2
 			state = LOAD_CHARGE
 		else:
@@ -40,7 +40,8 @@ func think(dt, player):
 			state = WALK
 			walk_cooldown = 5
 		enemy.speed += charge_vec * 20000 * dt
-		if enemy.is_colliding():
+		var kinematic_collision = enemy.get_slide_collision(0)
+		if kinematic_collision != null and kinematic_collision.collider is TileMap:
 			collided_with_wall()
 
 func collided_with_player(player):
