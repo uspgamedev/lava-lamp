@@ -13,7 +13,7 @@ use_filter = true
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -92,7 +92,6 @@ _sections_unfolded = [ "Rect" ]
 [node name="Play" parent="Buttons/MainButtons" index="0" instance=ExtResource( 3 )]
 
 text = "Play"
-descriptor_path = null
 
 [node name="Options" parent="Buttons/MainButtons" index="1" instance=ExtResource( 3 )]
 
@@ -100,7 +99,6 @@ margin_top = 64.0
 margin_right = 147.0
 margin_bottom = 124.0
 text = "Options"
-descriptor_path = null
 
 [node name="Credits" parent="Buttons/MainButtons" index="2" instance=ExtResource( 3 )]
 
@@ -108,7 +106,6 @@ margin_top = 128.0
 margin_right = 143.0
 margin_bottom = 188.0
 text = "Credits"
-descriptor_path = null
 
 [node name="Quit" parent="Buttons/MainButtons" index="3" instance=ExtResource( 3 )]
 
@@ -116,7 +113,6 @@ margin_top = 192.0
 margin_right = 78.0
 margin_bottom = 252.0
 text = "Quit"
-descriptor_path = null
 
 [node name="PlayButtons" type="Control" parent="Buttons" index="1"]
 
@@ -140,7 +136,7 @@ _sections_unfolded = [ "Rect" ]
 
 margin_right = 109.0
 text = "Story"
-descriptor_path = null
+descriptor_path = NodePath("../ModeDesc")
 description = "Story Mode description (export var in this button)"
 
 [node name="Arcade" parent="Buttons/PlayButtons" index="1" instance=ExtResource( 3 )]
@@ -149,7 +145,7 @@ margin_top = 64.0
 margin_right = 134.0
 margin_bottom = 124.0
 text = "Arcade"
-descriptor_path = null
+descriptor_path = NodePath("../ModeDesc")
 description = "Arcade Mode description (export var in this button)"
 
 [node name="Survival" parent="Buttons/PlayButtons" index="2" instance=ExtResource( 3 )]
@@ -158,8 +154,8 @@ margin_top = 128.0
 margin_right = 152.0
 margin_bottom = 188.0
 text = "Survival"
-descriptor_path = null
-description = "Arcade Mode description (export var in this button)"
+descriptor_path = NodePath("../ModeDesc")
+description = "Survival Mode description (export var in this button)"
 
 [node name="Back" parent="Buttons/PlayButtons" index="3" instance=ExtResource( 3 )]
 
@@ -167,7 +163,6 @@ margin_top = 192.0
 margin_right = 92.0
 margin_bottom = 252.0
 text = "Back"
-descriptor_path = null
 
 [node name="ModeDesc" type="Label" parent="Buttons/PlayButtons" index="4"]
 
@@ -177,7 +172,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = -860.0
 margin_top = -126.0
-margin_right = -100.0
+margin_right = -400.0
 margin_bottom = 126.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -191,7 +186,7 @@ clip_text = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Margin", "custom_fonts", "custom_styles" ]
 
 [node name="Tween" type="Tween" parent="." index="2"]
 

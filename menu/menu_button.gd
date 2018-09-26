@@ -11,10 +11,10 @@ func _ready():
 
 
 func _on_MenuButton_mouse_entered():
-	if descriptor and descriptor.get("text"):
+	if descriptor:
 		descriptor.set_text(description)
 
 
 func _on_MenuButton_mouse_exited():
-	if descriptor and descriptor.get("text"):
+	if descriptor:
 		descriptor.set_text("")
