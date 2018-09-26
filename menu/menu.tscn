@@ -1,113 +1,17 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://gui/title5.png" type="Texture" id=2]
-[ext_resource path="res://menu/button_dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menu/menu_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fonts/Geo-Regular.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="DynamicFont" id=1]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=8]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=9]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=10]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=11]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=12]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=13]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=14]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=15]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=1]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=2]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=3]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=4]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=5]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Menu" type="Control" index="0"]
 
@@ -122,36 +26,22 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
-
-anchor_left = 0.5
-anchor_top = 0.0
-anchor_right = 0.5
-anchor_bottom = 0.0
-margin_left = -304.0
-margin_top = 30.0
-margin_right = 304.0
-margin_bottom = 679.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/separation = 10
-alignment = 0
-_sections_unfolded = [ "Rect", "custom_constants" ]
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer" index="0"]
+[node name="Title" type="TextureRect" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 608.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 608, 400 )
+margin_left = 336.0
+margin_top = 30.0
+margin_right = 928.0
+margin_bottom = 420.0
+rect_min_size = Vector2( 592, 390 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -163,112 +53,169 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Arcade" type="Button" parent="VBoxContainer" index="1"]
+[node name="Buttons" type="HBoxContainer" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 410.0
-margin_right = 608.0
-margin_bottom = 483.0
+margin_left = 336.0
+margin_top = 430.0
+margin_right = 2896.0
+margin_bottom = 682.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 0.313726, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 0.627451, 1 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Arcade"
-flat = true
-align = 1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+alignment = 0
+_sections_unfolded = [ "Rect" ]
 
-[node name="Survival" type="Button" parent="VBoxContainer" index="2"]
+[node name="MainButtons" type="Control" parent="Buttons" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 493.0
-margin_right = 608.0
-margin_bottom = 566.0
+margin_right = 1280.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 1280, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/focus = SubResource( 13 )
-custom_styles/disabled = SubResource( 14 )
-custom_styles/normal = SubResource( 15 )
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 0.313726, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 0.627451, 1 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Survival"
-flat = true
-align = 1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Rect" ]
 
-[node name="Quit" type="Button" parent="VBoxContainer" index="3"]
+[node name="Play" parent="Buttons/MainButtons" index="0" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 576.0
-margin_right = 608.0
-margin_bottom = 649.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 0.313726, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 0.627451, 1 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
+text = "Play"
+descriptor_path = null
+
+[node name="Options" parent="Buttons/MainButtons" index="1" instance=ExtResource( 3 )]
+
+margin_top = 64.0
+margin_right = 147.0
+margin_bottom = 124.0
+text = "Options"
+descriptor_path = null
+
+[node name="Credits" parent="Buttons/MainButtons" index="2" instance=ExtResource( 3 )]
+
+margin_top = 128.0
+margin_right = 143.0
+margin_bottom = 188.0
+text = "Credits"
+descriptor_path = null
+
+[node name="Quit" parent="Buttons/MainButtons" index="3" instance=ExtResource( 3 )]
+
+margin_top = 192.0
+margin_right = 78.0
+margin_bottom = 252.0
 text = "Quit"
-flat = true
-align = 1
-_sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
+descriptor_path = null
 
-[connection signal="pressed" from="VBoxContainer/Arcade" to="." method="_on_Arcade_pressed"]
+[node name="PlayButtons" type="Control" parent="Buttons" index="1"]
 
-[connection signal="pressed" from="VBoxContainer/Survival" to="." method="_on_Survival_pressed"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1284.0
+margin_right = 2564.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 1280, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
 
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[node name="Story" parent="Buttons/PlayButtons" index="0" instance=ExtResource( 3 )]
+
+margin_right = 109.0
+text = "Story"
+descriptor_path = null
+description = "Story Mode description (export var in this button)"
+
+[node name="Arcade" parent="Buttons/PlayButtons" index="1" instance=ExtResource( 3 )]
+
+margin_top = 64.0
+margin_right = 134.0
+margin_bottom = 124.0
+text = "Arcade"
+descriptor_path = null
+description = "Arcade Mode description (export var in this button)"
+
+[node name="Survival" parent="Buttons/PlayButtons" index="2" instance=ExtResource( 3 )]
+
+margin_top = 128.0
+margin_right = 152.0
+margin_bottom = 188.0
+text = "Survival"
+descriptor_path = null
+description = "Arcade Mode description (export var in this button)"
+
+[node name="Back" parent="Buttons/PlayButtons" index="3" instance=ExtResource( 3 )]
+
+margin_top = 192.0
+margin_right = 92.0
+margin_bottom = 252.0
+text = "Back"
+descriptor_path = null
+
+[node name="ModeDesc" type="Label" parent="Buttons/PlayButtons" index="4"]
+
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -860.0
+margin_top = -126.0
+margin_right = -100.0
+margin_bottom = 126.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+autowrap = true
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Tween" type="Tween" parent="." index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="pressed" from="Buttons/MainButtons/Play" to="." method="_on_Play_pressed"]
+
+[connection signal="pressed" from="Buttons/MainButtons/Options" to="." method="_on_Options_pressed"]
+
+[connection signal="pressed" from="Buttons/MainButtons/Credits" to="." method="_on_Credits_pressed"]
+
+[connection signal="pressed" from="Buttons/MainButtons/Quit" to="." method="_on_Quit_pressed"]
+
+[connection signal="pressed" from="Buttons/PlayButtons/Story" to="." method="_on_Story_pressed"]
+
+[connection signal="pressed" from="Buttons/PlayButtons/Arcade" to="." method="_on_Arcade_pressed"]
+
+[connection signal="pressed" from="Buttons/PlayButtons/Survival" to="." method="_on_Survival_pressed"]
+
+[connection signal="pressed" from="Buttons/PlayButtons/Back" to="." method="_on_Back_pressed"]
 
 

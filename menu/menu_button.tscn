@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://menu/button_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://menu/menu_button.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[node name="MenuButton" type="Button"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 90.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0.666667, 0.666667, 0.666667, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 0.313726, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 0.627451, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Text"
+flat = true
+align = 0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+descriptor_path = null
+description = null
+
+[connection signal="mouse_entered" from="." to="." method="_on_MenuButton_mouse_entered"]
+
+[connection signal="mouse_exited" from="." to="." method="_on_MenuButton_mouse_exited"]
+
+
