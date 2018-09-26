@@ -3,7 +3,7 @@
 [ext_resource path="res://bullets/simple_bullet.gd" type="Script" id=1]
 [ext_resource path="res://bullets/simple_bullet_sprite.tscn" type="PackedScene" id=2]
 
-[node name="SimpleBullet" type="KinematicBody2D" index="0"]
+[node name="SimpleBullet" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8

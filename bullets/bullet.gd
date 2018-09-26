@@ -12,7 +12,7 @@ export var damages_player = false
 
 func _physics_process(delta):
 	apply_speed_scale(delta)
-	sprite.set_rotation(self.speed.angle())
+	sprite.set_rotation(self.speed.angle()-PI/2)
 
 func apply_speed_scale(delta):
 	var kinematic_collision = move_and_collide(self.speed * delta * self.speed_factor)

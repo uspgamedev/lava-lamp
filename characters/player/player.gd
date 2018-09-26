@@ -138,12 +138,13 @@ func load_camera():
 
 func _stun():
 	lock_controls()
-	get_node("Stunned").visible = !(false)
+	get_node("Stunned").visible = true
 	get_node("StunTimer").start()
 	get_node("Stunned/Timer").start()
 
 func _unstun():
 	unlock_controls()
+	get_node("Stunned").visible = false
 
 func deal_damage(d):
 	if (damage_cooldown.get_time_left() == 0 and d > 0):
