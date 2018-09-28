@@ -14,10 +14,10 @@ script/source = "extends Particles2D
 # var b = \"textvar\"
 
 func _ready():
-	get_node('SFX').play('Thunder')
+	get_node('SFX').get_node('Thunder').play()
 "
 
-[node name="Particles2D" type="Particles2D" index="0"]
+[node name="Particles2D" type="Particles2D"]
 
 emitting = true
 amount = 5

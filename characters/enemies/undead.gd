@@ -8,7 +8,9 @@ var last_dir = -1
 
 func _physics_process(delta):
 	var temp = get_speed_scale()
-	var dir = temp.y/abs(temp.y)
+	var dir = 0
+	if (temp.y != 0):
+		dir = temp.y/abs(temp.y)
 	if dir != self.last_dir:
 		if dir == 1:
 			anim.set_current_animation(DIR_ANIMS[1])

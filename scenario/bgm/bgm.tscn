@@ -6,7 +6,7 @@
 [ext_resource path="res://scenario/bgm/music_layer_3.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scenario/bgm/opening.ogg" type="AudioStream" id=5]
 
-[node name="BGM" type="Node" index="0"]
+[node name="BGM" type="Node"]
 
 script = ExtResource( 1 )
 

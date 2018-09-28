@@ -19,7 +19,7 @@ func apply_speed_scale(delta):
 	
 	if kinematic_collision != null and kinematic_collision.collider is TileMap:
 		kinematic_collision = kinematic_collision.normal.reflect(kinematic_collision)
-		self.speed = normal.reflect(self.speed)
+		self.speed = kinematic_collision.collider.normal.reflect(self.speed)
 		self.sfx.get_node("Bounce").play()
 		move_and_collide(kinematic_collision)
 

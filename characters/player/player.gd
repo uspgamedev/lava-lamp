@@ -57,6 +57,7 @@ func _ready():
 	load_camera()
 
 	intro_func = intro()
+	
 
 func delayed_reload():
 	for i in range(30):
