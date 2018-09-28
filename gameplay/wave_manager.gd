@@ -1,18 +1,18 @@
 extends Node
 
 const ENEMIES = [ # 12 enemies
-#	['Eye', 'res://characters/enemies/olhinho', 2,                  'A little floating eye.', 4],
-#	['Shielded', 'res://characters/enemies/shielded', 5,            "It thinks it's a knight.", 4],
-#	['Charger', 'res://characters/enemies/charger', 7,              "It has little kids for breakfast. Now it can't have breakfast anymore.", 4],
-#	['Ghost', 'res://characters/enemies/ghost', 12,                 "It's a ghost and a robot. Don't ask me.", 3],
-#	['Mage', 'res://characters/enemies/mage', 15,                   'A little eye that shoots bullets.', 3],
-#	['Bouncer', 'res://characters/enemies/bouncer', 20,             "It's capable of doing 1 homerun for every 5 swings.", 4],
-#	['Undead', 'res://characters/enemies/undead', 25,               "It's a zombie and a robot. Don't.", 16],
-#	['Absorber', 'res://characters/enemies/absorber', 30,           'You figure out what it does.', 4],
-#	['Hard Bouncer', 'res://characters/enemies/hard_bouncer', 45,   "It's capable of doing 5 homeruns for every 1 swing.", 10],
-#	['Hard Mage', 'res://characters/enemies/hard_mage', 55,         'A little eye that shoots bullets and teleports.', 5],
+	['Eye', 'res://characters/enemies/olhinho', 2,                  'A little floating eye.', 4],
+	['Shielded', 'res://characters/enemies/shielded', 5,            "It thinks it's a knight.", 4],
+	['Charger', 'res://characters/enemies/charger', 7,              "It has little kids for breakfast. Now it can't have breakfast anymore.", 4],
+	['Ghost', 'res://characters/enemies/ghost', 12,                 "It's a ghost and a robot. Don't ask me.", 3],
+	['Mage', 'res://characters/enemies/mage', 15,                   'A little eye that shoots bullets.', 3],
+	['Bouncer', 'res://characters/enemies/bouncer', 20,             "It's capable of doing 1 homerun for every 5 swings.", 4],
+	['Undead', 'res://characters/enemies/undead', 25,               "It's a zombie and a robot. Don't.", 16],
+	['Absorber', 'res://characters/enemies/absorber', 30,           'You figure out what it does.', 4],
+	['Hard Bouncer', 'res://characters/enemies/hard_bouncer', 45,   "It's capable of doing 5 homeruns for every 1 swing.", 10],
+	['Hard Mage', 'res://characters/enemies/hard_mage', 55,         'A little eye that shoots bullets and teleports.', 5],
 	['Hard Charger', 'res://characters/enemies/hard_charger', 65,   'Your greatest nightmare. Good luck.', 6],
-#	['Hard Shielded', 'res://characters/enemies/hard_shielded', 77, "It thinks it's a paladin.", 6]
+	['Hard Shielded', 'res://characters/enemies/hard_shielded', 77, "It thinks it's a paladin.", 6]
 ]
 
 const MECHANICS = [ # 17 mechanics
@@ -106,7 +106,7 @@ func _ready():
 	if (get_node('/root/game_mode').mode == 1):
 		wave_points = 100
 		cur_mechanics = 16
-		cur_enemy = 0
+		cur_enemy = 11
 		var ah = get_node('../Props/Player').get_node('ActionHandler')
 		ah.set_key_to_action(BUTTON_RIGHT, MECHANICS[0][1])	# Simple Bullet
 		ah.set_key_to_action(KEY_SPACE, MECHANICS[1][1])	# Trap
@@ -207,7 +207,6 @@ func prepare_wave(only_new_enemy):
 		timer.stop()
 		dialog_box.text_tween.stop_all()
 	var w = get_node('Wave')
-	print (t)
 	t.set_wait_time(time)
 	t.disconnect('timeout', self, 'new_wave')
 	t.connect('timeout', self, 'start_wave')
