@@ -12,16 +12,15 @@ func _ready():
 func _physics_process(delta):
 	if get_node("../../Floor").world_to_map(self.get_position()) > Vector2(70, 70) or get_node("../../Floor").world_to_map(self.get_position()) < Vector2(-10, -10):
 		self.queue_free()
-		
+
 func apply_speed_scale(delta):
 	var motionScale = self.speed * delta * self.speed_factor
 	var kinematic_collision = move_and_collide( motionScale )
 	
 	if kinematic_collision != null and kinematic_collision.collider is TileMap:
-		kinematic_collision = kinematic_collision.normal.reflect(kinematic_collision)
-		self.speed = kinematic_collision.collider.normal.reflect(self.speed)
+		self.speed = -self.speed.reflect(kinematic_collision.normal)
 		self.sfx.get_node("Bounce").play()
-		move_and_collide(kinematic_collision)
+		move_and_collide(self.speed * delta * self.speed_factor)
 
 func _queue_free():
 	self.queue_free()

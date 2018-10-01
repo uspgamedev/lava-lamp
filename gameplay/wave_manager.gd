@@ -119,7 +119,7 @@ func _ready():
 		ah.set_key_to_action(KEY_G, MECHANICS[8][1])		# Cure Bullet
 		ah.set_key_to_action(KEY_H, MECHANICS[9][1])		# Guided Bullet
 		#ah.set_key_to_action(KEY_J, MECHANICS[10][1])		# Shotgun
-		#ah.set_key_to_action(KEY_Z, MECHANICS[11][1])		# Ricochet Bullet
+		ah.set_key_to_action(KEY_Z, MECHANICS[11][1])		# Ricochet Bullet
 		ah.set_key_to_action(KEY_X, MECHANICS[12][1])		# Storm					#Animação quebrada
 		#ah.set_key_to_action(KEY_C, MECHANICS[13][1])		# Charge Bullet
 		#ah.set_key_to_action(KEY_V, MECHANICS[14][1])		# Laser

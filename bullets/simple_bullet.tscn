@@ -10,6 +10,7 @@ collision_layer = 8
 collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 damage = 1
 speed_factor = 1.5
 damages_player = false
