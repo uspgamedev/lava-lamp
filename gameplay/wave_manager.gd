@@ -79,7 +79,7 @@ KEY_DOWN, BUTTON_LEFT, KEY_ALT, KEY_SUPER_L
 ]
 
 var cur_wave = 1
-var wave_points = 100
+var wave_points = 10
 var key
 var waiting_key = false
 var cur_mechanics = -1
