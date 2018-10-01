@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://gui/title5.png" type="Texture" id=2]
 [ext_resource path="res://menu/menu_button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/fonts/Geo-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://menu/button_dynamicfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://menu/menu_button.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -13,7 +15,42 @@ use_filter = true
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Menu" type="Control"]
+[sub_resource type="StyleBoxEmpty" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[node name="Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -193,6 +230,164 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts", "custom_styles" ]
 
+[node name="PlayButtons2" type="Control" parent="Buttons" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2568.0
+margin_right = 3848.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 1280, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Fullscreen" type="Label" parent="Buttons/PlayButtons2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 109.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 1
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Fullscreen"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="SFX" type="Label" parent="Buttons/PlayButtons2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 64.0
+margin_right = 134.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 1
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "SFX"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="Music" type="Label" parent="Buttons/PlayButtons2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 128.0
+margin_right = 152.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 0, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 1
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Music"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="Back" type="Button" parent="Buttons/PlayButtons2" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 192.0
+margin_right = 92.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 0, 60 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_disabled = Color( 0.333333, 0.333333, 0.333333, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 0.313726, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 0.627451, 1 )
+toggle_mode = false
+enabled_focus_mode = 1
+shortcut = null
+group = null
+text = "Back"
+flat = true
+align = 0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Focus", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+descriptor_path = null
+description = null
+
 [node name="Tween" type="Tween" parent="." index="2"]
 
 repeat = false
@@ -217,5 +412,24 @@ playback/speed = 1.0
 [connection signal="pressed" from="Buttons/PlayButtons/Survival" to="." method="_on_Survival_pressed"]
 
 [connection signal="pressed" from="Buttons/PlayButtons/Back" to="." method="_on_Back_pressed"]
+
+[connection signal="mouse_entered" from="Buttons/PlayButtons2/Fullscreen" to="Buttons/PlayButtons2/Fullscreen" method="_on_MenuButton_mouse_entered"]
+
+[connection signal="mouse_exited" from="Buttons/PlayButtons2/Fullscreen" to="Buttons/PlayButtons2/Fullscreen" method="_on_MenuButton_mouse_exited"]
+
+[connection signal="mouse_entered" from="Buttons/PlayButtons2/SFX" to="Buttons/PlayButtons2/SFX" method="_on_MenuButton_mouse_entered"]
+
+[connection signal="mouse_exited" from="Buttons/PlayButtons2/SFX" to="Buttons/PlayButtons2/SFX" method="_on_MenuButton_mouse_exited"]
+
+[connection signal="mouse_entered" from="Buttons/PlayButtons2/Music" to="Buttons/PlayButtons2/Music" method="_on_MenuButton_mouse_entered"]
+
+[connection signal="mouse_exited" from="Buttons/PlayButtons2/Music" to="Buttons/PlayButtons2/Music" method="_on_MenuButton_mouse_exited"]
+
+[connection signal="mouse_entered" from="Buttons/PlayButtons2/Back" to="Buttons/PlayButtons2/Back" method="_on_MenuButton_mouse_entered"]
+
+[connection signal="mouse_exited" from="Buttons/PlayButtons2/Back" to="Buttons/PlayButtons2/Back" method="_on_MenuButton_mouse_exited"]
+
+[connection signal="pressed" from="Buttons/PlayButtons2/Back" to="." method="_on_Back_pressed"]
+
 
 
