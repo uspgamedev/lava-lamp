@@ -31,7 +31,7 @@ func _on_Options_pressed():
 
 
 func _on_Credits_pressed():
-	pass # replace with function body
+	get_tree().change_scene("res://menu/credits/credits.tscn")
 
 
 func _on_Quit_pressed():
