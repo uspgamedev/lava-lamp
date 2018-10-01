@@ -13,7 +13,7 @@ use_filter = true
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -113,6 +113,7 @@ margin_top = 192.0
 margin_right = 78.0
 margin_bottom = 252.0
 text = "Quit"
+_sections_unfolded = [ "Focus", "Hint", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
 
 [node name="PlayButtons" type="Control" parent="Buttons" index="1"]
 
@@ -135,6 +136,7 @@ _sections_unfolded = [ "Rect" ]
 [node name="Story" parent="Buttons/PlayButtons" index="0" instance=ExtResource( 3 )]
 
 margin_right = 109.0
+focus_mode = 2
 text = "Story"
 descriptor_path = NodePath("../ModeDesc")
 description = "Story Mode description (export var in this button)"
@@ -144,6 +146,7 @@ description = "Story Mode description (export var in this button)"
 margin_top = 64.0
 margin_right = 134.0
 margin_bottom = 124.0
+focus_mode = 2
 text = "Arcade"
 descriptor_path = NodePath("../ModeDesc")
 description = "Arcade Mode description (export var in this button)"
@@ -153,6 +156,7 @@ description = "Arcade Mode description (export var in this button)"
 margin_top = 128.0
 margin_right = 152.0
 margin_bottom = 188.0
+focus_mode = 2
 text = "Survival"
 descriptor_path = NodePath("../ModeDesc")
 description = "Survival Mode description (export var in this button)"
@@ -162,6 +166,7 @@ description = "Survival Mode description (export var in this button)"
 margin_top = 192.0
 margin_right = 92.0
 margin_bottom = 252.0
+focus_mode = 2
 text = "Back"
 
 [node name="ModeDesc" type="Label" parent="Buttons/PlayButtons" index="4"]

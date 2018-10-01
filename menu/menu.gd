@@ -2,28 +2,31 @@ extends Control
 
 const TWEEN_DUR = .6
 
+onready var buttons = $Buttons
+onready var main_buttons = $Buttons/MainButtons
+onready var play_buttons = $Buttons/PlayButtons
 onready var tw = $Tween
 
 func _ready():
-	set_children_disability($Buttons/PlayButtons, true)
+	set_children_disability(play_buttons, true)
 
 
 func set_children_disability(menu, value):
 	for button in menu.get_children():
-		if button.get("disabled"):
+		if "disabled" in button:
 			button.disabled = value
 
 
 func _on_Play_pressed():
-	set_children_disability($Buttons/MainButtons, true)
+	set_children_disability(main_buttons, true)
 	
-	tw.interpolate_property($Buttons, "rect_position", $Buttons.rect_position,
-		$Buttons.rect_position - Vector2(1280, 0), TWEEN_DUR, Tween.TRANS_QUAD,
+	tw.interpolate_property(buttons, "rect_position", buttons.rect_position,
+		buttons.rect_position - Vector2(1280, 0), TWEEN_DUR, Tween.TRANS_QUAD,
 		Tween.EASE_IN_OUT)
 	tw.start()
 	
 	yield(tw, "tween_completed")
-	set_children_disability($Buttons/PlayButtons, false)
+	set_children_disability(play_buttons, false)
 
 
 func _on_Options_pressed():
@@ -53,12 +56,12 @@ func _on_Survival_pressed():
 
 
 func _on_Back_pressed():
-	set_children_disability($Buttons/PlayButtons, true)
+	set_children_disability(play_buttons, true)
 	
-	tw.interpolate_property($Buttons, "rect_position", $Buttons.rect_position,
-		$Buttons.rect_position + Vector2(1280, 0), TWEEN_DUR, Tween.TRANS_QUAD,
+	tw.interpolate_property(buttons, "rect_position", buttons.rect_position,
+		buttons.rect_position + Vector2(1280, 0), TWEEN_DUR, Tween.TRANS_QUAD,
 		Tween.EASE_IN_OUT)
 	tw.start()
 	
 	yield(tw, "tween_completed")
-	set_children_disability($Buttons/MainButtons, false)
+	set_children_disability(main_buttons, false)
