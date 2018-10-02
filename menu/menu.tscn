@@ -90,34 +90,12 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Buttons" type="HBoxContainer" parent="." index="1"]
+[node name="Buttons" type="Control" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 336.0
-margin_top = 430.0
-margin_right = 2896.0
-margin_bottom = 682.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="MainButtons" type="Control" parent="Buttons" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1280.0
-margin_bottom = 252.0
-rect_min_size = Vector2( 1280, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -126,25 +104,43 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Play" parent="Buttons/MainButtons" index="0" instance=ExtResource( 3 )]
+[node name="MainMenu" type="Control" parent="Buttons" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 440.0
+margin_top = 440.0
+margin_right = -840.0
+margin_bottom = -280.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Play" parent="Buttons/MainMenu" index="0" instance=ExtResource( 3 )]
 
 text = "Play"
 
-[node name="Options" parent="Buttons/MainButtons" index="1" instance=ExtResource( 3 )]
+[node name="Options" parent="Buttons/MainMenu" index="1" instance=ExtResource( 3 )]
 
 margin_top = 64.0
 margin_right = 147.0
 margin_bottom = 124.0
 text = "Options"
 
-[node name="Credits" parent="Buttons/MainButtons" index="2" instance=ExtResource( 3 )]
+[node name="Credits" parent="Buttons/MainMenu" index="2" instance=ExtResource( 3 )]
 
 margin_top = 128.0
 margin_right = 143.0
 margin_bottom = 188.0
 text = "Credits"
 
-[node name="Quit" parent="Buttons/MainButtons" index="3" instance=ExtResource( 3 )]
+[node name="Quit" parent="Buttons/MainMenu" index="3" instance=ExtResource( 3 )]
 
 margin_top = 192.0
 margin_right = 78.0
@@ -152,16 +148,16 @@ margin_bottom = 252.0
 text = "Quit"
 _sections_unfolded = [ "Focus", "Hint", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="PlayButtons" type="Control" parent="Buttons" index="1"]
+[node name="PlayMenu" type="Control" parent="Buttons" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1284.0
-margin_right = 2564.0
-margin_bottom = 252.0
-rect_min_size = Vector2( 1280, 0 )
+margin_left = 1440.0
+margin_top = 440.0
+margin_right = 1440.0
+margin_bottom = 440.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -170,7 +166,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Story" parent="Buttons/PlayButtons" index="0" instance=ExtResource( 3 )]
+[node name="Story" parent="Buttons/PlayMenu" index="0" instance=ExtResource( 3 )]
 
 margin_right = 109.0
 focus_mode = 2
@@ -178,7 +174,7 @@ text = "Story"
 descriptor_path = NodePath("../ModeDesc")
 description = "Story Mode description (export var in this button)"
 
-[node name="Arcade" parent="Buttons/PlayButtons" index="1" instance=ExtResource( 3 )]
+[node name="Arcade" parent="Buttons/PlayMenu" index="1" instance=ExtResource( 3 )]
 
 margin_top = 64.0
 margin_right = 134.0
@@ -188,7 +184,7 @@ text = "Arcade"
 descriptor_path = NodePath("../ModeDesc")
 description = "Arcade Mode description (export var in this button)"
 
-[node name="Survival" parent="Buttons/PlayButtons" index="2" instance=ExtResource( 3 )]
+[node name="Survival" parent="Buttons/PlayMenu" index="2" instance=ExtResource( 3 )]
 
 margin_top = 128.0
 margin_right = 152.0
@@ -198,7 +194,7 @@ text = "Survival"
 descriptor_path = NodePath("../ModeDesc")
 description = "Survival Mode description (export var in this button)"
 
-[node name="Back" parent="Buttons/PlayButtons" index="3" instance=ExtResource( 3 )]
+[node name="Back" parent="Buttons/PlayMenu" index="3" instance=ExtResource( 3 )]
 
 margin_top = 192.0
 margin_right = 92.0
@@ -206,16 +202,15 @@ margin_bottom = 252.0
 focus_mode = 2
 text = "Back"
 
-[node name="ModeDesc" type="Label" parent="Buttons/PlayButtons" index="4"]
+[node name="ModeDesc" type="Label" parent="Buttons/PlayMenu" index="4"]
 
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -860.0
-margin_top = -126.0
-margin_right = -400.0
-margin_bottom = 126.0
+margin_left = 250.0
+margin_right = 710.0
+margin_bottom = 252.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -228,18 +223,18 @@ clip_text = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Margin", "Rect", "custom_fonts", "custom_styles" ]
 
-[node name="PlayButtons2" type="Control" parent="Buttons" index="2"]
+[node name="OptionsMenu" type="Control" parent="Buttons" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 2568.0
-margin_right = 3848.0
-margin_bottom = 252.0
-rect_min_size = Vector2( 1280, 0 )
+margin_left = 1440.0
+margin_top = 440.0
+margin_right = 1440.0
+margin_bottom = 440.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -248,7 +243,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Fullscreen" type="Label" parent="Buttons/PlayButtons2" index="0"]
+[node name="Fullscreen" type="Label" parent="Buttons/OptionsMenu" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -279,7 +274,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Focus", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="SFX" type="Label" parent="Buttons/PlayButtons2" index="1"]
+[node name="SFX" type="Label" parent="Buttons/OptionsMenu" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -311,7 +306,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Focus", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="Music" type="Label" parent="Buttons/PlayButtons2" index="2"]
+[node name="Music" type="Label" parent="Buttons/OptionsMenu" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -343,7 +338,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Focus", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="Back" type="Button" parent="Buttons/PlayButtons2" index="3"]
+[node name="Back" type="Button" parent="Buttons/OptionsMenu" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -397,39 +392,38 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[connection signal="pressed" from="Buttons/MainButtons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Buttons/MainMenu/Play" to="." method="_on_Play_pressed"]
 
-[connection signal="pressed" from="Buttons/MainButtons/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Buttons/MainMenu/Options" to="." method="_on_Options_pressed"]
 
-[connection signal="pressed" from="Buttons/MainButtons/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="Buttons/MainMenu/Credits" to="." method="_on_Credits_pressed"]
 
-[connection signal="pressed" from="Buttons/MainButtons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Buttons/MainMenu/Quit" to="." method="_on_Quit_pressed"]
 
-[connection signal="pressed" from="Buttons/PlayButtons/Story" to="." method="_on_Story_pressed"]
+[connection signal="pressed" from="Buttons/PlayMenu/Story" to="." method="_on_Story_pressed"]
 
-[connection signal="pressed" from="Buttons/PlayButtons/Arcade" to="." method="_on_Arcade_pressed"]
+[connection signal="pressed" from="Buttons/PlayMenu/Arcade" to="." method="_on_Arcade_pressed"]
 
-[connection signal="pressed" from="Buttons/PlayButtons/Survival" to="." method="_on_Survival_pressed"]
+[connection signal="pressed" from="Buttons/PlayMenu/Survival" to="." method="_on_Survival_pressed"]
 
-[connection signal="pressed" from="Buttons/PlayButtons/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Buttons/PlayMenu/Back" to="." method="_on_Play_Back_pressed"]
 
-[connection signal="mouse_entered" from="Buttons/PlayButtons2/Fullscreen" to="Buttons/PlayButtons2/Fullscreen" method="_on_MenuButton_mouse_entered"]
+[connection signal="mouse_entered" from="Buttons/OptionsMenu/Fullscreen" to="Buttons/OptionsMenu/Fullscreen" method="_on_MenuButton_mouse_entered"]
 
-[connection signal="mouse_exited" from="Buttons/PlayButtons2/Fullscreen" to="Buttons/PlayButtons2/Fullscreen" method="_on_MenuButton_mouse_exited"]
+[connection signal="mouse_exited" from="Buttons/OptionsMenu/Fullscreen" to="Buttons/OptionsMenu/Fullscreen" method="_on_MenuButton_mouse_exited"]
 
-[connection signal="mouse_entered" from="Buttons/PlayButtons2/SFX" to="Buttons/PlayButtons2/SFX" method="_on_MenuButton_mouse_entered"]
+[connection signal="mouse_entered" from="Buttons/OptionsMenu/SFX" to="Buttons/OptionsMenu/SFX" method="_on_MenuButton_mouse_entered"]
 
-[connection signal="mouse_exited" from="Buttons/PlayButtons2/SFX" to="Buttons/PlayButtons2/SFX" method="_on_MenuButton_mouse_exited"]
+[connection signal="mouse_exited" from="Buttons/OptionsMenu/SFX" to="Buttons/OptionsMenu/SFX" method="_on_MenuButton_mouse_exited"]
 
-[connection signal="mouse_entered" from="Buttons/PlayButtons2/Music" to="Buttons/PlayButtons2/Music" method="_on_MenuButton_mouse_entered"]
+[connection signal="mouse_entered" from="Buttons/OptionsMenu/Music" to="Buttons/OptionsMenu/Music" method="_on_MenuButton_mouse_entered"]
 
-[connection signal="mouse_exited" from="Buttons/PlayButtons2/Music" to="Buttons/PlayButtons2/Music" method="_on_MenuButton_mouse_exited"]
+[connection signal="mouse_exited" from="Buttons/OptionsMenu/Music" to="Buttons/OptionsMenu/Music" method="_on_MenuButton_mouse_exited"]
 
-[connection signal="mouse_entered" from="Buttons/PlayButtons2/Back" to="Buttons/PlayButtons2/Back" method="_on_MenuButton_mouse_entered"]
+[connection signal="mouse_entered" from="Buttons/OptionsMenu/Back" to="Buttons/OptionsMenu/Back" method="_on_MenuButton_mouse_entered"]
 
-[connection signal="mouse_exited" from="Buttons/PlayButtons2/Back" to="Buttons/PlayButtons2/Back" method="_on_MenuButton_mouse_exited"]
+[connection signal="mouse_exited" from="Buttons/OptionsMenu/Back" to="Buttons/OptionsMenu/Back" method="_on_MenuButton_mouse_exited"]
 
-[connection signal="pressed" from="Buttons/PlayButtons2/Back" to="." method="_on_Back_pressed"]
-
+[connection signal="pressed" from="Buttons/OptionsMenu/Back" to="." method="_on_Options_Back_pressed"]
 
 
