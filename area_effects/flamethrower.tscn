@@ -49,19 +49,13 @@ autostart = true
 
 [node name="SFX" parent="." index="4" instance=ExtResource( 3 )]
 
-stream = null
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
 [node name="Burn" parent="SFX" index="0" instance=ExtResource( 4 )]
 
 stream = ExtResource( 5 )
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 
-[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exit"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 
 [connection signal="timeout" from="HitTimer" to="." method="_hit"]
 

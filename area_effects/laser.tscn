@@ -6,7 +6,7 @@
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=4]
 [ext_resource path="res://area_effects/laser/mono sound laser.wav" type="AudioStream" id=5]
 
-[node name="Laser" type="KinematicBody2D" index="0"]
+[node name="Laser" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8
@@ -32,12 +32,6 @@ frame = 0
 is_head = true
 
 [node name="SFX" parent="." index="2" instance=ExtResource( 3 )]
-
-stream = null
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [node name="Bling" parent="SFX" index="0" instance=ExtResource( 4 )]
 

@@ -90,11 +90,11 @@ anims/strike = SubResource( 2 )
 
 anims/hit = SubResource( 3 )
 
-[node name="CollisionPolygon2D" parent="." index="2"]
+[node name="CollisionPolygon2D" parent="." index="1"]
 
 polygon = PoolVector2Array( -10, -40, -10, 0, 10, 0, 10, -40 )
 
-[node name="Area2D" parent="." index="3"]
+[node name="Area2D" parent="." index="2"]
 
 editor/display_folded = true
 
@@ -102,11 +102,11 @@ editor/display_folded = true
 
 polygon = PoolVector2Array( -10, -40, -10, 0, 10, 0, 10, -40 )
 
-[node name="Ai" parent="." index="4"]
+[node name="Ai" parent="." index="3"]
 
 script = ExtResource( 4 )
 
-[node name="EnemyHealth" parent="." index="6"]
+[node name="EnemyHealth" parent="." index="5"]
 
 position = Vector2( 1.66893e-06, -61 )
 

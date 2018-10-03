@@ -9,7 +9,7 @@ func _ready():
 	timer.start()
 	self.sprite.set_emitting(true)
 
-func _on_Area2D_area_enter(area):
+func _on_Area2D_area_entered(area):
 	if area.is_in_group('enemy_area'):
 		var enemy = area.get_parent()
 		enemy.ai.hit(self)

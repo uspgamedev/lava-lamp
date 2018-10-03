@@ -3,7 +3,7 @@
 [ext_resource path="res://gameplay/wave_manager.gd" type="Script" id=1]
 [ext_resource path="res://gameplay/wave.tscn" type="PackedScene" id=2]
 
-[node name="WaveManager" type="Node" index="0"]
+[node name="WaveManager" type="Node"]
 
 script = ExtResource( 1 )
 

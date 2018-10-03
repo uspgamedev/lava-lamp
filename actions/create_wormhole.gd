@@ -19,4 +19,5 @@ func activate(action_handler, key):
 	wh2.speed = Vector2()
 	pl.get_parent().add_child(wh2)
 	wh1.set_brother(wh2)
+	wh1._on_Area2D_area_entered(pl.get_node("Area2D"))
 	return null

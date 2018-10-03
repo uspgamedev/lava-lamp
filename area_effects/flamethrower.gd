@@ -40,18 +40,18 @@ func _unhandled_input(ev):
 
 func _physics_process(delta):
 	self.set_position(pl.get_position() + 20*pl.get_look_vec())
-	self._set_rotation(pl.get_look_dir().angle())
+	self._set_rotation(pl.get_look_dir().angle()-PI/2)
 
 func _finish():
 	set_process_unhandled_key_input(false)
 	emit_signal('finish')
 	self.queue_free()
 
-func _on_Area2D_area_enter(area):
+func _on_Area2D_area_entered(area):
 	if area.is_in_group('enemy_area'):
 		enemyList.push_back(area.get_parent())
 
-func _on_Area2D_area_exit(area):
+func _on_Area2D_area_exited(area):
 	var targEnemy = area.get_parent()
 	var cp = Array(enemyList)
 	for i in range(cp.size()-1, -1, -1):
