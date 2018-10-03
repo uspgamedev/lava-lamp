@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenario/props/health_pack.gd" type="Script" id=1]
-[ext_resource path="res://gui/3d/viewport_3d.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/life_points/life-point-empty.png" type="Texture" id=2]
 [ext_resource path="res://gui/life_points/life-point.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
 
 [node name="HealthPack" type="Node2D" index="0"]
 
@@ -23,32 +32,12 @@ audio_bus_name = "Master"
 build_mode = 0
 polygon = PoolVector2Array( 10, -10, 10, 10, -10, 10, -10, -10 )
 
-[node name="3Dto2D" parent="." index="1" instance=ExtResource( 2 )]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D" index="1"]
 
-scale = Vector2( 0.25, 0.25 )
-
-[node name="Spatial" parent="3Dto2D/Viewport" index="0"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="Sprite3D" parent="3Dto2D/Viewport/Spatial" index="0"]
-
-texture = ExtResource( 3 )
-
-[node name="Sprite3D1" parent="3Dto2D/Viewport/Spatial" index="1"]
-
-texture = ExtResource( 3 )
-
-[node name="Camera" parent="3Dto2D/Viewport/Spatial" index="3"]
-
-current = true
-
-[node name="SpotLight" parent="3Dto2D/Viewport/Spatial" index="4"]
-
-light_cull_mask = -1
+frames = SubResource( 1 )
+animation = "default"
+frame = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 
 
-[editable path="3Dto2D"]
-[editable path="3Dto2D/Viewport/Spatial"]
