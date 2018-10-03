@@ -75,7 +75,7 @@ func _shoot():
 		pl.sfx.get_node("Special").play()
 		self.sfx.get_node("Fly").play()
 
-func _on_Area2D_area_enter(area):
+func _on_Area2D_area_entered(area):
 	if area.is_in_group('enemy_area') and shoot:
 		var enemy = area.get_parent()
 		enemy.ai.hit(self)

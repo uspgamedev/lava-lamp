@@ -11,7 +11,7 @@ func set_brother(b):
 	brother = b
 	get_node("Sprite").set_brother()
 
-func _on_Area2D_area_enter(area):
+func _on_Area2D_area_entered(area):
 	if (area.is_in_group('walls')):
 		set_position(randi()%1280, randi()%720)
 	if (area.is_in_group('enemy_area') or area.is_in_group('player_area')) and brother:

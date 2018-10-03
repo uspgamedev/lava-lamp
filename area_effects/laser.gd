@@ -21,13 +21,13 @@ func _ready():
 		var tile = LaserTile.instance()
 		self.tiles.add_child(tile)
 		tile.set_position(head.get_position() + (i+1)*32*Vector2(0,1))
-		tile.get_node("Area2D").connect("area_enter", self, "_on_Area2D_area_enter")
+		tile.get_node("Area2D").connect("area_enter", self, "_on_Area2D_area_entered")
 
 func _physics_process(delta):
 	self.set_position(self.player.get_position() + self.player.get_look_vec()*5)
 	self.update_tiles()
 
-func _on_Area2D_area_enter(area):
+func _on_Area2D_area_entered(area):
 	if area.is_in_group('enemy_area'):
 		area.get_parent().ai.hit(self)
 

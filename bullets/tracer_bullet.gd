@@ -16,7 +16,7 @@ func _physics_process(delta):
 			yield(get_tree(), "fixed_frame")
 		self.sfx.get_node("Fly").play()
 
-func _on_Area2D_area_enter(area):
+func _on_Area2D_area_entered(area):
 	if area.is_in_group('enemy_area'):
 		hitting = true
-	._on_Area2D_area_enter(area)
+	._on_Area2D_area_entered(area)

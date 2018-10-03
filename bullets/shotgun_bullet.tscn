@@ -13,8 +13,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-speed_factor = 1.5
 damage = 1
+speed_factor = 1.5
 damages_player = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
@@ -57,6 +57,6 @@ wait_time = 0.25
 one_shot = false
 autostart = false
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 
 
