@@ -102,10 +102,7 @@ func _physics_process(delta):
 		self.sfx.get_node('ArmorDown').play()
 
 func get_look_dir():
-	if input.control_type == input.MOUSE:
-		return (get_viewport().get_mouse_position() - get_global_transform_with_canvas().origin).normalized()
-	else:
-		return DIR.VECTOR[self.dir]
+	return (get_viewport().get_mouse_position() - get_global_transform_with_canvas().origin).normalized()
 
 func get_look_dir_value():
 	return self.dir

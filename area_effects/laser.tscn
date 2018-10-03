@@ -33,12 +33,6 @@ is_head = true
 
 [node name="SFX" parent="." index="2" instance=ExtResource( 3 )]
 
-stream = null
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
 [node name="Bling" parent="SFX" index="0" instance=ExtResource( 4 )]
 
 stream = ExtResource( 5 )
