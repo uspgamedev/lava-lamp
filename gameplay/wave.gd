@@ -14,7 +14,7 @@ func _ready():
 	main = get_parent().get_parent()
 
 func update_enemy_vector():
-	if (manager.cur_wave % manager.NEW_ENEMY_TYPE == 1):
+	if (manager.cur_wave % manager.NEW_ENEMY_TYPE == 1 && get_node('/root/game_mode').mode != 1):
 		var j = ceil(ceil(manager.NEW_ENEMY_PROPORTION*manager.wave_points)/ \
 		              (manager.ENEMIES[manager.cur_enemy][2]))
 		for i in range(j):

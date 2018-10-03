@@ -113,16 +113,16 @@ func _ready():
 		ah.set_key_to_action(KEY_E, MECHANICS[2][1])		# Tracer Bullet
 		ah.set_key_to_action(KEY_R, MECHANICS[3][1])		# Dash					#Animação quebrada
 		ah.set_key_to_action(KEY_T, MECHANICS[4][1])		# Ghost Bullet
-		#ah.set_key_to_action(KEY_Y, MECHANICS[5][1])		# Wormhole
+		ah.set_key_to_action(KEY_Y, MECHANICS[5][1])		# Wormhole
 		ah.set_key_to_action(KEY_U, MECHANICS[6][1])		# Armor					#Animação quebrada
 		ah.set_key_to_action(KEY_F, MECHANICS[7][1])		# Ion Bullet
 		ah.set_key_to_action(KEY_G, MECHANICS[8][1])		# Cure Bullet
 		ah.set_key_to_action(KEY_H, MECHANICS[9][1])		# Guided Bullet
-		#ah.set_key_to_action(KEY_J, MECHANICS[10][1])		# Shotgun
+		ah.set_key_to_action(KEY_J, MECHANICS[10][1])		# Shotgun
 		ah.set_key_to_action(KEY_Z, MECHANICS[11][1])		# Ricochet Bullet
 		ah.set_key_to_action(KEY_X, MECHANICS[12][1])		# Storm					#Animação quebrada
-		#ah.set_key_to_action(KEY_C, MECHANICS[13][1])		# Charge Bullet
-		#ah.set_key_to_action(KEY_V, MECHANICS[14][1])		# Laser
+		ah.set_key_to_action(KEY_C, MECHANICS[13][1])		# Charge Bullet
+		ah.set_key_to_action(KEY_V, MECHANICS[14][1])		# Laser
 		ah.set_key_to_action(KEY_B, MECHANICS[15][1])		# Flamethrower			#Animação quebrada
 		ah.set_key_to_action(KEY_N, MECHANICS[16][1])		# Double Bullet
 		
