@@ -20,6 +20,7 @@ damages_player = false
 
 build_mode = 0
 polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }

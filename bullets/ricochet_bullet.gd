@@ -24,3 +24,4 @@ func apply_speed_scale(delta):
 
 func _queue_free():
 	self.queue_free()
+
