@@ -18,5 +18,5 @@ func _on_Area2D_area_entered(area):
 		var other = area.get_parent()
 		var mem = other.get_position()
 		other.set_position(brother.get_position())
-		if (other.is_colliding()):
+		if (get_node('Area2D').get_overlapping_bodies().size() > 0):
 			other.set_position(mem)

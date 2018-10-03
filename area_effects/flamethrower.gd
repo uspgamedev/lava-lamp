@@ -40,7 +40,7 @@ func _unhandled_input(ev):
 
 func _physics_process(delta):
 	self.set_position(pl.get_position() + 20*pl.get_look_vec())
-	self._set_rotation(pl.get_look_dir().angle())
+	self._set_rotation(pl.get_look_dir().angle()-PI/2)
 
 func _finish():
 	set_process_unhandled_key_input(false)

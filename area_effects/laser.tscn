@@ -6,7 +6,7 @@
 [ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=4]
 [ext_resource path="res://area_effects/laser/mono sound laser.wav" type="AudioStream" id=5]
 
-[node name="Laser" type="KinematicBody2D" index="0"]
+[node name="Laser" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8

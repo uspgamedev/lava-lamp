@@ -70,7 +70,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, -40 ), Vector2( 0, -45 ), Vector2( 0, -40 ), Vector2( 0, -35 ) ]
 }
 
-[node name="WormholeSprite" type="Node2D" index="0"]
+[node name="WormholeSprite" type="Node2D"]
 
 position = Vector2( 0, 19 )
 script = ExtResource( 1 )

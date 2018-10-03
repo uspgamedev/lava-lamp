@@ -61,7 +61,7 @@ func _ready():
 
 func delayed_reload():
 	for i in range(30):
-		yield(get_tree(), "fixed_frame")
+		yield(get_tree(), "physics_frame")
 	sfx.get_node("Reload").play()
 
 func stop_movimentation():

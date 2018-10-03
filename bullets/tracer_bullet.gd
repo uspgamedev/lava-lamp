@@ -13,7 +13,7 @@ func _physics_process(delta):
 		self.sfx.get_node("Hit").play()
 		hitting = false
 		for i in range(20):
-			yield(get_tree(), "fixed_frame")
+			yield(get_tree(), "physics_frame")
 		self.sfx.get_node("Fly").play()
 
 func _on_Area2D_area_entered(area):
