@@ -32,7 +32,7 @@ func get_look_dir_value():
 		_last_dir = [DIR.LEFT, DIR.DOWN, DIR.RIGHT][min(2, floor((x + .75 * PI) / (PI / 2.0)))]
 	return _last_dir
 
-func _on_Area2D_area_enter( area ):
+func _on_Area2D_area_entered( area ):
 	if area.is_in_group("player_area"):
 		ai.collided_with_player(player)
 

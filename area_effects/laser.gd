@@ -21,13 +21,13 @@ func _ready():
 		var tile = LaserTile.instance()
 		self.tiles.add_child(tile)
 		tile.set_position(head.get_position() + (i+1)*32*Vector2(0,1))
-		tile.get_node("Area2D").connect("area_enter", self, "_on_Area2D_area_enter")
+		tile.get_node("Area2D").connect("area_entered", self, "_on_Area2D_area_entered")
 
 func _physics_process(delta):
 	self.set_position(self.player.get_position() + self.player.get_look_vec()*5)
 	self.update_tiles()
 
-func _on_Area2D_area_enter(area):
+func _on_Area2D_area_entered(area):
 	if area.is_in_group('enemy_area'):
 		area.get_parent().ai.hit(self)
 
@@ -45,7 +45,7 @@ func _unhandled_input(ev):
 
 
 func update_tiles():
-	var look_ang = self.player.get_look_dir().angle()
+	var look_ang = self.player.get_look_dir().angle()-PI/2
 	var wall_tm = self.player.get_parent()
 	self.tiles.set_rotation(look_ang)
 	var i = 0
@@ -55,12 +55,12 @@ func update_tiles():
 		if (wall_tm.get_cell(map.x, map.y) != -1):
 			break
 		tile.visible = !(false)
-		tile.area.set_enable_monitoring(true)
+		tile.area.monitoring = true
 		i += 1
 	while i < self.tiles.get_child_count():
 		var tile = self.tiles.get_child(i)
 		tile.visible = !(true)
-		tile.area.set_enable_monitoring(false)
+		tile.area.monitoring = false
 		i += 1
 		
 func _queue_free():

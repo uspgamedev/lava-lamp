@@ -15,17 +15,6 @@ script = ExtResource( 1 )
 
 emitting = false
 amount = 20
-one_shot = false
-preprocess = 0.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
-draw_order = 0
-process_material = null
-normal_map = null
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
@@ -49,6 +38,6 @@ wait_time = 1.5
 one_shot = false
 autostart = false
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 
 

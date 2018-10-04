@@ -19,7 +19,7 @@ const polygons = [PoolVector2Array([Vector2(-5, -5), Vector2(5, -5),
 							    Vector2(15, 15), Vector2(-15, 15)])]
 
 var shoot = false
-var scale = 0
+var _scale = 0
 var pressed = 0
 
 func _ready():
@@ -29,11 +29,11 @@ func _ready():
 	self.sfx.get_node('Charging').play()
 
 func update_scale():
-	self.scale = (charge_timer.get_wait_time() - charge_timer.get_time_left())/charge_timer.get_wait_time()
-	if self.scale < 0.3:
+	self._scale = (charge_timer.get_wait_time() - charge_timer.get_time_left())/charge_timer.get_wait_time()
+	if self._scale < 0.3:
 		self.sprite.charge_small()
 		col_poly.set_polygon(polygons[0])
-	elif self.scale < 0.6:
+	elif self._scale < 0.6:
 		self.sprite.charge_medium()
 		col_poly.set_polygon(polygons[1])
 	else:
@@ -64,9 +64,9 @@ func _shoot():
 		self.timer.start()
 		self.speed = pl.get_look_dir().normalized() * 400
 		self.update_scale()
-		if self.scale < .3:
+		if self._scale < .3:
 			self.damage = 1
-		elif self.scale < 0.6:
+		elif self._scale < 0.6:
 			self.damage = 2
 		else:
 			self.damage = 3
@@ -75,7 +75,7 @@ func _shoot():
 		pl.sfx.get_node("Special").play()
 		self.sfx.get_node("Fly").play()
 
-func _on_Area2D_area_enter(area):
+func _on_Area2D_area_entered(area):
 	if area.is_in_group('enemy_area') and shoot:
 		var enemy = area.get_parent()
 		enemy.ai.hit(self)

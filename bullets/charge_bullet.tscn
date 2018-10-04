@@ -17,8 +17,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-speed_factor = 1.5
 damage = 1
+speed_factor = 1.5
 damages_player = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
@@ -70,12 +70,6 @@ autostart = false
 
 [node name="SFX" parent="." index="5" instance=ExtResource( 3 )]
 
-stream = null
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
 [node name="Charging" parent="SFX" index="0" instance=ExtResource( 4 )]
 
 stream = ExtResource( 5 )
@@ -84,7 +78,7 @@ stream = ExtResource( 5 )
 
 stream = ExtResource( 6 )
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_enter"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 
 [connection signal="timeout" from="ChargeTimer" to="." method="_shoot"]
 

@@ -1,0 +1,2 @@
+Seta da HUD aparece por baixo dos tiles
+Inimigos spawnam dentro das paredes
