@@ -92,3 +92,15 @@ func _on_Play_Back_pressed():
 
 func _on_Options_Back_pressed():
 	main_menu_animation(options_button, options_menu, main_menu)
+
+
+func _on_FullscreenBox_toggled(button_pressed):
+	pass # replace with function body
+
+
+func _on_SFXSlider_value_changed(value):
+	pass # replace with function body
+
+
+func _on_MusicSlider_value_changed(value):
+	pass # replace with function body

@@ -1,11 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://gui/title5.png" type="Texture" id=2]
-[ext_resource path="res://menu/menu_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menu/elements/menu_button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/fonts/Geo-Regular.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://menu/button_dynamicfont.tres" type="DynamicFont" id=5]
-[ext_resource path="res://menu/menu_button.gd" type="Script" id=6]
+[ext_resource path="res://menu/elements/button_dynamicfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://menu/elements/menu_button.gd" type="Script" id=6]
+[ext_resource path="res://menu/elements/grey_boxCheckmark.png" type="Texture" id=7]
+[ext_resource path="res://menu/elements/grey_box.png" type="Texture" id=8]
+[ext_resource path="res://menu/elements/grey_circle.png" type="Texture" id=9]
+[ext_resource path="res://menu/elements/grey_sliderHorizontal.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -49,6 +53,60 @@ content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxTexture" id=12]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 190, 4 )
+margin_left = 0.0
+margin_right = 0.0
+margin_top = 0.0
+margin_bottom = 0.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
 
 [node name="Menu" type="Control" index="0"]
 
@@ -151,6 +209,7 @@ _sections_unfolded = [ "Focus", "Hint", "Rect", "custom_colors", "custom_fonts",
 
 [node name="PlayMenu" type="Control" parent="Buttons" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -228,6 +287,7 @@ _sections_unfolded = [ "Margin", "Rect", "custom_fonts", "custom_styles" ]
 
 [node name="OptionsMenu" type="Control" parent="Buttons" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -387,6 +447,106 @@ _sections_unfolded = [ "Focus", "Rect", "custom_colors", "custom_fonts", "custom
 descriptor_path = null
 description = null
 
+[node name="FullscreenBox" type="CheckBox" parent="Buttons/OptionsMenu" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_right = 338.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_icons/checked = ExtResource( 7 )
+custom_icons/unchecked = ExtResource( 8 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 1
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_icons", "custom_styles" ]
+
+[node name="SFXSlider" type="HSlider" parent="Buttons/OptionsMenu" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_top = 64.0
+margin_right = 700.0
+margin_bottom = 124.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_icons/grabber_disabled = ExtResource( 9 )
+custom_icons/grabber_highlight = ExtResource( 9 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = SubResource( 12 )
+min_value = 0.0
+max_value = 100.0
+step = 10.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 11
+ticks_on_borders = true
+focus_mode = 1
+_sections_unfolded = [ "Rect", "custom_icons", "custom_styles" ]
+
+[node name="MusicSlider" type="HSlider" parent="Buttons/OptionsMenu" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_top = 128.0
+margin_right = 700.0
+margin_bottom = 188.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_icons/grabber_disabled = ExtResource( 9 )
+custom_icons/grabber_highlight = ExtResource( 9 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = SubResource( 12 )
+min_value = 0.0
+max_value = 100.0
+step = 10.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 11
+ticks_on_borders = true
+focus_mode = 1
+_sections_unfolded = [ "Rect", "custom_icons", "custom_styles" ]
+
 [node name="Tween" type="Tween" parent="." index="2"]
 
 repeat = false
@@ -429,5 +589,11 @@ playback/speed = 1.0
 [connection signal="mouse_exited" from="Buttons/OptionsMenu/Back" to="Buttons/OptionsMenu/Back" method="_on_MenuButton_mouse_exited"]
 
 [connection signal="pressed" from="Buttons/OptionsMenu/Back" to="." method="_on_Options_Back_pressed"]
+
+[connection signal="toggled" from="Buttons/OptionsMenu/FullscreenBox" to="." method="_on_FullscreenBox_toggled"]
+
+[connection signal="value_changed" from="Buttons/OptionsMenu/SFXSlider" to="." method="_on_SFXSlider_value_changed"]
+
+[connection signal="value_changed" from="Buttons/OptionsMenu/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 
 
