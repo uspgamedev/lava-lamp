@@ -287,7 +287,6 @@ _sections_unfolded = [ "Margin", "Rect", "custom_fonts", "custom_styles" ]
 
 [node name="OptionsMenu" type="Control" parent="Buttons" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -504,7 +503,7 @@ min_value = 0.0
 max_value = 100.0
 step = 10.0
 page = 0.0
-value = 0.0
+value = 100.0
 exp_edit = false
 rounded = false
 editable = true
@@ -538,7 +537,7 @@ min_value = 0.0
 max_value = 100.0
 step = 10.0
 page = 0.0
-value = 0.0
+value = 100.0
 exp_edit = false
 rounded = false
 editable = true

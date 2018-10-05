@@ -56,6 +56,13 @@ func main_menu_animation(pressed_button, from_menu, to_menu):
 	set_children_disability(to_menu, false)
 
 
+func change_volume(value, max_value, bus_index):
+	var volume = -80
+	if value > 0:
+		volume = 10 * log(value / max_value)
+	AudioServer.set_bus_volume_db(bus_index, volume)
+
+
 func _on_Play_pressed():
 	main_menu_animation(play_button, main_menu, play_menu)
 
@@ -95,12 +102,12 @@ func _on_Options_Back_pressed():
 
 
 func _on_FullscreenBox_toggled(button_pressed):
-	pass # replace with function body
+	OS.window_fullscreen = button_pressed
 
 
 func _on_SFXSlider_value_changed(value):
-	pass # replace with function body
+	change_volume(value, 100, 2)
 
 
 func _on_MusicSlider_value_changed(value):
-	pass # replace with function body
+	change_volume(value, 100, 1)
