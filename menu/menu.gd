@@ -15,6 +15,7 @@ onready var main_menu = $Buttons/MainMenu
 onready var play_menu = $Buttons/PlayMenu
 onready var options_menu = $Buttons/OptionsMenu
 onready var tw = $Tween
+onready var game_mode = get_node('/root/game_mode')
 
 func _ready():
 	set_children_disability(play_menu, true)
@@ -84,12 +85,12 @@ func _on_Story_pressed():
 
 
 func _on_Arcade_pressed():
-	get_node('/root/game_mode').mode = 0
+	game_mode.mode = game_mode.ARCADE
 	get_tree().change_scene('res://main.tscn')
 
 
 func _on_Survival_pressed():
-	get_node('/root/game_mode').mode = 1
+	game_mode.mode = game_mode.SURVIVAL
 	get_tree().change_scene('res://main.tscn')
 
 

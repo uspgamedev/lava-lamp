@@ -95,37 +95,35 @@ onready var dialog_box = gui.get_node('Dialog Box')
 onready var bgm = get_node('../BGM')
 
 func _ready():
-
-
 	self.connect('change_emotion', portrait, 'change_emotion')
 	t = Timer.new()
 	t.set_wait_time(3)
 	t.connect('timeout', self, 'new_wave')
 	t.set_one_shot(true)
 	add_child(t)
-	if (get_node('/root/game_mode').mode == 1):
+	var game_mode = get_node('/root/game_mode')
+	if (game_mode.mode == game_mode.SURVIVAL):
 		wave_points = 100
 		cur_mechanics = 16
 		cur_enemy = 11
 		var ah = get_node('../Props/Player').get_node('ActionHandler')
-		ah.set_key_to_action(BUTTON_RIGHT, MECHANICS[0][1])	# Simple Bullet
-		ah.set_key_to_action(KEY_SPACE, MECHANICS[1][1])	# Trap
-		ah.set_key_to_action(KEY_E, MECHANICS[2][1])		# Tracer Bullet
-		ah.set_key_to_action(KEY_R, MECHANICS[3][1])		# Dash					#Animação quebrada
-		ah.set_key_to_action(KEY_T, MECHANICS[4][1])		# Ghost Bullet
-		ah.set_key_to_action(KEY_Y, MECHANICS[5][1])		# Wormhole
-		ah.set_key_to_action(KEY_U, MECHANICS[6][1])		# Armor					#Animação quebrada
-		ah.set_key_to_action(KEY_F, MECHANICS[7][1])		# Ion Bullet
-		ah.set_key_to_action(KEY_G, MECHANICS[8][1])		# Cure Bullet
-		ah.set_key_to_action(KEY_H, MECHANICS[9][1])		# Guided Bullet
-		ah.set_key_to_action(KEY_J, MECHANICS[10][1])		# Shotgun
-		ah.set_key_to_action(KEY_Z, MECHANICS[11][1])		# Ricochet Bullet
-		ah.set_key_to_action(KEY_X, MECHANICS[12][1])		# Storm					#Animação quebrada
-		ah.set_key_to_action(KEY_C, MECHANICS[13][1])		# Charge Bullet
-		ah.set_key_to_action(KEY_V, MECHANICS[14][1])		# Laser
-		ah.set_key_to_action(KEY_B, MECHANICS[15][1])		# Flamethrower			#Animação quebrada
-		ah.set_key_to_action(KEY_N, MECHANICS[16][1])		# Double Bullet
-		
+		ah.set_key_to_action(BUTTON_RIGHT,      MECHANICS[0][1])  # Simple Bullet
+		ah.set_key_to_action(KEY_CONTROL,       MECHANICS[1][1])  # Trap
+		ah.set_key_to_action(KEY_1,             MECHANICS[2][1])  # Tracer Bullet
+		ah.set_key_to_action(KEY_SPACE,         MECHANICS[3][1])  # Dash             Animação quebrada
+		ah.set_key_to_action(BUTTON_WHEEL_UP,   MECHANICS[4][1])  # Ghost Bullet
+		ah.set_key_to_action(KEY_P,             MECHANICS[5][1])  # Wormhole
+		ah.set_key_to_action(KEY_SHIFT,         MECHANICS[6][1])  # Armor            Animação quebrada
+		ah.set_key_to_action(BUTTON_WHEEL_DOWN, MECHANICS[7][1])  # Ion Bullet
+		ah.set_key_to_action(BUTTON_MIDDLE,     MECHANICS[8][1])  # Cure Bullet
+		ah.set_key_to_action(KEY_2,             MECHANICS[9][1])  # Guided Bullet
+		ah.set_key_to_action(KEY_3,             MECHANICS[10][1]) # Shotgun
+		ah.set_key_to_action(KEY_Q,             MECHANICS[11][1]) # Ricochet Bullet
+		ah.set_key_to_action(KEY_CAPSLOCK,      MECHANICS[12][1]) # Storm            Animação quebrada
+		ah.set_key_to_action(KEY_4,             MECHANICS[13][1]) # Charge Bullet
+		ah.set_key_to_action(KEY_E,             MECHANICS[14][1]) # Laser
+		ah.set_key_to_action(KEY_F,             MECHANICS[15][1]) # Flamethrower     Animação quebrada
+		ah.set_key_to_action(KEY_L,             MECHANICS[16][1]) # Double Bullet
 
 func update_wave_points():
 	wave_points += cur_wave
