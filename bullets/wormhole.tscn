@@ -10,19 +10,24 @@
 "wormholes",
 ]]
 
+rotation = 1.5708
 input_pickable = false
 collision_layer = 8
 collision_mask = 6
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 damage = 1
 speed_factor = 1.5
 damages_player = false
 
 [node name="Sprite" parent="." index="0" instance=ExtResource( 2 )]
 
+_sections_unfolded = [ "Transform" ]
+
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
+position = Vector2( 0, 19 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -30,6 +35,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
