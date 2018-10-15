@@ -83,10 +83,15 @@ func _set_look_dir(dir):
 		emit_signal("look_dir_changed", dir)
 
 func dash(time):
+	var timer = Timer.new()
+	timer.wait_time = time + .25
+	self.add_child(timer)
+	timer.start()
 	self.dashTime = time
 	sfx.get_node('Dash').play()
-	var frame = sprite.get_frame() * 1.0 / (sprite.get_hframes() * sprite.get_vframes())
 	afterimage.set_emitting(true)
+	yield(timer, 'timeout')
+	afterimage.set_emitting(false)
 
 func shield(time):
 	self.shieldTime = time
