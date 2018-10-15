@@ -120,10 +120,28 @@ func _ready():
 		ah.set_key_to_action(KEY_3,             MECHANICS[10][1]) # Shotgun
 		ah.set_key_to_action(KEY_Q,             MECHANICS[11][1]) # Ricochet Bullet
 		ah.set_key_to_action(KEY_CAPSLOCK,      MECHANICS[12][1]) # Storm            Animação quebrada
-		ah.set_key_to_action(KEY_4,             MECHANICS[13][1]) # Charge Bullet
+		ah.set_key_to_action(KEY_4,             MECHANICS[13][1]) # Charge Bullet    Animação quebrada
 		ah.set_key_to_action(KEY_E,             MECHANICS[14][1]) # Laser
 		ah.set_key_to_action(KEY_F,             MECHANICS[15][1]) # Flamethrower     Animação quebrada
 		ah.set_key_to_action(KEY_L,             MECHANICS[16][1]) # Double Bullet
+		
+		ah.set_used_key(BUTTON_RIGHT)
+		ah.set_used_key(KEY_CONTROL)
+		ah.set_used_key(KEY_1)
+		ah.set_used_key(KEY_SPACE)
+		ah.set_used_key(BUTTON_WHEEL_UP)
+		ah.set_used_key(KEY_P)
+		ah.set_used_key(KEY_SHIFT)
+		ah.set_used_key(BUTTON_WHEEL_DOWN)
+		ah.set_used_key(BUTTON_MIDDLE)
+		ah.set_used_key(KEY_2)
+		ah.set_used_key(KEY_3)
+		ah.set_used_key(KEY_Q)
+		ah.set_used_key(KEY_CAPSLOCK)
+		ah.set_used_key(KEY_4)
+		ah.set_used_key(KEY_E)
+		ah.set_used_key(KEY_F)
+		ah.set_used_key(KEY_L)
 
 func update_wave_points():
 	wave_points += cur_wave
