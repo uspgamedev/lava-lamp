@@ -4,6 +4,9 @@
 
 [node name="Shielded" type="Node2D" index="0"]
 
+position = Vector2( 0, -15 )
+_sections_unfolded = [ "Transform" ]
+
 [node name="Particles2D" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( -1, 0 )
