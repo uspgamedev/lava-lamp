@@ -107,6 +107,8 @@ func _ready():
 		cur_mechanics = 16
 		cur_enemy = 11
 		var ah = get_node('../Props/Player').get_node('ActionHandler')
+		#for i in range(len(lista))
+			#ah.set_key_to_action(lista[i], MECHANICS[i][1]
 		ah.set_key_to_action(BUTTON_RIGHT,      MECHANICS[0][1])  # Simple Bullet
 		ah.set_key_to_action(KEY_CONTROL,       MECHANICS[1][1])  # Trap
 		ah.set_key_to_action(KEY_1,             MECHANICS[2][1])  # Tracer Bullet
