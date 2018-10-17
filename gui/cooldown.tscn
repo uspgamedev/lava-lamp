@@ -45,7 +45,7 @@ ProgressBar/fonts/font = null
 ProgressBar/styles/bg = SubResource( 1 )
 ProgressBar/styles/fg = SubResource( 2 )
 
-[node name="Cooldown" type="Node2D" index="0"]
+[node name="Cooldown" type="Node2D"]
 
 script = ExtResource( 1 )
 

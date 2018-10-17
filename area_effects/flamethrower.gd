@@ -23,7 +23,7 @@ func _ready():
 	self._set_rotation(self.angle)
 
 func _set_rotation(angle):
-	sprite.set_rotation(angle)
+	sprite.set_rotation(angle + PI/2)
 	area.set_rotation(angle)
 
 func _unhandled_input(ev):
