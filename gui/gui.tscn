@@ -69,7 +69,6 @@ position = Vector2( 630, 650 )
 
 [node name="SelectedAction" type="Node2D" parent="." index="5"]
 
-editor/display_folded = true
 position = Vector2( 1190, 441 )
 
 [node name="Node2D" type="Node2D" parent="SelectedAction" index="0"]
