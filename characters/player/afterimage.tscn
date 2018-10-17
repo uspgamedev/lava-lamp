@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://characters/player/android_sprite_sheet.png" type="Texture" id=1]
+[gd_scene format=2]
 
 [node name="Particles2D" type="Particles2D"]
 
@@ -18,9 +16,10 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = null
-texture = ExtResource( 1 )
+texture = null
 normal_map = null
-h_frames = 14
-v_frames = 4
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures" ]
 
 

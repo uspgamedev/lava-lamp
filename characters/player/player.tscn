@@ -415,7 +415,7 @@ anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -629,7 +629,6 @@ script = null
 
 position = Vector2( 0, -12 )
 process_material = SubResource( 20 )
-_sections_unfolded = [ "Process Material", "Textures" ]
 
 [node name="GridManager" parent="." index="8" instance=ExtResource( 21 )]
 

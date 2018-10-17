@@ -89,6 +89,7 @@ func dash(time):
 	timer.start()
 	self.dashTime = time
 	sfx.get_node('Dash').play()
+	afterimage.texture = load(str("res://characters/player/frames/android_sprite_sheet-%02d.png" % (sprite.frame)))
 	afterimage.set_emitting(true)
 	yield(timer, 'timeout')
 	afterimage.set_emitting(false)
