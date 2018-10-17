@@ -490,7 +490,8 @@ blend_times = [  ]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
 build_mode = 0
-polygon = PoolVector2Array( -10, -6, 10, -6, 10, 9, -10, 9 )
+polygon = PoolVector2Array( -9, -6, 9, -6, 9, 7, -9, 7 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
