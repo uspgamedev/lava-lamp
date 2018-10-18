@@ -12,6 +12,8 @@ signal not_hold_action
 signal press_quit
 signal skip_intro
 
+var binds = []
+
 enum {
 	KEYBOARD,
 	KEYBOARD2,
@@ -26,6 +28,7 @@ var cur = 0
 var last_dir_hold = []
 
 func _ready():
+	binds.resize(17)
 	for i in range(4):
 		last_dir_hold.append(-10)
 
