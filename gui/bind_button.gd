@@ -35,11 +35,55 @@ func _pressed():
 	self.text = "Choose Key"
 	while(waiting_key):
 		yield(get_tree(), 'physics_frame')
-	match self.name:#acha o nome do botao(this.name):
+	match self.name:
 		"SimpleBullet":
 			self.text = get_key_string(key)
 			binds[0] = key
 		"Trap":
 			self.text = get_key_string(key)
 			binds[1] = key
-		
+		"TracerBullet":
+			self.text = get_key_string(key)
+			binds[2] = key
+		"Dash":
+			self.text = get_key_string(key)
+			binds[3] = key
+		"GhostBullet":
+			self.text = get_key_string(key)
+			binds[4] = key
+		"Wormhole":
+			self.text = get_key_string(key)
+			binds[5] = key
+		"Armor":
+			self.text = get_key_string(key)
+			binds[6] = key
+		"IonBullet":
+			self.text = get_key_string(key)
+			binds[7] = key
+		"CureBullet":
+			self.text = get_key_string(key)
+			binds[8] = key
+		"GuidedBullet":
+			self.text = get_key_string(key)
+			binds[9] = key
+		"Shotgun":
+			self.text = get_key_string(key)
+			binds[10] = key
+		"RicochetBullet":
+			self.text = get_key_string(key)
+			binds[11] = key
+		"Storm":
+			self.text = get_key_string(key)
+			binds[12] = key
+		"ChargeBullet":
+			self.text = get_key_string(key)
+			binds[13] = key
+		"Laser":
+			self.text = get_key_string(key)
+			binds[14] = key
+		"Flamethrower":
+			self.text = get_key_string(key)
+			binds[15] = key
+		"DoubleBullet":
+			self.text = get_key_string(key)
+			binds[16] = key
