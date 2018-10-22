@@ -2,9 +2,11 @@
 
 [ext_resource path="res://gui/helper_arrow.gd" type="Script" id=1]
 
-[node name="Helper_Arrow" type="Node2D"]
+[node name="Helper_Arrow" type="Node2D" index="0"]
 
+z_index = 4096
 script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="0"]
 

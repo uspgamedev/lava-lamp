@@ -15,7 +15,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Floor" type="TileMap" parent="." index="0"]
 
-position = Vector2( 0, 31 )
 z_index = -2
 mode = 0
 tile_set = ExtResource( 2 )
@@ -38,6 +37,7 @@ _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [node name="Props" type="TileMap" parent="." index="1"]
 
+position = Vector2( 0, -31 )
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 24 )
@@ -59,7 +59,7 @@ _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [node name="Player" parent="Props" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 1631.32, 404.505 )
+position = Vector2( 1631.32, 436.505 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="WaveManager" parent="." index="2" instance=ExtResource( 4 )]
