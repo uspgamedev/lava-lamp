@@ -40,9 +40,9 @@ bus = "Master"
 [node name="Opening" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 5 )
-volume_db = -9.0
+volume_db = 0.0
 pitch_scale = 1.0
-autoplay = true
+autoplay = false
 mix_target = 0
 bus = "Master"
 
@@ -63,7 +63,5 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
-
-[connection signal="finished" from="Opening" to="." method="_action_mode"]
 
 

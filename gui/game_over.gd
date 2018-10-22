@@ -4,6 +4,7 @@ func _ready():
 	get_node('/root/input').set_control_type(get_node('/root/input').control_type)
 
 func start():
+	print('stop')
 	get_node('/root/Main/BGM').stop()
 	get_node('StreamPlayer').play()
 	get_tree().set_pause(true)

@@ -8,6 +8,14 @@ onready var tween2 = get_node('Tween2')
 
 onready var opening = get_node("Opening")
 
+func _ready():
+	play()
+	var t = Timer.new()
+	t.wait_time = opening.stream.get_length()
+	t.start()
+	self.add_child(t)
+	t.connect('timeout', self, '_action_mode')
+
 func _action_mode():
 	if !action.is_playing():
 		opening.stop()

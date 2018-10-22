@@ -13,4 +13,3 @@ func _physics_process(delta):
 	if dir != self.last_dir:
 		anim.set_current_animation(DIR_ANIMS[dir])
 		last_dir = dir
-
