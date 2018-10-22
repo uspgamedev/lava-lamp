@@ -4,7 +4,7 @@
 [ext_resource path="res://characters/enemies/shielded/shielded.gd" type="Script" id=2]
 [ext_resource path="res://characters/enemies/shielded/shield.png" type="Texture" id=3]
 [ext_resource path="res://characters/enemies/ai/shielded_follow.gd" type="Script" id=4]
-[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=5]
+[ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/enemies/shielded/monster sound shield walking (loopar, com crossfade).wav" type="AudioStream" id=6]
 [ext_resource path="res://characters/enemies/shielded/monster sound shield shielding bullet.wav" type="AudioStream" id=7]
 
@@ -101,7 +101,7 @@ tracks/0/keys = {
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="ShieldedEnemy" index="0" instance=ExtResource( 1 )]
+[node name="ShieldedEnemy" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 min_spawn_range = null

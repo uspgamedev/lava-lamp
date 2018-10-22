@@ -33,7 +33,7 @@ func think(dt, player):
 			charge_vec = (player.get_position() - enemy.get_position()).normalized()
 			state = CHARGE
 			max_charge = 3
-			get_parent().sfx.get_node('Assault').play()
+			get_parent().get_node('Assault').play()
 	elif state == CHARGE:
 		max_charge -= dt
 		if max_charge <= 0:
