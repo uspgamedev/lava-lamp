@@ -17,6 +17,3 @@ func _exit_tree():
 	self.get_parent().add_child(explo)
 	self.get_parent().add_child(death)
 
-
-func _on_Area2D_area_entered(area):
-	pass # replace with function body
