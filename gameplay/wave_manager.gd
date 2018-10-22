@@ -107,41 +107,11 @@ func _ready():
 		cur_mechanics = 16
 		cur_enemy = 11
 		var ah = get_node('../Props/Player').get_node('ActionHandler')
-		ah.set_key_to_action(BUTTON_RIGHT,      MECHANICS[0][1])  # Simple Bullet
-		ah.set_key_to_action(KEY_CONTROL,       MECHANICS[1][1])  # Trap
-		ah.set_key_to_action(KEY_1,             MECHANICS[2][1])  # Tracer Bullet
-		ah.set_key_to_action(KEY_SPACE,         MECHANICS[3][1])  # Dash             Animação quebrada
-		ah.set_key_to_action(BUTTON_WHEEL_UP,   MECHANICS[4][1])  # Ghost Bullet
-		ah.set_key_to_action(KEY_P,             MECHANICS[5][1])  # Wormhole
-		ah.set_key_to_action(KEY_SHIFT,         MECHANICS[6][1])  # Armor            Animação quebrada
-		ah.set_key_to_action(BUTTON_WHEEL_DOWN, MECHANICS[7][1])  # Ion Bullet
-		ah.set_key_to_action(BUTTON_MIDDLE,     MECHANICS[8][1])  # Cure Bullet
-		ah.set_key_to_action(KEY_2,             MECHANICS[9][1])  # Guided Bullet
-		ah.set_key_to_action(KEY_3,             MECHANICS[10][1]) # Shotgun
-		ah.set_key_to_action(KEY_Q,             MECHANICS[11][1]) # Ricochet Bullet
-		ah.set_key_to_action(KEY_CAPSLOCK,      MECHANICS[12][1]) # Storm            Animação quebrada
-		ah.set_key_to_action(KEY_4,             MECHANICS[13][1]) # Charge Bullet    Animação quebrada
-		ah.set_key_to_action(KEY_E,             MECHANICS[14][1]) # Laser
-		ah.set_key_to_action(KEY_F,             MECHANICS[15][1]) # Flamethrower     Animação quebrada
-		ah.set_key_to_action(KEY_L,             MECHANICS[16][1]) # Double Bullet
-		
-		ah.set_used_key(BUTTON_RIGHT)
-		ah.set_used_key(KEY_CONTROL)
-		ah.set_used_key(KEY_1)
-		ah.set_used_key(KEY_SPACE)
-		ah.set_used_key(BUTTON_WHEEL_UP)
-		ah.set_used_key(KEY_P)
-		ah.set_used_key(KEY_SHIFT)
-		ah.set_used_key(BUTTON_WHEEL_DOWN)
-		ah.set_used_key(BUTTON_MIDDLE)
-		ah.set_used_key(KEY_2)
-		ah.set_used_key(KEY_3)
-		ah.set_used_key(KEY_Q)
-		ah.set_used_key(KEY_CAPSLOCK)
-		ah.set_used_key(KEY_4)
-		ah.set_used_key(KEY_E)
-		ah.set_used_key(KEY_F)
-		ah.set_used_key(KEY_L)
+		var binds = get_node("/root/input").binds
+		for i in range(len(binds)):
+			if binds[i] != null:
+				ah.set_key_to_action(binds[i], MECHANICS[i][1])
+				ah.set_used_key(binds[i])
 
 func update_wave_points():
 	wave_points += cur_wave
