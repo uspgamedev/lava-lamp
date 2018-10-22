@@ -11,6 +11,7 @@ func activate(action_handler, key):
 	var b = Trap.instance()
 	var pl = action_handler.get_parent()
 	b.set_position(pl.get_position())
+	b.set_rotation(PI/2)
 	b.speed = Vector2()
 	pl.get_parent().add_child(b)
 	return null
