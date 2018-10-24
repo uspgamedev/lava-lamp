@@ -1,4 +1,5 @@
 Inimigos spawnam dentro das paredes (Talvez arrumado)
 Colocar verificação de overlapping bodies no player ao fim da invencibilidade
 Colocar os sound effects no bus de sound effects
+Criar singleton para salvar opções de gráfico e som
 Arrumar o tamanho dos ícones dos inimigos
