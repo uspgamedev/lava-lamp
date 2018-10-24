@@ -102,7 +102,7 @@ tracks/0/keys = {
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 0, 1, 1 ) ]
 }
 
-[node name="Mage" index="0" instance=ExtResource( 1 )]
+[node name="Mage" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
