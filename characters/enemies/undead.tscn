@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/undead.gd" type="Script" id=2]
 [ext_resource path="res://characters/enemies/undead/undead.png" type="Texture" id=3]
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=4]
-[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=5]
-[ext_resource path="res://characters/enemies/undead/monster sound undead walking (loopar, sem crossfade).wav" type="AudioStream" id=6]
+[ext_resource path="res://characters/enemies/undead/monster sound undead walking (loopar, sem crossfade).wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -104,21 +103,8 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="SFX" parent="." index="8" instance=ExtResource( 4 )]
 
+stream = ExtResource( 5 )
 autoplay = true
-autoplay = true
-which = "Creep"
-
-[node name="Creep" parent="SFX" index="0" instance=ExtResource( 5 )]
-
-stream = ExtResource( 6 )
-
-[node name="Timer" type="Timer" parent="SFX" index="1"]
-
-process_mode = 1
-wait_time = 3.0
-one_shot = false
-autostart = true
-
-[connection signal="timeout" from="SFX/Timer" to="SFX" method="play" binds= [ "Creep" ]]
+bus = "SFX"
 
 
