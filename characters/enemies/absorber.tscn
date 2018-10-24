@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://characters/enemies/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/absorber.gd" type="Script" id=2]
@@ -6,9 +6,8 @@
 [ext_resource path="res://characters/enemies/ai/absorber_ai.gd" type="Script" id=4]
 [ext_resource path="res://effects/lightning/shield.tscn" type="PackedScene" id=5]
 [ext_resource path="res://effects/sound/sfx.tscn" type="PackedScene" id=6]
-[ext_resource path="res://effects/sound/sample.tscn" type="PackedScene" id=7]
-[ext_resource path="res://characters/enemies/charger/monster sound charger walking (adaptar à animação).wav" type="AudioStream" id=8]
-[ext_resource path="res://characters/enemies/charger/monster sound charge charging.wav" type="AudioStream" id=9]
+[ext_resource path="res://characters/enemies/charger/monster sound charger walking (adaptar à animação).wav" type="AudioStream" id=7]
+[ext_resource path="res://characters/enemies/charger/monster sound charge charging.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -131,15 +130,15 @@ anims/up_moving = SubResource( 4 )
 
 anims/hit = SubResource( 5 )
 
-[node name="Area2D" parent="." index="3"]
+[node name="Area2D" parent="." index="2"]
 
 editor/display_folded = true
 
-[node name="Ai" parent="." index="4"]
+[node name="Ai" parent="." index="3"]
 
 script = ExtResource( 4 )
 
-[node name="EnemyHealth" parent="." index="6"]
+[node name="EnemyHealth" parent="." index="5"]
 
 position = Vector2( 1.66893e-06, -40 )
 
@@ -147,17 +146,17 @@ position = Vector2( 1.66893e-06, -40 )
 
 position = Vector2( 0, -7 )
 
-[node name="SFX" parent="." index="9" instance=ExtResource( 6 )]
+[node name="Walk" parent="." index="9" instance=ExtResource( 6 )]
 
+stream = ExtResource( 7 )
+volume_db = -10.0
 autoplay = true
-which = "Walk"
+bus = "SFX"
 
-[node name="Walk" parent="SFX" index="0" instance=ExtResource( 7 )]
+[node name="Assault" parent="." index="10" instance=ExtResource( 6 )]
 
 stream = ExtResource( 8 )
-
-[node name="Assault" parent="SFX" index="1" instance=ExtResource( 7 )]
-
-stream = ExtResource( 9 )
+volume_db = 5.0
+bus = "SFX"
 
 
