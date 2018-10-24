@@ -101,7 +101,7 @@ tracks/0/keys = {
 "values": [ Color( 255, 255, 255, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Charger" index="0" instance=ExtResource( 1 )]
+[node name="Charger" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 min_spawn_range = null

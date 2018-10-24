@@ -14,7 +14,9 @@ func start():
 	var props = get_node('/root/Main/Props').get_children()
 	for i in props:
 		if i.is_in_group('enemy'):
-			i.get_node('SFX').stop()
+			for child in i.get_children():
+				if child.is_in_group('sfx'):
+					child.stop()
 
 func _on_Button_pressed():
 	get_node('/root/Main/BGM').play()

@@ -2,7 +2,9 @@
 
 [ext_resource path="res://effects/sound/sfx.gd" type="Script" id=1]
 
-[node name="SFX" type="AudioStreamPlayer2D"]
+[node name="SFX" type="AudioStreamPlayer2D" groups=[
+"sfx",
+]]
 
 stream = null
 volume_db = 0.0

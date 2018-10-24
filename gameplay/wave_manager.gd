@@ -3,8 +3,8 @@ extends Node
 const ENEMIES = [ # 12 enemies
 #	['Eye', 'res://characters/enemies/olhinho', 2,                  'A little floating eye.', 4],
 #	['Shielded', 'res://characters/enemies/shielded', 5,            "It thinks it's a knight.", 4],
-	['Charger', 'res://characters/enemies/charger', 7,              "It has little kids for breakfast. Now it can't have breakfast anymore.", 4],
-#	['Ghost', 'res://characters/enemies/ghost', 12,                 "It's a ghost and a robot. Don't ask me.", 3],
+#	['Charger', 'res://characters/enemies/charger', 7,              "It has little kids for breakfast. Now it can't have breakfast anymore.", 4],
+	['Ghost', 'res://characters/enemies/ghost', 12,                 "It's a ghost and a robot. Don't ask me.", 3],
 #	['Mage', 'res://characters/enemies/mage', 15,                   'A little eye that shoots bullets.', 3],
 #	['Bouncer', 'res://characters/enemies/bouncer', 20,             "It's capable of doing 1 homerun for every 5 swings.", 4],
 #	['Undead', 'res://characters/enemies/undead', 25,               "It's a zombie and a robot. Don't.", 16],
