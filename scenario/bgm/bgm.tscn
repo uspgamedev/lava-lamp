@@ -6,7 +6,7 @@
 [ext_resource path="res://scenario/bgm/music_layer_3.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scenario/bgm/opening.ogg" type="AudioStream" id=5]
 
-[node name="BGM" type="Node"]
+[node name="BGM" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -17,7 +17,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
 [node name="Action" type="AudioStreamPlayer" parent="." index="1"]
 
@@ -26,7 +26,7 @@ volume_db = -80.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
 [node name="Interlude" type="AudioStreamPlayer" parent="." index="2"]
 
@@ -35,7 +35,7 @@ volume_db = -80.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
 [node name="Opening" type="AudioStreamPlayer" parent="." index="3"]
 
@@ -44,7 +44,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
 [node name="Tween1" type="Tween" parent="." index="4"]
 
