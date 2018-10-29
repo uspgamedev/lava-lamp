@@ -112,3 +112,9 @@ func _on_SFXSlider_value_changed(value):
 
 func _on_MusicSlider_value_changed(value):
 	change_volume(value, 100, 1)
+	
+# Enter test cell
+func _unhandled_input(event):
+    if event is InputEventKey:
+        if event.pressed and event.scancode == KEY_TAB:
+            get_tree().change_scene('res://tests/test_cellar.tscn')

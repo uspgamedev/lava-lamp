@@ -2,7 +2,7 @@ extends Node2D
 
 const COOLDOWN = preload('res://gui/cooldown.tscn')
 
-onready var gui = get_node('/root/Main/GUI')
+onready var gui = get_node('/root/TestCellar/GUI')
 onready var portrait = gui.get_node("Player_Portrait")
 onready var input = get_node('/root/input')
 
@@ -33,7 +33,7 @@ func set_used_key(key):
 func set_selected_action(act):
 	print("selecting %s" % act.name)
 	selected_action = act
-	var sa = get_node('/root/Main/GUI/SelectedAction/Node2D')
+	var sa = get_node('/root/TestCellar/GUI/SelectedAction/Node2D')
 	for i in range(sa.get_child_count()):
 		sa.get_child(i).queue_free()
 	sa.add_child(act.icon.instance())
@@ -68,7 +68,7 @@ func actually_do(act, key):
 	act.on_cooldown = true
 	var cd = COOLDOWN.instance()
 	cd.icon = act.icon
-	get_node('/root/Main/GUI/Cooldowns').add_cooldown(cd)
+	get_node('/root/TestCellar/GUI/Cooldowns').add_cooldown(cd)
 	cd.set_max(act.cooldown_time)
 	cd.connect('cooldown_end', self, 'cooldown_end', [act, key])
 	can_do = true

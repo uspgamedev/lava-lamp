@@ -23,7 +23,7 @@ func think(dt, player):
 	walk_cd -= dt
 	if walk_cd <= 0:
 		walk_cd = rand_range(5, 8)
-		var main = get_node('/root/Main')
+		var main = get_node('/root/TestCellar')
 		for i in range(10):
 			var p = main.get_valid_position()
 			if not enemy.test_move(Transform2D(enemy.rotation, enemy.position), p - enemy.get_position()):

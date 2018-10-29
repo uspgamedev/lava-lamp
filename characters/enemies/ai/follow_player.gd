@@ -17,7 +17,7 @@ func think(dt, player):
 			enemy.speed += (sp * dt * goto_dir)
 			return
 		var gmng = player.get_node('GridManager')
-		var tm = get_node('/root/Main/Floor')
+		var tm = get_node('/root/TestCellar/Floor')
 		var cood = tm.world_to_map(ep)
 
 		if gmng.nxt.has(cood) and gmng.dist[cood] > 1:

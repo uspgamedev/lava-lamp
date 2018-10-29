@@ -29,7 +29,7 @@ func deactivate_arrow():
 	polygon.hide()
 
 func is_far_enough(e_pos):
-	var scale = get_node('/root/Main/').get_scale()
+	var scale = get_node('/root/TestCellar/').get_scale()
 	
 	var player = get_parent()
 	var p_pos = player.get_position()
@@ -71,7 +71,7 @@ func check_distance_of_active_enemy():
 		return
 
 func update_helper_arrow():
-	var scale = get_node('/root/Main/').get_scale()
+	var scale = get_node('/root/TestCellar/').get_scale()
 	var e = active_enemy.get_ref()
 	
 	var player = get_parent()

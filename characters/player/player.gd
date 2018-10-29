@@ -8,7 +8,7 @@ onready var ah = get_node('ActionHandler')
 onready var sfx = get_node('SFX')
 onready var afterimage = get_node('AfterImage')
 onready var sprite = get_node('Sprite')
-onready var gui = get_node('/root/Main/GUI')
+onready var gui = get_node('/root/TestCellar/GUI')
 onready var portrait = gui.get_node("Player_Portrait")
 onready var dialog_box = gui.get_node("Dialog Box")
 onready var shoot_timer = get_node("Shooting_Timer")
@@ -166,7 +166,7 @@ func deal_damage(d):
 	else:
 		self.sfx.get_node("Heal").play()
 	if self.damage >= self.hp:
-		get_node('/root/Main/GUI/GameOver').start()
+		get_node('/root/TestCellar/GUI/GameOver').start()
 	gui.get_node('HealthBar').update()
 	if d > 0:
 		emit_signal('change_emotion', "angry", 2)
@@ -183,9 +183,9 @@ func lock_controls():
 	input.disconnect('press_action', ah, 'do_selected_action')
 	ah.set_process_unhandled_input(false)
 	get_node("Hook").hide()
-	get_node("/root/Main/GUI/HealthBar").hide()
-	get_node("/root/Main/GUI/SelectedAction").hide()
-	get_node("/root/Main/GUI/WaveCount").hide()
+	get_node("/root/TestCellar/GUI/HealthBar").hide()
+	get_node("/root/TestCellar/GUI/SelectedAction").hide()
+	get_node("/root/TestCellar/GUI/WaveCount").hide()
 
 func unlock_controls():
 	input.connect('hold_direction', self, '_add_speed_scale')
@@ -193,10 +193,10 @@ func unlock_controls():
 	input.connect('hold_look', self, '_set_look_dir')
 	input.connect('press_action', ah, 'do_selected_action')
 	ah.set_process_unhandled_input(true)
-	get_node("/root/Main/GUI/HealthBar").show()
-	get_node("/root/Main/GUI/SelectedAction").show()
+	get_node("/root/TestCellar/GUI/HealthBar").show()
+	get_node("/root/TestCellar/GUI/SelectedAction").show()
 	get_node("Hook").show()
-	get_node("/root/Main/GUI/WaveCount").show()
+	get_node("/root/TestCellar/GUI/WaveCount").show()
 
 func _on_Intro_Tween_tween_complete( object, key ):
 	if (intro_func != null):
@@ -300,18 +300,18 @@ func intro():
 
 	can_complete = false
 	unlock_controls()
-	get_node('/root/Main/GUI/PauseNotice').start()
+	get_node('/root/TestCellar/GUI/PauseNotice').start()
 
 	intro_timer.set_wait_time(2)
 	intro_timer.start()
 
 	yield()
 	
-	while get_node('/root/Main/BGM/Opening').playing:
+	while get_node('/root/TestCellar/BGM/Opening').playing:
 		yield(get_tree(), 'physics_frame')
 	
 	#Start first wave
-	get_node('/root/Main/WaveManager').new_wave()
+	get_node('/root/TestCellar/WaveManager').new_wave()
 
 func _on_DamageCooldown_timeout():
 	for body in get_node('Area2D').get_overlapping_bodies():

@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://gameplay/gameplay.gd" type="Script" id=1]
+[ext_resource path="res://gameplay/wave_manager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/gui.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenario/bgm/bgm.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenario/tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=6]
+
+[node name="TestCellar" type="Node2D" index="0"]
+
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WaveManager" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="GUI" parent="." index="1" instance=ExtResource( 3 )]
+
+[node name="BGM" parent="." index="2" instance=ExtResource( 4 )]
+
+[node name="Floor" type="TileMap" parent="." index="3"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 32, 24 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 327686, 2, 0, 327687, 2, 0, 327688, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Props" type="TileMap" parent="." index="4"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+
+[node name="Player" parent="Props" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 241.505, 95.4088 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+
+[editable path="WaveManager"]

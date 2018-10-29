@@ -34,9 +34,9 @@ func _ready():
 
 
 func set_control_type(tp):
-	if (!has_node('/root/Main')):
+	if (!has_node('/root/TestCellar')):
 		return
-	var pl = get_node('/root/Main/Props/Player')
+	var pl = get_node('/root/TestCellar/Props/Player')
 	control_type = tp
 	if tp == KEYBOARD:
 		shoot_on_click = true
@@ -48,7 +48,7 @@ func set_control_type(tp):
 		pl.get_node('Hook/LookArrow').visible = !(false)
 
 func get_key_string(key):
-	if (!has_node('/root/Main')):
+	if (!has_node('/root/TestCellar')):
 		return
 	if (key >= KEY_SPACE):
 		return OS.get_scancode_string(key)
@@ -60,30 +60,30 @@ func get_key_string(key):
 	if key == BUTTON_WHEEL_RIGHT: return 'Mouse wheel right button'
 
 func _input(event):
-	if (!has_node('/root/Main')):
+	if (!has_node('/root/TestCellar')):
 		return
 	if get_tree().is_paused():
-		if not get_node('/root/Main/GUI/GameOver').is_visible() and event.is_action_pressed('pause'):
+		if not get_node('/root/TestCellar/GUI/GameOver').is_visible() and event.is_action_pressed('pause'):
 			get_tree().set_pause(false)
-			get_node('/root/Main/GUI/PauseScreen').visible = !(true)
+			get_node('/root/TestCellar/GUI/PauseScreen').visible = !(true)
 		return
 	else:
 		if event.is_action_pressed('pause'):
 			get_tree().set_pause(true)
-			get_node('/root/Main/GUI/MoveList').visible = !(true)
-			get_node('/root/Main/GUI/PauseNotice').hide()
-			get_node('/root/Main/GUI/PauseScreen').visible = !(false)
+			get_node('/root/TestCellar/GUI/MoveList').visible = !(true)
+			get_node('/root/TestCellar/GUI/PauseNotice').hide()
+			get_node('/root/TestCellar/GUI/PauseScreen').visible = !(false)
 	if event.is_action_pressed('show_moves'):
-		var ah = get_node('/root/Main/Props/Player/ActionHandler')
+		var ah = get_node('/root/TestCellar/Props/Player/ActionHandler')
 		var mp = ah.action_map
 		var txt = ""
 		var keys = ah.get_keys_used()
 		for i in range(keys.size()):
 			txt += "%s:  %s\n" % [get_key_string(keys[i]), mp[keys[i]].get_name().replace("_", " ")]
-		get_node('/root/Main/GUI/MoveList/Description').set_text(txt)
-		get_node('/root/Main/GUI/MoveList').visible = !(false)
+		get_node('/root/TestCellar/GUI/MoveList/Description').set_text(txt)
+		get_node('/root/TestCellar/GUI/MoveList').visible = !(false)
 	elif event.is_action_released('show_moves'):
-		get_node('/root/Main/GUI/MoveList').visible = !(true)
+		get_node('/root/TestCellar/GUI/MoveList').visible = !(true)
 	var dir = self._get_direction(event)
 	var act = self._get_action(event)
 	if dir != -1: emit_signal('press_direction', dir)
@@ -92,7 +92,7 @@ func _input(event):
 	if _get_quit(event): emit_signal('press_quit')
 
 func _physics_process(delta):
-	if (!has_node('/root/Main')):
+	if (!has_node('/root/TestCellar')):
 		return
 	cur += delta
 	var dir = self._get_direction(Input)
@@ -134,7 +134,7 @@ func _get_look_direction(e):
 		return -1
 	elif control_type == MOUSE:
 		var p = get_viewport().get_mouse_position()
-		var pl_p = get_node('/root/Main/Props/Player').get_global_transform_with_canvas().origin
+		var pl_p = get_node('/root/TestCellar/Props/Player').get_global_transform_with_canvas().origin
 		var ang = atan2(p.x - pl_p.x, p.y  - pl_p.y)
 		if ang >= PI * 7.0 / 8 or ang <= -PI * 7.0 / 8:
 			return DIR.UP

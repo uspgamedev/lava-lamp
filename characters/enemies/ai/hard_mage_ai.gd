@@ -11,7 +11,7 @@ func think(dt, player):
 	if teleport_time <= 0:
 		teleport_time = rand_range(4, 10)
 		var b = MageBullet.instance()
-		var main = get_node('/root/Main')
+		var main = get_node('/root/TestCellar')
 		var pos = null
 		for tries in range(10):
 			var p = main.get_valid_position()

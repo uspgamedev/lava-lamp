@@ -89,7 +89,7 @@ var HealthPack = preload('res://scenario/props/health_pack.tscn')
 
 signal change_emotion(emotion, time)
 
-onready var gui = get_node('/root/Main/GUI')
+onready var gui = get_node('/root/TestCellar/GUI')
 onready var portrait = gui.get_node('Player_Portrait')
 onready var dialog_box = gui.get_node('Dialog Box')
 onready var bgm = get_node('../BGM')
@@ -124,7 +124,7 @@ func wave_ended():
 	if lives > 0:
 		text += " I left %d [color=lime]health pack%s[/color] for you as a reward. Go search for %s." % [lives, "s" if lives > 1 else "", "them" if lives > 1 else "it"]
 		wait_time += 3
-	var main = get_node('/root/Main')
+	var main = get_node('/root/TestCellar')
 	for i in range(lives):
 		var p = main.get_valid_position()
 		var hp = HealthPack.instance()
@@ -181,7 +181,7 @@ func start_wave():
 	var w = get_node('Wave')
 	dialog_box.clear_all_info_boxes()
 	print('Wave ', cur_wave, ' started')
-	get_node('/root/Main/GUI/WaveCount').set_text("Wave %d" % cur_wave)
+	get_node('/root/TestCellar/GUI/WaveCount').set_text("Wave %d" % cur_wave)
 	bgm._action_mode()
 	w.start()
 

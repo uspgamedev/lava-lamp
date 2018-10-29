@@ -103,7 +103,7 @@ func display_text(text, delay = 3):
 	
 func _text_tween_complete( object, key ):
 	var portrait = get_parent().get_node("Cientist_Portrait")
-	var player = get_node("/root/Main/Props/Player")
+	var player = get_node("/root/TestCellar/Props/Player")
 	portrait.stop_talking()
 	player.dialogue_end()
 	if !get_node('/root/input').is_connected('skip_intro', player, 'skip_intro'):

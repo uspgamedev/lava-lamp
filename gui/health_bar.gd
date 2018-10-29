@@ -19,7 +19,7 @@ func recreate(hp):
 	update()
 
 func update():
-	var pl = get_node('/root/Main/Props/Player');
+	var pl = get_node('/root/TestCellar/Props/Player');
 	for i in range(hp):
 		if i < pl.hp - pl.damage:
 			get_child(i).set_texture(full_heart)
