@@ -45,7 +45,7 @@ func set_icon(icon):
 		if arrow != null:
 			arrow.hide()
 			icon.set_position(Vector2(0, 40))
-		icon.set_scale(Vector2(4, 4))
+		icon.set_scale(Vector2(2, 2))
 	elif (icon.get_type() == 'Particles2D'):
 		icon.set_scale(Vector2(3, 1.3))
 		if (icon.get_name() == 'FireParticles'):
