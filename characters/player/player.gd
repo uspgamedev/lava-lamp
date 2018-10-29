@@ -312,3 +312,8 @@ func intro():
 	
 	#Start first wave
 	get_node('/root/Main/WaveManager').new_wave()
+
+func _on_DamageCooldown_timeout():
+	for body in get_node('Area2D').get_overlapping_bodies():
+		if body.is_in_group('enemy'):
+			self.deal_damage(1)

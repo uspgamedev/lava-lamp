@@ -415,7 +415,7 @@ anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -696,5 +696,7 @@ autostart = false
 [connection signal="tween_completed" from="Intro_Tween" to="." method="_on_Intro_Tween_tween_complete"]
 
 [connection signal="timeout" from="Intro_Timer" to="." method="_on_Intro_Timer_timeout"]
+
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_DamageCooldown_timeout"]
 
 
