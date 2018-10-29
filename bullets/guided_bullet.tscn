@@ -12,22 +12,11 @@
 script = ExtResource( 2 )
 damage = 2
 
-[node name="Area2D" parent="." index="1"]
-
-audio_bus_override = false
-audio_bus_name = "Master"
-
 [node name="Sprite" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 0, -20 )
 
 [node name="SFX" parent="." index="4" instance=ExtResource( 4 )]
-
-stream = null
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [node name="Fly" parent="SFX" index="0" instance=ExtResource( 5 )]
 

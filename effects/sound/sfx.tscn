@@ -2,7 +2,7 @@
 
 [ext_resource path="res://effects/sound/sfx.gd" type="Script" id=1]
 
-[node name="SFX" type="AudioStreamPlayer2D" groups=[
+[node name="SFX" type="AudioStreamPlayer2D" index="0" groups=[
 "sfx",
 ]]
 
@@ -12,7 +12,7 @@ pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "SFX"
 area_mask = 1
 script = ExtResource( 1 )
 which = ""

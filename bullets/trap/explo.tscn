@@ -8,12 +8,6 @@
 
 [node name="SFX" parent="." index="0" instance=ExtResource( 1 )]
 
-stream = null
-autoplay = true
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 autoplay = true
 which = "Boom"
 
