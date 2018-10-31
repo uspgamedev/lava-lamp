@@ -17,8 +17,6 @@ func think(dt, player):
 		var b = MageBullet.instance()
 		b.set_position(enemy.get_position())
 		b.speed = (player.get_position() - enemy.get_position()).normalized() * bullet_speed
-		print (b.rotation_degrees)
-		print (b.rotation)
 		player.get_parent().add_child(b)
 	walk_cd -= dt
 	if walk_cd <= 0:
