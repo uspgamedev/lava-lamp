@@ -97,7 +97,7 @@ func dash(time):
 func shield(time):
 	self.shieldTime = time
 	self.sfx.get_node('ArmorUp').play()
-	self.shielded.visible = !(false)
+	self.shielded.visible = true
 	self.shielded.get_node("Particles2D").set_emitting(true)
 
 func _physics_process(delta):

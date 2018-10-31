@@ -43,9 +43,9 @@ func set_control_type(tp):
 	elif tp == MOUSE or tp == KEYBOARD2:
 		shoot_on_click = false
 	if tp == MOUSE:
-		pl.get_node('Hook/LookArrow').visible = !(true)
+		pl.get_node('Hook/LookArrow').visible = false
 	else:
-		pl.get_node('Hook/LookArrow').visible = !(false)
+		pl.get_node('Hook/LookArrow').visible = true
 
 func get_key_string(key):
 	if (!has_node('/root/Main')):
@@ -65,14 +65,14 @@ func _input(event):
 	if get_tree().is_paused():
 		if not get_node('/root/Main/GUI/GameOver').is_visible() and event.is_action_pressed('pause'):
 			get_tree().set_pause(false)
-			get_node('/root/Main/GUI/PauseScreen').visible = !(true)
+			get_node('/root/Main/GUI/PauseScreen').visible = false
 		return
 	else:
 		if event.is_action_pressed('pause'):
 			get_tree().set_pause(true)
-			get_node('/root/Main/GUI/MoveList').visible = !(true)
+			get_node('/root/Main/GUI/MoveList').visible = false
 			get_node('/root/Main/GUI/PauseNotice').hide()
-			get_node('/root/Main/GUI/PauseScreen').visible = !(false)
+			get_node('/root/Main/GUI/PauseScreen').visible = true
 	if event.is_action_pressed('show_moves'):
 		var ah = get_node('/root/Main/Props/Player/ActionHandler')
 		var mp = ah.action_map
@@ -81,9 +81,9 @@ func _input(event):
 		for i in range(keys.size()):
 			txt += "%s:  %s\n" % [get_key_string(keys[i]), mp[keys[i]].get_name().replace("_", " ")]
 		get_node('/root/Main/GUI/MoveList/Description').set_text(txt)
-		get_node('/root/Main/GUI/MoveList').visible = !(false)
+		get_node('/root/Main/GUI/MoveList').visible = true
 	elif event.is_action_released('show_moves'):
-		get_node('/root/Main/GUI/MoveList').visible = !(true)
+		get_node('/root/Main/GUI/MoveList').visible = false
 	var dir = self._get_direction(event)
 	var act = self._get_action(event)
 	if dir != -1: emit_signal('press_direction', dir)
