@@ -54,12 +54,12 @@ func update_tiles():
 		var map = wall_tm.world_to_map(get_position() + tiles.get_position() + tile.get_position().rotated(look_ang))
 		if (wall_tm.get_cell(map.x, map.y) != -1):
 			break
-		tile.visible = !(false)
+		tile.visible = true
 		tile.area.monitoring = true
 		i += 1
 	while i < self.tiles.get_child_count():
 		var tile = self.tiles.get_child(i)
-		tile.visible = !(true)
+		tile.visible = false
 		tile.area.monitoring = false
 		i += 1
 		

@@ -1,4 +1,3 @@
 Inimigos spawnam dentro das paredes
 Criar singleton para salvar opções de gráfico e som
-Adicionar créditos
 
