@@ -5,10 +5,10 @@
 [ext_resource path="res://menu/credits/font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/fonts/Geo-Oblique.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 resource_name = "scroll"
-length = 10.0
+length = 15.0
 loop = true
 step = 0.1
 tracks/0/type = "value"
@@ -18,13 +18,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 10 ),
+"times": PoolRealArray( 0, 15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 490, 700 ), Vector2( 490, -400 ) ]
+"values": [ Vector2( 0, 700 ), Vector2( 0, -700 ) ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 
 size = 128
 use_mipmaps = true
@@ -52,11 +52,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -150.0
-margin_top = -83.7988
-margin_right = 150.0
-margin_bottom = 616.201
-rect_min_size = Vector2( 300, 700 )
+margin_left = -640.0
+margin_top = -269.765
+margin_right = 640.0
+margin_bottom = 746.235
+rect_min_size = Vector2( 1280, 1000 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -137,7 +137,7 @@ autoplay = "scroll"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/scroll = SubResource( 2 )
+anims/scroll = SubResource( 1 )
 blend_times = [  ]
 
 [node name="Mask" type="ColorRect" parent="." index="1"]
@@ -172,7 +172,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Credits"
 align = 1
 valign = 1
