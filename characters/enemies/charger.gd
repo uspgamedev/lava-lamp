@@ -3,7 +3,6 @@ extends 'enemy.gd'
 const DIR = preload("res://characters/player/input/directions.gd")
 
 onready var anim = get_node("Sprite/AnimationPlayer")
-onready var sfx = get_node("SFX")
 
 const DIR_ANIMS = ["up", "down"]
 
