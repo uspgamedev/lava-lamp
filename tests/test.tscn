@@ -60,7 +60,7 @@ _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [node name="Player" parent="Props" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 1631.32, 436.505 )
+position = Vector2( 68.8867, 153.691 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="WaveManager" parent="." index="2" instance=ExtResource( 4 )]
@@ -71,7 +71,10 @@ _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="Gut" parent="." index="5" instance=ExtResource( 7 )]
 
-visible = false
+margin_left = 553.0
+margin_top = -233.0
+margin_right = 601.0
+margin_bottom = -193.0
 
 
 [editable path="WaveManager"]

@@ -108,6 +108,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 texture = ExtResource( 3 )
 vframes = 4
 hframes = 4

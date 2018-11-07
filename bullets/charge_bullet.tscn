@@ -7,7 +7,7 @@
 [ext_resource path="res://bullets/charge_bullet/mono sound charge bullet (carregando, som do tiro é o special bullet).wav" type="AudioStream" id=5]
 [ext_resource path="res://bullets/charge_bullet/mono sound charge bullet (flutuando, som para quando acerta inimigo).wav" type="AudioStream" id=6]
 
-[node name="ChargeBullet" type="KinematicBody2D" index="0"]
+[node name="ChargeBullet" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8
