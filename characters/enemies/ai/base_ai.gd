@@ -6,9 +6,9 @@ var enemy_dmg = 1
 func collided_with_player(player):
 	var enemy = get_parent()
 	var vec = player.position - enemy.position
-	if (player.shieldTime != 0 and enemy.name != 'Ghost' and \
-	                               enemy.name != 'Absorber' and \
-	                               enemy.name != 'HardShielded'):
+	if (player.shieldTime != 0 and not 'Ghost'.is_subsequence_of(enemy.name) and \
+	                               not 'Absorber'.is_subsequence_of(enemy.name) and \
+	                               not 'HardShielded'.is_subsequence_of(enemy.name)):
 		enemy.deal_damage(enemy_dmg)
 		enemy.speed += knockback * vec.normalized()
 	else:

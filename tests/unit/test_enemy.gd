@@ -101,3 +101,45 @@ func test_assert_hard_charger_damage():
 
 func test_assert_hard_shielded_damage():
 	assert_enemy_takes_damage("res://characters/enemies/hard_shielded.tscn", "res://bullets/simple_bullet.tscn", 6, 1)
+
+func test_assert_armor_protects():
+	var props = get_node('/root/Main/Props')
+	var player = props.get_node('Player')
+	var _enemy_scn = load("res://characters/enemies/olhinho.tscn")
+	var enemy = _enemy_scn.instance()
+	props.add_child(enemy)
+	player.shield(7)
+	enemy.get_node('Ai').collided_with_player(player)
+	assert_eq(player.damage, 0, str('should take ', 0, ' hp of damage'))
+
+func test_assert_enemy_deals_damage():
+	var props = get_node('/root/Main/Props')
+	var player = props.get_node('Player')
+	var _enemy_scn = load("res://characters/enemies/olhinho.tscn")
+	var enemy = _enemy_scn.instance()
+	props.add_child(enemy)
+	player.shield(0)
+	enemy.get_node('Ai').collided_with_player(player)
+	assert_eq(player.damage, 1, str('should take ', 1, ' hp of damage'))
+
+func test_assert_mage_bullet_damage():
+	var props = get_node('/root/Main/Props')
+	var _bullet_scn = load("res://bullets/mage_bullet.tscn")
+	var player = props.get_node('Player')
+	var bullet = _bullet_scn.instance()
+	props.add_child(bullet)
+	bullet._on_Area2D_area_entered(player.get_node('Area2D'))
+	assert_eq(player.damage, 1, str('should take ', 1, ' hp of damage'))
+
+func test_assert_hard_bouncer_bounces_damage():
+	var props = get_node('/root/Main/Props')
+	var _enemy_scn = load("res://characters/enemies/bouncer.tscn")
+	var _bullet_scn = load("res://bullets/simple_bullet.tscn")
+	var player = props.get_node('Player')
+	var enemy = _enemy_scn.instance()
+	var bullet = _bullet_scn.instance()
+	props.add_child(enemy)
+	props.add_child(bullet)
+	bullet._on_Area2D_area_entered(enemy.get_node('Area2D'))
+	bullet._on_Area2D_area_entered(player.get_node('Area2D'))
+	assert_eq(player.damage, 1, 'should take 1 hp of damage')
