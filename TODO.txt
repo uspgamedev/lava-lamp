@@ -1,3 +1,5 @@
 Inimigos spawnam dentro das paredes
 Criar singleton para salvar opções de gráfico e som
+Diminuir o cooldown antes da primeira wave
+Criar mecânica clona o player durante um tempo
 
