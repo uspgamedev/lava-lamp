@@ -43,7 +43,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Animation", "Emission Shape", "Gravity" ]
 
-[node name="Earthquake" type="KinematicBody2D" index="0"]
+[node name="Earthquake" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8
