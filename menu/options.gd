@@ -7,9 +7,7 @@ var configs = {
 }
 
 func _ready():
-	print(configs)
 	load_options()
-	print(configs)
 	change_volume(configs.music, 100, 1)
 	change_volume(configs.sfx, 100, 2)
 	toggle_fullscreen(configs.fullscreen)
@@ -17,17 +15,14 @@ func _ready():
 func load_options():
 	var file = File.new()
 	if not file.file_exists("user://options.json"):
-		print('Error opening file')
 		return
 	file.open('user://options.json', File.READ)
 	configs = parse_json(file.get_as_text())
-	print(configs)
 	file.close()
 	
 func save_options():
 	var file = File.new()
 	if file.open('user://options.json', File.WRITE) != 0:
-		print('Error opening file')
 		return
 	file.store_line(to_json(configs))
 	file.close()
