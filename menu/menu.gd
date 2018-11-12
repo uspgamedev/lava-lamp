@@ -21,6 +21,10 @@ func _ready():
 	set_children_disability(play_menu, true)
 	set_children_disability(options_menu, true)
 	tw.start()
+	
+	$Buttons/OptionsMenu/MusicSlider.value = options.configs.music
+	$Buttons/OptionsMenu/SFXSlider.value = options.configs.sfx
+	$Buttons/OptionsMenu/FullscreenBox.pressed = options.configs.fullscreen
 
 
 func set_children_disability(menu, value):
@@ -55,13 +59,6 @@ func main_menu_animation(pressed_button, from_menu, to_menu):
 	
 	yield(tw, "tween_completed")
 	set_children_disability(to_menu, false)
-
-
-func change_volume(value, max_value, bus_index):
-	var volume = -80
-	if value > 0:
-		volume = 10 * log(value / max_value)
-	AudioServer.set_bus_volume_db(bus_index, volume)
 
 
 func _on_Play_pressed():
@@ -100,15 +97,17 @@ func _on_Play_Back_pressed():
 
 func _on_Options_Back_pressed():
 	main_menu_animation(options_button, options_menu, main_menu)
+	options.save_options()
 
 
 func _on_FullscreenBox_toggled(button_pressed):
-	OS.window_fullscreen = button_pressed
+	options.toggle_fullscreen(button_pressed)
 
 
 func _on_SFXSlider_value_changed(value):
-	change_volume(value, 100, 2)
+	options.change_volume(value, 100, 2)
+	$SliderSFX.play()
 
 
 func _on_MusicSlider_value_changed(value):
-	change_volume(value, 100, 1)
+	options.change_volume(value, 100, 1)
