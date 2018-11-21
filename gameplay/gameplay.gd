@@ -5,6 +5,7 @@ onready var input = get_node('/root/input')
 func _ready():
 	var map_name = game_mode.maps[game_mode.selected_map]
 	var map = load(str("res://scenario/maps/" + map_name + ".tscn")).instance()
+	print(map)
 	add_child(map)
 	input.set_control_type(input.MOUSE)
 	input.set_pause_mode(input.PAUSE_MODE_PROCESS)

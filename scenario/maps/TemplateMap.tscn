@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenario/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://characters/player/player.gd" type="Script" id=3]
 
-[node name="Template" type="Node2D"]
+[node name="Map" type="Node2D"]
 
 [node name="Floor" type="TileMap" parent="." index="0"]
 
+position = Vector2( 0, -31 )
+z_index = -2
 mode = 0
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 24 )
@@ -25,10 +26,11 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray(  )
-_sections_unfolded = [ "Cell" ]
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [node name="Props" type="TileMap" parent="." index="1"]
 
+position = Vector2( 0, -31 )
 mode = 0
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 24 )
@@ -36,30 +38,21 @@ cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
 cell_tile_origin = 0
-cell_y_sort = false
+cell_y_sort = true
 cell_clip_uv = false
 collision_use_kinematic = false
 collision_friction = 1.0
 collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 0
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray(  )
-_sections_unfolded = [ "Cell", "Transform" ]
+_sections_unfolded = [ "Cell", "Collision", "Occluder", "Transform" ]
 
-[node name="Player" type="KinematicBody2D" parent="Props" index="0" instance=ExtResource( 2 )]
+[node name="Player" parent="Props" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 881.711, 840.856 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 3
-collision/safe_margin = 0.08
-script = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-hp = 4
 
 
