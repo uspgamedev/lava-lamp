@@ -13,8 +13,8 @@ func start_logo_animation():
 	timer.start()
 		
 func stop_logo_animation():
-	if get_node('/root/input').is_connected('skip_intro', get_node('/root/Main/Props/Player'), 'skip_intro'):
-		get_node('/root/input').disconnect('skip_intro', get_node('/root/Main/Props/Player'), 'skip_intro')
+	if get_node('/root/input').is_connected('skip_intro', get_node('/root/Main/Map/Props/Player'), 'skip_intro'):
+		get_node('/root/input').disconnect('skip_intro', get_node('/root/Main/Map/Props/Player'), 'skip_intro')
 	active = false
 	hide()
 

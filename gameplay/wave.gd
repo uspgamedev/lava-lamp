@@ -42,12 +42,12 @@ func create_enemy():
 		var e = Enemy.instance()
 		e.set_position(main.get_valid_position())
 	
-		main.get_node("Props").add_child(e)
+		main.get_node("Map/Props").add_child(e)
 		get_node('EnemyTimer').set_wait_time(3 + randi()%3)
 		get_node('EnemyTimer').start()
 
 func check_wave_end():
-	for i in main.get_node('Props').get_children():
+	for i in main.get_node('Map/Props').get_children():
 		if i.is_in_group('enemy'):
 			return
 	if (iterator >= enemies_id.size() and cur_points != 0):

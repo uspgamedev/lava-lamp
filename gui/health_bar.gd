@@ -6,7 +6,8 @@ export(Texture) var empty_heart
 var hp
 
 func _ready():
-	recreate(4)
+#	recreate(4)
+	pass
 
 func recreate(hp):
 	self.hp = hp
@@ -19,7 +20,7 @@ func recreate(hp):
 	update()
 
 func update():
-	var pl = get_node('/root/Main/Props/Player');
+	var pl = get_node('/root/Main/Map/Props/Player');
 	for i in range(hp):
 		if i < pl.hp - pl.damage:
 			get_child(i).set_texture(full_heart)

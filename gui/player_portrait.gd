@@ -15,7 +15,7 @@ func change_emotion(emotion, time = 2):
 	elif emotion == "happy":
 		anim = "Happy"
 		
-	var player = get_node('/root/Main/Props/Player')
+	var player = get_node('/root/Main/Map/Props/Player')
 	var exp_timer = player.get_node("Expression_Timer")
 	
 	if anim != ap.get_current_animation():

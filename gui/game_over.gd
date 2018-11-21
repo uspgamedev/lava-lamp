@@ -11,7 +11,7 @@ func start():
 	visible = true
 	var w = get_node('/root/Main/WaveManager').cur_wave - 1
 	get_node('WaveCount').set_text("You survived %d wave%s." % [w, "s" if w > 1 else ""])
-	var props = get_node('/root/Main/Props').get_children()
+	var props = get_node('/root/Main/Map/Props').get_children()
 	for i in props:
 		if i.is_in_group('enemy'):
 			for child in i.get_children():

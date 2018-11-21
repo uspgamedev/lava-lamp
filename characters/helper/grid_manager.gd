@@ -5,8 +5,8 @@ var nxt = {}
 var seen = {}
 var cur = 0
 
-onready var tm = get_node('/root/Main/Floor')
-onready var tm2 = get_node('/root/Main/Props')
+onready var tm = get_node('/root/Main/Map/Floor')
+onready var tm2 = get_node('/root/Main/Map/Props')
 
 func _ready():
 	start_calc()

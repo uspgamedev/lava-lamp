@@ -106,7 +106,7 @@ func _ready():
 		wave_points = 100
 		cur_mechanics = 16
 		cur_enemy = 11
-		var ah = get_node('../Props/Player').get_node('ActionHandler')
+		var ah = get_node('../Map/Props/Player').get_node('ActionHandler')
 		var binds = get_node("/root/input").binds
 		for i in range(len(binds)):
 			if binds[i] != null:
@@ -129,7 +129,7 @@ func wave_ended():
 		var p = main.get_valid_position()
 		var hp = HealthPack.instance()
 		hp.set_position(p)
-		main.get_node('Props').add_child(hp)
+		main.get_node('Map/Props').add_child(hp)
 
 	dialog_box.display_text(text, wait_time)
 	print('Wave ', cur_wave, ' ended')
@@ -163,7 +163,7 @@ func give_new_mechanics():
 func get_new_mechanics_input():
 	dialog_box.display_text("Press a button to assign the input for " + MECHANICS[cur_mechanics][0] + '.', 10e+10)
 	set_process_input(true)
-	var player = get_node('../Props/Player')
+	var player = get_node('../Map/Props/Player')
 	var ah = player.get_node('ActionHandler')
 	player.stop_movimentation()
 	waiting_key = true

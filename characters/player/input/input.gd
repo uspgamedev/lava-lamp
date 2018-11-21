@@ -34,9 +34,9 @@ func _ready():
 
 
 func set_control_type(tp):
-	if (!has_node('/root/Main')):
+	if (!has_node('/root/Main/Map')):
 		return
-	var pl = get_node('/root/Main/Props/Player')
+	var pl = get_node('/root/Main/Map/Props/Player')
 	control_type = tp
 	if tp == KEYBOARD:
 		shoot_on_click = true
@@ -48,7 +48,7 @@ func set_control_type(tp):
 		pl.get_node('Hook/LookArrow').visible = true
 
 func get_key_string(key):
-	if (!has_node('/root/Main')):
+	if (!has_node('/root/Main/Map')):
 		return
 	if (key >= KEY_SPACE):
 		return OS.get_scancode_string(key)
@@ -74,7 +74,7 @@ func _input(event):
 			get_node('/root/Main/GUI/PauseNotice').hide()
 			get_node('/root/Main/GUI/PauseScreen').visible = true
 	if event.is_action_pressed('show_moves'):
-		var ah = get_node('/root/Main/Props/Player/ActionHandler')
+		var ah = get_node('/root/Main/Map/Props/Player/ActionHandler')
 		var mp = ah.action_map
 		var txt = ""
 		var keys = ah.get_keys_used()
@@ -134,7 +134,7 @@ func _get_look_direction(e):
 		return -1
 	elif control_type == MOUSE:
 		var p = get_viewport().get_mouse_position()
-		var pl_p = get_node('/root/Main/Props/Player').get_global_transform_with_canvas().origin
+		var pl_p = get_node('/root/Main/Map/Props/Player').get_global_transform_with_canvas().origin
 		var ang = atan2(p.x - pl_p.x, p.y  - pl_p.y)
 		if ang >= PI * 7.0 / 8 or ang <= -PI * 7.0 / 8:
 			return DIR.UP

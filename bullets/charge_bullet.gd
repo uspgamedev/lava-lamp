@@ -5,7 +5,7 @@ onready var charge_timer = get_node('ChargeTimer')
 onready var col_poly = get_node('Area2D/CollisionPolygon2D')
 onready var main = get_node('../../')
 onready var input = get_node('/root/input')
-onready var pl = main.get_node('Props/Player')
+onready var pl = main.get_node('Map/Props/Player')
 onready var area = get_node('Area2D')
 onready var sfx = get_node('SFX')
 
