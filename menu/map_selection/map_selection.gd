@@ -19,3 +19,7 @@ func _button_pressed(index):
 		get_tree().change_scene('res://gui/survivor_bind_screen.tscn')
 	else:
 		get_tree().change_scene('res://main.tscn')
+
+
+func _on_Back_pressed():
+	get_tree().change_scene("res://menu/menu.tscn")

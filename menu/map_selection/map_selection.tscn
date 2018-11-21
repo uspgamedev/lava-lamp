@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menu/map_selection/map_selection.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Geo-Oblique.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://menu/map_selection/map_name.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -11,12 +12,14 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="MapSelection" type="Control" index="0"]
+[node name="MapSelection" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -67,5 +70,16 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect" ]
+
+[node name="Back" parent="." index="2" instance=ExtResource( 3 )]
+
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 197.0
+margin_bottom = 99.0
+text = "< Back"
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 
 
