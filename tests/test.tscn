@@ -8,7 +8,7 @@
 [ext_resource path="res://scenario/bgm/bgm.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tests/tests.tscn" type="PackedScene" id=7]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
@@ -68,6 +68,7 @@ _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="Gut" parent="." index="5" instance=ExtResource( 7 )]
 
+visible = false
 margin_left = 200.0
 margin_right = 248.0
 _sections_unfolded = [ "Rect" ]

@@ -10,6 +10,8 @@ func _ready():
 	input.set_pause_mode(input.PAUSE_MODE_PROCESS)
 	input.connect('press_quit', self, 'quit')
 	get_node('GUI/HealthBar').recreate(4)
+	if (game_mode.mode == game_mode.SURVIVAL):
+		get_node('WaveManager').setup_for_survival()
 
 func quit():
 	get_tree().quit()
