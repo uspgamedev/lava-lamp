@@ -7,8 +7,7 @@ var mode = ARCADE
 
 # Name of files in /scenario/maps/
 var maps = [
-	"BaseMap",
-	""
+	"BaseMap"
 ]
 
 var selected_map = 0

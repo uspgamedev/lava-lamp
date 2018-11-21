@@ -2,7 +2,7 @@
 
 [ext_resource path="res://characters/helper/grid_manager.gd" type="Script" id=1]
 
-[node name="GridManager" type="Node" index="0"]
+[node name="GridManager" type="Node"]
 
 script = ExtResource( 1 )
 

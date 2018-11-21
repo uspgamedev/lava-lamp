@@ -101,17 +101,17 @@ func _ready():
 	t.connect('timeout', self, 'new_wave')
 	t.set_one_shot(true)
 	add_child(t)
-	var game_mode = get_node('/root/game_mode')
-	if (game_mode.mode == game_mode.SURVIVAL):
-		wave_points = 100
-		cur_mechanics = 16
-		cur_enemy = 11
-		var ah = get_node('../Map/Props/Player').get_node('ActionHandler')
-		var binds = get_node("/root/input").binds
-		for i in range(len(binds)):
-			if binds[i] != null:
-				ah.set_key_to_action(binds[i], MECHANICS[i][1])
-				ah.set_used_key(binds[i])
+
+func setup_for_survival():
+	wave_points = 100
+	cur_mechanics = 16
+	cur_enemy = 11
+	var ah = get_node('../Map/Props/Player').get_node('ActionHandler')
+	var binds = get_node("/root/input").binds
+	for i in range(len(binds)):
+		if binds[i] != null:
+			ah.set_key_to_action(binds[i], MECHANICS[i][1])
+			ah.set_used_key(binds[i])
 
 func update_wave_points():
 	wave_points += cur_wave

@@ -83,12 +83,12 @@ func _on_Story_pressed():
 
 func _on_Arcade_pressed():
 	game_mode.mode = game_mode.ARCADE
-	get_tree().change_scene('res://main.tscn')
+	get_tree().change_scene("res://menu/map_selection/map_selection.tscn")
 
 
 func _on_Survival_pressed():
 	game_mode.mode = game_mode.SURVIVAL
-	get_tree().change_scene('res://gui/survivor_bind_screen.tscn')
+	get_tree().change_scene("res://menu/map_selection/map_selection.tscn")
 
 
 func _on_Play_Back_pressed():
