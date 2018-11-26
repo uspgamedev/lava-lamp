@@ -54,6 +54,10 @@ _sections_unfolded = [ "Cell", "Collision", "Material", "Occluder", "Transform",
 [node name="Player" parent="Props" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 1631.32, 436.505 )
+<<<<<<< HEAD
 _sections_unfolded = [ "Collision", "Material", "Transform", "Z Index", "collision" ]
+=======
+_sections_unfolded = [ "Material", "Transform" ]
+>>>>>>> 725eabb976056d439eb1a182c586f694810402cc
 
 
