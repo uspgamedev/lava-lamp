@@ -1,6 +1,9 @@
 extends Node2D
 
 onready var input = get_node('/root/input')
+var cells = []
+var wall_tile_map
+var floor_tile_map
 
 func _ready():
 	var map_name = game_mode.maps[game_mode.selected_map]
@@ -13,16 +16,23 @@ func _ready():
 	get_node('GUI/HealthBar').recreate(4)
 	if (game_mode.mode == game_mode.SURVIVAL):
 		get_node('WaveManager').setup_for_survival()
+	wall_tile_map = get_node("Map/Props")
+	floor_tile_map = get_node("Map/Floor")
+	var floorCells = floor_tile_map.get_used_cells()
+	var wallCells = wall_tile_map.get_used_cells()
+	for i in range(0, floorCells.size()):
+		if !(floorCells[i] in wallCells):
+			cells.append(floorCells[i])
 
 func quit():
 	get_tree().quit()
 
 func get_valid_position():
-	var wall_tile_map = get_node("Map/Props")
-	var floor_tile_map = get_node("Map/Floor")
-	var cells = floor_tile_map.get_used_cells()
+#	var wall_tile_map = get_node("Map/Props")
+#	var floor_tile_map = get_node("Map/Floor")
+#	var cells = floor_tile_map.get_used_cells()
 	var cell = cells[randi()%cells.size()]
-	var player = wall_tile_map.get_node('Player')
+	var player = get_node('Map/Props/Player')
 	while (((cell - floor_tile_map.world_to_map(player.get_position())).length() < 15) or \
 	      (floor_tile_map.get_cell(cell.x, cell.y) == 3 or wall_tile_map.get_cell(cell.x, cell.y) != -1)):
 		cell = cells[randi()%cells.size()]
