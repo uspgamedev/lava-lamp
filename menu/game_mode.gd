@@ -11,8 +11,7 @@ var maps = [
 	"Story01",
 	"Story02",
 	"Story03",
-	"StoryBoss01",
-	"TemplateMap"
+	"StoryBoss01"
 ]
 
 var selected_map = 1
