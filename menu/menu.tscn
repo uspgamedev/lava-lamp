@@ -211,7 +211,6 @@ _sections_unfolded = [ "Focus", "Hint", "Rect", "custom_colors", "custom_fonts",
 
 [node name="PlayMenu" type="Control" parent="Buttons" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -234,7 +233,7 @@ margin_right = 109.0
 focus_mode = 2
 text = "Story"
 descriptor_path = NodePath("../ModeDesc")
-description = "Story Mode description (export var in this button)"
+description = ""
 
 [node name="Arcade" parent="Buttons/PlayMenu" index="1" instance=ExtResource( 3 )]
 
@@ -244,7 +243,7 @@ margin_bottom = 124.0
 focus_mode = 2
 text = "Arcade"
 descriptor_path = NodePath("../ModeDesc")
-description = "Arcade Mode description (export var in this button)"
+description = ""
 
 [node name="Survival" parent="Buttons/PlayMenu" index="2" instance=ExtResource( 3 )]
 
@@ -254,7 +253,7 @@ margin_bottom = 188.0
 focus_mode = 2
 text = "Survival"
 descriptor_path = NodePath("../ModeDesc")
-description = "Survival Mode description (export var in this button)"
+description = ""
 
 [node name="Back" parent="Buttons/PlayMenu" index="3" instance=ExtResource( 3 )]
 

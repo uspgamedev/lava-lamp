@@ -7,11 +7,9 @@ var mode = ARCADE
 
 # Name of files in /scenario/maps/
 var maps = [
-	"BaseMap",
-	"Story01",
-	"Story02",
-	"Story03",
-	"StoryBoss01"
+	"The Fall into Darkness",
+	"The Struggle for Survival",
+	"The Armageddon"
 ]
 
 var selected_map = 1
