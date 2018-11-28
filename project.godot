@@ -19,6 +19,7 @@ config/icon="res://gui/life_points/life-point.png"
 input="*res://characters/player/input/input.gd"
 game_mode="*res://menu/game_mode.gd"
 options="*res://menu/options.gd"
+bgm_global="*res://menu/bgm_global.gd"
 
 [display]
 

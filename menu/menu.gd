@@ -70,6 +70,7 @@ func _on_Options_pressed():
 
 
 func _on_Credits_pressed():
+	get_node('/root/bgm_global').play_credits()
 	get_tree().change_scene("res://menu/credits/credits.tscn")
 
 

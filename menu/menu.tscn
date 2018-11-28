@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://gui/title5.png" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://menu/elements/grey_circle.png" type="Texture" id=9]
 [ext_resource path="res://menu/elements/grey_sliderHorizontal.png" type="Texture" id=10]
 [ext_resource path="res://bullets/simple_bullet/mono sound bullet simple.wav" type="AudioStream" id=11]
-[ext_resource path="res://scenario/bgm/opening.ogg" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -564,15 +563,6 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "SFX"
-
-[node name="Music" type="AudioStreamPlayer" parent="." index="4"]
-
-stream = ExtResource( 12 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = true
-mix_target = 0
-bus = "Music"
 
 [connection signal="pressed" from="Buttons/MainMenu/Play" to="." method="_on_Play_pressed"]
 
