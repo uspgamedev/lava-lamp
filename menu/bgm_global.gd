@@ -1,9 +1,9 @@
 extends Node
 
-var intro1
-var intro2
-var intro1_node
-var intro2_node
+var intro
+var credits
+var intro_node
+var credits_node
 
 func _ready():
 	intro = load('res://menu/Intro.ogg')
