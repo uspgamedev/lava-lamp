@@ -254,6 +254,7 @@ func dialogue_end():
 	dialog_box.text_tween.set_speed_scale(1)
 
 func intro():
+	get_node('/root/bgm_global').stop_all()
 	lock_controls()
 	start_spinning()
 	var tween = get_node("Intro_Tween")
