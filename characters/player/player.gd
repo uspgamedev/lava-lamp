@@ -49,6 +49,7 @@ var shieldTime = 0
 onready var shielded = get_node('Shielded')
 
 func _ready():
+	
 	unlock_controls()
 	input.connect('skip_intro', self, 'skip_intro')
 
