@@ -1,5 +1,5 @@
 <h1 align="center">
-  L.A.V.A series L.A.M.P edition VS THE WORLD
+  L.A.V.A. series L.A.M.P. edition VS THE WORLD
 </h1>
 
 <p align='center'>
