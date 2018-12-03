@@ -8,34 +8,15 @@
 [ext_resource path="res://scenario/bgm/bgm.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tests/tests.tscn" type="PackedScene" id=7]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Floor" type="TileMap" parent="." index="0"]
+[node name="Map" type="Node2D" parent="." index="0"]
 
-z_index = -2
-mode = 0
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 32, 24 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = true
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 0
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray(  )
-
-[node name="Props" type="TileMap" parent="." index="1"]
+[node name="Props" type="TileMap" parent="Map" index="0"]
 
 position = Vector2( 0, -31 )
 mode = 0
@@ -56,17 +37,38 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray(  )
 
-[node name="Player" parent="Props" index="0" instance=ExtResource( 3 )]
+[node name="Player" parent="Map/Props" index="0" instance=ExtResource( 3 )]
 
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="WaveManager" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Floor" type="TileMap" parent="Map" index="1"]
 
-[node name="GUI" parent="." index="3" instance=ExtResource( 5 )]
+z_index = -2
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 24 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = true
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 0
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
 
-[node name="BGM" parent="." index="4" instance=ExtResource( 6 )]
+[node name="WaveManager" parent="." index="1" instance=ExtResource( 4 )]
 
-[node name="Gut" parent="." index="5" instance=ExtResource( 7 )]
+[node name="GUI" parent="." index="2" instance=ExtResource( 5 )]
+
+[node name="BGM" parent="." index="3" instance=ExtResource( 6 )]
+
+[node name="Gut" parent="." index="4" instance=ExtResource( 7 )]
 
 visible = false
 margin_left = 200.0
