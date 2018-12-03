@@ -65,9 +65,9 @@ You play as the creation of the last human alive. You are destined to be the bas
  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/cure_bullet/cure_bullet.png" alt="Cure bullet" /> Watch out so you dont heal your enemies, except zombies thats the right way to kill them
 
 ### 4.How you can contribute with LAVA LAMP<img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/player/frames/android_sprite_sheet-43.png" alt="Lava Lamp" />
-  a. Fork LAVA repository
-  b. Get familiar with LAVA LAMP and GODOT
-  c. Make your changes
-  d. Make a pull request
+  a. Fork LAVA repository  
+  b. Get familiar with LAVA LAMP and GODOT  
+  c. Make your changes  
+  d. Make a pull request  
   
   This game was initially made during the Ludum Dare 40 and further develop during a Extreme programming course at University of São Paulo. 
