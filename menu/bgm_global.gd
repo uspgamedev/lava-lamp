@@ -10,11 +10,15 @@ func _ready():
 	intro_node = AudioStreamPlayer.new()
 	intro_node.stream = intro
 	intro_node.stream = intro
+	intro_node.volume_db = -5
+	intro_node.bus = "Music"
 	self.add_child(intro_node)
 	
 	credits = load('res://menu/Credits.ogg')
 	credits_node = AudioStreamPlayer.new()
 	credits_node.stream = credits
+	credits_node.volume_db = 0
+	credits_node.bus = "Music"
 	self.add_child(credits_node)
 	
 	intro_node.play()

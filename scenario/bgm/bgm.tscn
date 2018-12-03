@@ -6,7 +6,7 @@
 [ext_resource path="res://scenario/bgm/music_layer_3.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scenario/bgm/opening.ogg" type="AudioStream" id=5]
 
-[node name="BGM" type="Node" index="0"]
+[node name="BGM" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -40,7 +40,7 @@ bus = "Music"
 [node name="Opening" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 5 )
-volume_db = 0.0
+volume_db = -13.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

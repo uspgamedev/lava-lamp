@@ -309,9 +309,6 @@ func intro():
 
 	yield()
 	
-	while get_node('/root/Main/BGM/Opening').playing:
-		yield(get_tree(), 'physics_frame')
-	
 	#Start first wave
 	get_node('/root/Main/WaveManager').new_wave()
 

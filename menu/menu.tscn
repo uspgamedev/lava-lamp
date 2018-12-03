@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://gui/title5.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://menu/elements/grey_box.png" type="Texture" id=8]
 [ext_resource path="res://menu/elements/grey_circle.png" type="Texture" id=9]
 [ext_resource path="res://menu/elements/grey_sliderHorizontal.png" type="Texture" id=10]
-[ext_resource path="res://bullets/simple_bullet/mono sound bullet simple.wav" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -210,6 +209,7 @@ _sections_unfolded = [ "Focus", "Hint", "Rect", "custom_colors", "custom_fonts",
 
 [node name="PlayMenu" type="Control" parent="Buttons" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -500,10 +500,10 @@ custom_icons/grabber_highlight = ExtResource( 9 )
 custom_icons/grabber = ExtResource( 9 )
 custom_styles/slider = SubResource( 12 )
 min_value = 0.0
-max_value = 100.0
-step = 10.0
+max_value = 40.0
+step = 4.0
 page = 0.0
-value = 100.0
+value = 40.0
 exp_edit = false
 rounded = false
 editable = true
@@ -557,7 +557,7 @@ playback/speed = 1.0
 
 [node name="SliderSFX" type="AudioStreamPlayer" parent="." index="3"]
 
-stream = ExtResource( 11 )
+stream = null
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

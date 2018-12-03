@@ -170,6 +170,7 @@ volume_db = 20.0
 [node name="Tack" parent="SFX" index="0" instance=ExtResource( 4 )]
 
 stream = ExtResource( 5 )
+volume_db = -10.0
 
 [connection signal="timeout" from="Deactivate Timer" to="." method="deactivate_box"]
 

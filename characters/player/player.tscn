@@ -662,6 +662,7 @@ position = Vector2( 10, -50 )
 
 [node name="Shielded" parent="." index="14" instance=ExtResource( 24 )]
 
+visible = false
 position = Vector2( 0, -10 )
 
 [node name="Intro_Tween" type="Tween" parent="." index="15"]

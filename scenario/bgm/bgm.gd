@@ -10,26 +10,24 @@ onready var opening = get_node("Opening")
 
 func _ready():
 	play()
-	var t = Timer.new()
-	t.wait_time = opening.stream.get_length()
-	t.start()
-	self.add_child(t)
-	t.connect('timeout', self, '_action_mode')
+	opening.connect('finished', self, '_action_mode')
 
 func _action_mode():
+	if opening.is_playing():
+		return
 	if !action.is_playing():
 		opening.stop()
 		action.play()
 		interlude.play()
 		base.play()
-	tween1.interpolate_method(interlude, 'set_volume_db', interlude.get_volume_db(), 0, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween2.interpolate_method(action, 'set_volume_db', action.get_volume_db(), 1, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween1.interpolate_method(interlude, 'set_volume_db', interlude.get_volume_db(), -80, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween2.interpolate_method(action, 'set_volume_db', action.get_volume_db(), -5, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween1.start()
 	tween2.start()
 
 func _interlude_mode():
-	tween1.interpolate_method(action, 'set_volume_db', action.get_volume_db(), 0, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween2.interpolate_method(interlude, 'set_volume_db', interlude.get_volume_db(), 1, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween1.interpolate_method(action, 'set_volume_db', action.get_volume_db(), -80, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween2.interpolate_method(interlude, 'set_volume_db', interlude.get_volume_db(), -5, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween1.start()
 	tween2.start()
 
