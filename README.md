@@ -11,7 +11,7 @@ The apocalipse has come to Earth. You were created to clear this mess!
 # Summary
 
  * [Technologies used](#technologies-used)
- * [How to play?](#how-to-play?)
+ * [How to play?](#how-to-play)
  * [How you can contribute with LAVA LAMP](#how-you-can-contribute-with-LAVA-LAMP)
 
 
