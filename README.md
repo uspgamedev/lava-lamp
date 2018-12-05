@@ -18,7 +18,8 @@ The apocalipse has come to Earth. You were created to clear this mess!
   [GUT](https://github.com/bitwes/Gut) - Godot Unit Test is a utility for writing tests for your Godot Engine game. It allows you to write tests for your gdscript in gdscript.\
   [Aseprite](https://store.steampowered.com/app/431730/Aseprite) - Aseprite is a pixel art tool that lets you create 2D animations for videogames.\
   [LMMS](https://github.com/LMMS/lmms) - LMMS is a free cross-platform alternative to commercial programs like FL Studio®, which allow you to produce music with your computer.\
-  [FamiTracker](http://famitracker.com/)- FamiTracker is a sound tracker made for creating NES/Famicom music.
+  [FamiTracker](http://famitracker.com/)- FamiTracker is a sound tracker made for creating NES/Famicom music. \
+  [Logic Pro X](https://www.apple.com/br/logic-pro/) - Logic Pro X is a digital audio workstation for the MAC OSX.
 
 ### 2. How to play
 #### Game Modes
@@ -29,7 +30,7 @@ The apocalipse has come to Earth. You were created to clear this mess!
     Game Mode for experienced players who are already familiar with the enemies and mechanics.\
     You start with all the mechanics available in the game and we receive you with a great amount of enemies.
 ### 3. Controls
-  WASD - control Character movements
+  WASD - control Character movements \
   Mouse left button - shoot whatever bullet is selected
 ### 4. Characters
   Characters you will find while playing the game (if you don't die first)
