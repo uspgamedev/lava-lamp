@@ -35,25 +35,37 @@ The apocalipse has come to Earth. You were created to clear this mess!
   Characters you will find while playing the game (if you don't die first)
   
 #### Player
-<img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/player/frames/android_sprite_sheet-14.png" alt="Lava Lamp" />
+<p align='center'>
+  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/player/frames/android_sprite_sheet-14.png" alt="Lava Lamp" />
+</p>
 You play as the creation of the last human alive. You are destined to be the bastion of the resistance fighting against the robots who annihilated all the humans.
 
 #### Enemies
 
 First enemy you will find in the game but if touched it'll hit you back
-<img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/olhinho_sprite_sheet.png" alt="Eye" />
-  
+<p align='center'>
+  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/olhinho_sprite_sheet.png" alt="Eye" />
+</p> 
+
 Greatest batter in the post-apocaliptic world, can reflect almost any bullet
-<img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/bouncer/bouncer2-sheet.png" alt="Bouncer" />
+<p align='center'>
+  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/bouncer/bouncer2-sheet.png" alt="Bouncer" />
+</p>
 
 His grand shield can nulify almost any bullet. Hit him in the back if you can
-<img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/shielded/shield.png" alt="Shielded" />
-  
+<p align='center'>
+  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/shielded/shield.png" alt="Shielded" />
+</p>
+
 When he stops you better run, not even the greatest robots can take his charge and live long
-<img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/charger/spide2r.png" alt="Charger" />
-  
+<p align='center'>
+  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/charger/spide2r.png" alt="Charger" />
+</p> 
+ 
 Can only be hit with ghost bullet, goes through every other bullet. If you're not fast enough it can go through your life points real quick
-<img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/undead/undead.png" alt="Ghost" />
+<p align='center'>
+  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/undead/undead.png" alt="Ghost" />
+</p>
 
 #### Mechanics
   Simplest of all bullets, 1 hit = 1 life point
