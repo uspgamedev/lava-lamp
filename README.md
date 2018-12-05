@@ -69,22 +69,34 @@ Can only be hit with ghost bullet, goes through every other bullet. If you're no
 
 #### Mechanics
   Simplest of all bullets, 1 hit = 1 life point
-  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/simple.png" alt="Simple bullet" />
+  <p align='center'>
+    <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/simple.png" alt="Simple bullet" />
+  </p>
   
   Insta death to all enemies who step on it
-  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/scenario/props/trap.png" alt="Trap" /> 
+  <p align='center'>
+    <img src="https://github.com/uspgamedev/lava-lamp/blob/master/scenario/props/trap.png" alt="Trap" /> 
+  </p>
   
   Will follow your enemies to the depths of the apocalipse
-  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/guided_bullet/guided_bullet.png" alt="Guided Bullet" />
+  <p align='center'>
+    <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/guided_bullet/guided_bullet.png" alt="Guided Bullet" />
+  </p> 
  
   Not useful against normal enemies, but once you find a ghost you'll thank us for having it
-  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/ghost_bullet/ghost_bullet.png" alt="Ghost Bullet" />
+  <p align='center'>
+    <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/ghost_bullet/ghost_bullet.png" alt="Ghost Bullet" />
+  </p>
  
   Will stun your enemies
-  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/ion_bullet/ion_bullet.png" alt="ION bullet" />
+  <p align='center'>
+    <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/ion_bullet/ion_bullet.png" alt="ION bullet" />
+  </p> 
  
   Watch out so you dont heal your enemies, except zombies thats the right way to kill them
-  <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/cure_bullet/cure_bullet.png" alt="Cure bullet" /> 
+  <p align='center'>
+    <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/cure_bullet/cure_bullet.png" alt="Cure bullet" /> 
+  </p>
 
 ### How you can contribute with LAVA LAMP<img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/player/frames/android_sprite_sheet-43.png" alt="Lava Lamp" />
   1. Fork LAVA repository  
