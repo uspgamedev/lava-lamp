@@ -42,7 +42,7 @@ The apocalipse has come to Earth. You were created to clear this mess!
   Characters you will find while playing the game (if you don't die first)
   
 ### Player
-<p align='center'>
+<p>
   <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/player/frames/android_sprite_sheet-14.png" alt="Lava Lamp" />
 </p>
 You play as the creation of the last human alive. You are destined to be the bastion of the resistance fighting against the robots who annihilated all the humans.
@@ -50,58 +50,58 @@ You play as the creation of the last human alive. You are destined to be the bas
 ### Enemies
 
 First enemy you will find in the game but if touched it'll hit you back
-<p align='center'>
+<p>
   <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/olhinho_sprite_sheet.png" alt="Eye" />
 </p> 
 
 Greatest batter in the post-apocaliptic world, can reflect almost any bullet
-<p align='center'>
+<p>
   <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/bouncer/bouncer2-sheet.png" alt="Bouncer" />
 </p>
 
 His grand shield can nulify almost any bullet. Hit him in the back if you can
-<p align='center'>
+<p>
   <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/shielded/shield.png" alt="Shielded" />
 </p>
 
 When he stops you better run, not even the greatest robots can take his charge and live long
-<p align='center'>
+<p>
   <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/charger/spide2r.png" alt="Charger" />
 </p> 
  
 Can only be hit with ghost bullet, goes through every other bullet. If you're not fast enough it can go through your life points real quick
-<p align='center'>
+<p>
   <img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/enemies/undead/undead.png" alt="Ghost" />
 </p>
 
 ### Mechanics
   Simplest of all bullets, 1 hit = 1 life point
-  <p align='center'>
+  <p>
     <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/simple.png" alt="Simple bullet" />
   </p>
   
-  Insta death to all enemies who step on it
-  <p align='center'>
+  Insta death to most enemies who step on it
+  <p>
     <img src="https://github.com/uspgamedev/lava-lamp/blob/master/scenario/props/trap.png" alt="Trap" /> 
   </p>
   
   Will follow your enemies to the depths of the apocalipse
-  <p align='center'>
+  <p>
     <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/guided_bullet/guided_bullet.png" alt="Guided Bullet" />
   </p> 
  
   Not useful against normal enemies, but once you find a ghost you'll thank us for having it
-  <p align='center'>
+  <p>
     <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/ghost_bullet/ghost_bullet.png" alt="Ghost Bullet" />
   </p>
  
   Will stun your enemies
-  <p align='center'>
+  <p>
     <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/ion_bullet/ion_bullet.png" alt="ION bullet" />
   </p> 
  
   Watch out so you dont heal your enemies, except zombies thats the right way to kill them
-  <p align='center'>
+  <p>
     <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/cure_bullet/cure_bullet.png" alt="Cure bullet" /> 
   </p>
 
@@ -112,8 +112,8 @@ Can only be hit with ghost bullet, goes through every other bullet. If you're no
   4. Make a pull request
   
 ### Desired styles
-  For new code, we recommend to read the following guides:
-  [Official Godot Style Guide](https://docs.godotengine.org/en/3.0/getting_started/scripting/gdscript/gdscript_styleguide.html)
-  [Alternative Guide](https://github.com/Calinou/godot-style-guide)
+  For new code, we recommend to read the following guides:  
+  * [Official Godot Style Guide](https://docs.godotengine.org/en/3.0/getting_started/scripting/gdscript/gdscript_styleguide.html)
+  * [Alternative Guide](https://github.com/Calinou/godot-style-guide)
   
   This game was initially made during the Ludum Dare 40 and further develop during a Extreme Programming course at University of São Paulo. 
