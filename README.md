@@ -12,12 +12,11 @@ The apocalipse has come to Earth. You were created to clear this mess!
 
  * [Technologies used](#technologies-used)
  * [How to play?](#how-to-play)
- * [How you can contribute with LAVA LAMP](#how-you-can-contribute-with-LAVA-LAMP)
-
+ * [How you can contribute with LAVA LAMP](#how-you-can-contribute-with-lava-lamp)
+ * [New to GODOT?](#how-to-learn-godot)
 
 ## Technologies used
-  GODOT 3.0.6 (other releases might work) - [latest GODOT release](https://godotengine.org/download/linux) 
-    Godot is a feature-packed, free and open source 2d and 3d game engine.\
+  [GODOT 3.0.6](https://downloads.tuxfamily.org/godotengine/3.0.6/) (other releases might work) - Godot is a feature-packed, free and open source 2d and 3d game engine.\
   [GUT](https://github.com/bitwes/Gut) - Godot Unit Test is a utility for writing tests for your Godot Engine game. It allows you to write tests for your gdscript in gdscript.\
   [Aseprite](https://store.steampowered.com/app/431730/Aseprite) - Aseprite is a pixel art tool that lets you create 2D animations for videogames.\
   [LMMS](https://github.com/LMMS/lmms) - LMMS is a free cross-platform alternative to commercial programs like FL Studio®, which allow you to produce music with your computer.\
@@ -35,8 +34,10 @@ The apocalipse has come to Earth. You were created to clear this mess!
     You start with all the mechanics available in the game and we receive you with a great amount of enemies.
     
 ### Controls
-  WASD - control Character movements \
+  WASD - control Character movements  
   Mouse left button - shoot whatever bullet is selected
+  Esc - Pause menu  
+  Tab - Show Mechanics keybinds  
  
 ### Characters
   Characters you will find while playing the game (if you don't die first)
@@ -105,15 +106,27 @@ Can only be hit with ghost bullet, goes through every other bullet. If you're no
     <img src="https://github.com/uspgamedev/lava-lamp/blob/master/bullets/cure_bullet/cure_bullet.png" alt="Cure bullet" /> 
   </p>
 
+
 ## How you can contribute with LAVA LAMP<img src="https://github.com/uspgamedev/lava-lamp/blob/master/characters/player/frames/android_sprite_sheet-43.png" alt="Lava Lamp" />
-  1. Fork LAVA repository  
-  2. Get familiar with LAVA LAMP and GODOT  
-  3. Make your changes  
-  4. Make a pull request
+
+### Report bugs or request new features
+   If you want a new feature or find a new bug create a new [issue](https://github.com/uspgamedev/lava-lamp/issues), for bugs report your system specifications.  
+ 
+### Pull Requests  
+  * Download [GODOT 3.0.6](https://downloads.tuxfamily.org/godotengine/3.0.6/)
+  * Fork this repository  
+  * On GODOT project manager window, import the file `project.godot`  
+  * Solve an [issue](https://github.com/uspgamedev/lava-lamp/issues)  
+  * Create a [pull request](https://github.com/uspgamedev/lava-lamp/pulls)  
   
 ### Desired styles
   For new code, we recommend to read the following guides:  
   * [Official Godot Style Guide](https://docs.godotengine.org/en/3.0/getting_started/scripting/gdscript/gdscript_styleguide.html)
   * [Alternative Guide](https://github.com/Calinou/godot-style-guide)
-  
-  This game was initially made during the Ludum Dare 40 and further develop during a Extreme Programming course at University of São Paulo. 
+
+## How to learn GODOT
+  ### Making your first game
+   * [GODOT basic tutorial](https://docs.godotengine.org/en/3.0/getting_started/step_by_step/your_first_game.html)
+   * [GODOT Docs](docs.godotengine.org/)
+ 
+ ` This game was initially made during the Ludum Dare 40 and further develop during a Extreme Programming course at University of São Paulo.` 
